@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ccccj.github.io</id>
     <title>Amon&apos;s Homepage</title>
-    <updated>2020-06-03T19:34:30.438Z</updated>
+    <updated>2020-06-03T21:02:01.236Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ccccj.github.io"/>
     <link rel="self" href="https://ccccj.github.io/atom.xml"/>
@@ -27,53 +27,111 @@
 			font-size: 18px;
 			font-weight: 300;
 		}
+		.td {
+			background-color: #fff;
+		}
+		.tr {
+			height: 45px;
+		}
 	</style>
 </head>
 <body>
-	<div class="container" style="width: 1000px;">
-		<table class="table table-bordered">
-  			<caption>边框表格布局</caption>
-  			<thead>
-		    <tr>
-		      <th>名称</th>
-		      <th>城市</th>
-		      <th>邮编</th>
-		    </tr>
-		  </thead>
-		  <tbody>
-		    <tr>
-		      <td>Tanmay</td>
-		      <td>Bangalore</td>
-		      <td>560001</td>
-		    </tr>
-		    <tr>
-		      <td>Sachin</td>
-		      <td>Mumbai</td>
-		      <td>400003</td>
-		    </tr>
-		    <tr>
-		      <td>Uma</td>
-		      <td>Pune</td>
-		      <td>411027</td>
-		    </tr>
-		  </tbody>
-		</table>
-		<!-- github -->
-		<table class="table table-bordered">
-		  <tbody style="text-align: center;">
-		    <tr>
-		    	<td style="font-weight: 500; width: 250px;">Github</td>
-		    	<td><a>https://github.com/ccccj</a></td>
-		    </tr>
-		    <tr>
-		    	<td style="font-weight: 500; width: 250px;">個人サイト</td>
-		    	<td><a>http://amon1997.com</a></td>
-		    </tr>
-		    <tr>
-		    	<td style="font-weight: 500; width: 250px;">テクニカルブログ</td>
-		    	<td><a>https://blog.csdn.net/qq_40873884</a></td>
-		    </tr>
-		  </tbody>
+	<div class="container" style="width: 1050px;">
+		<table class="table table-bordered" style="text-align: center;">
+		  	<tbody>
+			    <tr>
+					<td style="padding: 0px;"><table class="table table-bordered" style="border: aliceblue; margin: auto;">
+						<tbody>
+							<tr>
+								<td style="border:aliceblue;"><strong>ふりがな</strong></td>
+							</tr>
+							<tr>
+								<td style="border: aliceblue;border-top: 1px solid #ddd; background-color: #fff;"><strong>氏　　名</strong></td>
+							</tr>
+							<tr>
+								<td style="border: aliceblue;border-top: 1px solid #ddd;"><strong>生年月日</strong></td>
+							</tr>
+							<tr>
+								<td style="border: aliceblue;border-top: 1px solid #ddd;background-color: #fff;"><strong>所　　属</strong></td>
+							</tr>
+							<tr>
+								<td style="border: aliceblue;border-top: 1px solid #ddd;"><strong>現 住 所</strong></td>
+							</tr>
+						</tbody>
+					</table></td>
+					<td style="padding: 0px;"><table class="table table-bordered" style="border: aliceblue; margin: auto;">
+						<tbody>
+							<tr>
+								<td style="border:aliceblue;">そう　せい</td>
+							</tr>
+							<tr>
+								<td style="border: aliceblue;border-top: 1px solid #ddd;background-color: #fff;">曹 静</td>
+							</tr>
+							<tr>
+								<td style="border: aliceblue;border-top: 1px solid #ddd;">1997　年　12　月　7　日生　　満（22）歳</td>
+							</tr>
+							<tr>
+								<td style="border: aliceblue;border-top: 1px solid #ddd;background-color: #fff;">陝西科技大学　コンピューター科学と技術専攻</td>
+							</tr>
+							<tr>
+								<td style="border: aliceblue;border-top: 1px solid #ddd;">浙江省嘉興市桐郷市</td>
+							</tr>
+						</tbody>
+					</table></td>
+					<td style="padding: 0px; width: 160px;">
+						<img src="1.png" alt="picture" style="height: 186px; width: 140px; margin: 5px;">
+					</td>
+			    </tr>
+				<tr><td style="padding: 0px;"><table class="table table-bordered" style="border: aliceblue; margin: auto;">
+					<tbody>
+						<tr>
+							<td style="border:aliceblue;"><strong>E－mail</strong></td>
+						</tr>
+						<tr>
+							<td style="border: aliceblue;border-top: 1px solid #ddd;background-color: #fff;"><strong>Github</strong></td>
+						</tr>
+						<tr>
+							<td style="border: aliceblue;border-top: 1px solid #ddd;"><strong>個人サイト</strong></td>
+						</tr>
+						<tr>
+							<td style="border: aliceblue;border-top: 1px solid #ddd;background-color: #fff;"><strong>テクニカルブロク</strong>゙</td>
+						</tr>
+					</tbody>
+				</table></td>
+				<td style="padding: 0px;"><table class="table table-bordered" style="border: aliceblue; margin: auto;">
+					<tbody>
+						<tr>
+							<td style="border:aliceblue;"><a>amon1997@foxmail.com</a></td>
+						</tr>
+						<tr>
+							<td style="border: aliceblue;border-top: 1px solid #ddd;background-color: #fff;"><a>https://github.com/ccccj</a></td>
+						</tr>
+						<tr>
+							<td style="border: aliceblue;border-top: 1px solid #ddd;"><a>http://amon1997.com</a></td>
+						</tr>
+						<tr>
+							<td style="border: aliceblue;border-top: 1px solid #ddd;background-color: #fff;"><a>https://blog.csdn.net/qq_40873884</a></td>
+						</tr>
+					</tbody>
+				</table></td>
+				<td style="padding: 0px;"><table class="table table-bordered" style="border: aliceblue; margin: auto;">
+					<tbody>
+						<tr>
+							<td style="border:aliceblue;">（自宅電話）</td>
+						</tr>
+						<tr>
+							<td style="border: aliceblue;border-top: 1px solid #ddd;background-color: #fff;">なし</td>
+						</tr>
+						<tr>
+							<td style="border: aliceblue;border-top: 1px solid #ddd;">（携帯電話）</td>
+						</tr>
+						<tr>
+							<td style="border: aliceblue;border-top: 1px solid #ddd;background-color: #fff;">+86 18857379193</td>
+						</tr>
+					</tbody>
+				</table></td>
+			</tr>
+		  	</tbody>
 		</table>
 		<!-- 入学、卒業、見込等年月 -->
 		<table class="table table-bordered">
@@ -109,7 +167,7 @@
 								    </tr>
 								  	</tbody>
 								</table></td>
-						      	<td>浙江省・桐郷市高级中学</td>
+						      	<td style="background-color: #fff;">浙江省・桐郷市高级中学</td>
 						    </tr>
 						    <tr>
 						      	<td style="padding: 0px;"><table class="table table-bordered" style="border: aliceblue; margin: auto;">
@@ -131,7 +189,7 @@
 								    </tr>
 								  	</tbody>
 								</table></td>
-						      	<td>浙江省・桐郷市鳳鳴小学</td>
+						      	<td style="background-color: #fff;">浙江省・桐郷市鳳鳴小学</td>
 						    </tr>
 						 </tbody>
 					</table>
@@ -148,45 +206,156 @@
 		    	</tr>
 		  	</tbody>
 		</table>
+		<!-- 成績・資格・受賞 -->
+		<table class="table table-bordered">
+  			<thead>
+		    <tr>
+		      <th></th>
+		      <th>年月日</th>
+		      <th>成績・資格・受賞</th>
+		    </tr>
+		  </thead>
+		  <tbody>
+		    <tr>
+		      	<td style="font-weight: 500; width: 50px; text-align: center; vertical-align:middle">成績</td>
+		      	<td>2016年-2019年</td>
+		      	<td>平均点：3.29点</td>
+		    </tr>
+		    <tr>
+		      	<td style="font-weight: 500; width: 50px; text-align: center; vertical-align:middle;background-color: #fff;">資格</td>
+				<td style="padding: 0px;"><table class="table table-bordered" style="border: aliceblue; margin: auto;">
+					<tbody>
+						<tr>
+							<td style="border:aliceblue;">2019年12月</td>
+						</tr>
+						<tr>
+							<td style="border: aliceblue;border-top: 1px solid #ddd;background-color: #fff; color: #fff;height:45px;"></td>
+						</tr>
+					</tbody>
+				</table></td>
+				<td style="padding: 0px;"><table class="table table-bordered" style="border: aliceblue; margin: auto;">
+					<tbody>
+						<tr>
+							<td style="border:aliceblue;">N2：118点</td>
+						</tr>
+						<tr>
+							<td style="border: aliceblue;border-top: 1px solid #ddd;background-color: #fff;">TOEFL：準備中</td>
+						</tr>
+					</tbody>
+				</table></td>
+		    </tr>
+			<tr>
+		      	<td style="font-weight: 500; width: 50px; text-align: center; vertical-align:middle">受賞</td>
+				<td style="padding: 0px;"><table class="table table-bordered" style="border: aliceblue; margin: auto;">
+					<tbody>
+						<tr>
+							<td style="border:aliceblue;">2019年5月</td>
+						</tr>
+						<tr>
+							<td style="border: aliceblue;border-top: 1px solid #ddd;background-color: #fff;">2019年1月</td>
+						</tr>
+						<tr>
+							<td style="border: aliceblue;border-top: 1px solid #ddd;">2018年11月</td>
+						</tr>
+						<tr>
+							<td style="border: aliceblue;border-top: 1px solid #ddd;background-color: #fff;">2017年3月</td>
+						</tr>
+						<tr>
+							<td style="border: aliceblue;border-top: 1px solid #ddd;">2018年10月</td>
+						</tr>
+						<tr>
+							<td style="border: aliceblue;border-top: 1px solid #ddd;background-color: #fff;">2017年10月</td>
+						</tr>
+						<tr>
+							<td style="border: aliceblue;border-top: 1px solid #ddd;">2017年</td>
+						</tr>
+						<tr>
+							<td style="border: aliceblue;border-top: 1px solid #ddd;background-color: #fff;">2017年5月</td>
+						</tr>
+						<tr>
+							<td style="border: aliceblue;border-top: 1px solid #ddd;">2016年</td>
+						</tr>
+						<tr>
+							<td style="border: aliceblue;border-top: 1px solid #ddd;background-color: #fff;">2016年</td>
+						</tr>
+					</tbody>
+				</table></td>
+				<td style="padding: 0px;"><table class="table table-bordered" style="border: aliceblue; margin: auto;">
+					<tbody>
+						<tr>
+							<td style="border:aliceblue;">中国の大学生のコンピューターデザインコンテスト 三等賞</td>
+						</tr>
+						<tr>
+							<td style="border: aliceblue;border-top: 1px solid #ddd;background-color: #fff;">「粤嵌杯」インターネット＋科学技術革新設計大会 優秀賞</td>
+						</tr>
+						<tr>
+							<td style="border: aliceblue;border-top: 1px solid #ddd;">国際大学生プログラミングコンテスト(ACM-ICPC) 銅メダル</td>
+						</tr>
+						<tr>
+							<td style="border: aliceblue;border-top: 1px solid #ddd;background-color: #fff;">CCCC団体プログラミングラダートーナメント 三等賞（団体）　二等賞（個人）</td>
+						</tr>
+						<tr>
+							<td style="border: aliceblue;border-top: 1px solid #ddd;">「藍橋杯」コンテスト 一等賞（西安地区） 三等賞（全国総決勝戦）</td>
+						</tr>
+						<tr>
+							<td style="border: aliceblue;border-top: 1px solid #ddd;background-color: #fff;">レッドハット(Redhat)チャレンジコンテスト 一等賞（西安地区） ベスト15（全国総決勝戦）</td>
+						</tr>
+						<tr>
+							<td style="border: aliceblue;border-top: 1px solid #ddd;">二等奨学金</td>
+						</tr>
+						<tr>
+							<td style="border: aliceblue;border-top: 1px solid #ddd;background-color: #fff;">優秀なボランティア</td>
+						</tr>
+						<tr>
+							<td style="border: aliceblue;border-top: 1px solid #ddd;">三等奨学金</td>
+						</tr>
+						<tr>
+							<td style="border: aliceblue;border-top: 1px solid #ddd;background-color: #fff;">陝西科技大学・弁論大会 チャンピオン</td>
+						</tr>
+					</tbody>
+				</table></td>
+		    </tr>
+		  </tbody>
+		</table>
 		<!-- 学術研究 -->
 		<table class="table table-bordered">
   			<caption style="font-weight: 500;">学術研究</caption>
 			 <tbody>
 			    <tr>
 			      	<td>
-						<h4>テーマ　：軍事演習中の目標物の識別</h4>
-					 	<p>指導教員：斉勇（講師）</p>
-						<p>研究室　：陝西科技大学-人工知能研究所</p>
-						<p>内　　容：</p>
+						<strong>テーマ　：軍事演習中の目標物の識別</strong>
+					 	<p><strong>指導教員：</strong>斉勇（講師）</p>
+						<p><strong>研究室　：</strong>陝西科技大学-人工知能研究所</p>
+						<p><strong>内　　容：</strong></p>
 						<p>戦争では、軍用機、戦車、軍艦、装甲車、空母などの軍事目標が戦略的に非常に重要である。</p>
 						<p>軍事演習中の選択的破壊のための敵物体の識別を改善するために、複数の種類の軍事目標の画像を識別するために畳み込みニューラルネットワークが使用されています。 まず、サンプルサイズを大きくするために、写真を回転、反転、ノイズ付加などを行った後、畳み込みニューラルネットワークを用いて分類のための訓練を行った。</p>
-						<p>役　　目：深さ学習によって軍事目標を分類する。</p>
-						<p>成果と収穫：機械学習・深層学習関連のプロジェクトに初触れ、初歩的な理解がある方。</p>
+						<p><strong>役　　目：</strong>深さ学習によって軍事目標を分類する。</p>
+						<p><strong>成果と収穫：</strong>機械学習・深層学習関連のプロジェクトに初触れ、初歩的な理解がある方。</p>
 					</td>
 			    </tr>
 			    <tr>
-			      	<td>
-						<h4>テーマ　：触觉刺激与大脑皮层空间映射关系の研究</h4>
-					 	<p>指導教員：斉勇（講師）</p>
-						<p>研究室　：陝西科技大学-人工知能研究所</p>
-						<p>内　　容：</p>
+			      	<td style="background-color: #fff;">
+						<strong>テーマ　：触觉刺激与大脑皮层空间映射关系の研究</strong>
+					 	<p><strong>指導教員：</strong>斉勇（講師）</p>
+						<p><strong>研究室　：</strong>陝西科技大学-人工知能研究所</p>
+						<p><strong>内　　容：</strong></p>
 						<p>このプロジェクトは多くの病院と協力し、主に医用画像と機械学習に関するアルゴリズムと結合して関連実験を行った。</p>
 						<p>体のさまざまな部分に刺激を与えると、脳のさまざまな部分が興奮します。 パルス刺激装置を用いて、皮質領域の興奮性の変化を観察し、脳の機能的磁気共鳴画像（fMRI）を撮影した。</p>
 						<p>ディープラーニングアルゴリズムにより、肉眼では観察できない特性の変化を持つ大脳皮質の機能領域の診断分析、トレーニングモデル、最終的には医用画像を用いて刺激点を特定する。</p>
-						<p>役　　目：通过深度学习探究触觉刺激与大脑皮层激活区域的空间映射关系，构建触觉感知脑功能拓扑图。</p>
-						<p>成果と収穫：機械学習や深層学習の基本的な手法を学び、統計学習理論の初歩的な理解を得た。</p>
+						<p><strong>役　　目：</strong>通过深度学习探究触觉刺激与大脑皮层激活区域的空间映射关系，构建触觉感知脑功能拓扑图。</p>
+						<p><strong>成果と収穫：</strong>機械学習や深層学習の基本的な手法を学び、統計学習理論の初歩的な理解を得た。</p>
 				  	</td>
 			    </tr>
 			    <tr>
 			      	<td>
-						<h4>テーマ　：ノイズを考慮した画像の3Dモデリング</h4>
-					 	<p>指導教員：斉勇（講師）</p>
-						<p>研究室　：陝西科技大学-人工知能研究所</p>
-						<p>内　　容：</p>
+						<strong>テーマ　：ノイズを考慮した画像の3Dモデリング</strong>
+					 	<p><strong>指導教員：</strong>斉勇（講師）</p>
+						<p><strong>研究室　：</strong>陝西科技大学-人工知能研究所</p>
+						<p><strong>内　　容：</strong></p>
 						<p>画像の三次元再構成とは、カメラ等を用いてシーンの多角度画像を取得し、対象物の二次元投影像を複数入力し、空間幾何学等の知識から対象物の幾何学的構造を推定し、対象物の二次元幾何学情報や位相情報を取得し、三次元モデルを構築することである。 しかし、その画像品質の要件は高く、いくつかの画像再構成効果が悪いですが、最初に画像処理する必要があり、画像品質を向上させます。</p>
 						<p>本研究では、一連のノイズの多い画像を三次元に再構成し、まず画像のノイズを低減するためにDnCNNネットワークモデルを試行した後、三次元再構成を行う。</p>
-						<p>役　　目：複数の二次元画像に基づいて、原図の三次元点群を求める三次元再構成を行い、ディープラーニングと組み合わせることで、原図のアルゴリズムを修正し、三次元再構成の精度を向上させている。</p>
-						<p>成果と収穫：マルチビューベースの3D再構成の初期理解が得られ、3D再構成の精度を向上させるためにディープラーニングと組み合わせる。</p>
+						<p><strong>役　　目：</strong>複数の二次元画像に基づいて、原図の三次元点群を求める三次元再構成を行い、ディープラーニングと組み合わせることで、原図のアルゴリズムを修正し、三次元再構成の精度を向上させている。</p>
+						<p><strong>成果と収穫：</strong>マルチビューベースの3D再構成の初期理解が得られ、3D再構成の精度を向上させるためにディープラーニングと組み合わせる。</p>
 					</td>
 			    </tr>
 			  </tbody>
@@ -200,16 +369,16 @@
 		    		<td>テ弁論社 & 「星の家」自閉症児童救助隊゙</td>
 		    	</tr>
 				<tr>
-		    		<td style="width: 270px;">2017年10月-2018年12月</td>
-		    		<td>ACM学校のチーム゙</td>
+		    		<td style="width: 270px;background-color: #fff;">2017年10月-2018年12月</td>
+		    		<td style="background-color: #fff;">ACM学校のチーム゙</td>
 		    	</tr>
 				<tr>
 		    		<td style="width: 270px;">2018年7月-2018年9月</td>
 		    		<td>学校のACM Summer Training & CCPC-Wannafly Camp゙</td>
 		    	</tr>
 				<tr>
-		    		<td style="width: 270px;">2019年1月-</td>
-		    		<td>陝西科技大学-人工知能研究所</td>
+		    		<td style="width: 270px;background-color: #fff;">2019年1月-</td>
+		    		<td style="background-color: #fff;">陝西科技大学-人工知能研究所</td>
 		    	</tr>
 		  	</tbody>
 		</table>

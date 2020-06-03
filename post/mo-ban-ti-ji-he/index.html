@@ -1,0 +1,1297 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+ <meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta HTTP-EQUIV="pragma" CONTENT="no-cache"> 
+<meta HTTP-EQUIV="Cache-Control" CONTENT="no-cache, must-revalidate"> 
+<meta HTTP-EQUIV="expires" CONTENT="0"> 
+<title>模板题集合 | Amon&#39;s Homepage</title>	
+
+<link rel="stylesheet" href="https://ccccj.github.io/styles/main.css">
+<script type="text/javascript">
+function getCSS()
+{
+        datetoday = new Date();
+        timenow=datetoday.getTime();
+        datetoday.setTime(timenow);
+        thehour = datetoday.getHours();
+
+            display = "https://ccccj.github.io/media/css/night.css";
+
+            display = "https://ccccj.github.io/media/css/night.css";   
+      
+            display = "https://ccccj.github.io/media/css/day.css";
+
+            display = "https://ccccj.github.io/media/css/day.css";
+      
+
+var css = '<';
+        css+='link rel="stylesheet" href='+display+' \/';
+        css+='>';
+        document.write(css);
+}
+</script>
+<link href="https://fonts.googleapis.com/css?family=Dancing+Script|Liu+Jian+Mao+Cao&display=swap" rel="stylesheet">
+<link href="https://at.alicdn.com/t/font_1306644_jwtuc2zzbrd.css" rel="stylesheet" />
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<script type='text/javascript' src='https://ccccj.github.io/media/scripts/script.js'></script>
+<link href="https://cdn.bootcss.com/animate.css/3.5.2/animate.min.css" rel="stylesheet" />
+  <script src="https://cdn.bootcss.com/wow/1.1.2/wow.min.js"></script>
+  <script src="https://cdn.bootcss.com/highlight.js/9.15.8/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <script>wow=new WOW({boxClass:'wow',animateClass:'animated',offset:0,mobile:true,live:true});wow.init();</script>
+
+<script type="text/javascript">
+window.onload=getCSS();
+</script>
+
+
+ 	
+</head>
+<body class="post-template-default single single-post postid-70 single-format-standard">
+    <div id="wrapper">
+        
+			
+		<header id="header" class="site-header" 
+		
+		>
+			<div class="site-branding">
+									<h1 class="site-title"><a href="https://ccccj.github.io" rel="home">Amon&#39;s Homepage</a></h1>
+										
+					<h2 class="site-description">温故而知新</h2>
+										
+							</div>
+			<nav id="nav-wrapper">
+				<div class="container">
+					<div class="nav-toggle">
+						<div class="bars">
+							<div class="bar"></div>
+							<div class="bar"></div>
+							<div class="bar"></div>
+						</div>
+					</div>
+					<div class="clear"></div>
+					<ul id="" class="dove">
+		 
+     			
+<li>
+	 
+	<a  href="/"> home</a></li>
+	
+    
+     			
+<li>
+	 
+	<a  href="/archives"> archives</a></li>
+	
+    
+     			
+<li>
+	 
+	<a  href="/tags"> tags</a></li>
+	
+    
+     			
+<li>
+	 
+	<a  href="/post/about"> about</a></li>
+	
+    
+
+</ul>
+</li>		
+		
+</ul>				</div>
+			</nav>
+						<div class="jingge">
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        </header>
+
+		<div id="content" class="container">
+			<div class="row">
+	<div class="col-md-8 site-main">
+				
+<article id="post-70" class="post-70 post type-post status-publish format-standard hentry category-5 tag-10 tag-9 tag-11">
+
+	
+	                      
+		<div class="entry-content">
+			<h1 class="wow swing entry-title">模板题集合</h1>
+<div class="entry-meta">
+<div class="wow bounce">
+	<i class="iconfont icon-rili"> <time class="lately-a" datetime="2017-06-04 01:05:17" itemprop="datePublished" pubdate="">2017-06-04</time></i>
+	          </div>
+			
+</span>
+													 
+		</div>
+                  
+			<div class="wow slideInLeft entry-summary song">
+				<p>本来存在电脑上的...怕有一天电脑突然炸了...所以博客上再备份一份</p>
+<p>[队列]<br>
+<code>priority_queue&lt;int, vector&lt;int&gt;, greater&lt;int&gt; &gt; q; // 从小到大</code></p>
+<p>[最长公共子序列]</p>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;cstring&gt;
+using namespace std;
+
+int a[1010];
+int b[1010];
+
+int l[1010][1010];
+
+int main() {
+    
+    int n, m;
+    while (cin &gt;&gt; n &gt;&gt; m) {
+        for (int i = 1; i &lt;= m; ++i) {
+            scanf(&quot;%d&quot;, &amp;a[i]);
+        }
+        for (int i = 1; i &lt;= m; ++i) {
+            scanf(&quot;%d&quot;, &amp;b[i]);
+        }
+        memset(l, 0, sizeof(l));
+        for (int i = 1; i &lt;= m; ++i) {
+            for (int j = 1; j &lt;= m; ++j) {
+                if (a[i] == b[j]) {
+                    l[i][j] = l[i-1][j-1] + 1;
+                } else {
+                    l[i][j] = max(l[i-1][j], l[i][j-1]);
+                }
+            }
+        }
+        cout &lt;&lt; l[m][m] &lt;&lt; endl;
+    }
+    return 0;
+}
+</code></pre>
+<p>[最长下降子序列]</p>
+<pre><code>#include &lt;iostream&gt;
+using namespace std;
+// 最长下降子序列
+int arr[20010];
+int m[20010];
+
+int main() {
+    int T;
+    cin &gt;&gt; T;
+    while (T--) {
+        int n;
+        cin &gt;&gt; n;
+        for (int i = 0; i &lt; n; ++i) {
+            scanf(&quot;%d&quot;, &amp;arr[i]);
+        }
+        m[0] = 1;
+        int max_num = 1;
+        for (int i = 1; i &lt; n; ++i) {
+            int tmp = 0;
+            for (int j = 0; j &lt; i; ++j) {
+                if (arr[i] &lt;= arr[j]) {
+                    tmp = max(tmp, m[j]);
+                }
+            }
+            m[i] = tmp + 1;
+            max_num = max(max_num, m[i]);
+        }
+        cout &lt;&lt; n - max_num &lt;&lt; endl;
+    }
+    
+    return 0;
+}
+</code></pre>
+<p>[01背包裸题]</p>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;cstring&gt;
+using namespace std;
+
+int v[10010];
+int w[10010];
+int dp[10010];
+
+int max(int a, int b) {
+    return a &gt; b ? a : b;
+}
+
+int main() {
+    int bag, n;
+    while (cin &gt;&gt; bag &gt;&gt; n) {
+        for (int i = 1; i &lt;= n; ++i) {
+            scanf(&quot;%d&quot;, &amp;v[i]); //体积
+        }
+        for (int i = 1; i &lt;= n; ++i) {
+            scanf(&quot;%d&quot;, &amp;w[i]); // 价值
+        }
+        memset(dp, 0, sizeof(dp)); // 必须要
+        for (int i = 1; i &lt;= n; ++i) {
+            for (int j = bag; j &gt;= v[i]; --j) {
+                dp[j] = max(dp[j], dp[j-v[i]] + w[i]);
+            }
+        }
+        cout &lt;&lt; dp[bag] &lt;&lt; endl;
+    }
+    return 0;
+}
+</code></pre>
+<p>[完全背包]</p>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;cstring&gt;
+using namespace std;
+
+int v[1010];
+int w[1010];
+int dp[10010];
+
+int main() {
+    int n, bag;
+    while (cin &gt;&gt; n &gt;&gt; bag) {
+        dp[0] = 0;
+        for (int i = 1; i &lt;= n; ++i) {
+            scanf(&quot;%d%d&quot;, &amp;w[i], &amp;v[i]);
+        }
+        for (int i = 1; i &lt;= bag; ++i) {
+            dp[i] = -2000000; // 负无穷，要求装满，否则等于0
+        }
+        for (int i = 1; i &lt;= n; ++i) {
+            for (int j = v[i]; j &lt;= bag; ++j) {
+                dp[j] = max(dp[j], dp[j-v[i]] + w[i]);
+            }
+        }
+        cout &lt;&lt; dp[bag] &lt;&lt; endl;
+    }
+    return 0;
+}
+</code></pre>
+<p>[多重背包]</p>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;cstdio&gt;
+#include &lt;cstring&gt;
+using namespace std;
+
+int v[2010];
+int w[2010];
+int num[1010];
+int dp[20005];
+
+int main() {
+    int t, n, bag;
+    cin &gt;&gt; t;
+    while (t--) {
+        cin &gt;&gt; bag &gt;&gt; n;
+        memset(dp, 0, sizeof(dp));
+        for (int i = 1; i &lt;= n; ++i) {
+            scanf(&quot;%d%d%d&quot;, &amp;v[i], &amp;w[i], &amp;num[i]);
+        }
+        
+        int k = n + 1;
+        for (int i = 1; i &lt;= n; ++i) {
+            int d = 1;
+            while (num[i] &gt; d) {
+                v[k] = d * v[i];
+                w[k++] = d * w[i];
+                num[i] -= d;
+                d *= 2;
+            }
+            v[i] *= num[i];
+            w[i] *= num[i];
+        }
+        for (int i = 1; i &lt; k; ++i) {
+            for (int j = bag; j &gt;= v[i]; --j) {
+                dp[j] = max(dp[j], dp[j-v[i]] + w[i]);
+            }
+        }
+        cout &lt;&lt; dp[bag] &lt;&lt; endl;
+        
+    }
+    return 0;
+}
+</code></pre>
+<p>[混合背包]</p>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;cstdio&gt;
+#include &lt;cstring&gt;
+using namespace std;
+
+int v[2010];
+int w[2010];
+int num[1010];
+int dp[20005];
+
+int main() {
+    int n, bag;
+    while (cin &gt;&gt; bag &gt;&gt; n) {
+        
+        memset(dp, 0, sizeof(dp));
+        for (int i = 1; i &lt;= n; ++i) {
+            scanf(&quot;%d%d%d&quot;, &amp;v[i], &amp;w[i], &amp;num[i]);
+        }
+        
+        int k = n + 1;
+        for (int i = 1; i &lt;= n; ++i) {
+            if (num[i] &lt;= 1) {
+                continue;
+            }
+            int d = 1;
+            while (num[i] &gt; d) {
+                v[k] = d * v[i];
+                w[k++] = d * w[i];
+                num[i] -= d;
+                d *= 2;
+            }
+            v[i] *= num[i];
+            w[i] *= num[i];
+        }
+        
+        for (int i = 1; i &lt; k; ++i) {
+            if (num[i] &gt; 0)  // 01背包/多重背包
+                for (int j = bag; j &gt;= v[i]; --j) {
+                    dp[j] = max(dp[j], dp[j-v[i]] + w[i]);
+                }
+            else  // 完全背包
+                for (int j = v[i]; j &lt;= bag; ++j) {
+                    dp[j] = max(dp[j], dp[j-v[i]] + w[i]);
+                }
+        }
+        cout &lt;&lt; dp[bag] &lt;&lt; endl;
+        
+    }
+    return 0;
+}
+</code></pre>
+<p>[区间dp]</p>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;cstdio&gt;
+#include &lt;cstring&gt;
+using namespace std;
+
+int arr[210], a;
+long long int dp[210][210];
+int sum[210];
+
+int main(int argc, const char * argv[]) {
+    int n;
+    while (cin &gt;&gt; n) {
+        sum[0] = 0;
+        for (int i = 1; i &lt;= n; ++i) {
+            cin &gt;&gt; a;
+            sum[i] = sum[i - 1] + a;
+        }
+        memset(dp, 0, sizeof(dp));
+        for (int len = 2; len &lt;= n; ++len) {
+            for (int i = 1; i + len - 1 &lt;= n; ++i) {
+                int j = i + len - 1;
+                for (int k = i; k &lt; j; ++k) {
+                    dp[i][j] = max(dp[i][j], dp[i][k] + dp[k+1][j] + sum[j] - sum[i - 1]);
+                }
+            }
+        }
+        printf(&quot;%lld\n&quot;, dp[1][n]);
+    }
+    return 0;
+}
+</code></pre>
+<p>[左右相关的区间dp]</p>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;cstdio&gt;
+#include &lt;string&gt;
+#include &lt;cstring&gt;
+using namespace std;
+
+int dp[110][110];
+
+int main() {
+    string s;
+    while (cin &gt;&gt; s &amp;&amp; s != &quot;0&quot;) {
+        memset(dp, 0, sizeof(dp));
+        int max_size = (int)s.size();
+        for (int len = 2; len &lt;= max_size; ++len) {
+            for (int i = 0; i &lt; max_size; ++i) {
+                int j = i + len - 1;
+                if (j &gt;= max_size) {
+                    break;
+                }
+                
+                for (int k = i; k &lt; j; ++k) {
+                    dp[i][j] = max(dp[i][j], dp[i][k]+dp[k+1][j]);
+                }
+                if ((s[i] == '(' &amp;&amp; s[j] == ')')
+                    || (s[i] == '[' &amp;&amp; s[j] == ']')) {
+                    dp[i][j] = max(dp[i][j], dp[i + 1][j - 1] + 2);
+                }
+            }
+        }
+        
+        cout &lt;&lt; dp[0][max_size - 1] &lt;&lt; endl;
+    }
+    return 0;
+}
+</code></pre>
+<p>[树状dp]</p>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;cstdio&gt;
+#include &lt;vector&gt;
+#include &lt;cstring&gt;
+using namespace std;
+
+int arr[6010], par[6010];
+int dp[6010][2];
+vector&lt;vector&lt;int&gt; &gt; child;
+
+int dfs(int now, int choice) {
+    if (dp[now][choice] != -1) {
+        return dp[now][choice];
+    }
+    // now 不选
+    if (choice == 0) {
+        dp[now][0] = 0;
+        for (int i = 0; i &lt; child[now].size(); ++i) {
+            dp[now][0] += max(dfs(child[now][i], 0), dfs(child[now][i],1));
+        }
+    } else {
+        // now 选
+        dp[now][1] = arr[now];
+        for (int i = 0; i &lt; child[now].size(); ++i) {
+            dp[now][1] += dfs(child[now][i], 0);
+        }
+    }
+    return dp[now][choice];
+}
+
+int main() {
+    int n;
+    while (cin &gt;&gt; n) {
+        for (int i = 1; i &lt;= n; ++i) {
+            cin &gt;&gt; arr[i];
+        }
+        int a, b;
+        child.clear();
+        child.resize(n + 1);
+        memset(par, -1, sizeof par);
+        for (int i = 0; i &lt; n - 1; ++i) {
+            cin &gt;&gt; a &gt;&gt; b;
+            par[a] = b;
+            child[b].push_back(a);
+        }
+        cin &gt;&gt; a &gt;&gt; b;
+        // 记忆化搜索的初始化
+        memset(dp, -1, sizeof(dp));
+        // 边界
+        for (int i = 1; i &lt;= n; ++i) {
+            if (child[i].size() == 0) {
+                // 叶子结点
+                dp[i][0] = 0, dp[i][1] = arr[i];
+            }
+        }
+        // 找根节点
+        int root = 0;
+        for (int i = 1; i &lt;= n; ++i) {
+            if (par[i] == -1) {
+                root = i;
+                break;
+            }
+        }
+        // 搜索
+        cout &lt;&lt; max(dfs(root, 0), dfs(root, 1)) &lt;&lt; endl;
+        
+    }
+    return 0;
+}
+</code></pre>
+<p>[归并排序+求逆序对]</p>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;cstdio&gt;
+#include &lt;cstring&gt;
+using namespace std;
+
+int data[10000010];
+int tmp[10000010];
+
+long long int cnt;
+void Merge(int beg, int mid, int end) {
+    if (end &lt;= beg)
+        return;
+    
+    int i = 0;
+    int beg1 = beg, beg2 = mid;
+    while (beg1 &lt; mid &amp;&amp; beg2 &lt; end) {
+        if (data[beg1] &lt;= data[beg2]) {
+            tmp[i++] = data[beg1++];
+        } else {
+            tmp[i++] = data[beg2++];
+            cnt += mid - beg1;
+        }
+    }
+    while (beg1 &lt; mid) {
+        tmp[i++] = data[beg1++];
+    }
+    while (beg2 &lt; end) {
+        tmp[i++] = data[beg2++];
+    }
+    memcpy(data + beg, tmp, sizeof(int) * (end - beg));
+}
+
+int main(int argc, const char * argv[]) {
+    
+    int n;
+    while (cin &gt;&gt; n) {
+        cnt = 0;
+        for (int i = 0; i &lt; n; ++i) {
+            scanf(&quot;%d&quot;, &amp;data[i]);
+        }
+        for (int length = 1; length &lt;= n; length *= 2) {
+            int beg = 0, mid = beg + length, end = mid + length;
+            for(; beg &lt; n; beg += 2 * length,
+                           mid = beg + length, end = mid + length) {
+                if (mid &gt; n) {
+                    mid = n;
+                }
+                if (end &gt; n) {
+                    end = n;
+                }
+                Merge(beg, mid, end);
+            }
+        }
+        cout &lt;&lt; cnt &lt;&lt; endl;
+    }    
+    return 0;
+}
+</code></pre>
+<p>[最大连续子序列分治版]</p>
+<pre><code>#include &lt;cstdio&gt;
+#include &lt;iostream&gt;
+using namespace std;
+
+int a[100010];
+
+struct node {
+    int sum, left, right;
+};
+
+node recursionMax (int left, int right)
+{
+    // 只有一个数
+    if (left == right) return {a[left], left, right};
+    
+    int mid = (left + right) / 2;
+    
+    node maxLeft = recursionMax (left, mid); // 左
+    node maxRight = recursionMax(mid + 1, right); // 右
+    
+    int left_sum = -0x7fffffff, right_sum = -0x7fffffff, li = mid, ri = mid + 1;
+    int tmp = 0;
+    for (int i = mid; i &gt;= left; i--)
+    {
+        tmp += a[i];
+        if (left_sum &lt;= tmp) {
+            left_sum = tmp;
+            li = i;
+        }
+    }
+    
+    tmp = 0;
+    for (int  j = mid + 1; j &lt;= right; j++)
+    {
+        tmp += a[j];
+        if (right_sum &lt; tmp) {
+            right_sum = tmp;
+            ri = j;
+        }
+    }
+    node ret = maxLeft.sum &gt;= maxRight.sum ? maxLeft : maxRight;
+    if (ret.sum &gt; left_sum + right_sum) {
+        return ret;
+    } else if (ret.sum == left_sum + right_sum &amp;&amp; ret.left &lt; li) {
+        return ret;
+        
+    } else {
+        return {left_sum + right_sum, li, ri};
+    }
+}
+
+int main ()
+{
+    int  n;
+    while (cin &gt;&gt; n) {
+        for (int i = 0; i &lt; n; ++i) {
+            cin &gt;&gt; a[i];
+        }
+        node ret = recursionMax(0, n - 1);
+        printf(&quot;%d %d %d\n&quot;, ret.sum, ret.left + 1, ret.right + 1);
+    }
+    return 0;
+}
+</code></pre>
+<p>[点分治]</p>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;cstdio&gt;
+#include &lt;algorithm&gt;
+#include &lt;cmath&gt;
+using namespace std;
+
+struct node {
+    double x, y;
+} a[100010], b[100010];
+
+bool cmpx(struct node i, struct node j) {
+    return i.x &lt; j.x;
+}
+
+bool cmpy(struct node i, struct node j) {
+    return i.y &lt; j.y;
+}
+
+double dis(struct node i, struct node j) {
+    return sqrt(pow(i.x - j.x, 2) + pow(i.y - j.y, 2));
+}
+
+double find_min(int left, int mid, int right, double s) {
+    int count = 0;
+    for (int i = left; i &lt;= right; ++i) {
+        if (a[i].x &gt;= a[mid].x - s &amp;&amp; a[i].x &lt;= a[mid].x + s) {
+            // 在中间
+            b[count].x = a[i].x;
+            b[count++].y = a[i].y;
+        }
+    }
+    sort(b, b + count, cmpy);
+    for (int i = 0; i &lt; count; ++i) {
+        for (int j = i + 1; j &lt; count; ++j) {
+            if (b[j].y - b[i].y &gt; s) {
+                break;
+            }
+            double ret = dis(b[i], b[j]);
+            
+            if (ret &lt; s) {
+                s = ret;
+            }
+        }
+    }
+    return s;
+}
+
+double recursionMax (int left, int right) {
+    if (left &gt;= right) {
+        return 0x7fffffff;
+    }
+    // 只有两个数
+    if (left == right - 1) {
+        return dis(a[left], a[right]);
+    }
+    int mid = (left + right) / 2;
+    double x;
+    if (right - left == 2) {
+        x = dis(a[left], a[right]);
+        x = min(x, dis(a[mid], a[right]));
+        x = min(x, dis(a[mid], a[left]));
+        return x;
+    }
+    double minLeft = recursionMax (left, mid); // 左
+    double minRight = recursionMax(mid, right); // 右
+    
+    double s = minLeft &lt;= minRight ? minLeft : minRight;
+    
+    s = find_min(left, mid, right, s);
+    return s;
+}
+
+int main ()
+{
+    int  n;
+    while (cin &gt;&gt; n &amp;&amp; n) {
+        for (int i = 0; i &lt; n; ++i) {
+            cin &gt;&gt; a[i].x &gt;&gt; a[i].y;
+        }
+        sort(a, a + n, cmpx);
+        double ret = recursionMax(0, n - 1);
+        printf(&quot;%0.2lf\n&quot;, ret / 2);
+    }
+    return 0;
+}
+</code></pre>
+<p>[atoi]</p>
+<pre><code>#include &lt;stdlib.h&gt;
+#include &lt;stdio.h&gt;
+
+int main(void)
+{
+    int n;
+    char *str = &quot;12345.67&quot;;
+    n = atoi(str);
+    printf(&quot;n=%d\n&quot;,n);
+    return 0;
+}
+输出：
+n = 12345
+</code></pre>
+<p>[itoa]（若不能用，可用sprintf）</p>
+<pre><code>#include &lt;stdlib.h&gt;
+#include &lt;stdio.h&gt;
+
+int main(void)
+{
+    int number = 123456;
+    char string[25];
+    itoa(number, string, 10);
+    printf(&quot;integer=%d string=%s\n”, number, string);
+    return 0;
+}
+</code></pre>
+<p>[sprintf]</p>
+<pre><code>#include &lt;stdio.h&gt; //头文件
+int main(void)
+{
+    int number = 123456;
+    char string[25]; // 必须为 char* 类型
+    // 参数：数组，以何种形式输出，数字
+    sprintf(string, &quot;%d&quot;, number);
+    printf(&quot;integer=%d string=%s\n”, number, string);
+    return 0;
+}
+</code></pre>
+<p>[gcd 最大公约数]</p>
+<pre><code>long long int gcd(long long int a, long long int b) {
+    return (b == 0) ? a : gcd(b, a % b);
+}
+</code></pre>
+<p>[lcm 最小公倍数]</p>
+<pre><code>long long int lcm(long long int a, long long int b) {
+    return a * b / gcd(a, b);
+}
+</code></pre>
+<p>[大数相加]<br>
+参数：<br>
+数1：a ，长度：len1<br>
+数2：b ，长度：len2<br>
+注：<br>
+a[0] 也存储数，a 从下标为 0 处开始存储（b相同），且 a 和 b 为顺序存储，即:<br>
+数字：123<br>
+数组 a：a[0] = 1, a[1] = 2, a[3] = 3;</p>
+<p>[code]</p>
+<pre><code>void sum_a_b(char a[], char b[], int len1, int len2) {
+    int q = 0;
+    len1--, len2--; // len1 和 len2 为长度，减 1 后为下标
+    int sum[1010], i = 0; // sum 数组存储结果，i 存储 sum 的下标
+    while (len1 &gt;= 0 &amp;&amp; len2 &gt;= 0) { // 从两数组最后一位开始计算
+        sum[i++] = (q + a[len1] + b[len2] - 2 * '0') % 10;
+        q = (q + a[len1--] + b[len2--] - 2 * '0') / 10;
+    }
+    // 若某一个数较长，继续加
+    while (len1 &gt;= 0) {
+        sum[i++] = (q + a[len1] - '0') % 10;
+        q = (q + a[len1--] - '0') / 10;
+    }
+    while (len2 &gt;= 0) {
+        sum[i++] = (q + b[len2] - '0') % 10;
+        q = (q + b[len2--] - '0') / 10;
+    }
+    // 加上进位的 q，若 q 为0 也没关系，下一步会去除 0
+    sum[i] = q;
+    
+    // 若得出的 sum 中开头有过多的0
+    while (sum[i] == 0) {
+        --i;
+    }
+
+    // 这里为输出，需要将 sum 从后往前输出
+    for (int j = i; j &gt;= 0; --j) {
+        cout &lt;&lt; sum[j];
+    }
+    cout &lt;&lt; endl;
+}
+</code></pre>
+<p>[数论]<br>
+数根：各位数字之和<br>
+x 的树根 = (x - 1) % 9 + 1<br>
+<img src="https://img-blog.csdn.net/20180728135754264?" alt="数论" loading="lazy"></p>
+<p>[图论]<br>
+若图中存在这样一条路径，使得它恰通过G中每条边一次,则称该路径为欧拉路径。<br>
+若该路径是一个圈，则称为欧拉(Euler)回路。</p>
+<p>[图的存储]<br>
+<img src="https://img-blog.csdn.net/20180728135844128?" alt="图的存储" loading="lazy"></p>
+<p>定理：</p>
+<p>（一）一个图有“欧拉回路”当且仅当它是连通的且每个顶点都有偶数度。</p>
+<p>（二）一个图有“欧拉通路”当且经当它是连通的且除两个顶点外，其他顶点都有偶数度。（含奇数度的两个节点中，一个必为欧拉通路起点，另一个必为欧拉通路的终点）</p>
+<p>[连通分量]：无向图中的极大连通子图</p>
+<p>[拓扑排序]</p>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;cstring&gt;
+#include &lt;queue&gt;
+#include &lt;cstdio&gt;
+using namespace std;
+struct node {
+    int _to; // 若有权，加一个 int l;
+    int _next;
+} edge[550];
+
+int num;
+
+int in[550]; // 入度
+int ret[550];
+int head[550];
+
+void insert(int x, int y) {
+    edge[num]._to = y;
+    edge[num]._next = head[x];
+    head[x] = num++;
+}
+
+int main(int argc, const char * argv[]) {
+    int n, m;
+    while (cin &gt;&gt; n &gt;&gt; m) {
+        num = 0;
+        memset(head, -1, sizeof(head));
+        int x, y;
+        for (int i = 0; i &lt; m; ++i) {
+            scanf(&quot;%d%d&quot;, &amp;x, &amp;y);
+            insert(x, y);
+            ++in[y];
+        }
+        priority_queue&lt;int, vector&lt;int&gt;, greater&lt;int&gt; &gt; q;
+        for (int i = 1; i &lt;= n; ++i) {
+            if (in[i] == 0) q.push(i);
+        }
+        int k = 0;
+        while (!q.empty()) {
+            int a = q.top();
+            ret[k++] = a;
+            q.pop();
+            for (int now = head[a]; now != -1; now = edge[now]._next) {
+                --in[edge[now]._to];
+                if (in[edge[now]._to] == 0) {
+                    q.push(edge[now]._to);
+                }
+            }
+        }
+        for (int i = 0; i &lt; n - 1; ++i) {
+            cout &lt;&lt; ret[i] &lt;&lt; ' ';
+        }
+        cout &lt;&lt; ret[n - 1] &lt;&lt; endl;
+    }
+    return 0;
+}
+</code></pre>
+<p>关键路径:从源点到汇点的最长路径长度</p>
+<p>dijkstral算法  (复杂度O(n^2))——不能有负权边<br>
+spfa算法      (复杂度O(km))——不能有负权环<br>
+Floyd  (复杂度O(n^3))——可以求多源点最短路</p>
+<p>[dijkstra]</p>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;cstring&gt;
+#include &lt;stack&gt;
+#include &lt;cstdio&gt;
+#include &lt;vector&gt;
+using namespace std;
+
+const int inf = 0x3f3f3f3f;
+int n, m;
+int road[1010][1010];
+int vis[1010], dis[1010], pre[1010];
+
+bool dijkstra(int s, int e) {
+    vis[s] = 1;
+    
+    for (int i = 1; i &lt; n; ++i) {
+        int minD = inf, k = -1;
+        for (int j = 1; j &lt;= n; ++j) {
+            if (!vis[j] &amp;&amp; dis[j] &lt; minD) {
+                minD = dis[j];
+                k = j;
+            }
+        }
+        vis[k] = 1;
+        
+        if (k == e) break;
+        if (k == -1) return 0; // 不通
+        
+        for (int j = 1; j &lt;= n; ++j) {
+            if (!vis[j] &amp;&amp; dis[k] + road[k][j] &lt; dis[j]) {
+                dis[j] = dis[k] + road[k][j];
+                pre[j] = k;
+            }
+        }
+    }
+    return 1;
+}
+
+int main() {
+    
+    while (cin &gt;&gt; n &gt;&gt; m) {
+        int a, b, z;
+        for (int i = 1; i &lt;= n; ++i) {
+            fill(road[i] + 1, road[i] + n + 1, inf);
+        }
+        for (int i = 0; i &lt; m; ++i) {
+            cin &gt;&gt; a &gt;&gt; b &gt;&gt; z;
+            road[a][b] = min(z, road[a][b]); // 有向
+            road[b][a] = min(z, road[b][a]); // 无向
+        }
+        memset(vis, 0, sizeof(vis));
+        for (int i = 1; i &lt;= n; ++i) {
+            dis[i] = road[1][i];
+            pre[i] = 1;
+        }
+        dis[1] = 0;
+        if (dijkstra(1, n) == 0) {
+            cout &lt;&lt; -1 &lt;&lt; endl;
+            continue;
+        }
+        int k = pre[n];
+        stack&lt;int&gt; s;
+        while (k != 1) {
+            s.push(k);
+            k = pre[k];
+        }
+        cout &lt;&lt; 1 &lt;&lt; ' ';
+        while (!s.empty()) {
+            cout &lt;&lt; s.top() &lt;&lt; ' ';
+            s.pop();
+        }
+        cout &lt;&lt; n &lt;&lt; endl;
+    }
+    return 0;
+}
+</code></pre>
+<p>[FLOYD算法]</p>
+<pre><code> for (int i = 1; i &lt;= 32; ++i) {
+        for (int j = 1; j &lt;= 32; ++j) {
+            for (int k = 1; k &lt;= 32; ++k) {
+                if (i != j &amp;&amp; j != k &amp;&amp; k != i
+                    &amp;&amp; dis[i][k] + dis[k][j] &lt;= dis[i][j]) {
+                    dis[i][j] = dis[i][k] + dis[k][j];
+                }
+            }
+        }
+    }
+</code></pre>
+<p>最小生成树：生成子图是一棵树，且树枝的权值在所有生成树中，总和最小。</p>
+<p>prim 算法         (复杂度O(n^2))——适用于稠密图<br>
+kruskal算法      (复杂度O(m*lg(m))——适用于稀疏图</p>
+<p>/////////////////////////////</p>
+<p>对于Prim，其选取的边(u,v)必有一个顶点已经被覆盖，另一个顶点未被覆盖。</p>
+<p>Kruskal算法：先将所有的边做排序，然后利用并查集作判断来优先选择较小的边，直到建成一棵生成树。对于Kruskal,其选取的边(u,v)任意，只要这个边的加入不能使被覆盖的顶点构成回路。</p>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;cstring&gt;
+#include &lt;cstdio&gt;
+#include &lt;algorithm&gt;
+
+using namespace std;
+
+struct node {
+    int x, y, l; // 起点 重点 长度
+} edge[1010];
+
+int a[1010], b[1010], fa[1010];
+
+bool cmp(node x, node y) {
+    return x.l &lt; y.l;
+}
+
+int findfa(int x) {
+    return fa[x] == x ? x : (fa[x] = findfa(fa[x]));
+}
+
+void merge(int i, int j) {
+    fa[findfa(i)] = findfa(j);
+}
+
+long long int kruskal(int num) {
+    int cnt = 0;
+    long long int sum = 0;
+    for (int i = 0; i &lt; num; ++i) {
+        int fx = findfa(edge[i].x);
+        int fy = findfa(edge[i].y);
+        if (fx != fy) {
+            merge(fx, fy);
+            ++cnt;
+            sum += edge[i].l;
+            if (cnt &gt;= num - 1) {
+                break;
+            }
+        }
+        
+    }
+    return sum;
+}
+
+int main() {
+    int n;
+    while (cin &gt;&gt; n) {
+        for (int i = 1; i &lt;= n; ++i) {
+            fa[i] = i;
+        }
+        for (int i = 1; i &lt;= n; ++i) {
+            cin &gt;&gt; a[i] &gt;&gt; b[i];
+        }
+        int num = 0;
+        for (int i = 1; i &lt;= n; ++i) {
+            for (int j = 1; j &lt;= n; ++j) {
+                if (i != j) {
+                    edge[num].x = i;
+                    edge[num].y = j;
+                    edge[num++].l = a[i] * b[j] + a[j] * b[i];
+                }
+            }
+        }
+        sort(edge, edge + num, cmp);
+        cout &lt;&lt; kruskal(num) &lt;&lt; endl;
+    }
+    return 0;
+}
+</code></pre>
+
+							</div>
+	<div class="wow bounceInDown vt-post-tags">
+ 
+					</div>						
+<nav class="navigation3 post-navigation3" role="navigation">
+		
+		<div class="nav-links3">
+      
+		<div class="wow bounceInLeft nav-previous3"><a href="https://ccccj.github.io/post/mac-yu-xu-ni-ji-linux-ssh-yi-ji-chuan-shu-wen-jian/" rel="prev"> mac 与虚拟机 linux ssh 以及 传输文件</a></div>
+		 
+		 
+		</div>
+	</nav>
+	<div class="wow rollIn author-info" style="visibility: visible; animation-name: rollIn;">
+	<div class="author-avatar pull-left"><img src="https://ccccj.github.io/images/avatar.png" ></div>
+ 
+
+		</div>
+		
+ 
+		
+</article>
+
+<div id="marlin_lite_about_widget-2" class="wow bounceInUp widget marlin_lite_about_widget" data-wow-delay="0.1s">
+		
+        
+		<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='https://ccccj.github.io/media/scripts/Valine.min.js'></script>
+
+<div class="comment"></div>
+<script>
+        new Valine({
+            // AV 对象来自上面引入av-min.js(老司机们不要开车➳♡゛扎心了老铁)
+            av: AV, 
+            el: '.comment',
+            lang: 'zh-cn',
+            
+            
+      emoticon_list: ["吐.png","喷血.png","狂汗.png","不说话.png","汗.png","坐等.png","献花.png","不高兴.png","中刀.png","害羞.png","皱眉.png","小眼睛.png","中指.png","尴尬.png","瞅你.png","想一想.png","中枪.png","得意.png","肿包.png","扇耳光.png","亲亲.png","惊喜.png","脸红.png","无所谓.png","便便.png","愤怒.png","蜡烛.png","献黄瓜.png","内伤.png","投降.png","观察.png","看不见.png","击掌.png","抠鼻.png","邪恶.png","看热闹.png","口水.png","抽烟.png","锁眉.png","装大款.png","吐舌.png","无奈.png","长草.png","赞一个.png","呲牙.png","无语.png","阴暗.png","不出所料.png","咽气.png","期待.png","高兴.png","吐血倒地.png","哭泣.png","欢呼.png","黑线.png","喜极而泣.png","喷水.png","深思.png","鼓掌.png","暗地观察.png"],
+     	
+      	
+          
+        });
+    </script> 
+
+
+   
+  
+ 
+
+		</div>
+
+			</div>
+			
+
+
+<div class="tocc col l3 hide-on-med-and-down">
+	
+        <div class="toc-widget">
+			
+            <div class="toc-title"></div>
+			
+            <div id="toc-content">
+			
+			
+			</div>
+        </div>
+    </div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.5.0/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '.entry-summary',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            // headingsOffset: -205,
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('.entry-summary').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+    });
+</script>										 
+
+ 
+       
+
+
+			</div>
+		</div>
+
+		
+		 	<footer id="colophon" class="site-footer">
+
+			<div class="container">
+	
+				<div class="copyright">Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a><br>Theme:   <a href="https://github.com/shanbufun/gridea-theme-pan" target="_blank" title="Pan"><span>Pan</span></a>.  by <a href="https://shanbu.fun/" target="_blank"  title="山卜方" >Shanbufun</a></div>		
+			</div>
+		
+		</footer>
+
+</div>
+
+<script src="https://cdn.bootcss.com/fitvids/1.2.0/jquery.fitvids.min.js"></script>
+<script type='text/javascript' src='https://ccccj.github.io/media/scripts/marlin-scripts.js'></script>
+ <script src="//tokinx.github.io/lately/lately.min.js"></script>
+  <script>jQuery(document).ready(function(){$.lately({'target':'.lately-a,.lately-b,.lately-c'})});</script>
+  <style type="text/css">a.back_to_top {
+    text-decoration: none;
+    position: fixed;
+    bottom: 40px;
+    right: 30px;
+    background: #f0f0f0;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    line-height: 36px;
+    font-size: 18px;
+    text-align: center;
+    transition-duration: .5s;
+    transition-propety: background-color;
+    display: none;
+}
+
+a.back_to_top span {
+    color: #888;
+}
+
+a.back_to_top:hover {
+    cursor: pointer;
+    background: #dfdfdf;
+}
+
+a.back_to_top:hover span {
+    color: #555;
+}
+
+@media print, screen and (max-width: 580px) {
+    .back_to_top {
+        display: none !important;
+    }
+}
+
+
+
+</style><a id="back_to_top" href="#" class="back_to_top"><span><i class="iconfont icon-xiangshang"></i></span>
+</a>
+
+
+<script>$(document).ready((function(_this) {
+  return function() {
+    var bt;
+    bt = $('#back_to_top');
+    if ($(document).width() > 480) {
+      $(window).scroll(function() {
+        var st;
+        st = $(window).scrollTop();
+        if (st > 30) {
+          return bt.css('display', 'block');
+        } else {
+          return bt.css('display', 'none');
+        }
+      });
+      return bt.click(function() {
+        $('body,html').animate({
+          scrollTop: 0
+        }, 800);
+        return false;
+      });
+    }
+  };
+})(this));
+</script>
+
+		<script data-no-instant>
+    (function ($) {
+        $.extend({
+            adamsOverload: function () {
+                $('.navigation:eq(0)').remove();
+                $("").attr("rel" , "external");
+                $("a[rel='external'],a[rel='external nofollow']").attr("target","_blank");
+                $("a.vi").attr("rel" , "");
+                $.viewImage({
+                    'target'  : 'img',
+                    'exclude' : '.vsmile-icons img,.gallery img',
+                    'delay'   : 300
+                });
+                $.lately({
+                    'target' : '.commentmetadata a,.infos time,.post-list time'
+                });
+                prettyPrint();
+                
+                $('ul.links li a').each(function(){
+                    if($(this).parent().find('.bg').length==0){
+                        $(this).parent().append('<!---<div class="bg" style="background-image:url(https://c3.glgoo.top/s2/favicons?domain='+$(this).attr("href")+')"></div>--->')
+                    }
+                });
+            }
+        });
+    })(jQuery);
+    jQuery.adamsOverload();
+</script>
+
+</body>
+</html>

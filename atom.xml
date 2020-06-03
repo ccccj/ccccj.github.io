@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ccccj.github.io</id>
     <title>Amon&apos;s Homepage</title>
-    <updated>2020-06-03T18:17:57.880Z</updated>
+    <updated>2020-06-03T19:10:37.674Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ccccj.github.io"/>
     <link rel="self" href="https://ccccj.github.io/atom.xml"/>
@@ -216,6 +216,2546 @@
 	</div>
 </body>
 </html>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Linux下vim的便捷使用]]></title>
+        <id>https://ccccj.github.io/post/linux-xia-vim-de-bian-jie-shi-yong/</id>
+        <link href="https://ccccj.github.io/post/linux-xia-vim-de-bian-jie-shi-yong/">
+        </link>
+        <updated>2019-08-23T18:24:04.000Z</updated>
+        <content type="html"><![CDATA[<blockquote>
+<p>本篇较多的都是关于 vim 的快捷使用，另外夹杂着一些我觉得好用的技巧。</p>
+</blockquote>
+<h3 id="1快捷键设置">1.快捷键设置</h3>
+<p>举个栗子，例如每次在vim中敲完代码，退出vim再编译链接有点麻烦，可以用快捷键替换来实现写完代码立即运行</p>
+<blockquote>
+<p><code>nnoremap &lt;F5&gt; :!gcc -o a.out % &amp;&amp; ./a.out&lt;CR&gt;</code></p>
+</blockquote>
+<p>写到vim配置文件 (~/.vimrc) 中即可。<br>
+如果没有，可以自己创建一个，但是创建之后，会缺少一些基本配置，因为默认的配置文件是 /etc/vimrc ，里面有一些原本的功能，有了 ~/.vimrc 后，系统会使用这个，所以配置时，建议其他功能一起配置。</p>
+<p>这其实是一条映射，也就是把<code>&lt;F5&gt;</code>映射成后面一长条语句，当按下F5，就相当于执行了那一条语句。</p>
+<p><code>nnoremap</code> 表示生效范围</p>
+<blockquote>
+<p>1.第一个 n 代表<code>普通模式</code>，如果要在插入模式下实行替换，可以用 <code>i</code> ，可视模式为 <code>v</code>；<br>
+2.<code>nore</code>表示不递归，看网上说大概是大概是 no recursion..？如果不加 nore，将会递归替换，大多数时候容易造成混乱。</p>
+</blockquote>
+<p><code>&lt;F5&gt;</code>  表示按下F5键；<br>
+<code>:</code>  进入命令行模式；<br>
+<code>!</code>  在vim的命令行模式下用shell的命令；<br>
+<code>!gcc -o a.out %</code>  %代表当前文件名，gcc -o a.out % 即为编译链接当前文件，生成 a.out；<br>
+<code>&amp;&amp;</code>  表示同时执行两条命令<br>
+<code>./a.out</code>  运行当前目录下的a.out文件<br>
+<code>&lt;CR&gt;</code>  回车即&quot;enter&quot;键（也可小写）</p>
+<blockquote>
+<p>定义组合键时，例如 <code>ctrl + w</code>，配置时为 <code>&lt;c-w&gt;</code>;<br>
+<code>alt + w</code> 时， 配置为 <code>&lt;m-w&gt;</code><br>
+(w为任意键)</p>
+</blockquote>
+<p>如果还没学会这个，那我们再来看一条（这个就不算快捷键了，只是简单的替换而已）：</p>
+<blockquote>
+<p><code>inoremap ( ()&lt;esc&gt;i</code></p>
+</blockquote>
+<p>即在插入模式下，输入<code>(</code>，就会自动变为输入<code>()&lt;esc&gt;i</code>，为什么输入 () 不够，还要推出回到普通模式再输入 i 呢？因为这样，光标就会移动到括号中间，方便输入啦。现在学会了没有呢？</p>
+<p>（后面第九条还有更多的 vim 的配置，这条为啥单独写这呢..我也不知道...可能是因为这个在我看来属于自己设置快捷键，你想实现什么功能就实现什么功能，可以设置单独的键，而后面的只能算配置自己的 vim 吧）</p>
+<p>！！敲黑板：这个设置完真的是超级方便。</p>
+<h3 id="2设置书签">2.设置书签</h3>
+<p>在某一行，按下m，再按某个字母，例如'a'，表示在这一行设置了名为a的书签，当要查找这个书签时，按下单引号，再按下书签名即可。</p>
+<blockquote>
+<p>设置书签:<code>mx</code> //x代表任意字母<br>
+查找书签:<code>'x</code> //x代表设置书签时选择的任意字母</p>
+</blockquote>
+<p>同时还可以设置很多字母，设置很多个书签。。。有时候写代码，函数与测试文件分开时，需要写一个函数测试一下，那在函数与测试代码之间就需要跳来跳去，用书签就很方便。</p>
+<p>总体来说，写较长的代码，并且需要来回切换的时候比较方便吧，但是也可以直接开两个窗口（我屏幕小，还是喜欢跳来跳去...）</p>
+<h3 id="3打开标签页">3.打开标签页</h3>
+<p>就像我们的网页，同时开启多个上面会有多个标签页，vim 也能这样：</p>
+<blockquote>
+<p><code>:tabe xxx</code></p>
+</blockquote>
+<p>xxx 为文件名，也可以加上路径，使得可以同时打开多个文件。</p>
+<blockquote>
+<p><code>gt</code> 切换到下一个标签页<br>
+<code>gT</code> 切换到上一个标签页<br>
+<code>:q</code> 关闭当前标签页</p>
+</blockquote>
+<p>这个我倒是不常用..可能是因为我一般代码就开一两个窗口而已，最多也就三个，所以打开 vim 的时候我就会直接打开两个，然后用 <code>:bn</code> 来切换，但是什么时候我会用到呢，一般写着写着，突然发现要看下以前某个文件，我就会用标签页的方式打开（当然你也可以直接新开个窗口）。</p>
+<h3 id="4快捷缩进与注释">4.快捷缩进与注释</h3>
+<p>[单行快捷缩进]</p>
+<blockquote>
+<p><code>按“&gt;&gt;”或“&lt;&lt;”</code>(向右缩进/向左缩进)<br>
+无需选中本行，光标在这一行即可，按两下 <code>shift+</code> , 或两下 <code>shift+.</code> 即可。</p>
+</blockquote>
+<p>[快捷缩进]</p>
+<blockquote>
+<p>进入可视块模式后，选中每行第一个字母，按<br>
+<code>&quot;&lt;&quot;</code> (shift+,) 向左缩进<br>
+<code>&quot;&gt;&quot;</code> (shift+.) 向右缩进</p>
+</blockquote>
+<p>[快捷注释]</p>
+<blockquote>
+<p>进入可视块模式，选中注释的行开头，按 <code>shift+i/I</code>（即在行首插入） ，再按<code>//</code>，再按两下<code>esc</code></p>
+</blockquote>
+<p>[取消注释]</p>
+<blockquote>
+<p>可视块模式选中所有的<code>//</code>，再按<code>d(或x)</code>删除</p>
+</blockquote>
+<p>总结：常用，非常好用。</p>
+<h3 id="5vim的粘贴格式">5.vim的粘贴格式</h3>
+<p>很多时候可能复制了一段代码，要粘贴到vim里。然后就发现，啊这格式咋不了啊，多出来辣么多空格是咋回事...<br>
+就是格式的问题...<br>
+输入<code>:set paste</code> ，就可以解决格式问题，而只是简单的粘贴文本。<br>
+记得粘贴完成后退出 <code>set no paste</code>。</p>
+<p>emmmmm，很好记，要用到的时候能记住就好了，不然会发现粘贴格式很乱。</p>
+<h3 id="6vim内快捷查找">6.vim内快捷查找</h3>
+<blockquote>
+<p><code>:/xxx</code>  查找“xxx”这个词<br>
+[按n查找下一个 N查找上一个]<br>
+[如果输入完 <code>:/xxx</code>后，再按<code>*</code>，即完全匹配查找（如果你查找的是 a，有个词叫 aa ，这时候查找结果不会有 aa ）]<br>
+<code>?xxx</code><br>
+[不需要冒号，也是查找 xxx 这个词，但是和  :/xxx 方向相反]<br>
+<code>:n</code>     到第n行</p>
+</blockquote>
+<p>不记住这个的话...还用什么 vim ...</p>
+<h3 id="7快捷替换">7.快捷替换</h3>
+<blockquote>
+<p><code>:%s/word1/word2</code><br>
+[把当前行第一个word1替换为word2]<br>
+<code>:n1,n2 s/word1/word2/gc</code><br>
+[n1行到n2行，把word1都替换为word2，有c会一个个询问是否替换]<br>
+[如果只有<code>/g</code>，就不会询问，直接全部替换]</p>
+</blockquote>
+<p>这个有时候超级方便，我有时候用别的编辑器比如 word 什么的，也超希望能有这个功能...用过 n 多次，但是永远记不住..每次要用就打开自己这篇博客来看下...</p>
+<h3 id="8vim内置分屏">8.vim内置分屏</h3>
+<p>依靠命令行模式来进行分屏，写代码时如果和前面有段代码要比对这些，但是又看不到前面的，就可以这么干（当然你也可以再打开个窗口啦，只是有时候分屏比较方便，虽然很多终端也自带分屏功能..）</p>
+<blockquote>
+<p><code>:vs</code> 水平分屏（后面+空格+文件名，可以打开指定文件来分屏）<br>
+<code>ctrl+w</code> 再移动光标，会在分屏幕模式下，左右移动光标</p>
+</blockquote>
+<hr>
+<blockquote>
+<p><code>:sp</code> 垂直分屏<br>
+<code>ctrl+g</code> 再移动光标，会在分屏幕模式下，上下移动光标</p>
+</blockquote>
+<hr>
+<blockquote>
+<p><code>:q</code> 退出当前分屏窗口<br>
+<code>:qa</code> 退出当前所有分屏窗口</p>
+</blockquote>
+<p>可以将这些组合键设置成快捷键，更方便~<br>
+（但是悄咪咪的说一句..我一般直接再开个屏..因为我蠢记不住..）</p>
+<h3 id="9vim的基本配置">9.vim的基本配置</h3>
+<p>vim ~/.vimrc 修改配置文件<br>
+（加个 <code>.</code> 代表隐藏文件）</p>
+<pre><code>syntax on &quot; 语法高亮
+set hlsearch  &quot; 设置搜索结果高亮 highlight search
+set number &quot; 显示行号
+set tabstop=4 &quot; Tab代表4个空格的宽度（我一般用2个）
+set autoindent &quot; 表示换行后自动缩进
+set history=1000 &quot; 记住的历史操作的数量，默认的是20
+set mouse=a &quot; 可以使用鼠标
+&quot;set mouse-=a &quot; 不可使用鼠标
+
+&quot; 括号匹配
+inoremap ( ()&lt;ESC&gt;i
+inoremap { {&lt;CR&gt;}&lt;ESC&gt;O
+inoremap [ []&lt;ESC&gt;i
+inoremap &quot; &quot;&quot;&lt;ESC&gt;i
+inoremap ' ''&lt;ESC&gt;i
+
+&quot; inoremap jk &lt;ESC&gt; &quot; jk退出
+
+&quot; 检测下一个是不是右括号，是的话自动覆盖（摘自百度）
+inoremap ) &lt;c-r&gt;=ClosePair(')')&lt;CR&gt;
+inoremap ] &lt;c-r&gt;=ClosePair(']')&lt;CR&gt;
+inoremap } &lt;c-r&gt;=CloseBracket()&lt;CR&gt;
+inoremap &quot; &lt;c-r&gt;=QuoteDelim('&quot;')&lt;CR&gt;
+inoremap ' &lt;c-r&gt;=QuoteDelim(&quot;'&quot;)&lt;CR&gt;
+
+function ClosePair(char)
+	if getline('.')[col('.') - 1] == a:char
+		return &quot;\&lt;Right&gt;&quot;
+	else
+		return a:char
+	endif
+endf
+
+function CloseBracket()
+	if match(getline(line('.') + 1), '\s*}') &lt; 0
+		return &quot;\&lt;CR&gt;}&quot;
+	else
+		return &quot;\&lt;Esc&gt;j0f}a&quot;
+	endif
+endf
+
+function QuoteDelim(char)
+	let line = getline('.')
+	let col = col('.')
+	if line[col - 2] == &quot;\\&quot;
+		return a:char
+	elseif line[col - 1] == a:char
+		return &quot;\&lt;Right&gt;&quot;
+	else
+		return a:char.a:char.&quot;\&lt;Esc&gt;i&quot;
+	endif
+endf
+</code></pre>
+<p>关于这一块的配置..本来是只写了这么点，其余的希望大家自己直接上网搜的，因为我自己写的一些配置，可能不是很好，怕误导了大家。但是写完这篇博客后的几个月的今天..还是忍不住给大家分享几条我的配置，由于是自己写的，也借阅网上的配置，所以写的我自己都觉得不太好...</p>
+<blockquote>
+<p><code>nnoremap ii i&lt;TAB&gt;</code></p>
+</blockquote>
+<p>这个就是，大家有没有发现..有时候敲代码，光标在行首，按了个 <code>i</code> ，光标还是在行首，但是我想要直接写代码滴呀，我要缩进啊，于是就设置个快捷键..按两下 i ，就直接进入插入模式，并且前面有缩进，真的超级方便..</p>
+<blockquote>
+<p><code>nnoremap qq &lt;esc&gt;A</code></p>
+</blockquote>
+<p>有时候正在输入，但是想立马到行尾，就可以这样实现<sub>先回到普通模式，再插入到行尾</sub></p>
+<p>其余的我想到再补充~~</p>
+<h3 id="10vim内使用shell命令行">10.vim内使用shell命令行</h3>
+<p>有时候需要在 vim 内使用 shell 的命令（例如要编译执行当前代码），当然可以立马新开一个窗口，或者像之前讲过的那样设置快捷键，但是现在要讲的是另一种方法：</p>
+<blockquote>
+<p><code>:!xxx</code></p>
+</blockquote>
+<p>即先进入 vim 的命令行模式，在按下 <code>!</code> ，这时候的目录是你当前文件的目录，然后就可以输入命令了，例如有时候，需要编译执行当前文件，就可以直接这么用。</p>
+<p>是的..你用再开个窗口大法也可以，但是我还是会经常用这个的，因为方便啊，再开个窗口还要移动光标，这个直接按个 <code>:</code> 就好啦。</p>
+<h3 id="11按键使用">11.按键使用</h3>
+<p>总结了一些vim下常用的按键，已经熟练使用vim的请跳过本条....</p>
+<p>（所有的大写建议 shift+.. 来使用）</p>
+<p>（1）一般模式下<br>
+移动光标：<br>
+(前面加数字，可以一下子跳很多格)</p>
+<blockquote>
+<p>左：<code>h</code>；<br>
+下：<code>j</code>；<br>
+上：<code>k</code>；<br>
+右：<code>l</code>；</p>
+</blockquote>
+<hr>
+<blockquote>
+<p><code>b</code>：移到前一个单词开头<br>
+<code>w</code>：移到后一个单词开头<br>
+<code>e</code>：移到后一个单词末尾<br>
+<code>gg</code>：移到首行开头<br>
+<code>shift+g</code>/<code>G</code>：移到末行开头<br>
+<code>0</code>(零)：移到当前行开头<br>
+<code>^</code>：移动到行首非空白字符<br>
+<code>$</code>：移到当前行行尾<br>
+<code>[]</code>：跳转到上一个函数<br>
+<code>][</code>：跳转到下一个函数</p>
+</blockquote>
+<p>模式转换：</p>
+<blockquote>
+<p><code>i</code>：进入插入模式(写在光标之前)<br>
+<code>a</code>：进入插入模式(写在光标之后)<br>
+<code>shift+i</code>/<code>I</code>：进入插入模式(写在行首)<br>
+<code>shift+a</code>/<code>A</code>：进入插入模式(写在行尾)<br>
+<code>o</code>(字母o)：到下一行，插入空行，并进入插入模式<br>
+<code>shift+o</code>/<code>O</code>(大写O)：到上一行，插入空行，并进入插入模式</p>
+</blockquote>
+<blockquote>
+<p><code>esc</code>：退出插入模式，回到命令模式<br>
+<code>:</code>(冒号)：到命令行模式</p>
+</blockquote>
+<p>复制粘贴删除：</p>
+<blockquote>
+<p><code>yy</code>(或<code>Y</code>)：复制一行（3yy为复制3行）<br>
+<code>p</code>：粘贴<br>
+<code>dd</code>：删除一行（5dd为删除5行）<br>
+<code>x</code>：删除一个字符（3x删除后面3个字符）<br>
+<code>dw</code>：从当前光标开始，删除到单词结束<br>
+<code>d$</code>：从当前光标开始，删除到行尾<br>
+<code>r</code>：替换<br>
+<code>shift+r</code>/<code>R</code>：行替换</p>
+</blockquote>
+<p>可视模式：</p>
+<blockquote>
+<p><code>v</code>：可视模式<br>
+<code>ctrl+v</code>：可视块模式<br>
+<code>shift+v</code>/<code>V</code>：可视行模式</p>
+</blockquote>
+<p>撤销：</p>
+<blockquote>
+<p><code>u</code>：撤销<br>
+<code>ctrl+r</code>：取消撤销</p>
+</blockquote>
+<p>（2）命令行模式中：</p>
+<p>保存与退出</p>
+<blockquote>
+<p><code>:w</code> 保存<br>
+<code>:q</code> 退出 （:qw  保存并退出  :q! 不保存退出）</p>
+</blockquote>
+<p>其他：</p>
+<blockquote>
+<p><code>:set nu</code> 设置行号  （set nonu 取消行号）<br>
+<code>:set mouse=a</code> 设置可以使用鼠标<br>
+<code>:set mouse-=a</code> 设置不能使用鼠标</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>普通模式下， 将光标放在<code>(</code>/<code>[</code>/<code>{</code>上，按下<code>%</code>，光标将会跳到下一个匹配的<code>)</code>/<code>]</code>/<code>}</code>，再次按<code>%</code>，将会跳回去。（可用于调试时查看括号配对）</p>
+</blockquote>
+<p>更具体的可以看 <code>vimtutor</code>(直接在bash输入即可)</p>
+<h3 id="12学会查找">12.学会查找</h3>
+<p>按文件名查找：<br>
+<code>find -name &lt;filename&gt;</code><br>
+这是一个最简单的查找命令，按名字查找当前目录下的文件，查找结果会显示路径。</p>
+<p>按文件内容查找：<br>
+<code>grep xxx &lt;directory&gt;</code><br>
+&quot;xxx&quot; 是你要查找的字符串，<directory>是要查找的目录。当然我们还可以添加选项，如<code>-n</code>显示行号，<code>-i</code>查找时忽略大小写，<code>-v</code>反向查找。其他还可以搭配管道等等应用，但最简单的应用</p>
+<h3 id="参考">参考</h3>
+<p>https://blog.csdn.net/sunlanchang/article/details/52549756</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[python学习笔记]]></title>
+        <id>https://ccccj.github.io/post/python-xue-xi-bi-ji/</id>
+        <link href="https://ccccj.github.io/post/python-xue-xi-bi-ji/">
+        </link>
+        <updated>2019-05-03T18:37:27.000Z</updated>
+        <content type="html"><![CDATA[<p><ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#1%E6%B3%A8%E9%87%8A%E4%B8%8E%E7%BC%A9%E8%BF%9B">1.注释与缩进</a>
+<ul>
+<li><a href="#11-%E6%B3%A8%E9%87%8A">1.1 注释</a></li>
+<li><a href="#12-%E7%BC%A9%E8%BF%9B%E8%A7%84%E5%88%99">1.2 缩进规则</a></li>
+</ul>
+</li>
+<li><a href="#2%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B">2.数据类型</a>
+<ul>
+<li><a href="#21-%E6%95%B4%E5%9E%8B">2.1 整型</a></li>
+<li><a href="#22-%E6%B5%AE%E7%82%B9%E5%9E%8B">2.2 浮点型</a></li>
+<li><a href="#23-%E5%AD%97%E7%AC%A6%E4%B8%B2">2.3 字符串</a>
+<ul>
+<li><a href="#231-%E5%86%85%E9%83%A8%E4%BD%BF%E7%94%A8%E5%92%8C">2.3.1 内部使用<code>'</code>和<code>&quot;</code></a></li>
+<li><a href="#232-%E8%BD%AC%E4%B9%89">2.3.2 转义</a></li>
+<li><a href="#233-%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%8B%BC%E6%8E%A5">2.3.3 字符串拼接</a></li>
+<li><a href="#234-%E4%B8%AD%E6%96%87%E5%AD%97%E7%AC%A6">2.3.4 中文字符</a></li>
+</ul>
+</li>
+<li><a href="#24-%E5%B8%83%E5%B0%94%E5%80%BC">2.4 布尔值</a>
+<ul>
+<li><a href="#241-%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5">2.4.1 基本概念</a></li>
+<li><a href="#242-%E7%9F%AD%E8%B7%AF%E8%BF%90%E7%AE%97">2.4.2 短路运算</a></li>
+</ul>
+</li>
+<li><a href="#25-%E7%A9%BA%E5%80%BC">2.5 空值</a></li>
+</ul>
+</li>
+<li><a href="#3%E5%8F%98%E9%87%8F">3.变量</a>
+<ul>
+<li><a href="#31-%E5%8F%98%E9%87%8F%E5%90%8D">3.1 变量名</a></li>
+<li><a href="#32-%E5%8A%A8%E6%80%81%E8%AF%AD%E8%A8%80">3.2 动态语言</a></li>
+<li><a href="#32-%E5%85%B7%E4%BD%93%E5%88%86%E6%9E%90">3.2 具体分析</a></li>
+</ul>
+</li>
+<li><a href="#4list-tuple-%E7%B1%BB%E5%9E%8B">4.list / tuple 类型</a>
+<ul>
+<li><a href="#41-list">4.1 list</a>
+<ul>
+<li><a href="#411-%E6%9E%84%E9%80%A0">4.1.1 构造</a></li>
+<li><a href="#412-%E4%BD%BF%E7%94%A8">4.1.2 使用</a></li>
+<li><a href="#413-%E6%B7%BB%E5%8A%A0%E6%96%B0%E5%85%83%E7%B4%A0">4.1.3 添加新元素</a></li>
+<li><a href="#414-%E5%88%A0%E9%99%A4%E5%85%83%E7%B4%A0">4.1.4 删除元素</a></li>
+<li><a href="#415-%E6%9B%BF%E6%8D%A2%E5%85%83%E7%B4%A0">4.1.5 替换元素</a></li>
+</ul>
+</li>
+<li><a href="#42-tuple">4.2 tuple</a>
+<ul>
+<li><a href="#421-%E6%9E%84%E9%80%A0">4.2.1 构造</a></li>
+<li><a href="#422-%E5%8D%95%E5%85%83%E7%B4%A0%E7%9A%84tuple">4.2.2 单元素的tuple</a></li>
+<li><a href="#423-%E5%8F%AF%E5%8F%98tuple">4.2.3 可变tuple</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#5%E6%9D%A1%E4%BB%B6%E5%88%A4%E6%96%AD%E4%B8%8E%E5%BE%AA%E7%8E%AF">5.条件判断与循环</a>
+<ul>
+<li><a href="#51-if">5.1 if</a></li>
+<li><a href="#52-if-else">5.2 if-else</a></li>
+<li><a href="#53-if-elif-else">5.3 if-elif-else</a></li>
+<li><a href="#54-for%E5%BE%AA%E7%8E%AF">5.4 for循环</a></li>
+<li><a href="#55-while%E5%BE%AA%E7%8E%AF">5.5 while循环</a></li>
+<li><a href="#56-break%E4%B8%8Econtinue">5.6 break与continue</a>
+<ul>
+<li><a href="#561-break">5.6.1 break</a></li>
+<li><a href="#562-continue">5.6.2 continue</a></li>
+</ul>
+</li>
+<li><a href="#57-%E5%A4%9A%E9%87%8D%E5%BE%AA%E7%8E%AF">5.7 多重循环</a></li>
+</ul>
+</li>
+<li><a href="#6-dict-%E5%92%8C-set-%E7%B1%BB%E5%9E%8B">6 dict 和 set 类型</a>
+<ul>
+<li><a href="#61-dict">6.1 dict</a>
+<ul>
+<li><a href="#611-%E6%9E%84%E9%80%A0">6.1.1 构造</a></li>
+<li><a href="#612-%E4%BD%BF%E7%94%A8">6.1.2 使用</a></li>
+<li><a href="#613-dict%E7%9A%84%E7%89%B9%E7%82%B9">6.1.3 dict的特点</a></li>
+<li><a href="#614-%E6%9B%B4%E6%96%B0dict">6.1.4 更新dict</a></li>
+<li><a href="#615-%E9%81%8D%E5%8E%86dict">6.1.5 遍历dict</a></li>
+</ul>
+</li>
+<li><a href="#62-set">6.2 set</a>
+<ul>
+<li><a href="#621-%E6%9E%84%E9%80%A0">6.2.1 构造</a></li>
+<li><a href="#622-%E4%BD%BF%E7%94%A8">6.2.2 使用</a></li>
+<li><a href="#623-set-%E7%9A%84%E7%89%B9%E7%82%B9">6.2.3 set 的特点</a></li>
+<li><a href="#624-%E9%81%8D%E5%8E%86-set">6.2.4 遍历 set</a></li>
+<li><a href="#625-%E6%9B%B4%E6%96%B0-set">6.2.5 更新 set</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#7%E5%87%BD%E6%95%B0">7.函数</a>
+<ul>
+<li><a href="#71-python%E5%86%85%E7%BD%AE%E5%87%BD%E6%95%B0">7.1 python内置函数</a></li>
+<li><a href="#72-%E7%BC%96%E5%86%99%E5%87%BD%E6%95%B0">7.2 编写函数</a></li>
+<li><a href="#73-%E8%BF%94%E5%9B%9E%E5%A4%9A%E5%80%BC">7.3 返回多值</a></li>
+<li><a href="#74-%E9%BB%98%E8%AE%A4%E5%8F%82%E6%95%B0">7.4 默认参数</a></li>
+<li><a href="#75-%E5%8F%AF%E5%8F%98%E5%8F%82%E6%95%B0">7.5 可变参数</a></li>
+</ul>
+</li>
+<li><a href="#8%E5%88%87%E7%89%87">8.切片</a>
+<ul>
+<li><a href="#81-%E5%88%87%E7%89%87%E7%AE%80%E8%BF%B0">8.1 切片简述</a></li>
+<li><a href="#82-%E5%80%92%E5%BA%8F%E5%88%87%E7%89%87">8.2 倒序切片</a></li>
+<li><a href="#83-%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%88%87%E7%89%87">8.3 字符串切片</a></li>
+</ul>
+</li>
+<li><a href="#9%E8%BF%AD%E4%BB%A3">9.迭代</a>
+<ul>
+<li><a href="#91-%E8%BF%AD%E4%BB%A3%E7%9A%84%E6%A6%82%E5%BF%B5">9.1 迭代的概念</a></li>
+<li><a href="#92-%E7%B4%A2%E5%BC%95%E8%BF%AD%E4%BB%A3">9.2 索引迭代</a></li>
+<li><a href="#93-%E8%BF%AD%E4%BB%A3dict">9.3 迭代dict</a></li>
+</ul>
+</li>
+<li><a href="#10%E5%88%97%E8%A1%A8%E7%94%9F%E6%88%90%E5%BC%8F">10.列表生成式</a>
+<ul>
+<li><a href="#101-%E7%AE%80%E8%BF%B0">10.1 简述</a></li>
+<li><a href="#102-%E5%A4%9A%E5%B1%82%E5%B5%8C%E5%A5%97">10.2 多层嵌套</a></li>
+</ul>
+</li>
+<li><a href="#%E5%8F%82%E8%80%83">参考</a></li>
+</ul>
+</li>
+</ul>
+</p>
+<h2 id="1注释与缩进">1.注释与缩进</h2>
+<h3 id="11-注释">1.1 注释</h3>
+<p>以 <code>#</code> 开头，一直到行尾。</p>
+<h3 id="12-缩进规则">1.2 缩进规则</h3>
+<p>python中，具有相同缩进的代码被视为代码块。<br>
+Python的习惯写法：4个空格，不使用Tab，更不要混合Tab和空格，否则很容易造成因为缩进引起的语法错误。</p>
+<h2 id="2数据类型">2.数据类型</h2>
+<h3 id="21-整型">2.1 整型</h3>
+<p>16 进制 用 0x 作为前缀。<br>
+过大数据可用 e 代表 10 的次方，如 1e3 代表 1000 。</p>
+<h3 id="22-浮点型">2.2 浮点型</h3>
+<p>依然可用 e 代表 10 的次方，如 1e-3 代表 0.001 。</p>
+<h3 id="23-字符串">2.3 字符串</h3>
+<p>以<code>' '</code>、<code>&quot; &quot;</code>或<code>''' '''</code>括起来的任意文本。若使用多行文字，用<code>''' '''</code>。</p>
+<pre><code class="language-py">print 'hello\nworld'
+print '''hello
+world'''
+</code></pre>
+<blockquote>
+<p>hello<br>
+world<br>
+hello<br>
+world</p>
+</blockquote>
+<h4 id="231-内部使用和">2.3.1 内部使用<code>'</code>和<code>&quot;</code></h4>
+<p>若 想要在字符串内部加上这些符号，可这样用：</p>
+<pre><code class="language-py">print &quot;'hello'&quot;
+print '&quot;hello&quot;'
+</code></pre>
+<pre><code>'hello'
+&quot;hello&quot;
+</code></pre>
+<p>即，若字符串内部包含<code>'</code>，那我们用<code>&quot;&quot;</code>括起字符串，若字符串内部包含<code>&quot;</code>，那我们用<code>''</code>括起字符串。<br>
+若既有<code>'</code>又有<code>&quot;</code>呢？可以使用<code>\</code>转义。</p>
+<p>或者最外面使用<code>'''</code>，如：</p>
+<p><code>py print '''&quot;hello&quot; 'world' '''</code><br>
+<code>&quot;hello&quot; 'world'</code></p>
+<h4 id="232-转义">2.3.2 转义</h4>
+<p>字符串的转义主要是用<code>\</code>和<code>r'...'</code>。<br>
+<code>\</code>和 c/c++ 的用法一样，可使用<code>\n</code>等。<br>
+<code>r'...'</code>是将<code>''</code>内部分一串都转义，但是不能在内部包含<code>'</code>或<code>&quot;</code>.</p>
+<pre><code class="language-py">print r'\\\hhh'
+</code></pre>
+<blockquote>
+<p>\\hhh</p>
+</blockquote>
+<p>若要包含<code>'</code>或<code>&quot;</code>，可用<code>r'''...'''</code>。</p>
+<pre><code class="language-py">print r'''he said, &quot;hi&quot;.'''
+</code></pre>
+<p><code>he said, &quot;hi&quot;.</code></p>
+<h4 id="233-字符串拼接">2.3.3 字符串拼接</h4>
+<p>可使用 <code>+</code> 连接字符串，如：<br>
+<code>py print 'hello' + ' ' + 'world'</code></p>
+<blockquote>
+<p>hello world</p>
+</blockquote>
+<p>（不可将字符串与其他类型用 <code>+</code> 连接）<br>
+或者使用 <code>,</code>会自动加一个空格（逗号自动被替换为空格）：</p>
+<p><code>py print 'hello', 'world'</code></p>
+<blockquote>
+<p>hello world</p>
+</blockquote>
+<h4 id="234-中文字符">2.3.4 中文字符</h4>
+<p>在 python 中，中文字符支持 Unicode 编码，因此，输出中文字符串时，需在前面加<code>u</code>（我的不需要加，可能和python版本之类的有关）。</p>
+<p>如果中文字符串在Python环境下遇到 UnicodeDecodeError，这是因为.py文件保存的格式有问题。可以在第一行添加注释</p>
+<pre><code class="language-py"># -*- coding: utf-8 -*-
+</code></pre>
+<p>目的是告诉Python解释器，用UTF-8编码读取源代码。然后用Notepad++ 另存为... 并选择UTF-8格式保存。</p>
+<h3 id="24-布尔值">2.4 布尔值</h3>
+<h4 id="241-基本概念">2.4.1 基本概念</h4>
+<p><code>True</code> 和 <code>False</code>（首字母大写）。<br>
+可对布尔值进行 <code>and</code>、<code>or</code>、<code>not</code>运算。</p>
+<p>Python把<code>0</code>、空字符串<code>''</code>和<code>None</code>看成 False，其他数值和非空字符串都看成 True。</p>
+<h4 id="242-短路运算">2.4.2 短路运算</h4>
+<ol>
+<li>
+<p>在计算 a and b 时，如果 a 是 False，则根据与运算法则，整个结果必定为 False，因此返回 a；如果 a 是 True，则整个计算结果必定取决与 b，因此返回 b。</p>
+</li>
+<li>
+<p>在计算 a or b 时，如果 a 是 True，则根据或运算法则，整个计算结果必定为 True，因此返回 a；如果 a 是 False，则整个计算结果必定取决于 b，因此返回 b。</p>
+</li>
+</ol>
+<p>因此，</p>
+<pre><code class="language-py">a = True
+print a and 'a=T' or 'a=F'
+</code></pre>
+<p>因为<code>a = True</code>，后面为 and，所以取决于后面，因为<code>'a=T'</code> 不是空字符串，所以 也为 True，后面是or，所以取决于当前，因此输出：</p>
+<blockquote>
+<p>a=T</p>
+</blockquote>
+<h3 id="25-空值">2.5 空值</h3>
+<p>用 <code>None</code> 表示，并不是 <code>0</code>，因为 0 是有意义的。</p>
+<h2 id="3变量">3.变量</h2>
+<h3 id="31-变量名">3.1 变量名</h3>
+<p>变量名必须是大小写英文、数字和下划线（_）的组合，且不能用数字开头。</p>
+<h3 id="32-动态语言">3.2 动态语言</h3>
+<p>python的变量本身类型不固定，因此称 python 为动态语言。<br>
+例如：</p>
+<pre><code class="language-py">a = 123
+print a
+a = 'hello world'
+print a
+</code></pre>
+<blockquote>
+<p>123<br>
+hello world</p>
+</blockquote>
+<p>定义 a 时无需指定 a 的类型，可通过赋值自动判断，当 <code>a = 123</code> 时 a 是整型，当 <code>a = 'hello world'</code> 时 a 是字符串类型，成为动态语言。</p>
+<h3 id="32-具体分析">3.2 具体分析</h3>
+<pre><code class="language-py">a = 123
+b = a
+a = 'abc'
+print b
+</code></pre>
+<blockquote>
+<p>123</p>
+</blockquote>
+<p><img src="https://img-blog.csdnimg.cn/20190113175437922.png" alt="指向" loading="lazy"><br>
+最开始 a 和 b 都指向了内存中的 123 。<br>
+<img src="https://img-blog.csdnimg.cn/20190113175550279.png" alt="在这里插入图片描述" loading="lazy"><br>
+接着让 a 指向 'abc'，而 b 仍指向 123 。</p>
+<h2 id="4list-tuple-类型">4.list / tuple 类型</h2>
+<h3 id="41-list">4.1 list</h3>
+<h4 id="411-构造">4.1.1 构造</h4>
+<p>list（列表） 是 python 的内置类型，使用方法也很简单。</p>
+<pre><code class="language-py">L = ['hello', 'and', 'python']
+print L
+</code></pre>
+<blockquote>
+<p>['hello', 'and', 'python']</p>
+</blockquote>
+<p>list 中的元素类型也不要求一样。</p>
+<pre><code class="language-py">L = ['hello', 100, 'python']
+print L
+</code></pre>
+<blockquote>
+<p>['hello', 100, 'python']</p>
+</blockquote>
+<p>也可定义一个空list：</p>
+<pre><code class="language-py">empty_list = []
+</code></pre>
+<h4 id="412-使用">4.1.2 使用</h4>
+<p>若要指定使用的元素：</p>
+<pre><code class="language-py">L = ['hello', 100, 'python']
+print L[0]
+print L[1]
+print L[2]
+</code></pre>
+<blockquote>
+<p>hello<br>
+100<br>
+python</p>
+</blockquote>
+<p>注意：使用时不要越界。</p>
+<p>list 还可以倒序输出:</p>
+<pre><code class="language-py">L = ['hello', 100, 'python']
+print L[-1]
+print L[-2]
+print L[-3]
+</code></pre>
+<blockquote>
+<p>python<br>
+100<br>
+hello</p>
+</blockquote>
+<h4 id="413-添加新元素">4.1.3 添加新元素</h4>
+<p>使用 <code>append()</code>或 <code>insert()</code>方法添加新元素。用法也很简单：</p>
+<pre><code class="language-py">L = ['hello', 100, 'python']
+L.append(200)
+print L
+L.insert(1, 'world')
+print L
+</code></pre>
+<pre><code>['hello', 100, 'python', 200]
+['hello', 'world', 100, 'python', 200]
+</code></pre>
+<h4 id="414-删除元素">4.1.4 删除元素</h4>
+<p>使用<code>pop()</code>方法删除元素。若该方法不传参，则默认删除最后一个元素，否则删除指定位置的元素。用法：</p>
+<pre><code class="language-py">L = ['hello', 100, 'python', 'hehe', 200]
+L.pop()
+print L
+L.pop(2)
+print L
+</code></pre>
+<pre><code>['hello', 100, 'python', 'hehe']
+['hello', 100, 'hehe']
+</code></pre>
+<h4 id="415-替换元素">4.1.5 替换元素</h4>
+<p>与数组类似：</p>
+<pre><code class="language-py">L = ['hello', 100, 'python', 'hehe', 200]
+L[2] = 'sss'
+print L
+L[-2] = 'haha'
+print L
+</code></pre>
+<pre><code>['hello', 100, 'sss', 'hehe', 200]
+['hello', 100, 'sss', 'haha', 200]
+</code></pre>
+<h3 id="42-tuple">4.2 tuple</h3>
+<h4 id="421-构造">4.2.1 构造</h4>
+<p>tuple（元组）与 list 非常类似，但 tuple 一旦创建完，就不能修改。<br>
+tuple 用<code>()</code>来括起来：</p>
+<pre><code class="language-py">T = ('hello', 100, 'python', 'hehe', 200)
+print T
+</code></pre>
+<p>此时，T 不能再修改。但可以访问，访问方法与 list 一样。</p>
+<h4 id="422-单元素的tuple">4.2.2 单元素的tuple</h4>
+<p>python 规定若 tuple 只有一个元素时，需要在第一个元素后面加上逗号：</p>
+<pre><code class="language-py">T = ('hello', )
+print T
+</code></pre>
+<blockquote>
+<p>(hello)</p>
+</blockquote>
+<p>否则输出 <code>hello</code>而不是<code>(hello)</code>。</p>
+<p>因为，若是不加逗号，python 解释器认为括号表示运算时的优先级，因此避免歧义，需要加一个逗号。</p>
+<h4 id="423-可变tuple">4.2.3 可变tuple</h4>
+<pre><code class="language-py">T = ('hello', 100, ['aaa', 'bbb'])
+L = T[2]
+L[0] = 'xxx'
+print T
+</code></pre>
+<blockquote>
+<p>('hello', 100, ['xxx', 'bbb'])</p>
+</blockquote>
+<p>可以发现，通过修改 L，改变了 T。<br>
+原因是，tuple 的不可变性，体现在指向不变上。<br>
+具体分析如下：<br>
+<img src="https://img-blog.csdnimg.cn/20190113215240170.png" alt="分析" loading="lazy"></p>
+<p>因此，当执行<code>L = T[2], L[0] = 'xxx'</code>时，L[0] 的指向发生了改变，但 T[2] 的指向仍然是指向 L，并未改变。若要创建一个无法改变的 tuple，则需 tuple 的每个元素都不可变。</p>
+<h2 id="5条件判断与循环">5.条件判断与循环</h2>
+<h3 id="51-if">5.1 if</h3>
+<p>用法很简单：</p>
+<pre><code class="language-py">if 10 &gt; 9:
+    print 'yes'
+</code></pre>
+<blockquote>
+<p>yes</p>
+</blockquote>
+<p>if 后面还可加 not：</p>
+<pre><code class="language-py">if not 9 &gt; 10:
+    print 'no'
+</code></pre>
+<blockquote>
+<p>no</p>
+</blockquote>
+<p>在 <code>:</code> 后面，代表代码块的开始。</p>
+<h3 id="52-if-else">5.2 if-else</h3>
+<p>用法如下：</p>
+<pre><code>if 11 &gt; 10:
+    print 'yes'
+else:
+    print 'no'
+</code></pre>
+<blockquote>
+<p>yes</p>
+</blockquote>
+<p>注意：else后面有<code>:</code>。</p>
+<h3 id="53-if-elif-else">5.3 if-elif-else</h3>
+<p>用法如下：</p>
+<pre><code class="language-py">age = 3
+if age &gt;= 18:
+    print 'adult'
+elif age &gt;= 6:
+    print 'teenager'
+elif age &gt;= 3:
+    print 'kid'
+else:
+    print 'baby'
+</code></pre>
+<blockquote>
+<p>kid</p>
+</blockquote>
+<p>注意，每个判断语句后面都有 <code>:</code>。</p>
+<h3 id="54-for循环">5.4 for循环</h3>
+<p>用法如下：</p>
+<pre><code class="language-py">L = ['hello', 'why', 'yes']
+for str in L:
+    print str
+</code></pre>
+<blockquote>
+<p>hello<br>
+why<br>
+yes</p>
+</blockquote>
+<p>str 变量是在 for 循环中定义的，意思是依次取出 list 中的每一个元素，赋值给 str ，然后执行缩进中的内容。<br>
+注意：for 后面有L <code>:</code>，且 for 与 in 搭配。</p>
+<h3 id="55-while循环">5.5 while循环</h3>
+<p>格式如下：</p>
+<pre><code class="language-py">a = 1
+while a &lt; 5:
+    print a
+    a += 1
+</code></pre>
+<blockquote>
+<p>1<br>
+2<br>
+3<br>
+4</p>
+</blockquote>
+<p>注意 while 语句后面的 <code>:</code>。</p>
+<h3 id="56-break与continue">5.6 break与continue</h3>
+<h4 id="561-break">5.6.1 break</h4>
+<pre><code class="language-py">a = 1
+while True:
+    print a
+    a += 1
+    if a &gt; 5:
+        break
+</code></pre>
+<p>用法与c/c++类似。</p>
+<h4 id="562-continue">5.6.2 continue</h4>
+<p>用法与c/c++类似。这里不具体举例。</p>
+<h3 id="57-多重循环">5.7 多重循环</h3>
+<h2 id="6-dict-和-set-类型">6 dict 和 set 类型</h2>
+<h3 id="61-dict">6.1 dict</h3>
+<h4 id="611-构造">6.1.1 构造</h4>
+<p>感觉类似于C++的map。是将两个类型对应起来。<br>
+简单地说，list 与 tuple 中每个元素的类型都是一个已知类型，而 dict 中每个元素的类型都是一个映射（键值对key-value）。<br>
+例如，我们想将一个班的每个同学的姓名与他的成绩存储下来，且需一一对应，那么用 dict ，可完成这个任务。因为 dict 中的每个元素，可以存储一个姓名与成绩的映射。用法如下：</p>
+<pre><code class="language-py">d = {
+    'Amon': 90,
+    'Kiki': 95,
+    'Jack': 80
+}
+print d
+print len(d)
+</code></pre>
+<blockquote>
+<p>{'Kiki': 95, 'Amon': 90, 'Jack': 80}<br>
+3</p>
+</blockquote>
+<h4 id="612-使用">6.1.2 使用</h4>
+<p>d[key] = value，如下：</p>
+<pre><code class="language-py">d = {
+    'Amon': 90,
+    'Kiki': 95,
+    'Jack': 80
+}
+print d['Amon']
+</code></pre>
+<p>若 d 中没有你的 key，就会报错：</p>
+<pre><code class="language-py">d = {
+    'Amon': 90,
+    'Kiki': 95,
+    'Jack': 80
+}
+print d['Tina']
+</code></pre>
+<p>报错提示：</p>
+<pre><code class="language-py">Traceback (most recent call last):
+  File &quot;hello.py&quot;, line 6, in &lt;module&gt;
+    print d['Tina']
+KeyError: 'Tina'
+</code></pre>
+<p>因此，有个函数可以判断 dict 中是否含有某个 key：</p>
+<pre><code class="language-py">if 'Tina' in d:
+    print d['Tina']
+</code></pre>
+<p>或者使用：</p>
+<pre><code class="language-py">print d.get('Tina')
+</code></pre>
+<p>若没有所需的key，输出 <code>None</code>，否则输出 value。<br>
+这样就不会报错。</p>
+<h4 id="613-dict的特点">6.1.3 dict的特点</h4>
+<p>1.key 不能重复，且 key 不能变（所以 list 不能作为key）<br>
+2.在 dict 中，元素是没有顺序的（所以不能用d[0], d[1]...)<br>
+3.查找速度快，但占用内存大</p>
+<h4 id="614-更新dict">6.1.4 更新dict</h4>
+<p>添加新元素：</p>
+<pre><code class="language-py">d = {
+    'Amon': 90,
+    'Kiki': 95,
+    'Jack': 80
+}
+d['newPerson'] = 60
+print d
+</code></pre>
+<p><code>{'newPerson': 60, 'Kiki': 95, 'Amon': 90, 'Jack': 80}</code></p>
+<h4 id="615-遍历dict">6.1.5 遍历dict</h4>
+<p>与遍历 list 类似：</p>
+<pre><code class="language-py">d = {
+    'Amon': 90,
+    'Kiki': 95,
+    'Jack': 80
+}
+for key in d:
+    print key, d[key]
+</code></pre>
+<blockquote>
+<p>Kiki 95<br>
+Amon 90<br>
+Jack 80</p>
+</blockquote>
+<h3 id="62-set">6.2 set</h3>
+<h4 id="621-构造">6.2.1 构造</h4>
+<p>set 与 dict 的区别的，dict 中存的是一个 key-value 的键值对，而 set 中只有 key。<br>
+set 中的 key 也不能重复，相当于 set 是一个不能有重复元素的集合，且元素无序。<br>
+set 的调用方法是调用他的构造函数 set()，在里面传入一个 list，list 中存的是需要传入的 key，用法如下：</p>
+<pre><code class="language-py">s = set(['Amon', 'Kiki', 'Tina'])
+print s
+</code></pre>
+<blockquote>
+<p>set(['Kiki', 'Amon', 'Tina'])</p>
+</blockquote>
+<p>当 set 中有重复元素时，会自动去重。</p>
+<h4 id="622-使用">6.2.2 使用</h4>
+<p>由于 set 无序，所以我们无法通过 s[0]、s[1].. 这样的方式来调用，但可以判断某个元素是否在 set 内：</p>
+<pre><code class="language-py">s = set(['Amon', 'Kiki', 'Tina'])
+print 'kkk' in s
+</code></pre>
+<blockquote>
+<p>False</p>
+</blockquote>
+<h4 id="623-set-的特点">6.2.3 set 的特点</h4>
+<p>1.元素不能重复，且不可变（所以 list 不能作为 set 的元素）<br>
+2.在 set 中，元素没有顺序（所以不能用 s[0]，s[1]...）<br>
+3.判断某个元素是否在 set 中的速度很快</p>
+<h4 id="624-遍历-set">6.2.4 遍历 set</h4>
+<p>与 list 的遍历类似：</p>
+<pre><code class="language-py">s = set(['Amon', 'Kiki', 'Tina'])
+for name in s:
+    print name
+</code></pre>
+<blockquote>
+<p>Kiki<br>
+Amon<br>
+Tina</p>
+</blockquote>
+<h4 id="625-更新-set">6.2.5 更新 set</h4>
+<p>添加新元素：add()<br>
+删除元素：remove()<br>
+（若删除元素不存在，会报错）<br>
+如下：</p>
+<pre><code class="language-py">s = set(['Amon', 'Kiki', 'Tina'])
+s.add(100)
+print s
+s.remove('Amon')
+print s
+</code></pre>
+<blockquote>
+<p>set([100, 'Kiki', 'Amon', 'Tina'])<br>
+set([100, 'Kiki', 'Tina'])</p>
+</blockquote>
+<h2 id="7函数">7.函数</h2>
+<h3 id="71-python内置函数">7.1 python内置函数</h3>
+<p>python 的官方文档：<br>
+http://docs.python.org/2/library/functions.html#abs</p>
+<p>若要查看某个函数的用法，也可以：</p>
+<pre><code class="language-py">print help(abs)
+</code></pre>
+<pre><code>Help on built-in function abs in module __builtin__:
+
+abs(...)
+    abs(number) -&gt; number
+
+    Return the absolute value of the argument.
+</code></pre>
+<h3 id="72-编写函数">7.2 编写函数</h3>
+<p>定义函数使用 <code>def</code>语句，依次写出函数名、括号、括号中的参数和冒号，例如：</p>
+<pre><code class="language-py">def my_abs(x):
+    if x &gt;= 0:
+        return x
+    else:
+        return -x
+a = -3
+print my_abs(a)
+</code></pre>
+<blockquote>
+<p>3</p>
+</blockquote>
+<p>若没有返回语句，则返回 <code>None</code>（return None），简写为<code>return</code>。<br>
+他的用法用法与C/C++差不多，也可以递归调用自身。</p>
+<h3 id="73-返回多值">7.3 返回多值</h3>
+<p>用法如下：</p>
+<pre><code class="language-py">def my_abs(x1, x2, x3):
+    return abs(x1), abs(x2), abs(x3)
+a = -3
+b = 2
+c = -5
+print my_abs(a, b, c)
+</code></pre>
+<blockquote>
+<p>(3, 2, 5)</p>
+</blockquote>
+<p>返回值是一个 tuple。</p>
+<h3 id="74-默认参数">7.4 默认参数</h3>
+<p>和C++的默认参数差不多。</p>
+<pre><code class="language-py">def sum(x1, x2, x3 = 0, x4 = 0):
+    return x1 + x2 + x3 + x4
+a = -3
+b = 2
+print sum(a, b)
+</code></pre>
+<blockquote>
+<p>-1</p>
+</blockquote>
+<h3 id="75-可变参数">7.5 可变参数</h3>
+<p>用法如下：</p>
+<pre><code class="language-py">def sum(*args):
+    ans = 0
+    for em in args:
+        ans += em
+    return ans
+print sum(2, 3, -6)
+</code></pre>
+<blockquote>
+<p>-1</p>
+</blockquote>
+<p>在参数前加 <code>*</code>，代表这是一个可变参数，相当于是一个 tuple。<br>
+和C/C++的可变参数略有不同。</p>
+<h2 id="8切片">8.切片</h2>
+<h3 id="81-切片简述">8.1 切片简述</h3>
+<p>若想遍历一个 list 的前 n 个元素，可这样做：</p>
+<pre><code class="language-py">L = [4, 26, 8, 2, 11, 33, 27]
+for i in range(5):
+    print L[i]
+</code></pre>
+<blockquote>
+<p>4<br>
+26<br>
+8<br>
+2<br>
+11</p>
+</blockquote>
+<p>range(n) 代表 0~（n-1）之间的数，让 i 等于这些数，再调用 L[i]。<br>
+而 python 中的切片操作能达到相同的效果：</p>
+<pre><code class="language-py">L = [4, 26, 8, 2, 11, 33, 27]
+print L[0:5]
+</code></pre>
+<blockquote>
+<p>[4, 26, 8, 2, 11]</p>
+</blockquote>
+<p><code>[a, b]</code> 是一个前闭后开的区间，代表第 a 个元素到第 b 个元素，但不包括第 b 个。<br>
+<code>[:]</code>代表所有元素。<br>
+<code>[::a]</code>代表每 a 个元素取一个元素。</p>
+<pre><code class="language-py">L = [4, 26, 8, 2, 11, 33, 27]
+print L[::2]
+</code></pre>
+<blockquote>
+<p>[4, 8, 11, 27]</p>
+</blockquote>
+<p>同样，对 tuple 也可切片。</p>
+<h3 id="82-倒序切片">8.2 倒序切片</h3>
+<p>python 支持 L[-1] 取最后一个元素，同样也支持 L[-1:] 倒数切片：</p>
+<pre><code class="language-py">L = [4, 26, 8, 2, 11, 33, 27]
+print L[-3:]
+print L[:-3]
+print L[-5:-2]
+print L[-6:-2:2]
+</code></pre>
+<blockquote>
+<p>[11, 33, 27] （倒数三个数）<br>
+[4, 26, 8, 2] （第一个数到倒数第三个数（不包括））<br>
+[8, 2, 11]（倒数第五个数到倒数第三个数（不包括））<br>
+[26, 2]（每2个中1个，倒数第六个数到倒数第二个数（不包括））</p>
+</blockquote>
+<h3 id="83-字符串切片">8.3 字符串切片</h3>
+<p>字符串和 Unicode 也可以看做是一种 list，每个字符是一个元素。如下：</p>
+<pre><code class="language-py">print 'hello world'[2:7]
+</code></pre>
+<blockquote>
+<p>llo w</p>
+</blockquote>
+<h2 id="9迭代">9.迭代</h2>
+<h3 id="91-迭代的概念">9.1 迭代的概念</h3>
+<p>在python中，迭代就是指 for 循环。for 循环可以作用在有序或无序集合上。</p>
+<h3 id="92-索引迭代">9.2 索引迭代</h3>
+<p><code>Python中，迭代永远是取出元素本身，而非元素的索引（下标）。</code><br>
+若需要元素的索引，可使用 enumerate() 函数，他将一个集合变成了每个元素为 tuple 的集合。如下：<br>
+<code>L = ['Amon', 'Kiki', 'Tina']</code><br>
+=&gt; <code>L = [(0, 'Amon'), (1, 'Kiki'), (2, 'Tina')]</code></p>
+<p>再对他进行迭代：</p>
+<pre><code class="language-py">L = ['Amon', 'Kiki', 'Tina']
+for i, name in enumerate(L):
+    print i, name
+</code></pre>
+<blockquote>
+<p>0 Amon<br>
+1 Kiki<br>
+2 Tina</p>
+</blockquote>
+<h3 id="93-迭代dict">9.3 迭代dict</h3>
+<p>dict 在 for 循环中，每次可以取出他的一个 key。若我们想迭代 value ，可用 values() 方法。</p>
+<pre><code class="language-py">d = {
+    'Amon': 90,
+    'Tina': 60,
+    'Kiki': 80
+}
+print d.values()
+for grade in d.values():
+    print grade
+</code></pre>
+<blockquote>
+<p>[80, 90, 60]<br>
+80<br>
+90<br>
+60</p>
+</blockquote>
+<p>values() 方法实际上将 dict 转化为一个包含 values 的 list。<br>
+除了 values() 方法，python 中还提供了 itervalues() 方法：</p>
+<pre><code class="language-py">d = {
+    'Amon': 90,
+    'Tina': 60,
+    'Kiki': 80
+}
+print d.itervalues()
+for grade in d.itervalues():
+    print grade
+</code></pre>
+<blockquote>
+<p>&lt;dictionary-valueiterator object at 0x102930730&gt;<br>
+80<br>
+90<br>
+60</p>
+</blockquote>
+<p>itervalues() 方法不会将 dict 转换，而是在每次迭代过程中，取出 value，所以更节约内存。</p>
+<p>除此之外，我们还可以使用 items() 方法同时迭代 key 和 value，items() 方法将 dict 对象转换成了包含 tuple 的 list。</p>
+<pre><code class="language-py">d = {
+    'Amon': 90,
+    'Tina': 60,
+    'Kiki': 80
+}
+print d.items()
+</code></pre>
+<blockquote>
+<p>[('Kiki', 80), ('Amon', 90), ('Tina', 60)]</p>
+</blockquote>
+<p>所以，对 d.items() 进行迭代，即可得到 key 和 value：</p>
+<pre><code class="language-py">d = {
+    'Amon': 90,
+    'Tina': 60,
+    'Kiki': 80
+}
+for key, value in d.items():
+    print key, ':', value
+</code></pre>
+<blockquote>
+<p>Kiki : 80<br>
+Amon : 90<br>
+Tina : 60</p>
+</blockquote>
+<h2 id="10列表生成式">10.列表生成式</h2>
+<h3 id="101-简述">10.1 简述</h3>
+<p>当我们想将一个 list 中的元素设置为 1<em>1，2</em>2，3<em>3 ... 10</em>10，若是一个个的赋值，过于复杂，可用列表生成式用一行搞定：</p>
+<pre><code class="language-py">L = [x * x for x in range(1, 11)]
+print L
+</code></pre>
+<blockquote>
+<p>[1, 4, 9, 16, 25, 36, 49, 64, 81, 100]</p>
+</blockquote>
+<p>但若是我们只要 x 为偶数的情况呢？可在列表生成式中加入条件判断：</p>
+<pre><code class="language-py">L = [x * x for x in range(1, 11) if (x % 2 == 0)]
+print L
+</code></pre>
+<blockquote>
+<p>[4, 16, 36, 64, 100]</p>
+</blockquote>
+<h3 id="102-多层嵌套">10.2 多层嵌套</h3>
+<p>如下：</p>
+<pre><code class="language-py">print [a + str(b) for a in 'avsde' for b in range(1, 3)]
+</code></pre>
+<blockquote>
+<p>['a1', 'a2', 'v1', 'v2', 's1', 's2', 'd1', 'd2', 'e1', 'e2']</p>
+</blockquote>
+<h2 id="参考">参考</h2>
+<p>https://www.imooc.com/learn/177</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[C++ | 函数重载]]></title>
+        <id>https://ccccj.github.io/post/c-or-han-shu-chong-zai/</id>
+        <link href="https://ccccj.github.io/post/c-or-han-shu-chong-zai/">
+        </link>
+        <updated>2018-04-05T09:31:36.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="目录">目录</h2>
+<p><ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#%E7%9B%AE%E5%BD%95">目录</a>
+<ul>
+<li><a href="#%E5%87%BD%E6%95%B0%E9%87%8D%E8%BD%BD%E6%98%AF%E4%BB%80%E4%B9%88">函数重载是什么</a></li>
+<li><a href="#%E5%8F%AF%E4%BB%A5%E6%9E%84%E6%88%90%E9%87%8D%E8%BD%BD%E7%9A%84%E8%A6%81%E6%B1%82">可以构成重载的要求</a>
+<ul>
+<li><a href="#%E5%8F%82%E6%95%B0%E5%88%97%E8%A1%A8%E7%9A%84%E8%A6%81%E6%B1%82">参数列表的要求</a></li>
+<li><a href="#%E5%85%B6%E4%BB%96%E6%B3%A8%E6%84%8F%E7%82%B9">其他注意点</a>
+<ul>
+<li><a href="#1-%E7%B1%BB%E5%9E%8B%E9%9C%80%E8%A6%81%E5%AE%8C%E5%85%A8%E5%8C%B9%E9%85%8D">1、类型需要完全匹配</a></li>
+<li><a href="#2-%E6%B3%A8%E6%84%8F%E5%BC%95%E7%94%A8">2、注意引用</a></li>
+<li><a href="#3-const-%E6%8C%87%E9%92%88%E7%B1%BB%E5%9E%8B%E5%8C%B9%E9%85%8D">3、const 指针类型匹配</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#%E9%87%8D%E8%BD%BD%E5%BC%95%E7%94%A8%E5%8F%82%E6%95%B0">重载引用参数</a></li>
+<li><a href="#%E4%BD%95%E6%97%B6%E9%87%87%E7%94%A8%E5%87%BD%E6%95%B0%E9%87%8D%E8%BD%BD">何时采用函数重载</a></li>
+<li><a href="#%E5%87%BD%E6%95%B0%E9%87%8D%E8%BD%BD%E7%9A%84%E5%8E%9F%E7%90%86">函数重载的原理</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</p>
+<h3 id="函数重载是什么">函数重载是什么</h3>
+<p><strong>缺省参数</strong>让我们在参数数目不同时可以调用同一个函数（不清楚的可以看下我 C++ 零碎知识点集合 那篇博客），而<strong>函数重载</strong>让我们能够使用多个<strong>同名函数</strong>。</p>
+<hr>
+<p>（其实写完这篇博客，觉得举这个例子不是很好..因为很多人并不是像我一样，先接触了 STL 再学习的 C++，看这篇博客的很多人应该并不理解 vector 之类的...然而已经写完了...）</p>
+<p>第一次接触函数缺省参数应该是在使用 STL 的各种容器的时候，那时候还没开始学 C++，但是一直听说做题的时候容器很好用，就试着用了下。当时第一个用的是 vector，对于它的构造方法觉得惊为天人...<br>
+（其实这里举这个例子可能会有些听不懂...虽然可以再讲很多别的例子..但是对我印象最深刻的函数重载就是这个= =）</p>
+<p>刚才特地去 cplusplus 上验证了下到底是重载还是参数缺省..事实证明就是重载..推荐大家多用这个网站..真的好用<sup>o</sup></p>
+<figure data-type="image" tabindex="1"><img src="https://img-blog.csdn.net/2018040513113615?" alt="vector" loading="lazy"></figure>
+<p>关于 const allocator_type&amp; alloc 这个参数我们暂时不用管（百度了下是模板..然而没学过..只能暂时不管了...），只需要看其他的即可 。<br>
+这里声明了几个的 vector 的构造函数，从这也能看出传参方式不同：</p>
+<blockquote>
+<p>1.无参数；<br>
+2.传一个 n 来设定 vector 的初始元素个数；<br>
+3.传 n 设定元素个数，传 value 设定每个元素的初始值；<br>
+4.是拷贝构造，传入一个 vector 的对象；<br>
+5.传两个迭代器，设定第一个元素的地址与最后一个元素的下一位置的地址。</p>
+</blockquote>
+<p>暂时只能看懂以上构造函数，但是也可以说明一个问题，那就是，<strong>当我们传入的参数不同时，所调用的函数也会不同</strong>。</p>
+<figure data-type="image" tabindex="2"><img src="https://img-blog.csdn.net/20180405132306163?" alt="构造方法" loading="lazy"></figure>
+<p>这里是几个构造方法的例子，分别对应了我上面所举的例子的 1、3、5、4 这四种方法。</p>
+<p>到这里有没有稍微明白一点<strong>函数重载</strong>到底是什么呢？</p>
+<blockquote>
+<p>函数重载即，我们设计一系列函数——他们有相同的函数名，并且完成相同的工作，但有不同的参数列表。</p>
+</blockquote>
+<p>C++ 相对于 C 引入了函数重载，很方便的解决了我们很多问题，就像之前那个 vector 的几种构造方法一样，他们略微有一些差异，但最终实现的功能是一样的，我们可以根据他们的功能来记住这一类函数的名字，但若是每个函数都有不同的名字，调用时便会很不方便。</p>
+<h3 id="可以构成重载的要求">可以构成重载的要求</h3>
+<h4 id="参数列表的要求">参数列表的要求</h4>
+<p>但不是所有函数都可以重名的。函数重载也有前提：<strong>参数列表不同</strong>。<br>
+函数的<strong>参数列表</strong>也成为<strong>函数特征标</strong>。他由三个特性构成：<br>
+1.<strong>参数数目和类型</strong><br>
+2.<strong>参数的排列顺序</strong><br>
+也就是说，有两个函数，在这两点中有任意一点不同，我们称其参数列表（特征标）不同。</p>
+<p>注意，我们所说的是要求参数列表（特征标）不同，而不是函数类型不同，以下这两个声明是<strong>互斥</strong>的：</p>
+<pre><code>int test(int x);
+double test(int x);
+</code></pre>
+<p>但是当参数列表不同时，返回类型可以不同：</p>
+<pre><code>int test(int x);
+double test(float x);
+</code></pre>
+<p><strong>总结</strong>：需要使用函数重载，其参数列表必须不同，而返回类型可不同也可相同（具体原因后面会讲）。</p>
+<h4 id="其他注意点">其他注意点</h4>
+<h5 id="1-类型需要完全匹配">1、类型需要完全匹配</h5>
+<p>在使用时有很多地方需要我们注意：</p>
+<pre><code>	void test(int a); 
+	void test(float f);
+</code></pre>
+<p>这时候如果调用：</p>
+<pre><code>double t = 1;
+test(t);
+</code></pre>
+<p>当 test 函数没有重载时，传入参数类型若不匹配，编译器便会将类型强转，然而现在有了两种转换 t 的方式，编译器便会将其视为错误。</p>
+<h5 id="2-注意引用">2、注意引用</h5>
+<p>另外，有些看起来彼此不同的参数列表是不能共存的：</p>
+<pre><code>void test(int x);
+void test(int&amp; x);
+</code></pre>
+<p>的确，您可能认为他们参数列表不同，可是换一种考虑方式：当您调用</p>
+<pre><code>    int a = 1;
+    test(a);
+</code></pre>
+<p>这时候两个函数都匹配，又让编译器去调用哪个呢？为了避免这种情况，编译器在检查函数特征标时，将类型本身与类型引用视为同一特征标。</p>
+<h5 id="3-const-指针类型匹配">3、const 指针类型匹配</h5>
+<p>看下面一个简单的例子：</p>
+<pre><code>void test(const char* s) {
+    cout &lt;&lt; &quot;test1&quot; &lt;&lt; endl;
+}
+
+void test(char* s) {
+    cout &lt;&lt; &quot;test2&quot; &lt;&lt; endl;
+}
+
+int main() {
+    const char a[] = &quot;hello&quot;;
+    char b[] = &quot;hello&quot;;
+    test(a);
+    test(b);
+    return 0;
+}
+</code></pre>
+<p>输出结果：</p>
+<blockquote>
+<p>test1<br>
+test2</p>
+</blockquote>
+<p>可以看出，const 修饰的参数会与 const 类型匹配，而非 const 参数与非 const 类型匹配，但是注意，若不是指针，而是普通变量，编译器则会报错：</p>
+<pre><code>void test(int x);
+void test(const int x);
+</code></pre>
+<p>上面的代码编译器会提示你函数重定义，说明编译器并不区分const变量与非const变量（我的猜测是，无论是不是const变量，对于原变量，都不会修改，因为参数是原本参数的一份拷贝，因此，除指针和引用外的变量，是不是const变量都无所谓）。</p>
+<h3 id="重载引用参数">重载引用参数</h3>
+<p>在C++中经常用到引用，因此重载引用参数也值得探讨。</p>
+<pre><code>void test(double &amp; x);
+void test(const double &amp; x);
+void test(double &amp;&amp; x);
+</code></pre>
+<p>可能有人是第一次见两个引用符号...比如我...<br>
+下面具体解释下这三种参数对应的传参：</p>
+<ol>
+<li>形参为 可变的左值；</li>
+<li>形参为 可变的左值、不可变的左值 或 右值</li>
+<li>形参为 右值（最后这个书上说 rvalue，但翻译又说是左值，怀疑是写错了）。</li>
+</ol>
+<p>可以发现，可变的左值既可匹配 1 也可匹配 2；右值既可匹配 2 又可匹配 3；那么到底如何匹配呢？<br>
+答案是：选择最匹配的。<br>
+看下面一个对比就明白了：</p>
+<pre><code>void test(double&amp; x) {
+    cout &lt;&lt; &quot;test1&quot; &lt;&lt; endl;
+}
+
+void test(const double&amp; x) {
+    cout &lt;&lt; &quot;test2&quot; &lt;&lt; endl;
+}
+
+void test(double&amp;&amp; x) {
+    cout &lt;&lt; &quot;test3&quot; &lt;&lt; endl;
+}
+
+int main() {
+    double a = 1;
+    const double b = 2;
+    test(a);
+    test(b);
+    test(a + b);
+    return 0;
+}
+</code></pre>
+<p>答案：</p>
+<blockquote>
+<p>test1<br>
+test2<br>
+test3</p>
+</blockquote>
+<p>这里 a 为左值，所以匹配最匹配的 test1，b 为不可变的左值，所以匹配 test2， a+b 为右值，所以匹配最匹配的 test3。而下一个例子则不是：</p>
+<pre><code>void test(const double&amp; x) {
+    cout &lt;&lt; &quot;test2&quot; &lt;&lt; endl;
+}
+
+int main() {
+    double a = 1;
+    const double b = 2;
+    test(a);
+    test(b);
+    test(a + b);
+    return 0;
+}
+</code></pre>
+<p>答案：</p>
+<blockquote>
+<p>test2<br>
+test2<br>
+test2</p>
+</blockquote>
+<p>这里的三个答案均为 test2，是因为 a 和 a+b 没有最原本那两个选择，最匹配的变为了 test2。这就是<strong>选择最匹配</strong>的意思。</p>
+<h3 id="何时采用函数重载">何时采用函数重载</h3>
+<p>当我们的函数将执行相同的任务，但使用不同形式的数据时，可采用函数重载。当然，并不是所有时候都需要用到函数重载，有些地方用缺省参数会更方便些。</p>
+<h3 id="函数重载的原理">函数重载的原理</h3>
+<p>想要明白函数的原理，就需要先明白<strong>名称修饰</strong>（名称矫正）。什么是名称修饰呢？<br>
+我们的编译器在<strong>编译</strong>阶段，将函数名进行了修饰，将其从原本的函数名，变为了修饰后的修饰名。在调用函数的时候，并不是按函数名去直接调用函数的，而是按照<strong>修饰名</strong>去调用函数。<br>
+那么C++是如何对函数名进行修饰的呢？来看一个例子：</p>
+<pre><code>void test(int a, float b) {
+	// ...
+}
+
+int main() {
+	test(1, 2);
+	return 0;
+}
+</code></pre>
+<p>一段简单的代码，我们分别在 c 和 c++ 中运行，查看其汇编代码。<br>
+linux 下执行以下语句来查看：</p>
+<blockquote>
+<p>objdump -D a.out | grep &quot;test&quot;<br>
+a.out：是我生成的可执行文件名，如果不是这个名字，可修改下；<br>
+grep：由于汇编代码有点长..我就写了辣么几行代码就有好多啊..干脆就通过管道找起来方便点...</p>
+</blockquote>
+<p>c的结果：<br>
+<img src="https://img-blog.csdn.net/20180405172057234?" alt="c" loading="lazy"><br>
+c++的结果：<br>
+<img src="https://img-blog.csdn.net/20180405172109749?" alt="c++" loading="lazy"></p>
+<p>可以看出，test 这一函数，在 c 与 c++ 汇编中的名字是不同的，c++ 对其进行的名称修饰，将原本的名字前面加了 <strong>4</strong>，表示函数名的长度为 4；test 后面加了 <strong>i</strong> 和 <strong>f</strong> ，表示第一个参数类型为 int ，第二个参数类型为 float。（当然，不同的编译器命名规则也不同）<br>
+因此也就可以解释，当我们的函数名相同时，参数类型不同，或其顺序不同时，参数列表也就不同了。</p>
+<p>从中也可以看出，这在 c 中是不适用的，因为其未对函数名进行修饰，所有相同名字的函数，即使参数列表不同，在汇编中的名字是相同的。<br>
+所以，在<strong>链接</strong>这一阶段，便会报错，产生链接错误。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[C++ | 引用变量]]></title>
+        <id>https://ccccj.github.io/post/c-or-yin-yong-bian-liang/</id>
+        <link href="https://ccccj.github.io/post/c-or-yin-yong-bian-liang/">
+        </link>
+        <updated>2018-03-22T09:20:14.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="目录">目录</h2>
+<p><ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#%E7%9B%AE%E5%BD%95">目录</a></li>
+<li><a href="#%E5%AF%BC%E8%AF%AD%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E6%9C%89%E5%BC%95%E7%94%A8%E5%8F%98%E9%87%8F">导语：为什么要有引用变量</a></li>
+<li><a href="#%E5%BC%95%E7%94%A8%E7%9A%84%E6%A6%82%E5%BF%B5">引用的概念</a>
+<ul>
+<li><a href="#%E7%94%A8%E6%B3%95%E7%A4%BA%E4%BE%8B">用法示例</a></li>
+<li><a href="#%E5%BC%95%E7%94%A8%E7%9A%84%E5%B1%9E%E6%80%A7%E4%B8%8E%E7%89%B9%E5%88%AB%E4%B9%8B%E5%A4%84">引用的属性与特别之处</a></li>
+</ul>
+</li>
+<li><a href="#%E4%B8%BB%E8%A6%81%E4%BD%9C%E7%94%A8">主要作用</a>
+<ul>
+<li><a href="#1%E5%BC%95%E7%94%A8%E4%BD%9C%E5%8F%82%E6%95%B0">1.引用作参数</a>
+<ul>
+<li><a href="#%E7%94%A8%E6%B3%95">用法</a></li>
+<li><a href="#%E5%BC%95%E7%94%A8%E4%BC%A0%E5%8F%82%E7%9A%84%E5%8F%A6%E4%B8%80%E4%B8%AA%E5%A5%BD%E5%A4%84">引用传参的另一个好处</a></li>
+<li><a href="#%E5%B0%8F%E7%BB%93">小结</a></li>
+</ul>
+</li>
+<li><a href="#2%E5%BC%95%E7%94%A8%E4%BD%9C%E8%BF%94%E5%9B%9E%E5%80%BC">2.引用作返回值</a>
+<ul>
+<li><a href="#%E4%B8%BA%E4%BD%95%E8%A6%81%E8%BF%94%E5%9B%9E%E5%BC%95%E7%94%A8">为何要返回引用</a></li>
+<li><a href="#%E8%BF%94%E5%9B%9E%E5%BC%95%E7%94%A8%E6%97%B6%E8%A6%81%E6%B3%A8%E6%84%8F%E7%9A%84%E9%97%AE%E9%A2%98">返回引用时要注意的问题</a></li>
+<li><a href="#%E5%B0%8F%E7%BB%93-2">小结</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#%E4%BD%95%E6%97%B6%E4%BD%BF%E7%94%A8%E5%BC%95%E7%94%A8%E5%8F%82%E6%95%B0">何时使用引用参数</a>
+<ul>
+<li><a href="#1-%E4%BC%A0%E9%80%92%E5%80%BC%E8%80%8C%E4%B8%8D%E4%BF%AE%E6%94%B9%E5%80%BC%E5%B0%BD%E9%87%8F-const-%E4%BF%AE%E9%A5%B0">1. 传递值而不修改值(尽量 const 修饰)</a></li>
+<li><a href="#2-%E9%9C%80%E8%A6%81%E4%BF%AE%E6%94%B9%E5%8E%9F%E6%95%B0%E6%8D%AE">2. 需要修改原数据</a></li>
+</ul>
+</li>
+<li><a href="#%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95%E6%B1%87%E7%BC%96%E5%B1%82%E6%9D%A5%E7%9C%8B">实现方法（汇编层来看）</a></li>
+</ul>
+</li>
+</ul>
+</p>
+<h2 id="导语为什么要有引用变量">导语：为什么要有引用变量</h2>
+<p>拿一个简单的例子来说，要交换两个变量的值，如何交换？注意这里我们说的是，交换的功能我们会封装成一个函数。<br>
+在 C 中我们都是这么调用的：</p>
+<pre><code>void Swap(int* a, int* b) {
+    int tmp = *a;
+    *a = *b;
+    *b = tmp;
+}
+
+int main() {
+    int a = 5;
+    int b = 3;
+    Swap(&amp;a, &amp;b);
+    return 0;
+}
+</code></pre>
+<p>我们采用的是一种传址的方式，而不是传值。原因在于，调用的 Swap 中的 a 、 b 是形参，而不是实参。那有没有更简便的方法？毕竟，我们这里举的只是一个简单的例子，当涉及到的东西更多时（比如之前学的单链表不带头结点删除..传二级指针简直太复杂），在 C++ 中有一个新的复合类型——引用变量。</p>
+<h2 id="引用的概念">引用的概念</h2>
+<p>我们说的引用变量，实际上是给另一个变量取一个<strong>别名</strong>。例如，我们已经有了一个叫做 a ，将一个新的变量 b ，作为变量 a 的引用，相当于给 a 取了一个别名叫做 b 。如下图：<br>
+<img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9pbWctYmxvZy5jc2RuLm5ldC8yMDE4MDMxNjE1MjkzMjI4Nj8?x-oss-process=image/format,png" alt="引用图解ab" loading="lazy"><br>
+一开始我们**给这块空间取了一个名字叫做 a ，后来又给他取了个小名叫做 b **，相当于之后，我们对 b 进行任何操作，也会对 a 进行修改。</p>
+<h3 id="用法示例">用法示例</h3>
+<p>正如上面所举的例子， b 是 a 的引用变量，这就需要在创建 <strong>b</strong> 的时候，就告诉编译器这个信息，用 <strong>&amp;</strong> 来声明引用变量：</p>
+<pre><code>int a;
+int&amp; b = a;
+</code></pre>
+<p>在这里 <strong>&amp;</strong> 不是取地址操作符，而是类型标识符的一部分。正如 <strong>char</strong>* , ***** 也是类型标识符的一部分，表示一个指向 <strong>char</strong> 类型的指针变量，而我们的 <strong>int&amp;</strong> 表示一个指向 <strong>int</strong> 类型的引用变量。<br>
+这里的 <strong>a</strong> 和 <strong>b</strong> 指向相同的值和内存单元（我的是64位平台）。可以测试一下：</p>
+<pre><code>int main() {
+    int a = 5;
+    int&amp; b = a;
+    cout &lt;&lt; &amp;a &lt;&lt; endl; // 取a的地址
+    cout &lt;&lt; &amp;b &lt;&lt; endl; // 取b的地址
+    return 0;
+}
+</code></pre>
+<p>输出：</p>
+<blockquote>
+<p>0x7fff5fbff80c<br>
+0x7fff5fbff80c</p>
+</blockquote>
+<p>可以看到，两个变量的地址是相同的。在这里， a 变量的地址是在他定义之时随机分配的，但 b 不是，他是根据自己即将要引用的变量的地址来分配。<br>
+既然如此，在引用变量 b 定义之时，必须初始化，而不能先声明，再赋值。也就是必须定义时就指向另一个<strong>已经定义了的变量</strong>，否则，引用变量将无法得知自己的地址，也就是说 &quot;<strong>int&amp; b;</strong>&quot; 这样的写法是错误的。</p>
+<p><strong>注意：</strong><br>
+当引用变量在创建时进行初始化，一旦与某个变量关联起来，就会一起效忠于他。<br>
+即引用变量只能作为一个变量的引用，<strong>正如上面的 b ，当他成为 a 的引用之后，在他的生命周期里，就不能成为其他变量的引用</strong>。</p>
+<p>例如，当 b 成为 a 的引用之后，如果我们试图让他成为c 的引用，并不会成功，只会实现赋值的效果(连 a 的值也相对的改变)：</p>
+<pre><code>int main(int argc, const char * argv[]) {
+    int a = 5;
+    int&amp; b = a;
+
+    int c = 20;
+    b = c;
+    cout &lt;&lt; a &lt;&lt; endl; // 输出a修改后的值
+    cout &lt;&lt; b &lt;&lt; endl; // 输出b修改后的值
+    return 0;
+}
+</code></pre>
+<p>输出结果：</p>
+<blockquote>
+<p>20<br>
+20</p>
+</blockquote>
+<p>总结一下上面所说的：<br>
+<strong>引用变量必须在创建的时候初始化，一旦与某个变量关联起来，就只能是这个变量的引用。</strong></p>
+<hr>
+<p>高能预警，以下有些复杂，涉及到 临时变量、引用参数和 const ，看了好几遍 primer 上的讲解才看懂。</p>
+<h3 id="引用的属性与特别之处">引用的属性与特别之处</h3>
+<p>我们不能将一个变量<strong>作为右值的引用</strong>。如下：</p>
+<pre><code>void test(int&amp; ra) {
+    // ...
+}
+
+int main(int argc, const char * argv[]) {
+    int a = 5;
+    test(a + 3);
+    return 0;
+}
+</code></pre>
+<p>这样编译器将会报错。因为 a + 3 并不是变量。但是早期的编译器会比较温和的发出警告，而不是直接报错，而现在的编译器，只有参数类型为 const引用 才能编译通过。</p>
+<p>这是为什么呢，接下来我们将详细剖析其中的原理。</p>
+<p>以前的编译器之所以允许将表达式传给引用变量是因为，由于 a + 3 并不是 int 类型的变量，于是程序将创建一个临时的无名变量，初始化为 a + 3 的值，然后将 ra 成为该无名变量的引用。</p>
+<p>那什么时候才会生成临时变量呢？有以下两种情况。</p>
+<blockquote>
+<p>1.实参类型正确，但不是左值<br>
+2.实参类型不正确，但可以转换为正确的类型</p>
+</blockquote>
+<p>第一种情况：非左值会产生临时变量，哪些是非左值呢？也就是常量或包含多项的表达式。<br>
+而左值就是我们可以赋值的对象。但是，在引入 const 关键字之后，<strong>常规变量</strong> 和 <strong>const 变量</strong> 都可视为左值，因为可通过地址访问他们。</p>
+<blockquote>
+<p>常规变量视为可修改的左值，const变量视为不可修改的左值。</p>
+</blockquote>
+<p>第二种情况则是类型不匹配。</p>
+<p>回到之前的一个例子：</p>
+<pre><code>void test(int&amp; ra) {
+    ++ra;
+}
+
+int main(int argc, const char * argv[]) {
+    int a = 5;
+    double b = 4;
+    
+    test(a + 3);
+    test(b);
+    return 0;
+}
+</code></pre>
+<p>上面这个例子，a + 3 作为参数属于第一种情况（不是左值）， b 属于第二种情况（类型不正确），这在以前的编译器，可以通过，是因为这时编译器产生了临时变量，分别让临时变量等于 a + 3 和 b 的值，而 ra 成为他们的引用，这对于原本的 a + 3 和 b 不并不会产生影响，所以他们的值不变。<br>
+换言之，从前的编译器采取了一种机制——创建临时变量，使得原本的变量的值不会改变。因此，如果我们现在采取一种类似的机制，也能使得编译通过：使用 const 。</p>
+<p>我们将代码修改为：</p>
+<pre><code>void test(const int&amp; ra);
+</code></pre>
+<p>这样也会使得编译通过。在这样的函数中，我们的目的只是<strong>使用传递的值，而不是修改他们</strong>。后面还会具体阐述这样使用 <strong>const 与引用搭配</strong>的好处。</p>
+<p>这就是为什么以前的编译器采用创建临时变量，现在采用加 const 修饰都可以编译通过的原因。</p>
+<h2 id="主要作用">主要作用</h2>
+<h3 id="1引用作参数">1.引用作参数</h3>
+<p>引用变量的主要作用体现在函数传参。以往我们已经有了两种传参方式：按值传参、按址传参（指针）。现在有了第三种方法：按引用传参。</p>
+<h4 id="用法">用法</h4>
+<p>还是之前交换a、b的例子，现在有了一种新的写法：</p>
+<pre><code>void Swap(int&amp; x, int&amp; y) {
+    int tmp = x;
+    x = y;
+    y = tmp;
+}
+
+int main(int argc, const char * argv[]) {
+    int a = 5;
+    int b = 3;
+    Swap(a, b);
+    return 0;
+}
+</code></pre>
+<p>但是有的时候，我们又不希望传入的值会改变，例如以下例子：</p>
+<pre><code>int cube(int&amp; ra) {
+    ra *= ra * ra;
+    return ra;
+}
+
+int main() {
+    int a = 3;
+    int ret = cube(a);
+    cout &lt;&lt; &quot;cube of &quot; &lt;&lt; a &lt;&lt; &quot; = &quot;&lt;&lt; ret &lt;&lt; endl;
+    return 0;
+}
+</code></pre>
+<blockquote>
+<p>结果：cube of 27 = 27</p>
+</blockquote>
+<p>我们想要求 a 的立方，并且之后还要用到 a ，这时候并不希望改变 a ，而这时候 a 却被改变了。为了解决这个问题，当我们希望不改变原值时，尽量采用 <strong>const</strong> 来修饰：</p>
+<pre><code>int cube(const int&amp; ra);
+</code></pre>
+<p>这时候我们若不小心改变了 a 的值，编译器便会报错。</p>
+<p>但是我相信您肯定要问了，传参时采用引用变量作为参数的原因就是，这样可以很方便的修改原值，这时候又说不改变原值，这不是自相矛盾么？</p>
+<h4 id="引用传参的另一个好处">引用传参的另一个好处</h4>
+<p>这其实是因为，引用变量作为参数还有另外一个好处，便是省时间、省空间。大家都知道，我们平时传参时，都需要将原来的变量拷贝一份至一个临时变量，再将这个临时变量作为形参传入函数，但现在不需要了，因为从始至终，都是原来的那个变量。<br>
+别看一个小小的原生类型占不了多少空间，复制一份也用不了多少时间，但是当我们传的是一个自定义变量，一个十分巨大的结构体或类的时候呢？，我们不需要去占用空间拷贝，这省了很多时间与空间。<br>
+但同时也要注意，如果这时候您不希望改变原值，记得加上 <strong>const</strong> 来修饰。</p>
+<h4 id="小结">小结</h4>
+<ol>
+<li>在您打算修改原变量的值时，尽量使用引用作参数，省时间省空间，更重要的是比采取指针传参的方式简单很多；</li>
+<li>在您并不打算改变变量的值，但是写了一个函数，要使用到您变量的值的时候，可以采用 <strong>const + 引用</strong> 的方式，表面上看和从前两者都不用的时候效果是一样的，但实际上省了很多的时间与空间（在传参较大时）。</li>
+</ol>
+<h3 id="2引用作返回值">2.引用作返回值</h3>
+<h4 id="为何要返回引用">为何要返回引用</h4>
+<p>来看一个例子：</p>
+<pre><code>double m = sqrt(16.0);
+</code></pre>
+<p>在这个例子中， sqrt 函数的返回值为 4.0 ，但若是让函数中的临时变量的值直接赋给 m 是不行的，因为 sqrt 函数结束，里面变量的生存周期已结束，再将其值赋给 m 可能会出错。总之，<strong>4.0 先被复制到了一个临时位置</strong>（实际上在寄存器，出了函数作用于也存在），**然后再复制给了 m **，和之前传参时情形类似。</p>
+<p>不懂的可以再看下面：<br>
+<img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9pbWctYmxvZy5jc2RuLm5ldC8yMDE4MDMyMjE1MTk1MjI0MD8?x-oss-process=image/format,png" alt="临时变量" loading="lazy"><br>
+例如上面这个程序里，c 是一个临时变量，而 Add 函数的返回值并不是 c ，因为出了这个函数， c 就相当于不在了，所以他会先将 c 的值复制给另一个临时变量（如果较小是寄存器，较大则是提前开辟好的一块空间），这个临时变量的生存周期比较长，能将其值复制给 ret 变量。</p>
+<p>这样就存在一个效率问题，也就是多复制了一步。别看这里只是32位平台上八个字节的 double 变量而已，但如果是一个极大的结构体，就会浪费很多时间和空间。但是返回引用变量能很好地解决这个问题。</p>
+<p>例如以下例子<br>
+<img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9pbWctYmxvZy5jc2RuLm5ldC8yMDE4MDMyMjE1MjMwNjYyMD8?x-oss-process=image/format,png" alt="引用" loading="lazy"><br>
+a 自增以后再返回其值，利用引用，这时候并不需要考虑生命周期的问题，因为来来回回都是在堆那一块空间进行修改，一直在 a / ra 的作用域内，省去了再复制一步的时间和空间。</p>
+<h4 id="返回引用时要注意的问题">返回引用时要注意的问题</h4>
+<p>引用变量作返回值并不是任何时候都那么好用的：<br>
+下面是一个错误的例子：</p>
+<pre><code>int&amp; Add(int a, int b) {
+    int c = a + b;
+    return c;
+}
+
+int main() {
+    int&amp; ret = Add(1, 2);
+    Add(10, 20);
+    cout &lt;&lt; ret &lt;&lt; endl;
+    return 0;
+}
+</code></pre>
+<blockquote>
+<p>输出结果：30</p>
+</blockquote>
+<p>我们之前提到了，当函数返回一个临时变量 c ，这时候会在创建一个一般在寄存器的临时变量，我们给这个变量取名为 k ，由于返回的类型是引用，这时候 k 成为了 c 的引用，而接受的类型也是引用，即 ret 是 k 的引用。当我们再调用 Add 时，k 内存放的是新的 c 的值，也就是 30，因此 ret 也跟着变为了 30 。</p>
+<p>也就是说，引用作返回值，也是有前提的：<strong>引用的变量需要出了这个函数作用域还在</strong>，否则可能会出错。而前面 my_func 的例子可以用的原因是：先传入了一个引用类型的参数，再返回这个变量。从始至终，实参、形参、与返回值，都是同一个变量，这个变量一直都在。</p>
+<p>同时这个时候，我们返回的是一个<strong>作为参数传递给函数的引用</strong>，正是因为如此，在这过程中这个参数可能会改变。当没有这样的参数传入的时候，我们可以开辟一块存储空间（c++ 用 new， 记得搭配 delete），在堆上就不会被自动分配与销毁了，或者返回一个静态/全局变量。</p>
+<h4 id="小结-2">小结</h4>
+<ol>
+<li><strong>引用作返回值，不能返回一个临时变量的引用，需要变量在这个函数结束后还在，例如静态或全局变量</strong>。</li>
+<li>如果可以的话，我们<strong>尽量用引用作返回值，因为更省时间和空间</strong>。</li>
+</ol>
+<h2 id="何时使用引用参数">何时使用引用参数</h2>
+<blockquote>
+<p>当然，以下只是建议，而非必须如此。</p>
+</blockquote>
+<h3 id="1-传递值而不修改值尽量-const-修饰">1. 传递值而不修改值(尽量 const 修饰)</h3>
+<pre><code> 1、内置数据类型：由于较小，可直接按值传递；
+ 2、数组：采用 const 修饰的指针；
+ 3、较大的结构：使用 const 指针或 const 引用，可提高效率、节省时间空间；
+ 4、类对象：const 引用。
+</code></pre>
+<h3 id="2-需要修改原数据">2. 需要修改原数据</h3>
+<pre><code> 1、内置数据类型：可使用指针；
+ 2、数组：只能使用指针；
+ 3、较大的结构：使用指针或引用；
+ 4、类对象：const 引用。
+</code></pre>
+<h2 id="实现方法汇编层来看">实现方法（汇编层来看）</h2>
+<p>从汇编层来看，引用的最终实现方法也是借用了指针（先取了地址，再解引用）。这和我们的指针的实现机制是一样的。但从语法层面来讲，引用比指针更省空间。</p>
+<p>引用与指针的区别：</p>
+<ol>
+<li>引用必须初始化，并且从一而终，但指针可以修改指向；</li>
+<li>引用必须指向有效变量，指针可以指向空；</li>
+<li>指针代表着地址，而引用代表着变量。sizeof 指针，是指针的大小，sizeof 变量，是变量的大小；</li>
+<li>引用与指针自增自减的意义不同。</li>
+<li>引用比指针更安全，没有野指针的危险，但同时指针也比引用灵活。</li>
+</ol>
+<hr>
+<p>当然这肯定没把引用写完啦，但是目前就涉及了这么多，看完后面的内容再来补充啦。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[C++ | 命名空间]]></title>
+        <id>https://ccccj.github.io/post/c-or-ming-ming-kong-jian/</id>
+        <link href="https://ccccj.github.io/post/c-or-ming-ming-kong-jian/">
+        </link>
+        <updated>2018-03-15T16:33:56.000Z</updated>
+        <content type="html"><![CDATA[<blockquote>
+<p><strong>命名空间</strong>，也就是名称空间/名字空间，注意需要的头文件是 <strong>iostream</strong> ，而不是 <strong>iostream.h</strong> ，后者是旧版本的 <strong>C++</strong> 头文件，并不支持命名空间。</p>
+</blockquote>
+<h2 id="目录">目录：</h2>
+<p><ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#%E7%9B%AE%E5%BD%95">目录：</a></li>
+<li><a href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E6%9C%89%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4">为什么要有命名空间？</a></li>
+<li><a href="#%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95">使用方法</a></li>
+<li><a href="#%E4%BD%BF%E7%94%A8-std%E4%BD%BF%E7%94%A8%E5%85%A8%E9%83%A8%E4%B8%8E%E4%B8%AA%E5%88%AB">使用 std（使用全部与个别）</a>
+<ul>
+<li><a href="#%E4%BD%BF%E7%94%A8%E5%85%A8%E9%83%A8%E5%90%8D%E7%A7%B0">使用全部名称</a></li>
+<li><a href="#%E4%BD%BF%E7%94%A8%E6%89%80%E9%9C%80%E7%9A%84%E5%90%8D%E7%A7%B0">使用所需的名称</a></li>
+</ul>
+</li>
+<li><a href="#%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4%E7%9A%84%E5%B5%8C%E5%A5%97">命名空间的嵌套</a></li>
+<li><a href="#%E6%80%BB%E7%BB%93">总结</a></li>
+</ul>
+</li>
+</ul>
+</p>
+<h2 id="为什么要有命名空间">为什么要有命名空间？</h2>
+<p>它的作用主要体现在，编写大型程序或将多个厂商现有的代码组合起来，他会使得更容易，更易于组织。<br>
+比如说，有两个已经封装好的产品，他们呢，都有一个名叫 <strong>func()</strong> 的函数，调用这个函数的时候，编译器将不知道使用哪个函数。<br>
+这时候我们可以将其划定一片区域，即将每个厂商的产品封装起来，如第一个厂商的产品放到一个叫 <strong>SUST</strong> 的名称空间中，第二个厂商的产品放到一个叫 <strong>ZJU</strong> 的名称空间中，这样便能区分开来了。</p>
+<h2 id="使用方法">使用方法</h2>
+<p>就像上面举出的例子，我们有了两个命名空间，那如何放入呢？<br>
+如下：</p>
+<pre><code>#include &lt;iostream&gt;
+
+namespace &lt;namespace name&gt; {
+    &lt;declarations&gt;
+}
+</code></pre>
+<p>具体：</p>
+<pre><code>#include &lt;iostream&gt;
+
+namespace SUST { // 名叫 SUST 的命名空间
+    void func() {
+        // ...
+    }
+}
+
+namespace ZJU { // 名叫 ZJU 的命名空间
+    void func() {
+        // ...
+    }
+}
+</code></pre>
+<p>再来看调用，需要中间加两个冒号：<br>
+当使用 <strong>SUST</strong> 厂商的 <strong>func</strong> 时：</p>
+<pre><code>SUST::func();
+</code></pre>
+<p>当使用 <strong>ZJU</strong> 厂商的 <strong>func</strong> 时：</p>
+<pre><code>ZJU::func();
+</code></pre>
+<p>当然，不仅仅是函数，还有变量、类，都可以包括在一个命名空间中。</p>
+<h2 id="使用-std使用全部与个别">使用 std（使用全部与个别）</h2>
+<p>我们目前使用的大多函数，都被包括在一个标准命名空间中—— <strong>std</strong> ，例如我们知道的 <strong>cout</strong> ， <strong>cin</strong> 、还有控制符 <strong>endl</strong>等。<br>
+也就是说，当我们输入输出时，并不是简单的输入输出即可，而是需要写上名称空间。如以下这句输出函数：</p>
+<pre><code>std::cout &lt;&lt; &quot;hello world!&quot; &lt;&lt; std::endl;
+</code></pre>
+<h3 id="使用全部名称">使用全部名称</h3>
+<p>辣么问题来了，有两点，第一，我每次都要这么写，这就很麻烦了啊，第二，之前的版本（iostream.h），是没有名称空间的，现在要将之前的代码转换过来，要修改的地方就很多了。于是，一条编译指令应运而生：</p>
+<pre><code>using namespace std;
+</code></pre>
+<p>这行代码表明，可以使用 <strong>std</strong> 名称空间中<strong>所有</strong>定义的名称，且不需要使用 <strong>std::</strong> 前缀。</p>
+<h3 id="使用所需的名称">使用所需的名称</h3>
+<p>当然，这会存在潜在的问题（我遇到过似乎...有时候取的变量名称会和std中的重复，我以前的编译器会报错，但是似乎现在g++更新了以后就不会了）。最好的做法是，需要什么就声明什么，例如我们要使用 <strong>cout</strong> ， <strong>cin</strong> ， <strong>endl</strong> ：</p>
+<pre><code>using &lt;qualifier&gt;::&lt;name&gt;;
+</code></pre>
+<p>也就是：</p>
+<pre><code>using std::cout;
+using std::cin;
+using std::endl;
+</code></pre>
+<p>这使得 <strong>cout</strong> ， <strong>cin</strong> ， <strong>endl</strong> 可用。</p>
+<p>// 当然，之后应该会再加一些吧，因为后面第九章似乎还会讲到名称空间，目前还没看到，之后补充。</p>
+<h2 id="命名空间的嵌套">命名空间的嵌套</h2>
+<p>如果一个命名空间内，有两个名称相同的变量呢？要如何加以区分？这就可以使用嵌套了。<br>
+如，在 <strong>SUST</strong> 这个名称空间中，有两个 <strong>func</strong> 函数，可以这么使用：</p>
+<pre><code>namespace SUST {
+    void func() {
+        // ...
+    }
+    namespace test {
+        void func() {
+            // ...
+        }
+    }
+}
+</code></pre>
+<p>调用时：</p>
+<pre><code>SUST::func();
+SUST::test::func();
+</code></pre>
+<p>（话说也不知道是不是真的有场景会用到嵌套...emmmm先写上再说）</p>
+<p>以下为总的一段：</p>
+<pre><code>#include &lt;iostream&gt;
+
+using std::cout;
+using std::cin;
+using std::endl;
+
+namespace SUST {
+    void func() {
+        cout &lt;&lt; &quot;SUST&quot; &lt;&lt; endl;
+    }
+    namespace test {
+        void func() {
+            cout &lt;&lt; &quot;test SUST&quot; &lt;&lt; endl;
+        }
+    }
+}
+
+namespace ZJU {
+    void func() {
+        cout &lt;&lt; &quot;ZJU&quot; &lt;&lt; endl;
+    }
+}
+
+using namespace SUST;
+using namespace ZJU;
+
+int main(int argc, const char * argv[]) {
+    SUST::func();
+    SUST::test::func();
+    ZJU::func();
+    return 0;
+}
+</code></pre>
+<p>运行结果：<br>
+<img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9pbWctYmxvZy5jc2RuLm5ldC8yMDE4MDMxNjAwMzUyMzI3ND8?x-oss-process=image/format,png" alt="运行结果" loading="lazy"></p>
+<h2 id="总结">总结</h2>
+<p><strong>命名空间</strong>使得我们的变量、函数、类有了域，将他们局限在了一个域之内。在变量名/函数名重复时，可以区分他们属于哪个命名空间，加以辨别。在大型工程中应该会很好用。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[C++ 零碎知识点集合]]></title>
+        <id>https://ccccj.github.io/post/c-ling-sui-zhi-shi-dian-ji-he/</id>
+        <link href="https://ccccj.github.io/post/c-ling-sui-zhi-shi-dian-ji-he/">
+        </link>
+        <updated>2018-03-15T15:43:13.000Z</updated>
+        <content type="html"><![CDATA[<p>比较简单的我就直接写在这篇里了，比较复杂的会单独写一篇博客。</p>
+<h2 id=""><ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#">@[toc]</a></li>
+<li><a href="#cc-%E6%96%B0%E6%97%A7%E9%A3%8E%E6%A0%BC">C/C++ 新旧风格</a></li>
+<li><a href="#%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4">命名空间</a></li>
+<li><a href="#%E7%BC%BA%E7%9C%81%E5%8F%82%E6%95%B0%E9%BB%98%E8%AE%A4%E5%8F%82%E6%95%B0">缺省参数（默认参数）</a></li>
+<li><a href="#%E5%87%BD%E6%95%B0%E9%87%8D%E8%BD%BD">函数重载</a></li>
+<li><a href="#%E5%BC%95%E7%94%A8%E5%8F%98%E9%87%8F">引用变量</a></li>
+</ul>
+</li>
+</ul>
+</h2>
+<h2 id="cc-新旧风格">C/C++ 新旧风格</h2>
+<ol>
+<li><strong>C</strong> 旧风格<br>
+以 <strong>.h</strong> 结尾，如 <strong>math.h</strong> ，由于 <strong>C++</strong> 兼容 <strong>C</strong> ，所以 <strong>C/C++</strong> 均可使用。</li>
+<li><strong>C++</strong> 旧风格<br>
+以 <strong>.h</strong> 结尾，如 <strong>iostream.h</strong> ，此时无 <strong>名字空间</strong> 等特性。</li>
+<li><strong>C</strong> 新风格<br>
+前缀加上 <strong>c</strong> ，无 <strong>.h</strong> 的扩展名，如 <strong>math.h</strong> 改为了 <strong>cmath</strong> ，增加了新特性，可以使用不是 <strong>C</strong> 的特性，如 <strong>namespace std</strong> 。</li>
+<li><strong>C++</strong> 新风格<br>
+如 <strong>iostream</strong> ，增加了使用 <strong>名字空间(namespace std)</strong> 的特性。</li>
+</ol>
+<hr>
+<h2 id="命名空间">命名空间</h2>
+<p>namespace 即“命名空间”，也称“名称空间” 、”名字空间”。C++ 使用命名空间的原因主要是，人类可用的单词数太少，并且不同的人写的程序不可能所有的变量都没有重名现象，为了解决变量重名，于是引入命名空间来区分，将变量限制在不同的域内。<br>
+详细介绍：<br>
+https://blog.csdn.net/qq_40873884/article/details/79576045</p>
+<hr>
+<h2 id="缺省参数默认参数">缺省参数（默认参数）</h2>
+<p>C++ 引入函数缺省参数，即默认参数，极大地提高了使用函数的灵活性，</p>
+<p>我们来举一个简单的例子：</p>
+<pre><code>#include &lt;iostream&gt;
+using namespace std;
+
+int test(int x = 3, int y = 5) {
+    return x + y;
+}
+
+int main(int argc, const char * argv[]) {
+    int a = 1, b = 2;
+    cout &lt;&lt; &quot;传两个参数：&quot; &lt;&lt; test(a, b) &lt;&lt; endl;
+    cout &lt;&lt; &quot;传一个参数：&quot; &lt;&lt; test(a) &lt;&lt; endl;
+    cout &lt;&lt; &quot;不传参数：&quot; &lt;&lt; test() &lt;&lt; endl;
+    return 0;
+}
+</code></pre>
+<p>输出结果：</p>
+<blockquote>
+<p>传两个参数：3<br>
+传一个参数：6<br>
+不传参数：8</p>
+</blockquote>
+<p>很容易看出，当我们传两个参数时，形参 x 变成了 a 的值(1)，形参 y 变成了 b 的值(2)，所以输出结果为 3 ；当我们传一个参数时，形参 x 变成了 a 的值(1)，形参 y 是我们指定了的 5 ，所以输出结果为 6 ；当我们不传参数时，形参 x 使我们指定的值 3 ，形参 y 是我们指定了的 5 ，所以输出结果为 8 。</p>
+<p>这就是所谓的<strong>缺省参数</strong>，就是在<strong>声明函数的某个参数时</strong>，给他<strong>指定一个默认值</strong>，当你传参数了，这个参数会是你传的值；当你未传参，这个参数就是指定的值。</p>
+<p>缺省参数分为两类：</p>
+<ol>
+<li>全缺省参数</li>
+<li>半缺省参数</li>
+</ol>
+<p>全缺省参数就是我们上面所举的例子：</p>
+<pre><code>int test(int x = 3, int y = 5);
+</code></pre>
+<p>也就是说，我们给所有的参数都指定了值，而使用者可以选择 传所有参数、或部分参数、或完全不传参。<br>
+注意：若您选择传部分参数，您只能从最后一个参数开始进行省略；也就是说，您要省略一个参数，那么必须省略它后面所有的参数。正如上面的例子，您若要选择省略传参 a ，那么 b 也无法传入，否则，您单传一个参数，那么这个参数必定是 a 的形参。</p>
+<p>说完全缺省参数，那么半缺省参数呢？</p>
+<pre><code>int test(int x, int y, int z = 1); 
+</code></pre>
+<p>像上面这种写法，便是半缺省参数，即我们只指定了部分参数的值。但是这种指定方式也是有讲究的，指定的必须是右边的参数。其实想想也很简单了，我们省略参数是从右边开始省略，那么必定是右边的先开始指定。</p>
+<p>在使用的时候，我们也可以采取将默认参数写在声明中，而函数定义与没有默认参数时一样，如下：<br>
+<img src="https://img-blog.csdn.net/20180401210738113?" alt="声明与定义" loading="lazy"></p>
+<blockquote>
+<p>当我们要经常使用某个值，而其他值只是偶尔使用，这样，我们将经常使用的值作为缺省的参数，将会有很大帮助。<br>
+但这并非是编程上的重大突破，只是会带来很多便利。通过使用缺省参数，可以减少要定义的析构函数、方法以及方法重载的数量。</p>
+</blockquote>
+<hr>
+<h2 id="函数重载">函数重载</h2>
+<p>缺省参数让我们在参数数目不同时可以调用同一个函数，而函数重载让我们能够使用多个同名函数。详细链接：<br>
+https://blog.csdn.net/qq_40873884/article/details/79827796</p>
+<hr>
+<h2 id="引用变量">引用变量</h2>
+<p>引用是 C++ 对 C 语言的重要扩充，详解链接：<br>
+https://blog.csdn.net/qq_40873884/article/details/79632314</p>
+<hr>
+<blockquote>
+<p>持续更新...</p>
+</blockquote>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[搭建基于github的个人网站]]></title>
+        <id>https://ccccj.github.io/post/da-jian-ji-yu-github-de-ge-ren-wang-zhan/</id>
+        <link href="https://ccccj.github.io/post/da-jian-ji-yu-github-de-ge-ren-wang-zhan/">
+        </link>
+        <updated>2018-03-15T15:30:14.000Z</updated>
+        <content type="html"><![CDATA[<blockquote>
+<p>注：</p>
+<ol>
+<li>没写完，持续更新。</li>
+<li>有些条目写的顺序可能会有点奇怪，比如说我可能写完给博客换主题，然后写了买域名，又突然觉得换主题那块要再加一些内容，所以看上去可能我还没讲到买域名，但是自己已经有了域名..就是寄样。</li>
+<li>因为自己用的是mac，所以很多是按mac的终端来写的（但是不管是Linux还是windows，相信我，差不多的，windows的话，我猜还会更简单一点。因为很多文件可以直接打开修改，mac和linux就用vim）。</li>
+<li>主要这个方法适合 ，愿意买域名，又不想买服务器，还想把网站搞得特好看，网站还能通过配置文件随意修改的的那种，当然，买了服务器的也可以参考下吧..</li>
+<li>多图预警啊啊啊啊。没错，我就是动不动就截个图放上来的那种。</li>
+</ol>
+</blockquote>
+<h2 id="目录">目录</h2>
+<p><ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#%E7%9B%AE%E5%BD%95">目录</a></li>
+<li><a href="#1-%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85hexo">1. 下载安装hexo</a></li>
+<li><a href="#2-%E5%88%9B%E5%BB%BA%E7%9B%AE%E5%BD%95">2. 创建目录</a></li>
+<li><a href="#3-%E5%86%99%E5%8D%9A%E6%96%87%E4%B8%8A%E4%BC%A0">3. 写博文上传</a></li>
+<li><a href="#4-%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2">4. 博客部署</a></li>
+<li><a href="#5-hexo-%E9%83%A8%E7%BD%B2%E9%85%8D%E7%BD%AE">5. Hexo 部署配置</a></li>
+<li><a href="#6-%E8%AE%BE%E7%BD%AE%E7%A7%98%E9%92%A5">6. 设置秘钥</a></li>
+<li><a href="#7-%E5%8D%9A%E5%AE%A2%E9%85%8D%E7%BD%AE">7. 博客配置</a></li>
+<li><a href="#8-%E4%BF%AE%E6%94%B9%E6%A0%B7%E5%BC%8F%E8%BF%99%E4%B8%80%E6%AD%A5%E5%8F%AA%E8%83%BD%E4%BF%AE%E6%94%B9%E5%AD%97%E4%BD%93%E5%A4%A7%E5%B0%8F-%E9%97%B4%E8%B7%9D%E4%B9%8B%E7%B1%BB%E7%9A%84~">8. 修改样式（这一步只能修改字体大小、间距之类的~）</a></li>
+<li><a href="#9-%E4%BF%AE%E6%94%B9%E5%8D%9A%E5%AE%A2%E9%A1%B5%E9%9D%A2%E5%86%85%E5%AE%B9">9. 修改博客页面内容</a></li>
+<li><a href="#10-%E5%9F%9F%E5%90%8D%E8%B4%AD%E4%B9%B0%E4%B8%8E%E8%A7%A3%E6%9E%90">10. 域名购买与解析</a></li>
+<li><a href="#11-%E5%8D%9A%E5%AE%A2%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87">11. 博客插入图片</a>
+<ul>
+<li><a href="#%E6%B3%95%E4%B8%80%E8%BF%99%E4%B8%AA%E6%96%B9%E6%B3%95%E5%8F%AF%E4%BB%A5%E8%B7%B3%E7%9D%80%E7%9C%8B%E6%88%96%E8%80%85%E7%9B%B4%E6%8E%A5%E7%9C%8B%E6%B3%95%E4%BA%8C%E6%9B%B4%E5%A5%BD%E4%B8%80%E4%BA%9B">法一（这个方法可以跳着看，或者直接看法二，更好一些）：</a></li>
+<li><a href="#%E6%B3%95%E4%BA%8C">法二：</a></li>
+</ul>
+</li>
+<li><a href="#12-%E5%B0%86%E7%BD%91%E7%AB%99%E5%A4%87%E4%BB%BD%E5%88%B0%E7%99%BE%E5%BA%A6">12. 将网站备份到百度</a></li>
+</ul>
+</li>
+</ul>
+</p>
+<h2 id="1-下载安装hexo">1. 下载安装hexo</h2>
+<p>在终端上下载 <strong>home-brew</strong>（这一步linux和windows似乎不用下..后面的都是一样的），用来下载别的。</p>
+<pre><code>/usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;
+</code></pre>
+<p>下载 <strong>Node.js</strong> 和 <strong>git</strong></p>
+<pre><code>brew install node
+brew install git
+</code></pre>
+<p>可用以下命令检查是否下载完成</p>
+<pre><code>node -v
+git --version
+</code></pre>
+<p>安装Hexo</p>
+<pre><code>npm install hexo-cli -g
+</code></pre>
+<h2 id="2-创建目录">2. 创建目录</h2>
+<p>创建并进入一个目录，作为存放博客资源的目录。<br>
+我放在了 <strong>~</strong> 下面</p>
+<pre><code>hexo init blog
+cd blog
+npm install
+hexo server
+</code></pre>
+<p>（hero server 可简化为 hero s）<br>
+接着终端会提示：</p>
+<pre><code>INFO  Start processing
+INFO  Hexo is running at http://localhost:4000/. Press Ctrl+C to stop.
+</code></pre>
+<p>即可登陆http://localhost:4000/访问自己的网站</p>
+<h2 id="3-写博文上传">3. 写博文上传</h2>
+<p>到这里，创建博客就完成啦。接下来打开自己的网站，可以看到有如下介绍：</p>
+<figure data-type="image" tabindex="1"><img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTgwMzAzMTY1MzAwNDU1?x-oss-process=image/format,png" alt="网站" loading="lazy"></figure>
+<p>诶...人家好像都说了该如何写博文，即在终端上输入如下命令：</p>
+<pre><code>hexo new post “...”
+</code></pre>
+<p>例如我要写一篇名为 <strong>hello</strong> 的文章，那么我的命令是</p>
+<pre><code>hexo new post hello
+</code></pre>
+<p>（需要在blog目录下）<br>
+接着会出现 <strong>hello</strong> 的路径：</p>
+<pre><code>INFO  Created: ~/blog/source/_posts/hello.md
+</code></pre>
+<p>可以用编辑器打开...我一直用linux...所以...就用vim打开了...话说不知道别人怎么打开..</p>
+<pre><code>vim ~/blog/source/_posts/hello-1.md
+</code></pre>
+<p>（vim后面要输入的是你的路径啊...）<br>
+然后就是操作啦..mac下的vim似乎快捷键和linux下的差不多...然后自己试着写吧~~</p>
+<figure data-type="image" tabindex="2"><img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTgwMzAzMTcwMjEzNzkz?x-oss-process=image/format,png" alt="vim hello" loading="lazy"></figure>
+<p>保存后，再运行 server</p>
+<pre><code>hexo server
+</code></pre>
+<p>登录网站后，截图如下：</p>
+<figure data-type="image" tabindex="3"><img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTgwMzAzMTcwNDA0MzE0?x-oss-process=image/format,png" alt="网站" loading="lazy"></figure>
+<p>emmmmm...似乎成功了诶hhhhh</p>
+<p>删除的话..似乎也很简单啊..之前不是人家给了路径的嘛..实验了下，发现把那个.md结尾的文档删掉就可以啦..具体查阅怎么在linux下删除文件啦。</p>
+<h2 id="4-博客部署">4. 博客部署</h2>
+<p>目前我们的博客还只是本地的，只有自己可以访问，所以现在需要将博客部署到github上。<br>
+在 Github Repository 里创建一个新的仓库，名为 &lt; name&gt;.github.io（注意了..这里的name似乎需要和你的github的用户名相同，不然后面似乎也许可能会出问题）, 例如我叫 ccccj (啊不要偷偷地去搜我啊)，我创建的是 ccccj.github.io，地址为 https://github.com/ccccj/ccccj.github.io 。</p>
+<h2 id="5-hexo-部署配置">5. Hexo 部署配置</h2>
+<p>安装 <strong>hexo-deployer-git</strong> 插件</p>
+<pre><code>npm install hexo-deployer-git --save
+</code></pre>
+<p>在我们的blog目录下，有一个 _config.yml 文件，打开它（我用的vim打开）。<br>
+在文件的最后找到以下：</p>
+<pre><code># Deployment
+## Docs: https://hexo.io/docs/deployment.html
+deploy:
+  type:
+</code></pre>
+<p>修改为：</p>
+<pre><code>deploy:
+  type: git
+  repo: &lt;repository url&gt;
+  branch: [branch]
+  message: [message]
+</code></pre>
+<p>例如我是</p>
+<pre><code>deploy:
+  type: git
+  repo: https://github.com/ccccj/ccccj.github.io
+  branch: 
+  message: 
+</code></pre>
+<blockquote>
+<p>看到网上说，repo: https://github.com/ccccj/ccccj.github.io 这种写法对有些版本不行，大家如果因此打开不成功的话，可以百度下别的写法，由于我好像可以，所以就没换别的...</p>
+</blockquote>
+<p>下面的branch和message可以为空， 默认分支为 <strong>master</strong> ，<br>
+保持配置文件，接着在终端输入：</p>
+<pre><code>hexo g -d
+</code></pre>
+<p>然后就可以通过 github 的网址来打开自己的网站啦。例如我通过 https://ccccj.github.io ，就可以访问之前的那个页面啦。</p>
+<h2 id="6-设置秘钥">6. 设置秘钥</h2>
+<p>在bash中输入：</p>
+<pre><code>ssh-keygen -t rsa -C &quot;youremail&quot;
+</code></pre>
+<p>然后三次回车。<br>
+系统的提示中有这样一段话：</p>
+<figure data-type="image" tabindex="4"><img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTgwMzA1MTEyMjU4NTky?x-oss-process=image/format,png" alt="秘钥地址" loading="lazy"></figure>
+<p>找到这个目录下的 <strong>id_rsa.pub</strong> ，用编辑器打开，将里面的内容全部复制下来。<br>
+在 <strong>https://github.com/settings/ssh</strong> 中，点击 <strong>New SSH key</strong> ，将刚才复制的内容粘贴上去。<br>
+接着运行：<br>
+监测：</p>
+<pre><code>ssh -T git@github.com
+git config --global user.name &quot;username&quot;
+git config --global user.email &quot;useremail&quot;
+</code></pre>
+<pre><code>hexo clean
+hexo g -d
+hexo server
+</code></pre>
+<p>就可以啦。这样就不用每次输入账号密码了。</p>
+<h2 id="7-博客配置">7. 博客配置</h2>
+<p>接着我们可以对我们的博客进行一些修改，打开 <strong>_config.yml</strong>  配置文件：</p>
+<pre><code># Site
+title: Hexo
+subtitle:
+description:
+author: John Doe
+language:
+timezone:
+</code></pre>
+<p><strong>title</strong> 是站名，<strong>subtitle</strong> 是副标题，<strong>language</strong> 可以选 <strong>en</strong> 或者 <strong>zh-cn</strong>，分别是英文和简体中文。</p>
+<p>然后还可以更换主题啦。先下载主题，https://hexo.io/themes 在这里有很多主题，我们随便点开一个吧~~<br>
+比如说我选了 <strong>Material</strong> 这个主题，点开：</p>
+<figure data-type="image" tabindex="5"><img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTgwMzAzMjEyMDUyOTk0?x-oss-process=image/format,png" alt="这里写图片描述" loading="lazy"></figure>
+<p>然后这里的githu里会有解释该如何做的文档，例如在github往下找，就会有一个Docs文档，如图：</p>
+<figure data-type="image" tabindex="6"><img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTgwMzAzMjE0MzEwMTMw?x-oss-process=image/format,png" alt="Docs文档" loading="lazy"></figure>
+<p>点开 <strong>Material Theme Docs</strong> 后，点击左侧的 <strong>开始使用</strong> ，然后会有官方给出的具体步骤：</p>
+<figure data-type="image" tabindex="7"><img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTgwMzAzMjE0NDQ5NTI4?x-oss-process=image/format,png" alt="步骤" loading="lazy"></figure>
+<ul>
+<li>先安装主题</li>
+</ul>
+<p>复制下来这个主题的github链接：</p>
+<figure data-type="image" tabindex="8"><img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTgwMzAzMjA1ODM4Mjc4?x-oss-process=image/format,png" alt="复制链接" loading="lazy"></figure>
+<p>复制下来以后，在终端中输入:</p>
+<pre><code>git clone &lt;link&gt;
+</code></pre>
+<p>例如我找到链接后，命令为：</p>
+<pre><code>git clone https://github.com/viosey/hexo-theme-material.git
+</code></pre>
+<ul>
+<li>
+<p>修改文件夹名<br>
+将 主题的名字 改为 <strong>material</strong> （文件夹需要放在 <strong>theme</strong> 文件夹下面），再将文件内的 <strong>_config.template.yaml</strong> 复制一份并重命名为 <strong>_config.yaml</strong> 。</p>
+</li>
+<li>
+<p>启用主题<br>
+在 **_config.yml ** 配置文件中找到 <strong>theme</strong> 一项：</p>
+</li>
+</ul>
+<pre><code>theme: landscape
+</code></pre>
+<p>可以看到，官方默认主题为 <strong>landscape</strong> ，我们可以修改...我看看我的主题修改为 <strong>material</strong> 。然后再执行 <strong>hexo server</strong> 命令打开后，主题就换啦。如下:</p>
+<figure data-type="image" tabindex="9"><img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTgwMzAzMjE1MDU2Nzk0?x-oss-process=image/format,png" alt="新主题" loading="lazy"></figure>
+<h2 id="8-修改样式这一步只能修改字体大小-间距之类的~">8. 修改样式（这一步只能修改字体大小、间距之类的~）</h2>
+<p>但是如果要修改某些字体啊之类的大小，要怎么修改呢？前几天改的时候稍微研究了一下~<br>
+是这样的，如果你把主题改成 <strong>next</strong> ，你将会在网上看到无数修改小细节的博客，但是别的主题，基本上都不会提到这些。<br>
+举个例子，我前两天刚换了个叫 <strong>brewski</strong> 的主题:</p>
+<figure data-type="image" tabindex="10"><img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTgwMzA5MTAxNjExNjE5?x-oss-process=image/format,png" alt="brewski" loading="lazy"></figure>
+<p>就是这个啦..看着超级简洁。</p>
+<figure data-type="image" tabindex="11"><img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTgwMzA5MTAxNzAxODkx?x-oss-process=image/format,png" alt="brewski主题" loading="lazy"></figure>
+<p>按照 <strong>README.md</strong> 弄好主题以后，打开以后大概是这样的。emmmm..我就想把 <strong>hello world</strong> 改小一点，那要如何改呢？<br>
+网上找了很久都没找到说这个主题改细节的。于是我就想自己动手丰衣足食啦（但是其实前端这些我什么都没学过，所以也不太懂）。然后看了下 <strong>next</strong> 主题的，大概知道好像是在一个 <strong>css</strong> 的文件夹里修改，我就在我的主题的文件里找了下。<br>
+到 <strong>blog</strong> 的根目录下，查找一下。</p>
+<pre><code>find ./ -name &quot;css&quot;
+</code></pre>
+<p>结果：</p>
+<figure data-type="image" tabindex="12"><img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTgwMzA5MTAyMzQ2NDg4?x-oss-process=image/format,png" alt="查找结果" loading="lazy"></figure>
+<p>在这里可以看到，每个主题下都有个 <strong>css</strong> ，我们打开当前主题下的，也就是 <strong>.//themes/brewski/source/css</strong> 这个。<strong>cd</strong> 直接进入即可。</p>
+<figure data-type="image" tabindex="13"><img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTgwMzA5MTAyNTQ1NTY1?x-oss-process=image/format,png" alt="css里的内容" loading="lazy"></figure>
+<p>可以看到，当前 <strong>css</strong> 文件下，有个 <strong>theme.css</strong> 文件（不同的主题下的，可能后缀不用），用 <strong>vim</strong> 打开。</p>
+<figure data-type="image" tabindex="14"><img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTgwMzA5MTAyNzQ4NDAz?x-oss-process=image/format,png" alt="theme.css" loading="lazy"></figure>
+<p>大概是这样一个配置文件，看了下大概有六百多行（因为不怎么用mac的终端..所以配置有点丑..凑合看..）<br>
+所以要怎么修改呢..我们打开我们的浏览器，然后打开自己的换好了主题的网页。</p>
+<figure data-type="image" tabindex="15"><img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTgwMzA5MTAzMDEyMzUy?x-oss-process=image/format,png" alt="右键" loading="lazy"></figure>
+<p>右键，会看到这样一个选项——“检查元素”。如果没有这个选项的话，可能是因为隐藏了，大家可以百度下自己的电脑如何显示这个选项（我用的是safari），或者可能不同的电脑上叫法也不一样..可能叫别的审查元素之类的。<br>
+然后会出来下面这样的一个界面：</p>
+<figure data-type="image" tabindex="16"><img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTgwMzA5MTAzMjA4MQ?x-oss-process=image/format,png" alt="检察元素" loading="lazy"></figure>
+<p>点击下图圈起来的图标。当然，不同的电脑，图标和名字也不同，大家看看哪个和这个功能差不多的。。</p>
+<figure data-type="image" tabindex="17"><img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTgwMzA5MTAzNTA5ODUy?x-oss-process=image/format,png" alt="点击" loading="lazy"></figure>
+<p>点击以后，当你再点电脑上的文字，就不会出来链接之类的，而是会出现一些信息。<br>
+比如说：</p>
+<figure data-type="image" tabindex="18"><img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTgwMzA5MTAzNzMxODA3?x-oss-process=image/format,png" alt="点击" loading="lazy"></figure>
+<p>现在点 <strong>可变参数列表</strong> ，下面会出现他的信息。比如说这个：</p>
+<figure data-type="image" tabindex="19"><img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTgwMzA5MTAzOTE1ODQ3?x-oss-process=image/format,png" alt="信息" loading="lazy"></figure>
+<p>我们来搜索下，这个词。但是搜索以后发现没搜索到，或者搜索到的不匹配。于是我又试了 <strong>post-title</strong>:</p>
+<pre><code>:/post-title
+</code></pre>
+<p>当然..你会发现自己搜索到了很多个..然后就是尝试着去改，如果改了发现这个没有变，那就改回去，然后再试着改别的。</p>
+<figure data-type="image" tabindex="20"><img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTgwMzA5MTA0NDEyMzEy?x-oss-process=image/format,png" alt="post-title" loading="lazy"></figure>
+<p>最后发现是这个~改了记得注释下，方便下次改，也方便改别的地方的时候，知道不是改这个了。<br>
+接着来看下一项~</p>
+<figure data-type="image" tabindex="21"><img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTgwMzA5MTA0NzEzNzQw?x-oss-process=image/format,png" alt="间距" loading="lazy"></figure>
+<p>如果觉得这中间的间距太大了怎么办？？<br>
+还是用 <strong>检查元素</strong> ~<br>
+唉..这个图一直截不好..忧伤</p>
+<figure data-type="image" tabindex="22"><img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTgwMzA5MTA1MjAxMjEw?x-oss-process=image/format,png" alt="间距" loading="lazy"></figure>
+<p>大概就是这样，当你鼠标移过去的时候（自己在字附近移来移去试一下），标题外面会有一条带子，然后查看那条叫啥，再去改间距就可以啦。</p>
+<figure data-type="image" tabindex="23"><img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTgwMzA5MTA1NDQyODAz?x-oss-process=image/format,png" alt="间距" loading="lazy"></figure>
+<p>这是我找到的修改了能改边距的地方（改完注释注释注释，一定要注释）。</p>
+<figure data-type="image" tabindex="24"><img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTgwMzA5MTA1NzM1ODU3?x-oss-process=image/format,png" alt="代码段的修改" loading="lazy"></figure>
+<p>代码段的修改。</p>
+<p>然后还有移动端的修改。</p>
+<figure data-type="image" tabindex="25"><img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTgwMzA5MTA1NjQ3NDY5?x-oss-process=image/format,png" alt="移动端的修改" loading="lazy"></figure>
+<p>移动端的修改都是以 <strong>@media</strong> 开头的，这个我没怎么改（因为手机上不知道咋检查元素..咳咳..emmmm..不要去看我手机端的网站啦..真的很丑很丑很丑），大家可以自行尝试的修改。</p>
+<h2 id="9-修改博客页面内容">9. 修改博客页面内容</h2>
+<p>这个...起源于有个朋友，让我在博客页面加上他的友情链接...<br>
+然后我就自己在配置文件摸索了下，加了个。<br>
+效果如下图：</p>
+<figure data-type="image" tabindex="26"><img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTgwMzA5MTczMjIyNzA3?x-oss-process=image/format,png" alt="链接" loading="lazy"></figure>
+<p>这个比较简单，修改主题里的配置文件 <strong>_config.yml</strong> 即可（注意是主题的配置文件，不是博客的配置文件）。</p>
+<figure data-type="image" tabindex="27"><img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTgwMzA5MTczNTI0NTk0?x-oss-process=image/format,png" alt="配置文件" loading="lazy"></figure>
+<p>在这里增加、或删除，自行修改即可。<br>
+那么问题来了...我改的时候，蓝朋友在旁边，表示要把他的也加上。那...再加在那？一个叫 link1 ，一个叫 link2 ？？？<br>
+才不要啊...<br>
+于是观察了下整个页面，似乎..加在哪都很奇怪啊..最后找了很久，觉得加在底部排成一行最合适了。那么问题又来了...怎么加？？？<br>
+网上看了下，发现 <strong>next</strong> 的很方便，有一个专门修改底部的配置文件，我对比着路径，看了下，也找到了一个类似的文件，路径如下：<br>
+<img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTgwMzA5MTc0MTIwODUy?x-oss-process=image/format,png" alt="路径" loading="lazy"></p>
+<pre><code>cd blog/themes/brewski/layout/partial
+vim copyright.pug
+</code></pre>
+<p>这个主题的后缀似乎和 <strong>next</strong> 的后缀都不太一样，用的语言可能不同？？总之，直接复制是肯定不行的..那只能按照原来的格式，对照着修改了。</p>
+<figure data-type="image" tabindex="28"><img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTgwMzA5MTc0OTU1Nzg1?x-oss-process=image/format,png" alt="配置文件" loading="lazy"></figure>
+<p>很明显啊这是一个路径啊..修改下之后果然路径变了（注意，这里保存了以后要先运行 <strong>hexo g</strong> ，才能运行 <strong>hexo s</strong>）。<br>
+然后把前面的文字之类的修改即可。但是在这里需要两个链接啊..emmm那只能，把那条再复制一条了。</p>
+<figure data-type="image" tabindex="29"><img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTgwMzA5MTc1ODUwMzI4?x-oss-process=image/format,png" alt="修改之后" loading="lazy"></figure>
+<p>修改完之后是这样的。注意：只需要把 <strong>br</strong> 后面那一行复制即可，不然你的两行链接会在两行上（如果你就是像这样当我没说），还有注意你的链接是想放在哪个词上。比如我这里链接放在 <strong>timmy</strong> 和 <strong>Pan</strong> 上，那这两个词放在链接的后面，具体看图。</p>
+<p><img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTgwMzA5MTgwNTA4Njg?x-oss-process=image/format,png" alt="具体" loading="lazy"><br>
+分别对应的文字：<br>
+<img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTgwMzA5MTgwNzM2NDEy?x-oss-process=image/format,png" alt="文字" loading="lazy"><br>
+链接在 <strong>timmy</strong> 和 <strong>Pan</strong> 上面。</p>
+<h2 id="10-域名购买与解析">10. 域名购买与解析</h2>
+<p>这时候我们需要一个域名，然后就是买买买啦。。。<br>
+我买的是腾讯云的..为什么呢...因为最近刚好有活动比较便宜..也可以买阿里云啊之类的。<br>
+这个在网上一搜就有很多推荐你买的，买好之后认证下，然后就要域名解析了。</p>
+<figure data-type="image" tabindex="30"><img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTgwMzA0MTMxODA0NDYw?x-oss-process=image/format,png" alt="解析" loading="lazy"></figure>
+<p>然后在 <strong>blog</strong> 的 <strong>source</strong> 目录下创建一个名叫 <strong>CNAME</strong> 的文件，注意没有后缀，里面写你的域名。</p>
+<pre><code># URL
+## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
+url: https://&lt;username&gt;.com
+</code></pre>
+<p>url 后面写你的域名。<br>
+之前少了一步然后网站一直404...<br>
+还需要的是：在 <strong>Github</strong> 的 <strong>xxx.github.io</strong> 项目,进入【Settings】标签页,在【Custom domain】中,将申请的域名写进去。<br>
+然后很快就能打开了。</p>
+<figure data-type="image" tabindex="31"><img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTgwMzA1MTEyNzE3NjA3?x-oss-process=image/format,png" alt="网站" loading="lazy"></figure>
+<h2 id="11-博客插入图片">11. 博客插入图片</h2>
+<p>话说..博客不能只有字没有图啊。那如何插入图片捏。</p>
+<h3 id="法一这个方法可以跳着看或者直接看法二更好一些">法一（这个方法可以跳着看，或者直接看法二，更好一些）：</h3>
+<ul>
+<li>先把博客根目录下的 <strong>_config.yml</strong> 里的 <strong>post_asset_folder:</strong> 选项设置为 <strong>true</strong></li>
+<li>安装一个可以上传图片的插件<br>
+命令为：<br>
+<code>npm install hexo-asset-image --save</code></li>
+<li>这时候新建文件： <code>hexo new &quot;...&quot;</code>，会发现博客根目录下的 <strong>source/_posts</strong> 文件夹内除了一个 <strong>xxx.md</strong> 文件还有一个同名的文件夹。</li>
+<li>这时候将照片放入这个文件夹中，然后再上传时，直接复制csdn的MarkDown格式即可。</li>
+<li>注：如果是mac的找 <strong>blog</strong> 根目录下的 <strong>source</strong> 放进去图片可能有点麻烦..我是在 <strong>Finder</strong> 中，按住 <strong>command+shift+g</strong> ，再输入 <strong>/</strong> ，然后点进去用户，找到自己的用户，下面就有 <strong>blog</strong> 文件了。</li>
+</ul>
+<h3 id="法二">法二：</h3>
+<p>按第一种方法，一直把图片存电脑上也不是这么一回事儿啊，还咋的能存一辈子啊。那有没有一种线上方法捏？有的。拿一个目前我用的方法来讲吧。<br>
+会用 <strong>七牛云</strong> 的来托管我们的图片，所以先建个账号吧~网址如下：<br>
+https://portal.qiniu.com/signup?type=1&amp;code=3lciep8tu8lsi<br>
+（ps：七牛云发送的验证邮件..很可能在你的垃圾邮件里噢..忧伤..我找了好久的）<br>
+这个麻烦就麻烦在，需要实名认证..好烦..回宿舍取身份证去了。</p>
+<p>.....实名认证了两天....诶..话说有的人，一下午就通过了。<br>
+接着我们来看：</p>
+<figure data-type="image" tabindex="32"><img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTgwMzA5MTE1NDQ4NDY0?x-oss-process=image/format,png" alt="添加资源-对象存储" loading="lazy"></figure>
+<p>这里有个添加资源，选择对象存储。<br>
+<img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTgwMzA5MTE1NzU3Mg?x-oss-process=image/format,png" alt="新建存储空间" loading="lazy"><br>
+新建存储空间，这里随意，但是似乎如果选择私有空间，后续会不一样（我没试过）。</p>
+<p>创建完成之后，找到<strong>内容管理</strong>里的<strong>上传文件</strong>。</p>
+<figure data-type="image" tabindex="33"><img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTgwMzExMTYwMTI4NjE0?x-oss-process=image/format,png" alt="上传文件" loading="lazy"></figure>
+<p>接着就进入了传图片的界面，上传即可。如下：</p>
+<figure data-type="image" tabindex="34"><img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTgwMzExMTYwMzMwOTQ3?x-oss-process=image/format,png" alt="上传图片" loading="lazy"></figure>
+<p>退出回到外面，复制链接。</p>
+<figure data-type="image" tabindex="35"><img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTgwMzExMTYwNTMzMjg4?x-oss-process=image/format,png" alt="复制链接" loading="lazy"></figure>
+<p>我们写的时候，格式如下：</p>
+<pre><code>![这里写图片描述](复制过来的链接）
+</code></pre>
+<p>就和 <strong>CSDN</strong> 的 <strong>MarkDown</strong> 格式差不多。然后就可以啦。把图片传到云服务器的好处是，不用担心照片在电脑里一直存着占内存啦。</p>
+<h2 id="12-将网站备份到百度">12. 将网站备份到百度</h2>
+<p>现在我们的网站，只能通过一种方法搜索到，就是直接在打自己的域名，进入网站。如果想要通过在百度搜索，一般会这样：</p>
+<figure data-type="image" tabindex="36"><img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTgwMzA5MTk0MTQ0NjYx?x-oss-process=image/format,png" alt="百度搜索" loading="lazy"></figure>
+<p>说明网站还没有被百度收录，如果想要能搜索到自己的网站的话（使得网站访问量增多），就需要百度备份了。<br>
+搜索 <strong>百度站长</strong> ，或直接进入链接：<br>
+https://ziyuan.baidu.com/site/index<br>
+然后备份网站，验证网站。<br>
+<img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTgwMzA5MTk0NzQxMjE5?x-oss-process=image/format,png" alt="验证" loading="lazy"></p>
+<p>注意这里的验证方式，推荐使用CNAME，只需要添加一条解析即可。格式如下：</p>
+<p><img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTgwMzA5MTk1MzE0NDE4?x-oss-process=image/format,png" alt="CNAME验证" loading="lazy"><br>
+像我的话，立马就通过验证了..但是听说可能有的人时间会长一点？我也不确定。</p>
+<p>接着生成网站地图。</p>
+<p>安装sitemap插件</p>
+<pre><code>npm install hexo-generator-sitemap --save     
+npm install hexo-generator-baidu-sitemap --save
+</code></pre>
+<p>然后修改博客配置文件。打开 <strong>blog</strong> 下的 **_config.yml ** 文件，修改如下：</p>
+<pre><code># URL
+## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
+url: https://amon1997.com
+root: /
+permalink: :year/:month/:day/:title/
+permalink_defaults:
+
+baidusitemap:
+  path: baidusitemap.xml
+</code></pre>
+<p>修改你的 <strong>url</strong> （如果按着之前的步骤来的话，我们已经改过了，所以这里可以不改），以及下面加上两行。<br>
+再回到 blog，运行 <strong>hexo g</strong> 来更新文件，这时候会生成 <strong>sitemap.xml</strong> 文件和 <strong>baidusitemap.xml</strong> 文件，但是目录不一定，我的在 博客根目录下的 <strong>public</strong> 里面，如果你的找不到，可以在blog里用以下命令搜索：</p>
+<pre><code>find ./ -name sitemap.xml
+find ./ -name baidusitemap.xml
+</code></pre>
+<p>接着向百度提交链接，在<strong>站点管理</strong>里面的<strong>站点属性设置</strong>里，找到<strong>链接提交</strong>，这里可以看到分为<strong>自动提交</strong>和<strong>手动提交</strong>，看到网上说，<strong>自动提交</strong>里的<strong>主动推送</strong>比较好，所以我们就用这种方式来试试：</p>
+<p><img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTgwMzA5MjA0OTU3MTk5?x-oss-process=image/format,png" alt="秘钥" loading="lazy"><br>
+这里的秘钥，注意下面要用到。</p>
+<p>安装插件：</p>
+<pre><code>npm install hexo-baidu-url-submit --save
+</code></pre>
+<p>再打开 <strong>blog</strong> 下的 **_config.yml ** 文件，添加以下内容：</p>
+<pre><code>baidu_url_submit:
+  count: 100 #提交数目，可以不改
+  host: www.amon1997.com # 在百度站长平台中注册的域名
+  token: xxxxxxxxxxx # 秘钥
+  path: baidu_urls.txt # 文本文档的地址，可以不改
+</code></pre>
+<p>加入新的deploye</p>
+<pre><code>deploy:
+- type:baidu_url_submitter
+</code></pre>
+<p>注意这个 <strong>-</strong> ，如果之前也有 <strong>type</strong> （一般都有吧？），那原来的 <strong>type</strong> 前面也要加 <strong>-</strong> ，并且格式要对齐，<strong>-</strong> 和 <strong>d</strong> 对其。像下面这样：</p>
+<pre><code>deploy: 
+- type:baidu_url_submitter
+- type: git
+</code></pre>
+<p><img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTgwMzA5MjA1NzAyNTE0?x-oss-process=image/format,png" alt="对其" loading="lazy"><br>
+执行 <strong>hexo deploy</strong> 的时候，新的链接会被推送。<br>
+然后差不多就可以了。<br>
+现在我们来搜索：<br>
+<img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTgwMzA5MjExNjQyMTgw?x-oss-process=image/format,png" alt="搜索网站" loading="lazy"><br>
+没错..刚弄完立马搜索是搜索不到的，那里有个<strong>提交网址</strong>，多提交几次会加快。<br>
+<img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTgwMzA5MjExNzM3OTQ5?x-oss-process=image/format,png" alt="加快" loading="lazy"></p>
+<p>本来等了好多天发现还是没有...一度以为方法有问题，反正搜 www.amon1997.com 还是没有，但是搜 amon1997.com 有诶..<br>
+<img src="https://img-blog.csdn.net/20180326182806567?" alt="amon1997.com" loading="lazy"></p>
+<p>继续提交...</p>
+<p>参考：<br>
+http://kchen.cc/2016/11/12/hexo-instructions<br>
+http://blog.csdn.net/sugar_rainbow/article/details/57415705<br>
+http://blog.csdn.net/xiangzhihong8/article/details/53355036<br>
+http://blog.csdn.net/sunshine940326/article/details/70936988</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[C语言| 可变参数]]></title>
+        <id>https://ccccj.github.io/post/c-yu-yan-or-ke-bian-can-shu/</id>
+        <link href="https://ccccj.github.io/post/c-yu-yan-or-ke-bian-can-shu/">
+        </link>
+        <updated>2018-02-08T15:33:39.000Z</updated>
+        <content type="html"><![CDATA[<p>可变参数..其实我也是第一次听说..<br>
+但是说起来，要说到当年用vim之前，还在用xcode的日子...每次打开xcode新建一个程序，他会帮你写好那么一小段代码：</p>
+<pre><code>#include &lt;stdio.h&gt;
+int main(int argc, const char * argv[]) {
+    // insert code here...
+    printf(&quot;Hello, World!\n&quot;);
+    return 0;
+}
+</code></pre>
+<p>当年我还...什么都不懂..还没开始敲代码就懵了。。main后面那一段是什么鬼？？？<br>
+让我们来看一段函数：</p>
+<pre><code>int add(int x, int y) {
+    return x+y;
+}
+</code></pre>
+<p>在小括号里的是这个函数的参数，有没有觉得和main函数的参数很像？</p>
+<pre><code>int main(int argc, const char * argv[]) {
+    return 0;
+}
+</code></pre>
+<p>要知道，<strong>main函数并不是我们程序运行的第一个函数</strong>，在调用 main 前，还有 _tmainCRTstartup 等函数，当然，这不是我们关注的重点，重点是，就<strong>如同main调用其他函数一样，会传入参数</strong>，<code>int argc, const char * argv[]</code>这些，就是调用 main 函数时，<strong>给 main 传入的参数</strong>。<br>
+当然，这不是完整的main参数列表，更完整的应为：</p>
+<pre><code>int main(int argc, char * argv[], char * envy[]) {
+    pragma—statements
+}
+</code></pre>
+<p>这就是一个很完整的可变参数列表了。为什么说是“可变”呢？因为他的<strong>参数个数不是一定的</strong>。下面我们来具体分析：</p>
+<blockquote>
+<p>argc ：一个整型变量，参数个数；<br>
+argv ：一个字符指针的数组，参数列表；<br>
+envp ：传递给该程序的环境变量列表（告诉编译器，头文件、库等信息在哪里）。</p>
+</blockquote>
+<p>撇开环境变量不提（因为我也不知道用来干啥的..以前看linux的书的时候有见过环境变量..但是没仔细看所以也不大清楚），我们主要来看前两个。</p>
+<p>第一个参数，argc指接下来会传入多少个参数，这个很好理解，但是<code>char * argv[]</code>，光看形式可能就有人不懂了。要理解他，我们首先得知道 <strong>指针数组</strong> 与 <strong>数组指针</strong> 的概念。<br>
+<img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTgwMjA4MTk1OTIyMTEy?x-oss-process=image/format,png" alt="c语言运算符优先级" loading="lazy"><br>
+从这张图中可以看出，在<code>char * argv[]</code>中，数组下标的优先级更高，于是，argc首先与数组下标先结合，因此，argc是一个数组，那么数组中存放着什么呢？接下来继续看，他又与指针相结合，噢，放着指针。什么类型的指针？继续看，噢，char型啊。这就是一个指针数组了。如下图：</p>
+<figure data-type="image" tabindex="1"><img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTgwMjA4MjAwNzM1NDYw?x-oss-process=image/format,png" alt="char * argv[]图解" loading="lazy"></figure>
+<p>那么这些指针指向什么呢？我们来看两条语句：</p>
+<pre><code>char str1[] = &quot;hi&quot;;
+char* str2 = &quot;hello&quot;;
+</code></pre>
+<p>像这样两种定义方式，区别在于，str1可能在栈、堆、在全局区（具体看怎么定义的），可以修改，而str2在地址空间中的字符常量区，不可修改；在这里我们可以类比着去理解。</p>
+<ul>
+<li>第一种类型：数组是开辟了一块空间后，每一块小空间，都放入一个数据（可能是int型，可能是char型，可能是指针、结构体等等）。</li>
+<li>第二种类型：一个指针，指向了一片空间，这块空间里存放着一串字符，如图所示：</li>
+</ul>
+<figure data-type="image" tabindex="2"><img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTgwMjA4MjAyMzI5NzY3?x-oss-process=image/format,png" alt="字符串指针" loading="lazy"></figure>
+<p>这个指针p，指向了内存中的一块空间（在字符常量区），我们顺着这个指针，就能找到这个字符串，和数组原理相同，有时候（注意是有时候，不要以为数组名就是地址！！）数组名代表着数组首元素的地址，我们顺着这个地址去查找，就能知道这个地址的空间里存放着什么。<br>
+知道了这点以后，我们再来看<code>char * argv[]</code> 代表着什么：<br>
+<img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTgwMjA4MjAzODMzNjA5?x-oss-process=image/format,png" alt="char * argv[]" loading="lazy"><br>
+图中可以看出，argc是一个数组，数组中存放着指针，每个指针指向一个字符串。（<strong>数组最后一个元素存放NULL指针</strong>，图中未画出）</p>
+<hr>
+<p>关于main函数的可变参数，在linux下的体现更突出一些，我们可以在编译链接期间传入参数，来达到一些特定的目的，这里暂且不提（不提的原因是...还没学linux..所以具体什么作用我了解的也不是很清楚TAT）。</p>
+<p>接下来说说可变参数的<strong>用处</strong>。</p>
+<p>根据可变参数列表的特性，在什么地方用起来会很方便呢？<br>
+看一个例子：</p>
+<blockquote>
+<p>求几个数的平均数（具体多少个数不知道）</p>
+</blockquote>
+<p>这样一道题，或许我们可以将所有数放入一个数组中，再将数组和元素个数作为参数传入，一个数一个数的读取取平均值即可。但这里要介绍的是另一种方法：利用可变参数。</p>
+<p>以此函数为例，我们来具体分析下。<br>
+一个含可变参数的函数由以下几部分组成：</p>
+<ul>
+<li>头文件</li>
+</ul>
+<pre><code>#include &lt;stdarg.h&gt;
+</code></pre>
+<ul>
+<li>函数名：</li>
+</ul>
+<pre><code>// 注意，参数列表里的 &quot;...&quot; 实际写的时候就是这么写的
+// n代表之后还会传入n个参数，n后面可以没有参数，但n一定要传
+int average(int n, ...) { 
+	// ...
+}
+</code></pre>
+<ul>
+<li>函数主要内容</li>
+</ul>
+<pre><code>va_list arg;
+va_start(arg, n);
+// ... va_arg(arg, int); // int也可为其他类型
+va_end(arg);
+</code></pre>
+<p>这里的 <code>va_list</code>，用于定义一个变量，变量名我取名为arg，他的本质其实就是一个<strong>字符型指针</strong>，vs中定义如下（由于我没有vs，所以摘抄自网络）：</p>
+<pre><code>typedef char* va_list;
+</code></pre>
+<p><strong>注意，这里为什么需要是char？</strong> 接下来后面会提到。</p>
+<p>我们的arg这个指针，声明完，需要让他指向地址空间中的某一地址处，就用到了接下来这个函数：</p>
+<pre><code>void va_start ( va_list ap, prev_param ); 
+</code></pre>
+<p><code>va_start(arg, n)</code>的功能 毫无疑问是将arg指针指向某一地址处，但我们还不清楚是指向哪里，目前我们所知道的地址只有 n 的地址，测试下和 n 的地址有何关联。<br>
+<img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTgwMjA4MjMyNjQ2NDk2?x-oss-process=image/format,png" alt="测试程序" loading="lazy"><br>
+程序运行结果：<br>
+<img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTgwMjA4MjI1MDQzODEw?x-oss-process=image/format,png" alt="arg的地址" loading="lazy"></p>
+<p>可以看出，n 和 arg 的地址只<strong>相差了4</strong>（这里是64位平台int型，占4字节），且 arg 的地址比 n 大4。<br>
+再来看vc中的宏：</p>
+<pre><code>// 获取类型占用的空间长度，最小占用长度为int的整数倍
+#define _INTSIZEOF(n) ((sizeof(n)+sizeof(int)-1)&amp;~(sizeof(int) - 1) )
+#define va_start(ap,v) ( ap = (va_list)&amp;v + _INTSIZEOF(v) ) 
+</code></pre>
+<p>v即为这里的n，ap即为这里的arg，<code>ap = (va_list)&amp;v</code>，可知arg 赋为n的地址加上n的类型的大小（我写的代码中为4）。</p>
+<p><strong>这里说一句，前面对arg的定义为什么需要是字符型呢？我们知道，对指针进行自增或自减操作，实际上是加或减了指针的类型的字节数。什么意思呢，比如说这里定义arg为int型，当arg+k，其实并不是加了k，而是加了4k（是跳过了其类型的k倍）。</strong></p>
+<p>那么，加上这么一段大小后，指向了哪里呢？<br>
+其实，传参时，参数从后往前传（这个解释起来就很麻烦了，以后可能会写一篇关于栈帧的博客，应该会具体解析，写完再传地址吧...），这里只需要知道，<br>
+传参时，<strong>后面的参数比前面的参数地址大</strong>即可，由此可知，<strong>arg指向了 n 后面的第一个参数</strong>，即可变参数部分的第一个参数。</p>
+<p>既然我们已经知道了第一个参数的地址，由于函数调用的性质（啊又要用到栈帧的知识了...话说我真的应该先写栈帧再写可变参数的..），<strong>参数的地址，由低到高连续排列</strong>（就像数组一样）。我们将其类比成数组（还记得我前面讲到的那个用数组的方法吗，原理都是差不多的），由其地址得到他们的值，再将所有值相加来求平均数。</p>
+<p>那么如何通过地址得到他们的值？<br>
+下一个函数为<code>va_arg(arg, int)</code>，vs中定义如下：</p>
+<pre><code>type va_arg ( va_list ap, type ); 
+</code></pre>
+<p>此函数用于提取数据，从网上找到了其宏如下：</p>
+<pre><code> #define _crt_va_arg(ap,t) ( *(t *)((ap += _INTSIZEOF(t)) - _INTSIZEOF(t)) )
+</code></pre>
+<p>这条语句更能说明 <code>va_arg</code>是如何运作的。他将arg指针先强转为当前可变参数的类型，再解引用后返回，并将其指向下一个可变参数（ap += _INTSIZEOF(t)）。由于会有返回值，所以我们可以用一个变量来接受返回值。</p>
+<p>最后，让arg指针指向NULL。</p>
+<pre><code> void va_end ( va_list ap ); 
+</code></pre>
+<ul>
+<li>完整的求平均值的函数：</li>
+</ul>
+<pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdarg.h&gt;
+
+int average(int n, ...) {
+    va_list arg; // 定义指针
+    int i = 0, sum = 0;
+    va_start(arg, n); // 指针指向第一个可变参数
+    for ( ; i &lt; n; ++i) {
+	    // 用于接收每个参数的值
+        sum += va_arg(arg, int);
+    }
+    va_end(arg); // 置空
+    return sum/n;
+}
+
+int main()
+{
+    printf(&quot;%d\n&quot;, average(5, 1, 2, 3, 4, 5));
+    return 0;
+}
+</code></pre>
+<p>以上就是所有内容了... emmm..写的比较仓促，其实很不全...补上栈帧的知识就比较全了..但是栈帧又涉及到很多，写一起不方便，到时候分开写~</p>
+<p>// 另外。。。具体可变参数的实现原理。。过几天可能会写一篇栈帧的博客。。写完再补上博客地址</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[ACM：素数线性筛法（素数打表）]]></title>
+        <id>https://ccccj.github.io/post/acmsu-shu-xian-xing-shai-fa-su-shu-da-biao/</id>
+        <link href="https://ccccj.github.io/post/acmsu-shu-xian-xing-shai-fa-su-shu-da-biao/">
+        </link>
+        <updated>2018-01-21T17:26:21.000Z</updated>
+        <content type="html"><![CDATA[<ul>
+<li>通过一道题来讲一下素数筛法。<br>
+（我理解的素数筛法。。不一定对）<br>
+原题：<br>
+https://vjudge.net/contest/205544#problem/H<br>
+题目在文章末尾。</li>
+<li>在此之前可以先看一篇博客，原文的地址不知道为啥打不开了..网上有很多转载的，以下是一个转载的地址：<br>
+http://blog.csdn.net/net_assassin/article/details/8960572<br>
+讲了求质数算法的N种境界，前面几种方法算是铺垫，最后面的讲了素数筛法。</li>
+</ul>
+<p>题目代码：</p>
+<pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdbool.h&gt; 
+
+int prime[700000]; 
+bool check[10000000]; 
+
+int num = 1;
+
+int judge(int y)
+{
+    int p[10];
+    int i = 0;
+    for ( ; i &lt; 10; i++) 
+        p[i] = -1;
+
+    i = 0;
+    while (y != 0) {
+        p[i] = y%10;
+        y /= 10;
+        i++;
+    }
+    int j = 0;
+    while(p[j] != -1) 
+        j++;
+
+    j--;
+    i = 0;
+    while (i &lt;= j) {
+        if (p[i] != p[j]) {
+            return 0;
+        }
+        i++,j--;
+    }
+    return 1;
+}
+
+int main()
+{
+    int i = 2;
+    for ( ; i &lt; 10000000; i++) {
+        if (check[i] == 0) {
+            prime[num++] = i;
+        }
+        int j = 1;
+        for ( ; j &lt; num; j++) {
+            if (prime[j]*i &gt; 10000000) {
+                break;
+            }
+            check[prime[j]*i] = 1;
+            if(i % prime[j] == 0)
+                break;
+        }
+    }
+    int a,b;
+    while (~scanf(&quot;%d %d&quot;, &amp;a, &amp;b)) {
+        int j;
+        for (j = 1; j &lt; 10000000; j++) {
+	        // 确定下w在prime数组里的下标
+            if (prime[j] &gt;= a) {
+                break;
+            }
+        }
+        for (i = j; prime[i] &lt;= b &amp;&amp; i &lt; num; i++) {
+            if (judge(prime[i]) == 1) { // 判断回文
+                printf(&quot;%d\n&quot;,prime[i]);
+            }
+        }
+        printf(&quot;\n&quot;);
+    }
+    return 0;
+}
+
+</code></pre>
+<ol>
+<li>用prime来存储素数，但如何确定小于x范围内素数的大致个数？最简单的公式为x/lnx。但算出的结果是不准确的，大于有百分之几的误差，x越大时误差越小。</li>
+<li>用check数组来标记所有数，初始化为0，若发现下标是合数，空间内放1；<br>
+数组的类型可以定义为bool类型，这道题里如果是int型，空间会超，而bool类型会省很多空间，因为在32位平台c/c++,int为4字节，而bool为1字节（c语言没有bool类型，需要引头文件，c++有，无需引头文件，但无论c还是c++，大小都是1字节）。</li>
+<li>题目给出的范围是1-100000000，但计算时看了下结果，10000000-99999999范围内没有符合的数，所以我们可以将范围缩小为原来的十分之一（可能会有别的更好地处理方法）。</li>
+<li>素数筛法的中心模块在于以下代码：</li>
+</ol>
+<pre><code>    int i = 2;
+    for ( ; i &lt; 10000000; i++) { //判断i是否为质数
+        if (check[i] == 0) { //说明i被小于它的所有数试除过后，标记仍为0
+            prime[num++] = i; //记下这个素数
+        }
+        // 无论这个数是否为素数，都将它一定范围内的倍数试除
+        int j = 1;
+        // j小于等于已有素数的下标（由于前面为num自增，所以这里不需要等号）
+        for ( ; j &lt; num; j++) {
+            if (prime[j]*i &gt; 10000000) {
+                break;
+            }
+            check[prime[j]*i] = 1;
+            if(i % prime[j] == 0) // 这一句很关键，解析较长写下面
+                break;
+        }
+    }
+</code></pre>
+<ul>
+<li>
+<p>试除法<br>
+讲筛法前先讲下试除法...不想看的可以略过这几段...<br>
+如果用试除法判断x是否为素数，那只需要尝试所有 小于等于 sqrt(x) 的素数即可。<br>
+为什么要开根号很好理解，但为什么只需要尝试素数？<br>
+例如判断101是否为素数，101开根号取整为10，小于等于10的所有素数为：2，3，5，7。<br>
+因为所有合数都可以分解为多个素数相乘（根据欧拉函数得出的结论），例如这里的6，可以分解为2*3，这些素数必定小于这个合数，即2、3都小于6；当我们判断101是否为素数时，无需尝试它能否整除6，因为我们尝试过2和3，也就相当于尝试了6，省去对合数的尝试，可以省去不必要的重复操作。<br>
+而 小于等于 sqrt(x) 的所有素数，在求解x前，我们都已经算出来了。因此，可以每算出一个质数，就将它保存起来（放在一个数组里）。</p>
+</li>
+<li>
+<p>素数筛法<br>
+在这个基础上，如果我们将所有要判断的数放在一个容器里，每判断一个数，发现其为质数，那将它所有倍数筛去，即标记为1（容器初始化为0）。但这样又存在一个问题，例如发现3为质数，将它的15倍，即45筛去后，又发现5为质数，将他的9倍晒去，这样一来，45被重复操作，而数据较大时，会有大量的数据被重复操作。<br>
+而前面我们提到过，每个合数由多个素数相乘，则其必有一个最小素数因子，利用这个原理，可以让每个数都被其最小素因子筛去，避免重复操作。<br>
+又可知prime中所有素数都是递增的，当i % prime[j] == 0时，i必定可分解为prime[j]乘上另一个素数k (或i == prime[j])，k必定小于a[j++]（这个简单分析下就能得出结果）；例如，j=1，prime[j]=2，i=4时，i = 2*prime[j]，k=2，下一个prime[j]为3，k=2&lt;3=a[2]。后面的几组数同理。<br>
+因此，每当 i % prime[j] == 0 时就break，因为后面的几组数里的prime[j]都不会是最小素因子。<br>
+当避免了这些重复操作时，成为线性筛法。</p>
+</li>
+<li>
+<p>试除法与筛法差别<br>
+一开始我以为两者效率会差不多，但经常时间比对发现，线性筛法比试除质数效率高很多，因为对于一些数，例如9，对9开根号为3，我们去尝试小于等于3的质数，即2、3，但是9无法被2整除，判定9为合数的关键步骤在于，9%3 = 0 ，相当于前面对2的尝试浪费了时间。<br>
+而筛法不同，我们没有用2去判定9，而是当确定了3为素数时，直接将3的一些倍数筛去，一步到位，节省时间。</p>
+</li>
+</ul>
+<hr>
+<ul>
+<li>以下为原题：</li>
+</ul>
+<h5 id="素数回文">素数回文</h5>
+<p>xiaoou33对既是素数又是回文的数特别感兴趣。比如说151既是素数又是个回文。现在xiaoou333想要你帮助他找出某个范围内的素数回文数，请你写个程序找出 a 跟b 之间满足条件的数。(5 &lt;= a &lt; b &lt;= 100,000,000);</p>
+<p>Input</p>
+<p>这里有许多组数据，每组包括两组数据a跟b。</p>
+<p>Output</p>
+<p>对每一组数据,按从小到大输出a，b之间所有满足条件的素数回文数（包括a跟b）每组数据之后空一行。</p>
+<p>Sample Input</p>
+<p>5 500</p>
+<p>Sample Output</p>
+<p>5<br>
+7<br>
+11<br>
+101<br>
+131<br>
+151<br>
+181<br>
+191<br>
+313<br>
+353<br>
+373<br>
+383</p>
 ]]></content>
     </entry>
 </feed>

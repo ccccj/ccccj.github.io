@@ -1,0 +1,600 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+ <meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta HTTP-EQUIV="pragma" CONTENT="no-cache"> 
+<meta HTTP-EQUIV="Cache-Control" CONTENT="no-cache, must-revalidate"> 
+<meta HTTP-EQUIV="expires" CONTENT="0"> 
+<title>C++ | 函数重载 | Amon&#39;s Homepage</title>	
+
+<link rel="stylesheet" href="https://ccccj.github.io/styles/main.css">
+<script type="text/javascript">
+function getCSS()
+{
+        datetoday = new Date();
+        timenow=datetoday.getTime();
+        datetoday.setTime(timenow);
+        thehour = datetoday.getHours();
+
+            display = "https://ccccj.github.io/media/css/night.css";
+
+            display = "https://ccccj.github.io/media/css/night.css";   
+      
+            display = "https://ccccj.github.io/media/css/day.css";
+
+            display = "https://ccccj.github.io/media/css/day.css";
+      
+
+var css = '<';
+        css+='link rel="stylesheet" href='+display+' \/';
+        css+='>';
+        document.write(css);
+}
+</script>
+<link href="https://fonts.googleapis.com/css?family=Dancing+Script|Liu+Jian+Mao+Cao&display=swap" rel="stylesheet">
+<link href="https://at.alicdn.com/t/font_1306644_jwtuc2zzbrd.css" rel="stylesheet" />
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<script type='text/javascript' src='https://ccccj.github.io/media/scripts/script.js'></script>
+<link href="https://cdn.bootcss.com/animate.css/3.5.2/animate.min.css" rel="stylesheet" />
+  <script src="https://cdn.bootcss.com/wow/1.1.2/wow.min.js"></script>
+  <script src="https://cdn.bootcss.com/highlight.js/9.15.8/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <script>wow=new WOW({boxClass:'wow',animateClass:'animated',offset:0,mobile:true,live:true});wow.init();</script>
+
+<script type="text/javascript">
+window.onload=getCSS();
+</script>
+
+
+ 	
+</head>
+<body class="post-template-default single single-post postid-70 single-format-standard">
+    <div id="wrapper">
+        
+			
+		<header id="header" class="site-header" 
+		
+		>
+			<div class="site-branding">
+									<h1 class="site-title"><a href="https://ccccj.github.io" rel="home">Amon&#39;s Homepage</a></h1>
+										
+					<h2 class="site-description">温故而知新</h2>
+										
+							</div>
+			<nav id="nav-wrapper">
+				<div class="container">
+					<div class="nav-toggle">
+						<div class="bars">
+							<div class="bar"></div>
+							<div class="bar"></div>
+							<div class="bar"></div>
+						</div>
+					</div>
+					<div class="clear"></div>
+					<ul id="" class="dove">
+		 
+     			
+<li>
+	 
+	<a  href="/"> home</a></li>
+	
+    
+     			
+<li>
+	 
+	<a  href="/archives"> archives</a></li>
+	
+    
+     			
+<li>
+	 
+	<a  href="/tags"> tags</a></li>
+	
+    
+     			
+<li>
+	 
+	<a  href="/post/about"> about</a></li>
+	
+    
+
+</ul>
+</li>		
+		
+</ul>				</div>
+			</nav>
+						<div class="jingge">
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        </header>
+
+		<div id="content" class="container">
+			<div class="row">
+	<div class="col-md-8 site-main">
+				
+<article id="post-70" class="post-70 post type-post status-publish format-standard hentry category-5 tag-10 tag-9 tag-11">
+
+	
+	                      
+		<div class="entry-content">
+			<h1 class="wow swing entry-title">C++ | 函数重载</h1>
+<div class="entry-meta">
+<div class="wow bounce">
+	<i class="iconfont icon-rili"> <time class="lately-a" datetime="2018-04-05 17:31:36" itemprop="datePublished" pubdate="">2018-04-05</time></i>
+	          </div>
+			
+</span>
+													 
+		</div>
+                  
+			<div class="wow slideInLeft entry-summary song">
+				<h2 id="目录">目录</h2>
+<p><ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#%E7%9B%AE%E5%BD%95">目录</a>
+<ul>
+<li><a href="#%E5%87%BD%E6%95%B0%E9%87%8D%E8%BD%BD%E6%98%AF%E4%BB%80%E4%B9%88">函数重载是什么</a></li>
+<li><a href="#%E5%8F%AF%E4%BB%A5%E6%9E%84%E6%88%90%E9%87%8D%E8%BD%BD%E7%9A%84%E8%A6%81%E6%B1%82">可以构成重载的要求</a>
+<ul>
+<li><a href="#%E5%8F%82%E6%95%B0%E5%88%97%E8%A1%A8%E7%9A%84%E8%A6%81%E6%B1%82">参数列表的要求</a></li>
+<li><a href="#%E5%85%B6%E4%BB%96%E6%B3%A8%E6%84%8F%E7%82%B9">其他注意点</a>
+<ul>
+<li><a href="#1-%E7%B1%BB%E5%9E%8B%E9%9C%80%E8%A6%81%E5%AE%8C%E5%85%A8%E5%8C%B9%E9%85%8D">1、类型需要完全匹配</a></li>
+<li><a href="#2-%E6%B3%A8%E6%84%8F%E5%BC%95%E7%94%A8">2、注意引用</a></li>
+<li><a href="#3-const-%E6%8C%87%E9%92%88%E7%B1%BB%E5%9E%8B%E5%8C%B9%E9%85%8D">3、const 指针类型匹配</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#%E9%87%8D%E8%BD%BD%E5%BC%95%E7%94%A8%E5%8F%82%E6%95%B0">重载引用参数</a></li>
+<li><a href="#%E4%BD%95%E6%97%B6%E9%87%87%E7%94%A8%E5%87%BD%E6%95%B0%E9%87%8D%E8%BD%BD">何时采用函数重载</a></li>
+<li><a href="#%E5%87%BD%E6%95%B0%E9%87%8D%E8%BD%BD%E7%9A%84%E5%8E%9F%E7%90%86">函数重载的原理</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</p>
+<h3 id="函数重载是什么">函数重载是什么</h3>
+<p><strong>缺省参数</strong>让我们在参数数目不同时可以调用同一个函数（不清楚的可以看下我 C++ 零碎知识点集合 那篇博客），而<strong>函数重载</strong>让我们能够使用多个<strong>同名函数</strong>。</p>
+<hr>
+<p>（其实写完这篇博客，觉得举这个例子不是很好..因为很多人并不是像我一样，先接触了 STL 再学习的 C++，看这篇博客的很多人应该并不理解 vector 之类的...然而已经写完了...）</p>
+<p>第一次接触函数缺省参数应该是在使用 STL 的各种容器的时候，那时候还没开始学 C++，但是一直听说做题的时候容器很好用，就试着用了下。当时第一个用的是 vector，对于它的构造方法觉得惊为天人...<br>
+（其实这里举这个例子可能会有些听不懂...虽然可以再讲很多别的例子..但是对我印象最深刻的函数重载就是这个= =）</p>
+<p>刚才特地去 cplusplus 上验证了下到底是重载还是参数缺省..事实证明就是重载..推荐大家多用这个网站..真的好用<sup>o</sup></p>
+<figure data-type="image" tabindex="1"><img src="https://img-blog.csdn.net/2018040513113615?" alt="vector" loading="lazy"></figure>
+<p>关于 const allocator_type&amp; alloc 这个参数我们暂时不用管（百度了下是模板..然而没学过..只能暂时不管了...），只需要看其他的即可 。<br>
+这里声明了几个的 vector 的构造函数，从这也能看出传参方式不同：</p>
+<blockquote>
+<p>1.无参数；<br>
+2.传一个 n 来设定 vector 的初始元素个数；<br>
+3.传 n 设定元素个数，传 value 设定每个元素的初始值；<br>
+4.是拷贝构造，传入一个 vector 的对象；<br>
+5.传两个迭代器，设定第一个元素的地址与最后一个元素的下一位置的地址。</p>
+</blockquote>
+<p>暂时只能看懂以上构造函数，但是也可以说明一个问题，那就是，<strong>当我们传入的参数不同时，所调用的函数也会不同</strong>。</p>
+<figure data-type="image" tabindex="2"><img src="https://img-blog.csdn.net/20180405132306163?" alt="构造方法" loading="lazy"></figure>
+<p>这里是几个构造方法的例子，分别对应了我上面所举的例子的 1、3、5、4 这四种方法。</p>
+<p>到这里有没有稍微明白一点<strong>函数重载</strong>到底是什么呢？</p>
+<blockquote>
+<p>函数重载即，我们设计一系列函数——他们有相同的函数名，并且完成相同的工作，但有不同的参数列表。</p>
+</blockquote>
+<p>C++ 相对于 C 引入了函数重载，很方便的解决了我们很多问题，就像之前那个 vector 的几种构造方法一样，他们略微有一些差异，但最终实现的功能是一样的，我们可以根据他们的功能来记住这一类函数的名字，但若是每个函数都有不同的名字，调用时便会很不方便。</p>
+<h3 id="可以构成重载的要求">可以构成重载的要求</h3>
+<h4 id="参数列表的要求">参数列表的要求</h4>
+<p>但不是所有函数都可以重名的。函数重载也有前提：<strong>参数列表不同</strong>。<br>
+函数的<strong>参数列表</strong>也成为<strong>函数特征标</strong>。他由三个特性构成：<br>
+1.<strong>参数数目和类型</strong><br>
+2.<strong>参数的排列顺序</strong><br>
+也就是说，有两个函数，在这两点中有任意一点不同，我们称其参数列表（特征标）不同。</p>
+<p>注意，我们所说的是要求参数列表（特征标）不同，而不是函数类型不同，以下这两个声明是<strong>互斥</strong>的：</p>
+<pre><code>int test(int x);
+double test(int x);
+</code></pre>
+<p>但是当参数列表不同时，返回类型可以不同：</p>
+<pre><code>int test(int x);
+double test(float x);
+</code></pre>
+<p><strong>总结</strong>：需要使用函数重载，其参数列表必须不同，而返回类型可不同也可相同（具体原因后面会讲）。</p>
+<h4 id="其他注意点">其他注意点</h4>
+<h5 id="1-类型需要完全匹配">1、类型需要完全匹配</h5>
+<p>在使用时有很多地方需要我们注意：</p>
+<pre><code>	void test(int a); 
+	void test(float f);
+</code></pre>
+<p>这时候如果调用：</p>
+<pre><code>double t = 1;
+test(t);
+</code></pre>
+<p>当 test 函数没有重载时，传入参数类型若不匹配，编译器便会将类型强转，然而现在有了两种转换 t 的方式，编译器便会将其视为错误。</p>
+<h5 id="2-注意引用">2、注意引用</h5>
+<p>另外，有些看起来彼此不同的参数列表是不能共存的：</p>
+<pre><code>void test(int x);
+void test(int&amp; x);
+</code></pre>
+<p>的确，您可能认为他们参数列表不同，可是换一种考虑方式：当您调用</p>
+<pre><code>    int a = 1;
+    test(a);
+</code></pre>
+<p>这时候两个函数都匹配，又让编译器去调用哪个呢？为了避免这种情况，编译器在检查函数特征标时，将类型本身与类型引用视为同一特征标。</p>
+<h5 id="3-const-指针类型匹配">3、const 指针类型匹配</h5>
+<p>看下面一个简单的例子：</p>
+<pre><code>void test(const char* s) {
+    cout &lt;&lt; &quot;test1&quot; &lt;&lt; endl;
+}
+
+void test(char* s) {
+    cout &lt;&lt; &quot;test2&quot; &lt;&lt; endl;
+}
+
+int main() {
+    const char a[] = &quot;hello&quot;;
+    char b[] = &quot;hello&quot;;
+    test(a);
+    test(b);
+    return 0;
+}
+</code></pre>
+<p>输出结果：</p>
+<blockquote>
+<p>test1<br>
+test2</p>
+</blockquote>
+<p>可以看出，const 修饰的参数会与 const 类型匹配，而非 const 参数与非 const 类型匹配，但是注意，若不是指针，而是普通变量，编译器则会报错：</p>
+<pre><code>void test(int x);
+void test(const int x);
+</code></pre>
+<p>上面的代码编译器会提示你函数重定义，说明编译器并不区分const变量与非const变量（我的猜测是，无论是不是const变量，对于原变量，都不会修改，因为参数是原本参数的一份拷贝，因此，除指针和引用外的变量，是不是const变量都无所谓）。</p>
+<h3 id="重载引用参数">重载引用参数</h3>
+<p>在C++中经常用到引用，因此重载引用参数也值得探讨。</p>
+<pre><code>void test(double &amp; x);
+void test(const double &amp; x);
+void test(double &amp;&amp; x);
+</code></pre>
+<p>可能有人是第一次见两个引用符号...比如我...<br>
+下面具体解释下这三种参数对应的传参：</p>
+<ol>
+<li>形参为 可变的左值；</li>
+<li>形参为 可变的左值、不可变的左值 或 右值</li>
+<li>形参为 右值（最后这个书上说 rvalue，但翻译又说是左值，怀疑是写错了）。</li>
+</ol>
+<p>可以发现，可变的左值既可匹配 1 也可匹配 2；右值既可匹配 2 又可匹配 3；那么到底如何匹配呢？<br>
+答案是：选择最匹配的。<br>
+看下面一个对比就明白了：</p>
+<pre><code>void test(double&amp; x) {
+    cout &lt;&lt; &quot;test1&quot; &lt;&lt; endl;
+}
+
+void test(const double&amp; x) {
+    cout &lt;&lt; &quot;test2&quot; &lt;&lt; endl;
+}
+
+void test(double&amp;&amp; x) {
+    cout &lt;&lt; &quot;test3&quot; &lt;&lt; endl;
+}
+
+int main() {
+    double a = 1;
+    const double b = 2;
+    test(a);
+    test(b);
+    test(a + b);
+    return 0;
+}
+</code></pre>
+<p>答案：</p>
+<blockquote>
+<p>test1<br>
+test2<br>
+test3</p>
+</blockquote>
+<p>这里 a 为左值，所以匹配最匹配的 test1，b 为不可变的左值，所以匹配 test2， a+b 为右值，所以匹配最匹配的 test3。而下一个例子则不是：</p>
+<pre><code>void test(const double&amp; x) {
+    cout &lt;&lt; &quot;test2&quot; &lt;&lt; endl;
+}
+
+int main() {
+    double a = 1;
+    const double b = 2;
+    test(a);
+    test(b);
+    test(a + b);
+    return 0;
+}
+</code></pre>
+<p>答案：</p>
+<blockquote>
+<p>test2<br>
+test2<br>
+test2</p>
+</blockquote>
+<p>这里的三个答案均为 test2，是因为 a 和 a+b 没有最原本那两个选择，最匹配的变为了 test2。这就是<strong>选择最匹配</strong>的意思。</p>
+<h3 id="何时采用函数重载">何时采用函数重载</h3>
+<p>当我们的函数将执行相同的任务，但使用不同形式的数据时，可采用函数重载。当然，并不是所有时候都需要用到函数重载，有些地方用缺省参数会更方便些。</p>
+<h3 id="函数重载的原理">函数重载的原理</h3>
+<p>想要明白函数的原理，就需要先明白<strong>名称修饰</strong>（名称矫正）。什么是名称修饰呢？<br>
+我们的编译器在<strong>编译</strong>阶段，将函数名进行了修饰，将其从原本的函数名，变为了修饰后的修饰名。在调用函数的时候，并不是按函数名去直接调用函数的，而是按照<strong>修饰名</strong>去调用函数。<br>
+那么C++是如何对函数名进行修饰的呢？来看一个例子：</p>
+<pre><code>void test(int a, float b) {
+	// ...
+}
+
+int main() {
+	test(1, 2);
+	return 0;
+}
+</code></pre>
+<p>一段简单的代码，我们分别在 c 和 c++ 中运行，查看其汇编代码。<br>
+linux 下执行以下语句来查看：</p>
+<blockquote>
+<p>objdump -D a.out | grep &quot;test&quot;<br>
+a.out：是我生成的可执行文件名，如果不是这个名字，可修改下；<br>
+grep：由于汇编代码有点长..我就写了辣么几行代码就有好多啊..干脆就通过管道找起来方便点...</p>
+</blockquote>
+<p>c的结果：<br>
+<img src="https://img-blog.csdn.net/20180405172057234?" alt="c" loading="lazy"><br>
+c++的结果：<br>
+<img src="https://img-blog.csdn.net/20180405172109749?" alt="c++" loading="lazy"></p>
+<p>可以看出，test 这一函数，在 c 与 c++ 汇编中的名字是不同的，c++ 对其进行的名称修饰，将原本的名字前面加了 <strong>4</strong>，表示函数名的长度为 4；test 后面加了 <strong>i</strong> 和 <strong>f</strong> ，表示第一个参数类型为 int ，第二个参数类型为 float。（当然，不同的编译器命名规则也不同）<br>
+因此也就可以解释，当我们的函数名相同时，参数类型不同，或其顺序不同时，参数列表也就不同了。</p>
+<p>从中也可以看出，这在 c 中是不适用的，因为其未对函数名进行修饰，所有相同名字的函数，即使参数列表不同，在汇编中的名字是相同的。<br>
+所以，在<strong>链接</strong>这一阶段，便会报错，产生链接错误。</p>
+
+							</div>
+	<div class="wow bounceInDown vt-post-tags">
+ 
+					</div>						
+<nav class="navigation3 post-navigation3" role="navigation">
+		
+		<div class="nav-links3">
+      
+		<div class="wow bounceInLeft nav-previous3"><a href="https://ccccj.github.io/post/python-xue-xi-bi-ji/" rel="prev"> python学习笔记</a></div>
+		 
+		 
+		<div class="wow bounceInRight nav-next3"><a href="https://ccccj.github.io/post/c-or-yin-yong-bian-liang/" rel="next"> C++ | 引用变量</a></div>
+		
+		</div>
+	</nav>
+	<div class="wow rollIn author-info" style="visibility: visible; animation-name: rollIn;">
+	<div class="author-avatar pull-left"><img src="https://ccccj.github.io/images/avatar.png" ></div>
+ 
+
+		</div>
+		
+ 
+		
+</article>
+
+<div id="marlin_lite_about_widget-2" class="wow bounceInUp widget marlin_lite_about_widget" data-wow-delay="0.1s">
+		
+        
+		<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='https://ccccj.github.io/media/scripts/Valine.min.js'></script>
+
+<div class="comment"></div>
+<script>
+        new Valine({
+            // AV 对象来自上面引入av-min.js(老司机们不要开车➳♡゛扎心了老铁)
+            av: AV, 
+            el: '.comment',
+            lang: 'zh-cn',
+            
+            
+      emoticon_list: ["吐.png","喷血.png","狂汗.png","不说话.png","汗.png","坐等.png","献花.png","不高兴.png","中刀.png","害羞.png","皱眉.png","小眼睛.png","中指.png","尴尬.png","瞅你.png","想一想.png","中枪.png","得意.png","肿包.png","扇耳光.png","亲亲.png","惊喜.png","脸红.png","无所谓.png","便便.png","愤怒.png","蜡烛.png","献黄瓜.png","内伤.png","投降.png","观察.png","看不见.png","击掌.png","抠鼻.png","邪恶.png","看热闹.png","口水.png","抽烟.png","锁眉.png","装大款.png","吐舌.png","无奈.png","长草.png","赞一个.png","呲牙.png","无语.png","阴暗.png","不出所料.png","咽气.png","期待.png","高兴.png","吐血倒地.png","哭泣.png","欢呼.png","黑线.png","喜极而泣.png","喷水.png","深思.png","鼓掌.png","暗地观察.png"],
+     	
+      	
+          
+        });
+    </script> 
+
+
+   
+  
+ 
+
+		</div>
+
+			</div>
+			
+
+
+<div class="tocc col l3 hide-on-med-and-down">
+	
+        <div class="toc-widget">
+			
+            <div class="toc-title"></div>
+			
+            <div id="toc-content">
+			
+			
+			</div>
+        </div>
+    </div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.5.0/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '.entry-summary',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            // headingsOffset: -205,
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('.entry-summary').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+    });
+</script>										 
+
+ 
+       
+
+
+			</div>
+		</div>
+
+		
+		 	<footer id="colophon" class="site-footer">
+
+			<div class="container">
+	
+				<div class="copyright">Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a><br>Theme:   <a href="https://github.com/shanbufun/gridea-theme-pan" target="_blank" title="Pan"><span>Pan</span></a>.  by <a href="https://shanbu.fun/" target="_blank"  title="山卜方" >Shanbufun</a></div>		
+			</div>
+		
+		</footer>
+
+</div>
+
+<script src="https://cdn.bootcss.com/fitvids/1.2.0/jquery.fitvids.min.js"></script>
+<script type='text/javascript' src='https://ccccj.github.io/media/scripts/marlin-scripts.js'></script>
+ <script src="//tokinx.github.io/lately/lately.min.js"></script>
+  <script>jQuery(document).ready(function(){$.lately({'target':'.lately-a,.lately-b,.lately-c'})});</script>
+  <style type="text/css">a.back_to_top {
+    text-decoration: none;
+    position: fixed;
+    bottom: 40px;
+    right: 30px;
+    background: #f0f0f0;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    line-height: 36px;
+    font-size: 18px;
+    text-align: center;
+    transition-duration: .5s;
+    transition-propety: background-color;
+    display: none;
+}
+
+a.back_to_top span {
+    color: #888;
+}
+
+a.back_to_top:hover {
+    cursor: pointer;
+    background: #dfdfdf;
+}
+
+a.back_to_top:hover span {
+    color: #555;
+}
+
+@media print, screen and (max-width: 580px) {
+    .back_to_top {
+        display: none !important;
+    }
+}
+
+
+
+</style><a id="back_to_top" href="#" class="back_to_top"><span><i class="iconfont icon-xiangshang"></i></span>
+</a>
+
+
+<script>$(document).ready((function(_this) {
+  return function() {
+    var bt;
+    bt = $('#back_to_top');
+    if ($(document).width() > 480) {
+      $(window).scroll(function() {
+        var st;
+        st = $(window).scrollTop();
+        if (st > 30) {
+          return bt.css('display', 'block');
+        } else {
+          return bt.css('display', 'none');
+        }
+      });
+      return bt.click(function() {
+        $('body,html').animate({
+          scrollTop: 0
+        }, 800);
+        return false;
+      });
+    }
+  };
+})(this));
+</script>
+
+		<script data-no-instant>
+    (function ($) {
+        $.extend({
+            adamsOverload: function () {
+                $('.navigation:eq(0)').remove();
+                $("").attr("rel" , "external");
+                $("a[rel='external'],a[rel='external nofollow']").attr("target","_blank");
+                $("a.vi").attr("rel" , "");
+                $.viewImage({
+                    'target'  : 'img',
+                    'exclude' : '.vsmile-icons img,.gallery img',
+                    'delay'   : 300
+                });
+                $.lately({
+                    'target' : '.commentmetadata a,.infos time,.post-list time'
+                });
+                prettyPrint();
+                
+                $('ul.links li a').each(function(){
+                    if($(this).parent().find('.bg').length==0){
+                        $(this).parent().append('<!---<div class="bg" style="background-image:url(https://c3.glgoo.top/s2/favicons?domain='+$(this).attr("href")+')"></div>--->')
+                    }
+                });
+            }
+        });
+    })(jQuery);
+    jQuery.adamsOverload();
+</script>
+
+</body>
+</html>

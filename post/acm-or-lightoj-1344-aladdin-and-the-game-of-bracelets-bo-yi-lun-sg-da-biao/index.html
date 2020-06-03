@@ -1,0 +1,567 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+ <meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta HTTP-EQUIV="pragma" CONTENT="no-cache"> 
+<meta HTTP-EQUIV="Cache-Control" CONTENT="no-cache, must-revalidate"> 
+<meta HTTP-EQUIV="expires" CONTENT="0"> 
+<title>ACM | LightOJ - 1344 Aladdin and the Game of Bracelets博弈论SG打表 | Amon&#39;s Homepage</title>	
+
+<link rel="stylesheet" href="https://ccccj.github.io/styles/main.css">
+<script type="text/javascript">
+function getCSS()
+{
+        datetoday = new Date();
+        timenow=datetoday.getTime();
+        datetoday.setTime(timenow);
+        thehour = datetoday.getHours();
+
+            display = "https://ccccj.github.io/media/css/night.css";
+
+            display = "https://ccccj.github.io/media/css/night.css";   
+      
+            display = "https://ccccj.github.io/media/css/day.css";
+
+            display = "https://ccccj.github.io/media/css/day.css";
+      
+
+var css = '<';
+        css+='link rel="stylesheet" href='+display+' \/';
+        css+='>';
+        document.write(css);
+}
+</script>
+<link href="https://fonts.googleapis.com/css?family=Dancing+Script|Liu+Jian+Mao+Cao&display=swap" rel="stylesheet">
+<link href="https://at.alicdn.com/t/font_1306644_jwtuc2zzbrd.css" rel="stylesheet" />
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<script type='text/javascript' src='https://ccccj.github.io/media/scripts/script.js'></script>
+<link href="https://cdn.bootcss.com/animate.css/3.5.2/animate.min.css" rel="stylesheet" />
+  <script src="https://cdn.bootcss.com/wow/1.1.2/wow.min.js"></script>
+  <script src="https://cdn.bootcss.com/highlight.js/9.15.8/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <script>wow=new WOW({boxClass:'wow',animateClass:'animated',offset:0,mobile:true,live:true});wow.init();</script>
+
+<script type="text/javascript">
+window.onload=getCSS();
+</script>
+
+
+ 	
+</head>
+<body class="post-template-default single single-post postid-70 single-format-standard">
+    <div id="wrapper">
+        
+			
+		<header id="header" class="site-header" 
+		
+		>
+			<div class="site-branding">
+									<h1 class="site-title"><a href="https://ccccj.github.io" rel="home">Amon&#39;s Homepage</a></h1>
+										
+					<h2 class="site-description">温故而知新</h2>
+										
+							</div>
+			<nav id="nav-wrapper">
+				<div class="container">
+					<div class="nav-toggle">
+						<div class="bars">
+							<div class="bar"></div>
+							<div class="bar"></div>
+							<div class="bar"></div>
+						</div>
+					</div>
+					<div class="clear"></div>
+					<ul id="" class="dove">
+		 
+     			
+<li>
+	 
+	<a  href="/"> home</a></li>
+	
+    
+     			
+<li>
+	 
+	<a  href="/archives"> archives</a></li>
+	
+    
+     			
+<li>
+	 
+	<a  href="/tags"> tags</a></li>
+	
+    
+     			
+<li>
+	 
+	<a  href="/post/about"> about</a></li>
+	
+    
+
+</ul>
+</li>		
+		
+</ul>				</div>
+			</nav>
+						<div class="jingge">
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        </header>
+
+		<div id="content" class="container">
+			<div class="row">
+	<div class="col-md-8 site-main">
+				
+<article id="post-70" class="post-70 post type-post status-publish format-standard hentry category-5 tag-10 tag-9 tag-11">
+
+	
+	                      
+		<div class="entry-content">
+			<h1 class="wow swing entry-title">ACM | LightOJ - 1344 Aladdin and the Game of Bracelets博弈论SG打表</h1>
+<div class="entry-meta">
+<div class="wow bounce">
+	<i class="iconfont icon-rili"> <time class="lately-a" datetime="2017-10-04 09:36:33" itemprop="datePublished" pubdate="">2017-10-04</time></i>
+	          </div>
+			
+</span>
+													 
+		</div>
+                  
+			<div class="wow slideInLeft entry-summary song">
+				<p><a href="http://lightoj.com/login_main.php?url=volume_showproblem.php?problem=1344">题目链接点击这里</a></p>
+<h5 id="problem-description">Problem Description</h5>
+<p>It's said that Aladdin had to solve seven mysteries before getting the Magical Lamp which summons a powerful Genie. Here we are concerned about the fourth mystery.</p>
+<p>In the cave, Aladdin was moving forward after passing the pathway of magical stones. He found a door and he was about to open the door, but suddenly a Genie appeared and he addressed himself as the guardian of the door. He challenged Aladdin to play a game and promised that he would let Aladdin go through the door, if Aladdin can defeat the Genie. Aladdin defeated the Genie and continued his journey. However, let's concentrate on the game.</p>
+<p>The game was called 'Game of Bracelets'. A bracelet is a linear chain of some pearls of various weights. The rules of the game are:</p>
+<ol>
+<li>There are n bracelets.</li>
+<li>Players alternate turns.</li>
+<li>In each turn, a player has to choose a pearl from any bracelet. Then all the pearls from that bracelet, that were not lighter than the pearl, will be removed. It may create some smaller bracelets or the bracelet will be removed if no pearl is left in the bracelet.</li>
+<li>The player, who cannot take a pearl in his turn, loses.</li>
+</ol>
+<p>For example, two bracelets are: 5-1-7-2-4-5-3 and 2-1-5-3, here the integers denote the weights of the pearls. Suppose a player has chosen the first pearl (weight 5) from the first bracelet. Then all the pearls that are not lighter than 5, will be removed (from first bracelet). So, 5-1-7-2-4-5-3, the red ones will be removed and thus from this bracelet, three new bracelets will be formed, 1, 2-4 and 3. So, in the next turn the other player will have four bracelets: 1, 2-4, 3 and 2-1-5-3. Now if a player chooses the only pearl (weight 3) from the third bracelet, then the bracelet will be removed.</p>
+<p>Now you are given the information of the bracelets. Assume that Aladdin plays first, and Aladdin and the Genie both play optimally. Your task is to find the winner.</p>
+<h5 id="input">Input</h5>
+<p>Input starts with an integer T (≤ 50), denoting the number of test cases.</p>
+<p>Each case starts with a line containing an integer n (1 ≤ n ≤ 50). Each of the next n lines contains an integer Ki (1 ≤ Ki ≤ 50) followed by Ki integers, denoting the weights of the pearls of the ith (1 ≤ i ≤ n) bracelet. Each weight will lie in the range [1, 105].</p>
+<h5 id="output">Output</h5>
+<p>For each case, print the case number and 'Aladdin' if Aladdin wins. Otherwise print 'Genie'. If Aladdin wins, then print an additional line, denoting the weight of pearls, one of which should be chosen in the first move by Aladdin such that he can win. Each pearl should be denoted by a pair of integers: the first integer is the bracelet number and the second integer is the weight. Sort the pearls first by the bracelet number then by the weight. And same weight in a bracelet should be reported once. Check the samples for exact formatting.</p>
+<h5 id="sample-input">Sample Input</h5>
+<p>4<br>
+2<br>
+7 5 1 7 2 4 5 3<br>
+4 2 1 5 4<br>
+2<br>
+2 5 2<br>
+2 5 2<br>
+1<br>
+5 5 2 5 2 5<br>
+3<br>
+5 5 2 5 2 5<br>
+5 7 2 7 3 2<br>
+4 5 1 5 4</p>
+<h5 id="sample-output">Sample Output</h5>
+<p>Case 1: Aladdin<br>
+(2 5)<br>
+Case 2: Genie<br>
+Case 3: Aladdin<br>
+(1 2)(1 5)<br>
+Case 4: Aladdin<br>
+(2 7)(3 1)(3 5)</p>
+<h5 id="题意">题意</h5>
+<p>现在有几串手镯，每个手镯上都有一些珠子，每个珠子都有权值，Aladdin 和 Genie 轮流取珠子，当取了一颗珠子后，这个手镯上所有权值大于等于这颗珠子权值的珠子，都要被删去。因此，这个手镯就会变成新的几个手镯（因为被切割了）。</p>
+<p>如，5-1-7-2-4-5-3 这串手镯，选第一颗珠子，权值为5，因此，5，7，5 就要被删去。手镯变成了新的 1，2-4，3 三个手镯。</p>
+<h5 id="题解">题解</h5>
+<p>每个手镯都是独立的，因此可以异或每个手镯的 sg 值求解。而每个手镯，可以在某些结点被取走珠子，变成新的几段，任意一种情况的 sg 值，便是新分成的几段的 sg 值异或起来。再将每一种情况的 sg 值，记录在 vis 中，查找没出现过的最小的值，便是这个手镯的 sg 值。有点绕，我写的时候也有点迷了。</p>
+<p>因为范围较小，可直接暴力查找每一段的 sg 值。用记忆化搜索，重复找过的就不找了。sg[i][j] 代表当前这个手镯，左端点下标为 i ，右端点下标为 j ，当找过这一段的 sg 值时，便直接返回不再重复找。</p>
+<p>下面举一个例子...我们求 sg[1][4]，即左端点下标为 1，右端点下标为 4:<br>
+<img src="https://img-blog.csdnimg.cn/20181113084321614.png" alt="图1" loading="lazy"></p>
+<p>最后的结果，是将每个手镯的 sg 值异或，若为 0 ，则后手赢，否则先手赢。</p>
+<p>若先手赢，还需输出第一次赢怎么取。<br>
+换位思考一下即可。我们需要先手取完，后手取的时候，面临一个所有手镯的 sg 值异或为 0 的情况（这样的情况是后手赢，此时后手是先手）。</p>
+<p>因此，直接暴力枚举每个手镯的每个珠子。看取完后，原本的手镯的 sg值异或，再异或被选中的这个手镯，取走一部分珠子后的 sg 值。</p>
+<h5 id="code">code</h5>
+<pre><code class="language-c">#include &lt;cstdio&gt;
+#include &lt;cstring&gt;
+#include &lt;algorithm&gt;
+using namespace std;
+const int maxn = 55;
+int sg[maxn][maxn]; // 当前手镯 i-j区间的 sg 值
+int arr[maxn][maxn], num[maxn]; // 存储每个手镯的权值，每个手镯有多少个珠子
+int sgtmp[maxn]; // 第 i 个手镯的 sg 值
+int ret[maxn][maxn];  // 去掉第 i 个手镯的第 j 个珠子后，这个手镯的 sg 值
+
+struct node {
+    int x, y;
+} output[maxn * maxn]; // 存储最后的输出答案
+
+bool operator == (node a, node b) {
+    return a.x == b.x &amp;&amp; arr[a.x][a.y] == arr[b.x][b.y];
+}
+
+bool cmp(node a, node b) {
+    if (a.x == b.x) {
+        return arr[a.x][a.y] &lt; arr[b.x][b.y];
+    }
+    return a.x &lt; b.x;
+}
+
+int dfs(int now, int l, int r) { // 查找 sg 值
+    if (l &gt; r) return 0;
+    if (l == r) return sg[l][r] = 1; // 只有一颗珠子，直接取走，必赢
+    
+    if (sg[l][r] != -1) return sg[l][r]; // 已找过
+
+    int vis[maxn]; // 不可为全局变量
+    memset(vis, 0, sizeof(vis));
+    
+    for (int i = l; i &lt;= r; ++i) { // 挑选下标为i处的珠子
+        int tmp = 0, last = -1;
+
+        // 找到第一颗小于当前权值的珠子
+        for (int j = l; j &lt;= r; ++j) {
+            if (arr[now][j] &lt; arr[now][i]) {
+                last = j; break;
+            }
+        }
+        
+        // last 为 -1时，代表已找不到
+        for (int j = last + 1; j &lt;= r &amp;&amp; last != -1; ++j) {
+            if (arr[now][j] &gt;= arr[now][i]) {
+                tmp ^= dfs(now, last, j - 1);
+                last = -1;
+                for (int k = j + 1; k &lt;= r; ++k) {
+                    if (arr[now][k] &lt; arr[now][i]) {
+                        last = j = k;
+                        break;
+                    }
+                }
+            }
+        }
+        // 这个手镯的最后一段没被搜索
+        if (last != -1) {
+            tmp ^= dfs(now, last, r);
+        }
+        vis[tmp] = 1;
+        // 记录下来，方便后面输出
+        if (l == 1 &amp;&amp; r == num[now]) ret[now][i] = tmp;
+//        if (l == 1 &amp;&amp; r == num[now]) {
+//            printf(&quot;%d %d %d\n&quot;, now, i, tmp);
+//        }
+    }
+    
+    for (int i = 0; ; ++i) {
+        if (vis[i] == 0) {
+            sg[l][r] = i;
+            return i;
+        }
+    }
+    return -1;
+}
+
+int main() {
+    int t, k, ca = 1;
+    scanf(&quot;%d&quot;, &amp;t);
+    while (t--) {
+        int ans = 0;
+        scanf(&quot;%d&quot;, &amp;k);
+        for (int i = 1; i &lt;= k; ++i) {
+            memset(sg, -1, sizeof(sg));
+            scanf(&quot;%d&quot;, &amp;num[i]);
+            for (int j = 1; j &lt;= num[i]; ++j) {
+                scanf(&quot;%d&quot;, &amp;arr[i][j]);
+            }
+            sgtmp[i] = dfs(i, 1, num[i]);
+            //printf(&quot;%d\n&quot;, sgtmp[i]);
+            ans ^= sgtmp[i];
+//            for (int i = 1; i &lt;= num[i]; ++i) {
+//                for (int j = i; j &lt;= num[i]; ++j) {
+//                    printf(&quot;%d %d %d\n&quot;, i, j, sg[i][j]);
+//                }
+//            }
+        }
+        if (ans == 0) printf(&quot;Case %d: Genie\n&quot;, ca++);
+        else {
+            int cnt = 0;
+            printf(&quot;Case %d: Aladdin\n&quot;, ca++);
+            memset(output, 0, sizeof(output));
+            for (int i = 1; i &lt;= k; ++i) {
+                for (int j = 1; j &lt;= num[i]; ++j) {
+                    // 先异或这个手镯的 sg 值，消除原本的影响
+                    // 再异或这个手镯选中第j颗珠子，导致取走一部分珠子后的sg值
+                    if ((ans ^ sgtmp[i] ^ ret[i][j]) == 0) {
+                        //printf(&quot;(%d %d)&quot;, i, arr[i][j]);
+                        output[cnt++] = {i, j};
+                    }
+                }
+            }
+            // 排序并去重，输出
+            sort(output, output + cnt, cmp);
+            cnt = (int)(unique(output, output + cnt) - output);
+            for (int i = 0; i &lt; cnt; ++i) {
+                printf(&quot;(%d %d)&quot;, output[i].x, arr[output[i].x][output[i].y]);
+            };
+            printf(&quot;\n&quot;);
+        }
+    }
+    return 0;
+}
+</code></pre>
+
+							</div>
+	<div class="wow bounceInDown vt-post-tags">
+ 
+					</div>						
+<nav class="navigation3 post-navigation3" role="navigation">
+		
+		<div class="nav-links3">
+      
+		<div class="wow bounceInLeft nav-previous3"><a href="https://ccccj.github.io/post/acm-or-lightoj-1401-no-more-tic-tac-toe-bo-yi-lun-sg-da-biao/" rel="prev"> ACM | LightOJ 1401 No More Tic-tac-toe 博弈论SG打表</a></div>
+		 
+		 
+		<div class="wow bounceInRight nav-next3"><a href="https://ccccj.github.io/post/mac-shang-chuan-dai-ma-zhi-github/" rel="next"> Mac上传代码至GitHub</a></div>
+		
+		</div>
+	</nav>
+	<div class="wow rollIn author-info" style="visibility: visible; animation-name: rollIn;">
+	<div class="author-avatar pull-left"><img src="https://ccccj.github.io/images/avatar.png" ></div>
+ 
+
+		</div>
+		
+ 
+		
+</article>
+
+<div id="marlin_lite_about_widget-2" class="wow bounceInUp widget marlin_lite_about_widget" data-wow-delay="0.1s">
+		
+        
+		<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='https://ccccj.github.io/media/scripts/Valine.min.js'></script>
+
+<div class="comment"></div>
+<script>
+        new Valine({
+            // AV 对象来自上面引入av-min.js(老司机们不要开车➳♡゛扎心了老铁)
+            av: AV, 
+            el: '.comment',
+            lang: 'zh-cn',
+            
+            
+      emoticon_list: ["吐.png","喷血.png","狂汗.png","不说话.png","汗.png","坐等.png","献花.png","不高兴.png","中刀.png","害羞.png","皱眉.png","小眼睛.png","中指.png","尴尬.png","瞅你.png","想一想.png","中枪.png","得意.png","肿包.png","扇耳光.png","亲亲.png","惊喜.png","脸红.png","无所谓.png","便便.png","愤怒.png","蜡烛.png","献黄瓜.png","内伤.png","投降.png","观察.png","看不见.png","击掌.png","抠鼻.png","邪恶.png","看热闹.png","口水.png","抽烟.png","锁眉.png","装大款.png","吐舌.png","无奈.png","长草.png","赞一个.png","呲牙.png","无语.png","阴暗.png","不出所料.png","咽气.png","期待.png","高兴.png","吐血倒地.png","哭泣.png","欢呼.png","黑线.png","喜极而泣.png","喷水.png","深思.png","鼓掌.png","暗地观察.png"],
+     	
+      	
+          
+        });
+    </script> 
+
+
+   
+  
+ 
+
+		</div>
+
+			</div>
+			
+
+
+<div class="tocc col l3 hide-on-med-and-down">
+	
+        <div class="toc-widget">
+			
+            <div class="toc-title"></div>
+			
+            <div id="toc-content">
+			
+			
+			</div>
+        </div>
+    </div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.5.0/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '.entry-summary',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            // headingsOffset: -205,
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('.entry-summary').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+    });
+</script>										 
+
+ 
+       
+
+
+			</div>
+		</div>
+
+		
+		 	<footer id="colophon" class="site-footer">
+
+			<div class="container">
+	
+				<div class="copyright">Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a><br>Theme:   <a href="https://github.com/shanbufun/gridea-theme-pan" target="_blank" title="Pan"><span>Pan</span></a>.  by <a href="https://shanbu.fun/" target="_blank"  title="山卜方" >Shanbufun</a></div>		
+			</div>
+		
+		</footer>
+
+</div>
+
+<script src="https://cdn.bootcss.com/fitvids/1.2.0/jquery.fitvids.min.js"></script>
+<script type='text/javascript' src='https://ccccj.github.io/media/scripts/marlin-scripts.js'></script>
+ <script src="//tokinx.github.io/lately/lately.min.js"></script>
+  <script>jQuery(document).ready(function(){$.lately({'target':'.lately-a,.lately-b,.lately-c'})});</script>
+  <style type="text/css">a.back_to_top {
+    text-decoration: none;
+    position: fixed;
+    bottom: 40px;
+    right: 30px;
+    background: #f0f0f0;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    line-height: 36px;
+    font-size: 18px;
+    text-align: center;
+    transition-duration: .5s;
+    transition-propety: background-color;
+    display: none;
+}
+
+a.back_to_top span {
+    color: #888;
+}
+
+a.back_to_top:hover {
+    cursor: pointer;
+    background: #dfdfdf;
+}
+
+a.back_to_top:hover span {
+    color: #555;
+}
+
+@media print, screen and (max-width: 580px) {
+    .back_to_top {
+        display: none !important;
+    }
+}
+
+
+
+</style><a id="back_to_top" href="#" class="back_to_top"><span><i class="iconfont icon-xiangshang"></i></span>
+</a>
+
+
+<script>$(document).ready((function(_this) {
+  return function() {
+    var bt;
+    bt = $('#back_to_top');
+    if ($(document).width() > 480) {
+      $(window).scroll(function() {
+        var st;
+        st = $(window).scrollTop();
+        if (st > 30) {
+          return bt.css('display', 'block');
+        } else {
+          return bt.css('display', 'none');
+        }
+      });
+      return bt.click(function() {
+        $('body,html').animate({
+          scrollTop: 0
+        }, 800);
+        return false;
+      });
+    }
+  };
+})(this));
+</script>
+
+		<script data-no-instant>
+    (function ($) {
+        $.extend({
+            adamsOverload: function () {
+                $('.navigation:eq(0)').remove();
+                $("").attr("rel" , "external");
+                $("a[rel='external'],a[rel='external nofollow']").attr("target","_blank");
+                $("a.vi").attr("rel" , "");
+                $.viewImage({
+                    'target'  : 'img',
+                    'exclude' : '.vsmile-icons img,.gallery img',
+                    'delay'   : 300
+                });
+                $.lately({
+                    'target' : '.commentmetadata a,.infos time,.post-list time'
+                });
+                prettyPrint();
+                
+                $('ul.links li a').each(function(){
+                    if($(this).parent().find('.bg').length==0){
+                        $(this).parent().append('<!---<div class="bg" style="background-image:url(https://c3.glgoo.top/s2/favicons?domain='+$(this).attr("href")+')"></div>--->')
+                    }
+                });
+            }
+        });
+    })(jQuery);
+    jQuery.adamsOverload();
+</script>
+
+</body>
+</html>

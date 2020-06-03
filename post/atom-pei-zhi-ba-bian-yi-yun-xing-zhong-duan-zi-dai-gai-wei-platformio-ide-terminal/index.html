@@ -1,0 +1,640 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+ <meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta HTTP-EQUIV="pragma" CONTENT="no-cache"> 
+<meta HTTP-EQUIV="Cache-Control" CONTENT="no-cache, must-revalidate"> 
+<meta HTTP-EQUIV="expires" CONTENT="0"> 
+<title>atom 配置 把编译运行终端(自带)改为 platformio-ide-terminal | Amon&#39;s Homepage</title>	
+
+<link rel="stylesheet" href="https://ccccj.github.io/styles/main.css">
+<script type="text/javascript">
+function getCSS()
+{
+        datetoday = new Date();
+        timenow=datetoday.getTime();
+        datetoday.setTime(timenow);
+        thehour = datetoday.getHours();
+
+            display = "https://ccccj.github.io/media/css/night.css";
+
+            display = "https://ccccj.github.io/media/css/night.css";   
+      
+            display = "https://ccccj.github.io/media/css/day.css";
+
+            display = "https://ccccj.github.io/media/css/day.css";
+      
+
+var css = '<';
+        css+='link rel="stylesheet" href='+display+' \/';
+        css+='>';
+        document.write(css);
+}
+</script>
+<link href="https://fonts.googleapis.com/css?family=Dancing+Script|Liu+Jian+Mao+Cao&display=swap" rel="stylesheet">
+<link href="https://at.alicdn.com/t/font_1306644_jwtuc2zzbrd.css" rel="stylesheet" />
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<script type='text/javascript' src='https://ccccj.github.io/media/scripts/script.js'></script>
+<link href="https://cdn.bootcss.com/animate.css/3.5.2/animate.min.css" rel="stylesheet" />
+  <script src="https://cdn.bootcss.com/wow/1.1.2/wow.min.js"></script>
+  <script src="https://cdn.bootcss.com/highlight.js/9.15.8/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <script>wow=new WOW({boxClass:'wow',animateClass:'animated',offset:0,mobile:true,live:true});wow.init();</script>
+
+<script type="text/javascript">
+window.onload=getCSS();
+</script>
+
+
+ 	
+</head>
+<body class="post-template-default single single-post postid-70 single-format-standard">
+    <div id="wrapper">
+        
+			
+		<header id="header" class="site-header" 
+		
+		>
+			<div class="site-branding">
+									<h1 class="site-title"><a href="https://ccccj.github.io" rel="home">Amon&#39;s Homepage</a></h1>
+										
+					<h2 class="site-description">温故而知新</h2>
+										
+							</div>
+			<nav id="nav-wrapper">
+				<div class="container">
+					<div class="nav-toggle">
+						<div class="bars">
+							<div class="bar"></div>
+							<div class="bar"></div>
+							<div class="bar"></div>
+						</div>
+					</div>
+					<div class="clear"></div>
+					<ul id="" class="dove">
+		 
+     			
+<li>
+	 
+	<a  href="/"> home</a></li>
+	
+    
+     			
+<li>
+	 
+	<a  href="/archives"> archives</a></li>
+	
+    
+     			
+<li>
+	 
+	<a  href="/tags"> tags</a></li>
+	
+    
+     			
+<li>
+	 
+	<a  href="/post/about"> about</a></li>
+	
+    
+
+</ul>
+</li>		
+		
+</ul>				</div>
+			</nav>
+						<div class="jingge">
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        </header>
+
+		<div id="content" class="container">
+			<div class="row">
+	<div class="col-md-8 site-main">
+				
+<article id="post-70" class="post-70 post type-post status-publish format-standard hentry category-5 tag-10 tag-9 tag-11">
+
+	
+	                      
+		<div class="entry-content">
+			<h1 class="wow swing entry-title">atom 配置 把编译运行终端(自带)改为 platformio-ide-terminal</h1>
+<div class="entry-meta">
+<div class="wow bounce">
+	<i class="iconfont icon-rili"> <time class="lately-a" datetime="2017-12-24 10:32:07" itemprop="datePublished" pubdate="">2017-12-24</time></i>
+	          </div>
+			
+</span>
+													 
+		</div>
+                  
+			<div class="wow slideInLeft entry-summary song">
+				<blockquote>
+<p>最近换掉了xcode...因为实在是..太卡了...555...以前好喜欢的超级漂亮的xcode啊...<br>
+于是换了 atom，改了一下配置。一些网上能找到的教程就不写了...懒...主要挑一些找不到的分享一下~<br>
+我下了中文的插件...所以部分有中文，没有中文的可以对照着找一下...下载的插件是 <code>simplified-chinese-menu</code></p>
+</blockquote>
+<p><ul class="markdownIt-TOC">
+<li><a href="#%E9%85%8D%E7%BD%AE%E5%86%85%E7%BD%AE%E8%BF%90%E8%A1%8C%E7%95%8C%E9%9D%A2">配置内置运行界面</a>
+<ul>
+<li><a href="#1%E4%B8%8B%E8%BD%BD%E6%8F%92%E4%BB%B6">1.下载插件</a></li>
+<li><a href="#2%E8%AE%BE%E7%BD%AE%E6%8F%92%E4%BB%B6">2.设置插件</a></li>
+<li><a href="#3%E8%AE%BE%E7%BD%AE%E8%BF%90%E8%A1%8C%E7%9A%84%E5%BF%AB%E6%8D%B7%E9%94%AE">3.设置运行的快捷键</a></li>
+</ul>
+</li>
+<li><a href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E4%BB%A3%E7%A0%81%E5%9D%97">自定义代码块</a></li>
+<li><a href="#%E5%85%B3%E4%BA%8E-mac-%E4%B8%8A%E7%9A%84-linter-gcc-%E9%97%AE%E9%A2%98">关于 mac 上的 linter-gcc 问题</a>
+<ul>
+<li><a href="#1%E4%B8%8B%E8%BD%BD-%E6%96%B0%E7%89%88%E6%9C%AC%E7%9A%84-gcc">1.下载 新版本的 gcc</a></li>
+<li><a href="#2%E4%BF%AE%E6%94%B9atom%E9%93%BE%E6%8E%A5%E7%9A%84gcc%E7%9B%AE%E5%BD%95">2.修改atom链接的gcc目录</a></li>
+</ul>
+</li>
+<li><a href="#%E6%81%A2%E5%A4%8D%E4%B8%8A%E6%AC%A1%E5%85%B3%E9%97%AD%E5%89%8D%E7%9A%84%E6%96%87%E4%BB%B6%E5%A4%B9">恢复上次关闭前的文件夹</a>
+<ul>
+<li><a href="#1-cmd-q">1. cmd + q</a></li>
+<li><a href="#2%E4%B8%8B%E8%BD%BD%E6%8F%92%E4%BB%B6">2.下载插件</a></li>
+</ul>
+</li>
+</ul>
+<br>
+<mark><mark><mark><mark><mark><mark><mark><mark><mark><mark>我是可爱的分割线</mark></mark></mark></mark></mark></mark></mark></mark></mark></mark></p>
+<h1 id="配置内置运行界面">配置内置运行界面</h1>
+<blockquote>
+<p>用的是 mac，对于 windows 用户来说这个没必要，可以直接看后面的。<br>
+mac 嘛...每个进程全屏了，切换进程就会切换整个界面，每次一运行，就会打开 mac 自带的终端，换来换去很晃眼的啊...所以调一下...</p>
+</blockquote>
+<h2 id="1下载插件">1.下载插件</h2>
+<p>插件名：</p>
+<blockquote>
+<p>platformio-ide-terminal</p>
+</blockquote>
+<p><code>扩展 &gt; Settings View &gt; Install Packages/Themes</code></p>
+<figure data-type="image" tabindex="1"><img src="https://img-blog.csdnimg.cn/20181120231206182.png" alt="图1" loading="lazy"></figure>
+<p><code>安装 &gt; 输入 platformio-ide-terminal</code></p>
+<figure data-type="image" tabindex="2"><img src="https://img-blog.csdnimg.cn/20181120231315920.png" alt="图2" loading="lazy"></figure>
+<p><strong><code>但是！！！炒鸡重要的一点是，这个需要每次运行前保存文件！！因为终端是不会帮你保存的！！不保存的话！！编译的就不是你写完的文件了！！！</code></strong></p>
+<h2 id="2设置插件">2.设置插件</h2>
+<p><code>扩展 &gt; Settings View &gt; Manage Packages</code></p>
+<figure data-type="image" tabindex="3"><img src="https://img-blog.csdnimg.cn/2018112022494150.png" alt="图3" loading="lazy"></figure>
+<p><code>扩展 &gt; 找到 platformio-ide-terminal &gt; 设置</code></p>
+<figure data-type="image" tabindex="4"><img src="https://img-blog.csdnimg.cn/20181120231605471.png" alt="图4" loading="lazy"></figure>
+<p><code>找到 Core &gt; 若未展开，点击下图箭头所指处</code></p>
+<figure data-type="image" tabindex="5"><img src="https://img-blog.csdnimg.cn/20181120231752887.png" alt="图5" loading="lazy"></figure>
+<p>得到以下界面：<br>
+<img src="https://img-blog.csdnimg.cn/20181120231935740.png" alt="图6" loading="lazy"></p>
+<p>若是 windows，则在 Default 那里 输入 <code>g++ -o a.exe *.cpp ; ./a.exe</code><br>
+若是 mac，则输入 <code>g++ -o a.out *.cpp &amp;&amp; ./a.out</code></p>
+<p>如图：<br>
+<img src="https://img-blog.csdnimg.cn/20181121141328945.png" alt="图7" loading="lazy"></p>
+<p>解释以下...：</p>
+<blockquote>
+<p><code>g++ -o</code> 是 制定可执行文件文件生成的名字（这里其实可以省略为 <code>g++ *.cpp</code>，因为 默认生成的文件就是 <code>a.exe</code> 和 <code>a.out</code>），<code>\*.cpp</code> 是<code>通配符</code>，指所有以 .cpp 结尾的文件，g++ 就是 编译器啦。<br>
+<code>./a.out</code> 和 <code>./a.exe</code> 分为别 mac 和 windows 下的 执行可执行文件。<br>
+然后要说一下，mac 的 组合命令符号 是 <code>&amp;&amp;</code> ，意思是 执行完第一条命令，就执行第二条。但是 windows 的不一定，若是在 <code>cmd</code>下 ，那么 组合命令一般是 <code>&amp;&amp;</code> （也有 <code>&amp;</code> / <code>|</code>）, 但是 atom 好像默认使用 <code>powershell</code>，他的组合命令符号为 <code>;</code>（似乎也有用 -and 的，但我试了一下，似乎没有运行）。</p>
+</blockquote>
+<p>结果如图：<br>
+<img src="https://img-blog.csdnimg.cn/20181121141500467.png" alt="windows" loading="lazy"></p>
+<figure data-type="image" tabindex="6"><img src="https://img-blog.csdnimg.cn/20181120234144701.png" alt="mac" loading="lazy"></figure>
+<p>另外，<code>Map Terminals To</code> 可以选择 <code>File 或者 Folder</code><img src="https://img-blog.csdnimg.cn/20181120234314523.png" alt="图8" loading="lazy"><br>
+如图<br>
+<img src="https://img-blog.csdnimg.cn/20181120234409384.png" alt="图9" loading="lazy"></p>
+<p>这样才可以直接编译当前目录下文件。</p>
+<p>所以打开文件时，我们要让页面变成这样：<br>
+<img src="https://img-blog.csdnimg.cn/2018112023454774.png" alt="图10" loading="lazy"></p>
+<p><strong>因为我们选择的是编译当前目录下所有文件，所以目录下只能有一个 <code>.cpp</code> 文件~~不然你可能最后得到的 <code>a.out</code> 不是你想要的可执行文件~</strong></p>
+<h2 id="3设置运行的快捷键">3.设置运行的快捷键</h2>
+<blockquote>
+<p>Atom &gt; 用户键盘映射</p>
+</blockquote>
+<figure data-type="image" tabindex="7"><img src="https://img-blog.csdnimg.cn/20181120234915583.png" alt="图11" loading="lazy"></figure>
+<blockquote>
+<p>加两行</p>
+</blockquote>
+<p><code>'atom-text-editor':</code><br>
+<code>'cmd-r': 'platformio-ide-terminal:new'</code></p>
+<figure data-type="image" tabindex="8"><img src="https://img-blog.csdnimg.cn/20181120235033174.png" alt="图12" loading="lazy"></figure>
+<p>意思也很好理解，就是指 将 我的 mac 的 <code>command键 + r</code>(以前用xcode就是这个运行键，比较习惯)，映射为 <code>platformio-ide-terminal</code> 这个插件的 <code>new 动作（新创建一个文件）</code>。</p>
+<p>当然，你也可以写更多上去，如图：<br>
+<img src="https://img-blog.csdnimg.cn/20181121000254900.png" alt="图13" loading="lazy"></p>
+<p>具体的后面写什么，可以看 <code>platformio-ide-terminal</code> 插件的 <code>Settings</code> 的最后面。<br>
+<img src="https://img-blog.csdnimg.cn/20181121000414253.png" alt="图14" loading="lazy"></p>
+<p>左边的是内容，后面的是原本的快捷键，这个应该很容易理解，不说了。</p>
+<h1 id="自定义代码块">自定义代码块</h1>
+<blockquote>
+<p>这个其实网上能找到一些，但是写的不详细。我当时找的时候一脸懵逼。</p>
+</blockquote>
+<blockquote>
+<p>Atom &gt; 用户代码片段</p>
+</blockquote>
+<figure data-type="image" tabindex="9"><img src="https://img-blog.csdnimg.cn/20181121004314348.png" alt="图1" loading="lazy"></figure>
+<p>接着就会打开一个文件：<br>
+<img src="https://img-blog.csdnimg.cn/20181121004404254.png" alt="图2" loading="lazy"></p>
+<p>网上关于 c/c++ 的代码块配置很少，放一下我的(部分)~</p>
+<pre><code>'.source.cpp':
+  'for':
+    'prefix': 'for'
+    'body': '''
+            for (int ${1:i} = 0; ${1:i} &lt; ${2:n}; ++${1:i}) {
+              $3
+            }
+            '''
+  'printf':
+    'prefix': 'printf'
+    'body': '''
+            printf(&quot;%${1:d}\\\\n&quot;, $2);
+            '''
+  'if':
+    'prefix': 'if'
+    'body': '''
+            if ($1) {
+
+            }
+            '''
+  'scanf':
+    'prefix': 'scanf'
+    'body': '''
+            scanf(&quot;%d&quot;, &amp;$1);
+            '''
+  '~scanf':
+    'prefix': '~scanf'
+    'body': '''
+            ~scanf(&quot;%d&quot;, &amp;n) &amp;&amp; n$1
+            '''
+  'while':
+    'prefix': 'while'
+    'body': '''
+            while ($1) {
+
+            }
+            '''
+  'memset':
+    'prefix': 'memset'
+    'body': '''
+            memset(${1:arr}, ${2:0}, sizeof ${1:arr});$3
+            '''
+  'sort':
+    'prefix': 'sort'
+    'body': '''
+            sort(${1:arr}, ${1:arr} + ${2:n});$3
+            '''
+  'return':
+    'prefix': 'return'
+    'body': '''
+            return 0;
+            '''
+  'using':
+    'prefix': 'using'
+    'body': '''
+            using namespace std;
+            '''
+  'include':
+    'prefix': &quot;include&quot;
+    'body': '''
+            include &lt;${1:cstdio}&gt;
+            '''
+  'vector':
+    'prefix': &quot;vector&quot;
+    'body': '''
+            vector&lt;${1:int}&gt; ${2:v};$3
+            '''
+</code></pre>
+<p>简单说明一下：</p>
+<blockquote>
+<p>'.source.coffee': 这个是需要找一下的。</p>
+</blockquote>
+<p>在已安装扩展里面搜索 <code>language</code>，找到你需要的语言，点开设置，例如我要修改 C/C++<br>
+<img src="https://img-blog.csdnimg.cn/20181121075232345.png" alt="图3" loading="lazy"></p>
+<p>找到这样的模块：<br>
+<img src="https://img-blog.csdnimg.cn/20181121075331352.png" alt="图4" loading="lazy"><br>
+<img src="https://img-blog.csdnimg.cn/20181121075344881.png" alt="图5" loading="lazy"></p>
+<p>然后在前面加一个点，例如我写的是c++，格式就是 <code>.source.cpp</code> 。</p>
+<blockquote>
+<p>'Console log': 是随意的，可以自己设置</p>
+</blockquote>
+<blockquote>
+<p>'prefix': 需要写上你的代码提示码</p>
+</blockquote>
+<blockquote>
+<p>'body': 'console.log $1'这个就是代码主体了</p>
+</blockquote>
+<p>我已开始写完，觉得写得没有原本的好，因为这里其实需要用到一些技巧。<br>
+例如，拿 for 循环来说，</p>
+<pre><code>  'for':
+    'prefix': 'for'
+    'body': '''
+            for (int ${1:i} = 0; ${1:i} &lt; ${2:n}; ++${1:i}) {
+              $3
+            }
+            '''
+</code></pre>
+<p>$1 代表第一次光标所在位置，$2 代表按了tab键后第二次光标所在位置，$3 代表第三次，以此类推...</p>
+<p><code>${num:k}</code> 这个的意思是，第 num 次光标处，写得是 k，但选中了，可以直接进行修改。</p>
+<p>上面一段代码的效果如下：<br>
+<img src="https://img-blog.csdnimg.cn/20181121082451328.png" alt="效果" loading="lazy"></p>
+<p>可以看到，由于有3个 ${1:i}  ，所以光标第一次所在位置就是这三个地方，可以同时选中，同时修改。</p>
+<p>这时候按一下 tab 键，如下：<br>
+<img src="https://img-blog.csdnimg.cn/20181121082559147.png" alt="按 tab" loading="lazy"><br>
+选中了 ${2:n} 处，</p>
+<p>再按一下 tab ：<br>
+<img src="https://img-blog.csdnimg.cn/20181121082640234.png" alt="$3" loading="lazy"><br>
+到了 $3 处，但并未选中。</p>
+<h1 id="关于-mac-上的-linter-gcc-问题">关于 mac 上的 linter-gcc 问题</h1>
+<p>点进 linter-gcc 的设置里面，可以看到这么一段话：</p>
+<figure data-type="image" tabindex="10"><img src="https://img-blog.csdnimg.cn/20181121095158767.png" alt="图1" loading="lazy"></figure>
+<p>如果 mac 上曾使用 xcode（例如我...），使用时 gcc 会有一些问题。<br>
+我的问题就是...他不报错...可以看到有错误，但是不提示你错误在哪的那种...</p>
+<p>点进这段话里的链接：<br>
+<img src="https://img-blog.csdnimg.cn/20181121090333910.png" alt="图2" loading="lazy"></p>
+<p>这里有一些说明。<br>
+大致意思就是，xcode 的 有自带的 gcc，但是呢他有一些问题...<br>
+（我当时就是因为有了 xcode 的 gcc，所以没有自己下载gcc）<br>
+然后他给了解决方案~</p>
+<p>所以呢，需要自己再下载一个 gcc。</p>
+<h2 id="1下载-新版本的-gcc">1.下载 新版本的 gcc</h2>
+<p>在终端里下载...这里不说了...因为我没下，我电脑里直接就有..也不知道啥时候下的...百度下有很多关系下载 gcc 的教程~</p>
+<h2 id="2修改atom链接的gcc目录">2.修改atom链接的gcc目录</h2>
+<p>下载完成后，终端会提示你安装的 gcc 目录在哪<br>
+如我的是：</p>
+<blockquote>
+<p>/usr/local/Cellar/gcc/8.2.0</p>
+</blockquote>
+<blockquote>
+<p>在后面加上 /bin/gcc-x<br>
+x 是你下载的 gcc 的版本号</p>
+</blockquote>
+<p>例如得到我的就是：</p>
+<blockquote>
+<p>/usr/local/Cellar/gcc/8.2.0/bin/gcc-8</p>
+</blockquote>
+<p>然后将这句话写在 linter-gcc 的Settings 里面的目录里</p>
+<figure data-type="image" tabindex="11"><img src="https://img-blog.csdnimg.cn/20181121094511435.png" alt="图3" loading="lazy"></figure>
+<p>然后就会发现，有正常的代码错误提示啦~<br>
+<img src="https://img-blog.csdnimg.cn/2018112109531871.png" alt="图4" loading="lazy"></p>
+<h1 id="恢复上次关闭前的文件夹">恢复上次关闭前的文件夹</h1>
+<p>如果你每次重启 atom 后，都需要手动打开项目文件，并且尝试了很多办法都米有用，那么不妨试一下以下两个方法：</p>
+<h2 id="1-cmd-q">1. cmd + q</h2>
+<p>atom 如果没有完全关闭（mac 用户经常会这样），也就是下面有个小点点的情况：<br>
+<img src="https://img-blog.csdnimg.cn/20181122234717431.png" alt="图1" loading="lazy"></p>
+<p>这样就相当于你没有关闭，那么再打开 atom，他会默认你要打开第二个文件/文件夹，所以出来的界面是不会恢复你本来打开着的文件的。<br>
+每次要关闭的话，用 <code>cmd + q</code>，这样可以完全关闭，就不会有这样的问题~</p>
+<h2 id="2下载插件">2.下载插件</h2>
+<p>其实网上有很多推荐的插件，例如 <code>open-last-project</code>，<code>project-manager</code>（需要保存项目才可以）等等。<br>
+但是我都下了试过，不行...不知道是不是因为 mac 没有完全关闭 atom 的原因...但是有一个插件可以：<code>restore-windows</code>，可以尝试一下~</p>
+<p>暂时就是这些啦，想到别的我再补充~</p>
+
+							</div>
+	<div class="wow bounceInDown vt-post-tags">
+ 
+					</div>						
+<nav class="navigation3 post-navigation3" role="navigation">
+		
+		<div class="nav-links3">
+      
+		<div class="wow bounceInLeft nav-previous3"><a href="https://ccccj.github.io/post/acmsu-shu-xian-xing-shai-fa-su-shu-da-biao/" rel="prev"> ACM：素数线性筛法（素数打表）</a></div>
+		 
+		 
+		<div class="wow bounceInRight nav-next3"><a href="https://ccccj.github.io/post/xiao-jie-or-c-yu-yan-cao-zuo-fu/" rel="next"> 小结 | C语言操作符</a></div>
+		
+		</div>
+	</nav>
+	<div class="wow rollIn author-info" style="visibility: visible; animation-name: rollIn;">
+	<div class="author-avatar pull-left"><img src="https://ccccj.github.io/images/avatar.png" ></div>
+ 
+
+		</div>
+		
+ 
+		
+</article>
+
+<div id="marlin_lite_about_widget-2" class="wow bounceInUp widget marlin_lite_about_widget" data-wow-delay="0.1s">
+		
+        
+		<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='https://ccccj.github.io/media/scripts/Valine.min.js'></script>
+
+<div class="comment"></div>
+<script>
+        new Valine({
+            // AV 对象来自上面引入av-min.js(老司机们不要开车➳♡゛扎心了老铁)
+            av: AV, 
+            el: '.comment',
+            lang: 'zh-cn',
+            
+            
+      emoticon_list: ["吐.png","喷血.png","狂汗.png","不说话.png","汗.png","坐等.png","献花.png","不高兴.png","中刀.png","害羞.png","皱眉.png","小眼睛.png","中指.png","尴尬.png","瞅你.png","想一想.png","中枪.png","得意.png","肿包.png","扇耳光.png","亲亲.png","惊喜.png","脸红.png","无所谓.png","便便.png","愤怒.png","蜡烛.png","献黄瓜.png","内伤.png","投降.png","观察.png","看不见.png","击掌.png","抠鼻.png","邪恶.png","看热闹.png","口水.png","抽烟.png","锁眉.png","装大款.png","吐舌.png","无奈.png","长草.png","赞一个.png","呲牙.png","无语.png","阴暗.png","不出所料.png","咽气.png","期待.png","高兴.png","吐血倒地.png","哭泣.png","欢呼.png","黑线.png","喜极而泣.png","喷水.png","深思.png","鼓掌.png","暗地观察.png"],
+     	
+      	
+          
+        });
+    </script> 
+
+
+   
+  
+ 
+
+		</div>
+
+			</div>
+			
+
+
+<div class="tocc col l3 hide-on-med-and-down">
+	
+        <div class="toc-widget">
+			
+            <div class="toc-title"></div>
+			
+            <div id="toc-content">
+			
+			
+			</div>
+        </div>
+    </div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.5.0/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '.entry-summary',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            // headingsOffset: -205,
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('.entry-summary').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+    });
+</script>										 
+
+ 
+       
+
+
+			</div>
+		</div>
+
+		
+		 	<footer id="colophon" class="site-footer">
+
+			<div class="container">
+	
+				<div class="copyright">Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a><br>Theme:   <a href="https://github.com/shanbufun/gridea-theme-pan" target="_blank" title="Pan"><span>Pan</span></a>.  by <a href="https://shanbu.fun/" target="_blank"  title="山卜方" >Shanbufun</a></div>		
+			</div>
+		
+		</footer>
+
+</div>
+
+<script src="https://cdn.bootcss.com/fitvids/1.2.0/jquery.fitvids.min.js"></script>
+<script type='text/javascript' src='https://ccccj.github.io/media/scripts/marlin-scripts.js'></script>
+ <script src="//tokinx.github.io/lately/lately.min.js"></script>
+  <script>jQuery(document).ready(function(){$.lately({'target':'.lately-a,.lately-b,.lately-c'})});</script>
+  <style type="text/css">a.back_to_top {
+    text-decoration: none;
+    position: fixed;
+    bottom: 40px;
+    right: 30px;
+    background: #f0f0f0;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    line-height: 36px;
+    font-size: 18px;
+    text-align: center;
+    transition-duration: .5s;
+    transition-propety: background-color;
+    display: none;
+}
+
+a.back_to_top span {
+    color: #888;
+}
+
+a.back_to_top:hover {
+    cursor: pointer;
+    background: #dfdfdf;
+}
+
+a.back_to_top:hover span {
+    color: #555;
+}
+
+@media print, screen and (max-width: 580px) {
+    .back_to_top {
+        display: none !important;
+    }
+}
+
+
+
+</style><a id="back_to_top" href="#" class="back_to_top"><span><i class="iconfont icon-xiangshang"></i></span>
+</a>
+
+
+<script>$(document).ready((function(_this) {
+  return function() {
+    var bt;
+    bt = $('#back_to_top');
+    if ($(document).width() > 480) {
+      $(window).scroll(function() {
+        var st;
+        st = $(window).scrollTop();
+        if (st > 30) {
+          return bt.css('display', 'block');
+        } else {
+          return bt.css('display', 'none');
+        }
+      });
+      return bt.click(function() {
+        $('body,html').animate({
+          scrollTop: 0
+        }, 800);
+        return false;
+      });
+    }
+  };
+})(this));
+</script>
+
+		<script data-no-instant>
+    (function ($) {
+        $.extend({
+            adamsOverload: function () {
+                $('.navigation:eq(0)').remove();
+                $("").attr("rel" , "external");
+                $("a[rel='external'],a[rel='external nofollow']").attr("target","_blank");
+                $("a.vi").attr("rel" , "");
+                $.viewImage({
+                    'target'  : 'img',
+                    'exclude' : '.vsmile-icons img,.gallery img',
+                    'delay'   : 300
+                });
+                $.lately({
+                    'target' : '.commentmetadata a,.infos time,.post-list time'
+                });
+                prettyPrint();
+                
+                $('ul.links li a').each(function(){
+                    if($(this).parent().find('.bg').length==0){
+                        $(this).parent().append('<!---<div class="bg" style="background-image:url(https://c3.glgoo.top/s2/favicons?domain='+$(this).attr("href")+')"></div>--->')
+                    }
+                });
+            }
+        });
+    })(jQuery);
+    jQuery.adamsOverload();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,666 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+ <meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta HTTP-EQUIV="pragma" CONTENT="no-cache"> 
+<meta HTTP-EQUIV="Cache-Control" CONTENT="no-cache, must-revalidate"> 
+<meta HTTP-EQUIV="expires" CONTENT="0"> 
+<title>Linux下vim的便捷使用 | Amon&#39;s Homepage</title>	
+
+<link rel="stylesheet" href="https://ccccj.github.io/styles/main.css">
+<script type="text/javascript">
+function getCSS()
+{
+        datetoday = new Date();
+        timenow=datetoday.getTime();
+        datetoday.setTime(timenow);
+        thehour = datetoday.getHours();
+
+            display = "https://ccccj.github.io/media/css/night.css";
+
+            display = "https://ccccj.github.io/media/css/night.css";   
+      
+            display = "https://ccccj.github.io/media/css/day.css";
+
+            display = "https://ccccj.github.io/media/css/day.css";
+      
+
+var css = '<';
+        css+='link rel="stylesheet" href='+display+' \/';
+        css+='>';
+        document.write(css);
+}
+</script>
+<link href="https://fonts.googleapis.com/css?family=Dancing+Script|Liu+Jian+Mao+Cao&display=swap" rel="stylesheet">
+<link href="https://at.alicdn.com/t/font_1306644_jwtuc2zzbrd.css" rel="stylesheet" />
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<script type='text/javascript' src='https://ccccj.github.io/media/scripts/script.js'></script>
+<link href="https://cdn.bootcss.com/animate.css/3.5.2/animate.min.css" rel="stylesheet" />
+  <script src="https://cdn.bootcss.com/wow/1.1.2/wow.min.js"></script>
+  <script src="https://cdn.bootcss.com/highlight.js/9.15.8/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <script>wow=new WOW({boxClass:'wow',animateClass:'animated',offset:0,mobile:true,live:true});wow.init();</script>
+
+<script type="text/javascript">
+window.onload=getCSS();
+</script>
+
+
+ 	
+</head>
+<body class="post-template-default single single-post postid-70 single-format-standard">
+    <div id="wrapper">
+        
+			
+		<header id="header" class="site-header" 
+		
+		>
+			<div class="site-branding">
+									<h1 class="site-title"><a href="https://ccccj.github.io" rel="home">Amon&#39;s Homepage</a></h1>
+										
+					<h2 class="site-description">温故而知新</h2>
+										
+							</div>
+			<nav id="nav-wrapper">
+				<div class="container">
+					<div class="nav-toggle">
+						<div class="bars">
+							<div class="bar"></div>
+							<div class="bar"></div>
+							<div class="bar"></div>
+						</div>
+					</div>
+					<div class="clear"></div>
+					<ul id="" class="dove">
+		 
+     			
+<li>
+	 
+	<a  href="/"> home</a></li>
+	
+    
+     			
+<li>
+	 
+	<a  href="/archives"> archives</a></li>
+	
+    
+     			
+<li>
+	 
+	<a  href="/tags"> tags</a></li>
+	
+    
+     			
+<li>
+	 
+	<a  href="/post/about"> about</a></li>
+	
+    
+
+</ul>
+</li>		
+		
+</ul>				</div>
+			</nav>
+						<div class="jingge">
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        </header>
+
+		<div id="content" class="container">
+			<div class="row">
+	<div class="col-md-8 site-main">
+				
+<article id="post-70" class="post-70 post type-post status-publish format-standard hentry category-5 tag-10 tag-9 tag-11">
+
+	
+	                      
+		<div class="entry-content">
+			<h1 class="wow swing entry-title">Linux下vim的便捷使用</h1>
+<div class="entry-meta">
+<div class="wow bounce">
+	<i class="iconfont icon-rili"> <time class="lately-a" datetime="2019-08-24 02:24:04" itemprop="datePublished" pubdate="">2019-08-24</time></i>
+	          </div>
+			
+</span>
+													 
+		</div>
+                  
+			<div class="wow slideInLeft entry-summary song">
+				<blockquote>
+<p>本篇较多的都是关于 vim 的快捷使用，另外夹杂着一些我觉得好用的技巧。</p>
+</blockquote>
+<h3 id="1快捷键设置">1.快捷键设置</h3>
+<p>举个栗子，例如每次在vim中敲完代码，退出vim再编译链接有点麻烦，可以用快捷键替换来实现写完代码立即运行</p>
+<blockquote>
+<p><code>nnoremap &lt;F5&gt; :!gcc -o a.out % &amp;&amp; ./a.out&lt;CR&gt;</code></p>
+</blockquote>
+<p>写到vim配置文件 (~/.vimrc) 中即可。<br>
+如果没有，可以自己创建一个，但是创建之后，会缺少一些基本配置，因为默认的配置文件是 /etc/vimrc ，里面有一些原本的功能，有了 ~/.vimrc 后，系统会使用这个，所以配置时，建议其他功能一起配置。</p>
+<p>这其实是一条映射，也就是把<code>&lt;F5&gt;</code>映射成后面一长条语句，当按下F5，就相当于执行了那一条语句。</p>
+<p><code>nnoremap</code> 表示生效范围</p>
+<blockquote>
+<p>1.第一个 n 代表<code>普通模式</code>，如果要在插入模式下实行替换，可以用 <code>i</code> ，可视模式为 <code>v</code>；<br>
+2.<code>nore</code>表示不递归，看网上说大概是大概是 no recursion..？如果不加 nore，将会递归替换，大多数时候容易造成混乱。</p>
+</blockquote>
+<p><code>&lt;F5&gt;</code>  表示按下F5键；<br>
+<code>:</code>  进入命令行模式；<br>
+<code>!</code>  在vim的命令行模式下用shell的命令；<br>
+<code>!gcc -o a.out %</code>  %代表当前文件名，gcc -o a.out % 即为编译链接当前文件，生成 a.out；<br>
+<code>&amp;&amp;</code>  表示同时执行两条命令<br>
+<code>./a.out</code>  运行当前目录下的a.out文件<br>
+<code>&lt;CR&gt;</code>  回车即&quot;enter&quot;键（也可小写）</p>
+<blockquote>
+<p>定义组合键时，例如 <code>ctrl + w</code>，配置时为 <code>&lt;c-w&gt;</code>;<br>
+<code>alt + w</code> 时， 配置为 <code>&lt;m-w&gt;</code><br>
+(w为任意键)</p>
+</blockquote>
+<p>如果还没学会这个，那我们再来看一条（这个就不算快捷键了，只是简单的替换而已）：</p>
+<blockquote>
+<p><code>inoremap ( ()&lt;esc&gt;i</code></p>
+</blockquote>
+<p>即在插入模式下，输入<code>(</code>，就会自动变为输入<code>()&lt;esc&gt;i</code>，为什么输入 () 不够，还要推出回到普通模式再输入 i 呢？因为这样，光标就会移动到括号中间，方便输入啦。现在学会了没有呢？</p>
+<p>（后面第九条还有更多的 vim 的配置，这条为啥单独写这呢..我也不知道...可能是因为这个在我看来属于自己设置快捷键，你想实现什么功能就实现什么功能，可以设置单独的键，而后面的只能算配置自己的 vim 吧）</p>
+<p>！！敲黑板：这个设置完真的是超级方便。</p>
+<h3 id="2设置书签">2.设置书签</h3>
+<p>在某一行，按下m，再按某个字母，例如'a'，表示在这一行设置了名为a的书签，当要查找这个书签时，按下单引号，再按下书签名即可。</p>
+<blockquote>
+<p>设置书签:<code>mx</code> //x代表任意字母<br>
+查找书签:<code>'x</code> //x代表设置书签时选择的任意字母</p>
+</blockquote>
+<p>同时还可以设置很多字母，设置很多个书签。。。有时候写代码，函数与测试文件分开时，需要写一个函数测试一下，那在函数与测试代码之间就需要跳来跳去，用书签就很方便。</p>
+<p>总体来说，写较长的代码，并且需要来回切换的时候比较方便吧，但是也可以直接开两个窗口（我屏幕小，还是喜欢跳来跳去...）</p>
+<h3 id="3打开标签页">3.打开标签页</h3>
+<p>就像我们的网页，同时开启多个上面会有多个标签页，vim 也能这样：</p>
+<blockquote>
+<p><code>:tabe xxx</code></p>
+</blockquote>
+<p>xxx 为文件名，也可以加上路径，使得可以同时打开多个文件。</p>
+<blockquote>
+<p><code>gt</code> 切换到下一个标签页<br>
+<code>gT</code> 切换到上一个标签页<br>
+<code>:q</code> 关闭当前标签页</p>
+</blockquote>
+<p>这个我倒是不常用..可能是因为我一般代码就开一两个窗口而已，最多也就三个，所以打开 vim 的时候我就会直接打开两个，然后用 <code>:bn</code> 来切换，但是什么时候我会用到呢，一般写着写着，突然发现要看下以前某个文件，我就会用标签页的方式打开（当然你也可以直接新开个窗口）。</p>
+<h3 id="4快捷缩进与注释">4.快捷缩进与注释</h3>
+<p>[单行快捷缩进]</p>
+<blockquote>
+<p><code>按“&gt;&gt;”或“&lt;&lt;”</code>(向右缩进/向左缩进)<br>
+无需选中本行，光标在这一行即可，按两下 <code>shift+</code> , 或两下 <code>shift+.</code> 即可。</p>
+</blockquote>
+<p>[快捷缩进]</p>
+<blockquote>
+<p>进入可视块模式后，选中每行第一个字母，按<br>
+<code>&quot;&lt;&quot;</code> (shift+,) 向左缩进<br>
+<code>&quot;&gt;&quot;</code> (shift+.) 向右缩进</p>
+</blockquote>
+<p>[快捷注释]</p>
+<blockquote>
+<p>进入可视块模式，选中注释的行开头，按 <code>shift+i/I</code>（即在行首插入） ，再按<code>//</code>，再按两下<code>esc</code></p>
+</blockquote>
+<p>[取消注释]</p>
+<blockquote>
+<p>可视块模式选中所有的<code>//</code>，再按<code>d(或x)</code>删除</p>
+</blockquote>
+<p>总结：常用，非常好用。</p>
+<h3 id="5vim的粘贴格式">5.vim的粘贴格式</h3>
+<p>很多时候可能复制了一段代码，要粘贴到vim里。然后就发现，啊这格式咋不了啊，多出来辣么多空格是咋回事...<br>
+就是格式的问题...<br>
+输入<code>:set paste</code> ，就可以解决格式问题，而只是简单的粘贴文本。<br>
+记得粘贴完成后退出 <code>set no paste</code>。</p>
+<p>emmmmm，很好记，要用到的时候能记住就好了，不然会发现粘贴格式很乱。</p>
+<h3 id="6vim内快捷查找">6.vim内快捷查找</h3>
+<blockquote>
+<p><code>:/xxx</code>  查找“xxx”这个词<br>
+[按n查找下一个 N查找上一个]<br>
+[如果输入完 <code>:/xxx</code>后，再按<code>*</code>，即完全匹配查找（如果你查找的是 a，有个词叫 aa ，这时候查找结果不会有 aa ）]<br>
+<code>?xxx</code><br>
+[不需要冒号，也是查找 xxx 这个词，但是和  :/xxx 方向相反]<br>
+<code>:n</code>     到第n行</p>
+</blockquote>
+<p>不记住这个的话...还用什么 vim ...</p>
+<h3 id="7快捷替换">7.快捷替换</h3>
+<blockquote>
+<p><code>:%s/word1/word2</code><br>
+[把当前行第一个word1替换为word2]<br>
+<code>:n1,n2 s/word1/word2/gc</code><br>
+[n1行到n2行，把word1都替换为word2，有c会一个个询问是否替换]<br>
+[如果只有<code>/g</code>，就不会询问，直接全部替换]</p>
+</blockquote>
+<p>这个有时候超级方便，我有时候用别的编辑器比如 word 什么的，也超希望能有这个功能...用过 n 多次，但是永远记不住..每次要用就打开自己这篇博客来看下...</p>
+<h3 id="8vim内置分屏">8.vim内置分屏</h3>
+<p>依靠命令行模式来进行分屏，写代码时如果和前面有段代码要比对这些，但是又看不到前面的，就可以这么干（当然你也可以再打开个窗口啦，只是有时候分屏比较方便，虽然很多终端也自带分屏功能..）</p>
+<blockquote>
+<p><code>:vs</code> 水平分屏（后面+空格+文件名，可以打开指定文件来分屏）<br>
+<code>ctrl+w</code> 再移动光标，会在分屏幕模式下，左右移动光标</p>
+</blockquote>
+<hr>
+<blockquote>
+<p><code>:sp</code> 垂直分屏<br>
+<code>ctrl+g</code> 再移动光标，会在分屏幕模式下，上下移动光标</p>
+</blockquote>
+<hr>
+<blockquote>
+<p><code>:q</code> 退出当前分屏窗口<br>
+<code>:qa</code> 退出当前所有分屏窗口</p>
+</blockquote>
+<p>可以将这些组合键设置成快捷键，更方便~<br>
+（但是悄咪咪的说一句..我一般直接再开个屏..因为我蠢记不住..）</p>
+<h3 id="9vim的基本配置">9.vim的基本配置</h3>
+<p>vim ~/.vimrc 修改配置文件<br>
+（加个 <code>.</code> 代表隐藏文件）</p>
+<pre><code>syntax on &quot; 语法高亮
+set hlsearch  &quot; 设置搜索结果高亮 highlight search
+set number &quot; 显示行号
+set tabstop=4 &quot; Tab代表4个空格的宽度（我一般用2个）
+set autoindent &quot; 表示换行后自动缩进
+set history=1000 &quot; 记住的历史操作的数量，默认的是20
+set mouse=a &quot; 可以使用鼠标
+&quot;set mouse-=a &quot; 不可使用鼠标
+
+&quot; 括号匹配
+inoremap ( ()&lt;ESC&gt;i
+inoremap { {&lt;CR&gt;}&lt;ESC&gt;O
+inoremap [ []&lt;ESC&gt;i
+inoremap &quot; &quot;&quot;&lt;ESC&gt;i
+inoremap ' ''&lt;ESC&gt;i
+
+&quot; inoremap jk &lt;ESC&gt; &quot; jk退出
+
+&quot; 检测下一个是不是右括号，是的话自动覆盖（摘自百度）
+inoremap ) &lt;c-r&gt;=ClosePair(')')&lt;CR&gt;
+inoremap ] &lt;c-r&gt;=ClosePair(']')&lt;CR&gt;
+inoremap } &lt;c-r&gt;=CloseBracket()&lt;CR&gt;
+inoremap &quot; &lt;c-r&gt;=QuoteDelim('&quot;')&lt;CR&gt;
+inoremap ' &lt;c-r&gt;=QuoteDelim(&quot;'&quot;)&lt;CR&gt;
+
+function ClosePair(char)
+	if getline('.')[col('.') - 1] == a:char
+		return &quot;\&lt;Right&gt;&quot;
+	else
+		return a:char
+	endif
+endf
+
+function CloseBracket()
+	if match(getline(line('.') + 1), '\s*}') &lt; 0
+		return &quot;\&lt;CR&gt;}&quot;
+	else
+		return &quot;\&lt;Esc&gt;j0f}a&quot;
+	endif
+endf
+
+function QuoteDelim(char)
+	let line = getline('.')
+	let col = col('.')
+	if line[col - 2] == &quot;\\&quot;
+		return a:char
+	elseif line[col - 1] == a:char
+		return &quot;\&lt;Right&gt;&quot;
+	else
+		return a:char.a:char.&quot;\&lt;Esc&gt;i&quot;
+	endif
+endf
+</code></pre>
+<p>关于这一块的配置..本来是只写了这么点，其余的希望大家自己直接上网搜的，因为我自己写的一些配置，可能不是很好，怕误导了大家。但是写完这篇博客后的几个月的今天..还是忍不住给大家分享几条我的配置，由于是自己写的，也借阅网上的配置，所以写的我自己都觉得不太好...</p>
+<blockquote>
+<p><code>nnoremap ii i&lt;TAB&gt;</code></p>
+</blockquote>
+<p>这个就是，大家有没有发现..有时候敲代码，光标在行首，按了个 <code>i</code> ，光标还是在行首，但是我想要直接写代码滴呀，我要缩进啊，于是就设置个快捷键..按两下 i ，就直接进入插入模式，并且前面有缩进，真的超级方便..</p>
+<blockquote>
+<p><code>nnoremap qq &lt;esc&gt;A</code></p>
+</blockquote>
+<p>有时候正在输入，但是想立马到行尾，就可以这样实现<sub>先回到普通模式，再插入到行尾</sub></p>
+<p>其余的我想到再补充~~</p>
+<h3 id="10vim内使用shell命令行">10.vim内使用shell命令行</h3>
+<p>有时候需要在 vim 内使用 shell 的命令（例如要编译执行当前代码），当然可以立马新开一个窗口，或者像之前讲过的那样设置快捷键，但是现在要讲的是另一种方法：</p>
+<blockquote>
+<p><code>:!xxx</code></p>
+</blockquote>
+<p>即先进入 vim 的命令行模式，在按下 <code>!</code> ，这时候的目录是你当前文件的目录，然后就可以输入命令了，例如有时候，需要编译执行当前文件，就可以直接这么用。</p>
+<p>是的..你用再开个窗口大法也可以，但是我还是会经常用这个的，因为方便啊，再开个窗口还要移动光标，这个直接按个 <code>:</code> 就好啦。</p>
+<h3 id="11按键使用">11.按键使用</h3>
+<p>总结了一些vim下常用的按键，已经熟练使用vim的请跳过本条....</p>
+<p>（所有的大写建议 shift+.. 来使用）</p>
+<p>（1）一般模式下<br>
+移动光标：<br>
+(前面加数字，可以一下子跳很多格)</p>
+<blockquote>
+<p>左：<code>h</code>；<br>
+下：<code>j</code>；<br>
+上：<code>k</code>；<br>
+右：<code>l</code>；</p>
+</blockquote>
+<hr>
+<blockquote>
+<p><code>b</code>：移到前一个单词开头<br>
+<code>w</code>：移到后一个单词开头<br>
+<code>e</code>：移到后一个单词末尾<br>
+<code>gg</code>：移到首行开头<br>
+<code>shift+g</code>/<code>G</code>：移到末行开头<br>
+<code>0</code>(零)：移到当前行开头<br>
+<code>^</code>：移动到行首非空白字符<br>
+<code>$</code>：移到当前行行尾<br>
+<code>[]</code>：跳转到上一个函数<br>
+<code>][</code>：跳转到下一个函数</p>
+</blockquote>
+<p>模式转换：</p>
+<blockquote>
+<p><code>i</code>：进入插入模式(写在光标之前)<br>
+<code>a</code>：进入插入模式(写在光标之后)<br>
+<code>shift+i</code>/<code>I</code>：进入插入模式(写在行首)<br>
+<code>shift+a</code>/<code>A</code>：进入插入模式(写在行尾)<br>
+<code>o</code>(字母o)：到下一行，插入空行，并进入插入模式<br>
+<code>shift+o</code>/<code>O</code>(大写O)：到上一行，插入空行，并进入插入模式</p>
+</blockquote>
+<blockquote>
+<p><code>esc</code>：退出插入模式，回到命令模式<br>
+<code>:</code>(冒号)：到命令行模式</p>
+</blockquote>
+<p>复制粘贴删除：</p>
+<blockquote>
+<p><code>yy</code>(或<code>Y</code>)：复制一行（3yy为复制3行）<br>
+<code>p</code>：粘贴<br>
+<code>dd</code>：删除一行（5dd为删除5行）<br>
+<code>x</code>：删除一个字符（3x删除后面3个字符）<br>
+<code>dw</code>：从当前光标开始，删除到单词结束<br>
+<code>d$</code>：从当前光标开始，删除到行尾<br>
+<code>r</code>：替换<br>
+<code>shift+r</code>/<code>R</code>：行替换</p>
+</blockquote>
+<p>可视模式：</p>
+<blockquote>
+<p><code>v</code>：可视模式<br>
+<code>ctrl+v</code>：可视块模式<br>
+<code>shift+v</code>/<code>V</code>：可视行模式</p>
+</blockquote>
+<p>撤销：</p>
+<blockquote>
+<p><code>u</code>：撤销<br>
+<code>ctrl+r</code>：取消撤销</p>
+</blockquote>
+<p>（2）命令行模式中：</p>
+<p>保存与退出</p>
+<blockquote>
+<p><code>:w</code> 保存<br>
+<code>:q</code> 退出 （:qw  保存并退出  :q! 不保存退出）</p>
+</blockquote>
+<p>其他：</p>
+<blockquote>
+<p><code>:set nu</code> 设置行号  （set nonu 取消行号）<br>
+<code>:set mouse=a</code> 设置可以使用鼠标<br>
+<code>:set mouse-=a</code> 设置不能使用鼠标</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>普通模式下， 将光标放在<code>(</code>/<code>[</code>/<code>{</code>上，按下<code>%</code>，光标将会跳到下一个匹配的<code>)</code>/<code>]</code>/<code>}</code>，再次按<code>%</code>，将会跳回去。（可用于调试时查看括号配对）</p>
+</blockquote>
+<p>更具体的可以看 <code>vimtutor</code>(直接在bash输入即可)</p>
+<h3 id="12学会查找">12.学会查找</h3>
+<p>按文件名查找：<br>
+<code>find -name &lt;filename&gt;</code><br>
+这是一个最简单的查找命令，按名字查找当前目录下的文件，查找结果会显示路径。</p>
+<p>按文件内容查找：<br>
+<code>grep xxx &lt;directory&gt;</code><br>
+&quot;xxx&quot; 是你要查找的字符串，<directory>是要查找的目录。当然我们还可以添加选项，如<code>-n</code>显示行号，<code>-i</code>查找时忽略大小写，<code>-v</code>反向查找。其他还可以搭配管道等等应用，但最简单的应用</p>
+<h3 id="参考">参考</h3>
+<p>https://blog.csdn.net/sunlanchang/article/details/52549756</p>
+
+							</div>
+	<div class="wow bounceInDown vt-post-tags">
+ 
+					</div>						
+<nav class="navigation3 post-navigation3" role="navigation">
+		
+		<div class="nav-links3">
+      
+		<div class="wow bounceInLeft nav-previous3"><a href="https://ccccj.github.io/post/lu-li-shu/" rel="prev"> 履歴書</a></div>
+		 
+		 
+		<div class="wow bounceInRight nav-next3"><a href="https://ccccj.github.io/post/python-xue-xi-bi-ji/" rel="next"> python学习笔记</a></div>
+		
+		</div>
+	</nav>
+	<div class="wow rollIn author-info" style="visibility: visible; animation-name: rollIn;">
+	<div class="author-avatar pull-left"><img src="https://ccccj.github.io/images/avatar.png" ></div>
+ 
+
+		</div>
+		
+ 
+		
+</article>
+
+<div id="marlin_lite_about_widget-2" class="wow bounceInUp widget marlin_lite_about_widget" data-wow-delay="0.1s">
+		
+        
+		<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='https://ccccj.github.io/media/scripts/Valine.min.js'></script>
+
+<div class="comment"></div>
+<script>
+        new Valine({
+            // AV 对象来自上面引入av-min.js(老司机们不要开车➳♡゛扎心了老铁)
+            av: AV, 
+            el: '.comment',
+            lang: 'zh-cn',
+            
+            
+      emoticon_list: ["吐.png","喷血.png","狂汗.png","不说话.png","汗.png","坐等.png","献花.png","不高兴.png","中刀.png","害羞.png","皱眉.png","小眼睛.png","中指.png","尴尬.png","瞅你.png","想一想.png","中枪.png","得意.png","肿包.png","扇耳光.png","亲亲.png","惊喜.png","脸红.png","无所谓.png","便便.png","愤怒.png","蜡烛.png","献黄瓜.png","内伤.png","投降.png","观察.png","看不见.png","击掌.png","抠鼻.png","邪恶.png","看热闹.png","口水.png","抽烟.png","锁眉.png","装大款.png","吐舌.png","无奈.png","长草.png","赞一个.png","呲牙.png","无语.png","阴暗.png","不出所料.png","咽气.png","期待.png","高兴.png","吐血倒地.png","哭泣.png","欢呼.png","黑线.png","喜极而泣.png","喷水.png","深思.png","鼓掌.png","暗地观察.png"],
+     	
+      	
+          
+        });
+    </script> 
+
+
+   
+  
+ 
+
+		</div>
+
+			</div>
+			
+
+
+<div class="tocc col l3 hide-on-med-and-down">
+	
+        <div class="toc-widget">
+			
+            <div class="toc-title"></div>
+			
+            <div id="toc-content">
+			
+			
+			</div>
+        </div>
+    </div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.5.0/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '.entry-summary',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            // headingsOffset: -205,
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('.entry-summary').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+    });
+</script>										 
+
+ 
+       
+
+
+			</div>
+		</div>
+
+		
+		 	<footer id="colophon" class="site-footer">
+
+			<div class="container">
+	
+				<div class="copyright">Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a><br>Theme:   <a href="https://github.com/shanbufun/gridea-theme-pan" target="_blank" title="Pan"><span>Pan</span></a>.  by <a href="https://shanbu.fun/" target="_blank"  title="山卜方" >Shanbufun</a></div>		
+			</div>
+		
+		</footer>
+
+</div>
+
+<script src="https://cdn.bootcss.com/fitvids/1.2.0/jquery.fitvids.min.js"></script>
+<script type='text/javascript' src='https://ccccj.github.io/media/scripts/marlin-scripts.js'></script>
+ <script src="//tokinx.github.io/lately/lately.min.js"></script>
+  <script>jQuery(document).ready(function(){$.lately({'target':'.lately-a,.lately-b,.lately-c'})});</script>
+  <style type="text/css">a.back_to_top {
+    text-decoration: none;
+    position: fixed;
+    bottom: 40px;
+    right: 30px;
+    background: #f0f0f0;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    line-height: 36px;
+    font-size: 18px;
+    text-align: center;
+    transition-duration: .5s;
+    transition-propety: background-color;
+    display: none;
+}
+
+a.back_to_top span {
+    color: #888;
+}
+
+a.back_to_top:hover {
+    cursor: pointer;
+    background: #dfdfdf;
+}
+
+a.back_to_top:hover span {
+    color: #555;
+}
+
+@media print, screen and (max-width: 580px) {
+    .back_to_top {
+        display: none !important;
+    }
+}
+
+
+
+</style><a id="back_to_top" href="#" class="back_to_top"><span><i class="iconfont icon-xiangshang"></i></span>
+</a>
+
+
+<script>$(document).ready((function(_this) {
+  return function() {
+    var bt;
+    bt = $('#back_to_top');
+    if ($(document).width() > 480) {
+      $(window).scroll(function() {
+        var st;
+        st = $(window).scrollTop();
+        if (st > 30) {
+          return bt.css('display', 'block');
+        } else {
+          return bt.css('display', 'none');
+        }
+      });
+      return bt.click(function() {
+        $('body,html').animate({
+          scrollTop: 0
+        }, 800);
+        return false;
+      });
+    }
+  };
+})(this));
+</script>
+
+		<script data-no-instant>
+    (function ($) {
+        $.extend({
+            adamsOverload: function () {
+                $('.navigation:eq(0)').remove();
+                $("").attr("rel" , "external");
+                $("a[rel='external'],a[rel='external nofollow']").attr("target","_blank");
+                $("a.vi").attr("rel" , "");
+                $.viewImage({
+                    'target'  : 'img',
+                    'exclude' : '.vsmile-icons img,.gallery img',
+                    'delay'   : 300
+                });
+                $.lately({
+                    'target' : '.commentmetadata a,.infos time,.post-list time'
+                });
+                prettyPrint();
+                
+                $('ul.links li a').each(function(){
+                    if($(this).parent().find('.bg').length==0){
+                        $(this).parent().append('<!---<div class="bg" style="background-image:url(https://c3.glgoo.top/s2/favicons?domain='+$(this).attr("href")+')"></div>--->')
+                    }
+                });
+            }
+        });
+    })(jQuery);
+    jQuery.adamsOverload();
+</script>
+
+</body>
+</html>

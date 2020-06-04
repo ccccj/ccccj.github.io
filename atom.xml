@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ccccj.github.io</id>
     <title>Amon&apos;s Homepage</title>
-    <updated>2020-06-03T21:02:01.236Z</updated>
+    <updated>2020-06-04T06:34:46.334Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ccccj.github.io"/>
     <link rel="self" href="https://ccccj.github.io/atom.xml"/>
@@ -79,7 +79,7 @@
 						</tbody>
 					</table></td>
 					<td style="padding: 0px; width: 160px;">
-						<img src="1.png" alt="picture" style="height: 186px; width: 140px; margin: 5px;">
+						<img src="https://user-images.githubusercontent.com/33253635/83722791-30976e80-a670-11ea-9721-8f18fc55425a.jpg" alt="picture" style="height: 186px; width: 140px; margin: 5px;">
 					</td>
 			    </tr>
 				<tr><td style="padding: 0px;"><table class="table table-bordered" style="border: aliceblue; margin: auto;">

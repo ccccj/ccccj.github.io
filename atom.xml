@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ccccj.github.io</id>
     <title>Amon&apos;s Homepage</title>
-    <updated>2020-06-04T06:34:46.334Z</updated>
+    <updated>2020-06-04T07:10:32.137Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ccccj.github.io"/>
     <link rel="self" href="https://ccccj.github.io/atom.xml"/>
@@ -28,6 +28,7 @@
 			font-weight: 300;
 		}
 		.td {
+			border: aliceblue;
 			background-color: #fff;
 		}
 		.tr {
@@ -46,7 +47,7 @@
 								<td style="border:aliceblue;"><strong>ふりがな</strong></td>
 							</tr>
 							<tr>
-								<td style="border: aliceblue;border-top: 1px solid #ddd; background-color: #fff;"><strong>氏　　名</strong></td>
+								<td style="border-top: 1px solid #ddd; background-color: #fff;"><strong>氏　　名</strong></td>
 							</tr>
 							<tr>
 								<td style="border: aliceblue;border-top: 1px solid #ddd;"><strong>生年月日</strong></td>
@@ -78,7 +79,7 @@
 							</tr>
 						</tbody>
 					</table></td>
-					<td style="padding: 0px; width: 160px;">
+					<td style="padding: 0px; width: 180px;">
 						<img src="https://user-images.githubusercontent.com/33253635/83722791-30976e80-a670-11ea-9721-8f18fc55425a.jpg" alt="picture" style="height: 186px; width: 140px; margin: 5px;">
 					</td>
 			    </tr>

@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ccccj.github.io</id>
     <title>Amon&apos;s Homepage</title>
-    <updated>2020-06-04T07:10:32.137Z</updated>
+    <updated>2020-06-04T08:16:33.311Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ccccj.github.io"/>
     <link rel="self" href="https://ccccj.github.io/atom.xml"/>
@@ -12,8 +12,8 @@
     <rights>All rights reserved 2020, Amon&apos;s Homepage</rights>
     <entry>
         <title type="html"><![CDATA[履歴書]]></title>
-        <id>https://ccccj.github.io/post/lu-li-shu/</id>
-        <link href="https://ccccj.github.io/post/lu-li-shu/">
+        <id>https://ccccj.github.io/lu-li-shu/</id>
+        <link href="https://ccccj.github.io/lu-li-shu/">
         </link>
         <updated>2020-06-03T15:48:36.000Z</updated>
         <content type="html"><![CDATA[<!DOCTYPE html>
@@ -390,8 +390,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Linux下vim的便捷使用]]></title>
-        <id>https://ccccj.github.io/post/linux-xia-vim-de-bian-jie-shi-yong/</id>
-        <link href="https://ccccj.github.io/post/linux-xia-vim-de-bian-jie-shi-yong/">
+        <id>https://ccccj.github.io/linux-xia-vim-de-bian-jie-shi-yong/</id>
+        <link href="https://ccccj.github.io/linux-xia-vim-de-bian-jie-shi-yong/">
         </link>
         <updated>2019-08-23T18:24:04.000Z</updated>
         <content type="html"><![CDATA[<blockquote>
@@ -676,8 +676,8 @@ endf
     </entry>
     <entry>
         <title type="html"><![CDATA[python学习笔记]]></title>
-        <id>https://ccccj.github.io/post/python-xue-xi-bi-ji/</id>
-        <link href="https://ccccj.github.io/post/python-xue-xi-bi-ji/">
+        <id>https://ccccj.github.io/python-xue-xi-bi-ji/</id>
+        <link href="https://ccccj.github.io/python-xue-xi-bi-ji/">
         </link>
         <updated>2019-05-03T18:37:27.000Z</updated>
         <content type="html"><![CDATA[<p><ul class="markdownIt-TOC">
@@ -1480,8 +1480,8 @@ print L
     </entry>
     <entry>
         <title type="html"><![CDATA[C++ | 函数重载]]></title>
-        <id>https://ccccj.github.io/post/c-or-han-shu-chong-zai/</id>
-        <link href="https://ccccj.github.io/post/c-or-han-shu-chong-zai/">
+        <id>https://ccccj.github.io/c-or-han-shu-chong-zai/</id>
+        <link href="https://ccccj.github.io/c-or-han-shu-chong-zai/">
         </link>
         <updated>2018-04-05T09:31:36.000Z</updated>
         <content type="html"><![CDATA[<h2 id="目录">目录</h2>
@@ -1700,8 +1700,8 @@ c++的结果：<br>
     </entry>
     <entry>
         <title type="html"><![CDATA[C++ | 引用变量]]></title>
-        <id>https://ccccj.github.io/post/c-or-yin-yong-bian-liang/</id>
-        <link href="https://ccccj.github.io/post/c-or-yin-yong-bian-liang/">
+        <id>https://ccccj.github.io/c-or-yin-yong-bian-liang/</id>
+        <link href="https://ccccj.github.io/c-or-yin-yong-bian-liang/">
         </link>
         <updated>2018-03-22T09:20:14.000Z</updated>
         <content type="html"><![CDATA[<h2 id="目录">目录</h2>
@@ -1978,8 +1978,8 @@ int main() {
     </entry>
     <entry>
         <title type="html"><![CDATA[C++ | 命名空间]]></title>
-        <id>https://ccccj.github.io/post/c-or-ming-ming-kong-jian/</id>
-        <link href="https://ccccj.github.io/post/c-or-ming-ming-kong-jian/">
+        <id>https://ccccj.github.io/c-or-ming-ming-kong-jian/</id>
+        <link href="https://ccccj.github.io/c-or-ming-ming-kong-jian/">
         </link>
         <updated>2018-03-15T16:33:56.000Z</updated>
         <content type="html"><![CDATA[<blockquote>
@@ -2122,8 +2122,8 @@ int main(int argc, const char * argv[]) {
     </entry>
     <entry>
         <title type="html"><![CDATA[C++ 零碎知识点集合]]></title>
-        <id>https://ccccj.github.io/post/c-ling-sui-zhi-shi-dian-ji-he/</id>
-        <link href="https://ccccj.github.io/post/c-ling-sui-zhi-shi-dian-ji-he/">
+        <id>https://ccccj.github.io/c-ling-sui-zhi-shi-dian-ji-he/</id>
+        <link href="https://ccccj.github.io/c-ling-sui-zhi-shi-dian-ji-he/">
         </link>
         <updated>2018-03-15T15:43:13.000Z</updated>
         <content type="html"><![CDATA[<p>比较简单的我就直接写在这篇里了，比较复杂的会单独写一篇博客。</p>
@@ -2219,8 +2219,8 @@ https://blog.csdn.net/qq_40873884/article/details/79632314</p>
     </entry>
     <entry>
         <title type="html"><![CDATA[搭建基于github的个人网站]]></title>
-        <id>https://ccccj.github.io/post/da-jian-ji-yu-github-de-ge-ren-wang-zhan/</id>
-        <link href="https://ccccj.github.io/post/da-jian-ji-yu-github-de-ge-ren-wang-zhan/">
+        <id>https://ccccj.github.io/da-jian-ji-yu-github-de-ge-ren-wang-zhan/</id>
+        <link href="https://ccccj.github.io/da-jian-ji-yu-github-de-ge-ren-wang-zhan/">
         </link>
         <updated>2018-03-15T15:30:14.000Z</updated>
         <content type="html"><![CDATA[<blockquote>
@@ -2612,8 +2612,8 @@ http://blog.csdn.net/sunshine940326/article/details/70936988</p>
     </entry>
     <entry>
         <title type="html"><![CDATA[C语言| 可变参数]]></title>
-        <id>https://ccccj.github.io/post/c-yu-yan-or-ke-bian-can-shu/</id>
-        <link href="https://ccccj.github.io/post/c-yu-yan-or-ke-bian-can-shu/">
+        <id>https://ccccj.github.io/c-yu-yan-or-ke-bian-can-shu/</id>
+        <link href="https://ccccj.github.io/c-yu-yan-or-ke-bian-can-shu/">
         </link>
         <updated>2018-02-08T15:33:39.000Z</updated>
         <content type="html"><![CDATA[<p>可变参数..其实我也是第一次听说..<br>
@@ -2764,8 +2764,8 @@ int main()
     </entry>
     <entry>
         <title type="html"><![CDATA[ACM：素数线性筛法（素数打表）]]></title>
-        <id>https://ccccj.github.io/post/acmsu-shu-xian-xing-shai-fa-su-shu-da-biao/</id>
-        <link href="https://ccccj.github.io/post/acmsu-shu-xian-xing-shai-fa-su-shu-da-biao/">
+        <id>https://ccccj.github.io/acmsu-shu-xian-xing-shai-fa-su-shu-da-biao/</id>
+        <link href="https://ccccj.github.io/acmsu-shu-xian-xing-shai-fa-su-shu-da-biao/">
         </link>
         <updated>2018-01-21T17:26:21.000Z</updated>
         <content type="html"><![CDATA[<ul>

@@ -1,0 +1,789 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Ignatius and the Princess IV
+&quot;OK, you are not too bad, em... But you can never pass the next test.&quot; feng5166 s..." />
+    <meta name="keywords" content="" />
+    <link rel="stylesheet" href="https://ccccj.github.io/media/css/bootstrap.min.css">
+    
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.1/build/styles/default.min.css">
+              
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.1/build/highlight.min.js"></script>
+    <link rel="stylesheet" href="https://ccccj.github.io/media/css/live2d.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="https://ccccj.github.io/media/css/bootstrap.min.css">
+    <title>Amon's Homepage</title>
+</head>
+
+<body>
+    <!-- 响应式布局，针对PC端内容显示 -->
+    <div id="content">
+        <div class="nav-large">
+            <div class="row">
+                <div class="side"><html>
+
+<head>
+    <link rel="stylesheet" href="https://ccccj.github.io/styles/main.css">
+    <meta name="description" content="温故而知新" />
+    <title>Document</title>
+</head>
+<style>
+</style>
+
+<body>
+    <div id=side>
+        <div class="avatar-border">
+            <img src="https://ccccj.github.io/images/avatar.png?v=1591258531945" class="avatar">
+        </div>
+        <div class="sitename">Amon&#39;s Homepage</div>
+        <span class="describtion" data-text='["温故而知新"]'>&nbsp;</span>
+        
+        <div class="search">
+            <!-- <input type="text" class="search-input" placeholder="标题搜索(●'◡'●)" /> -->
+            <input type="text" class="search-input" placeholder="标题搜索 ⚆_⚆ つ♡">
+            <div class="search-results"></div>
+        </div>
+        
+    <div class="share-button">
+        <span>社交按钮</span>
+        
+        <a href="https://github.com/ccccj" target="_blank"><i><img class="icon"
+                    src="https://ccccj.github.io/media/images/github.png" alt=""></i></a>
+        
+        
+        <a onclick="showqq()"><i><img class="icon" src="https://ccccj.github.io/media/images/QQ.png" alt=""></i></a>
+        
+        
+        
+        
+        
+    </div>
+    <div id="qq" style="display:none">839808679</div>
+    
+    
+    <div class="mchocie describtion">
+        <a href="/" class="menubutton">
+            home
+        </a>
+    </div>
+    
+    
+    
+    <div class="mchocie describtion">
+        <a href="/archives" class="menubutton">
+            archives
+        </a>
+    </div>
+    
+    
+    
+    <div class="mchocie describtion">
+        <a href="https://github.com/ccccj" class="menubutton">
+            github
+        </a>
+    </div>
+    
+    
+    
+    <div class="mchocie describtion">
+        <a href="https://blog.csdn.net/qq_40873884" class="menubutton">
+            CSDN
+        </a>
+    </div>
+    
+    
+    
+        <div class="mchocie describtion">
+            <a href="https://ccccj.github.io/friends" class="menubutton">友人帐</a>
+        </div>
+    
+    <hr>
+    <div id="footinfo">Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | Theme: <a href="https://github.com/850552586/gridea-theme-fog">Fog</a></div>
+    <div id="sitegotimeDate">载入天数...</div>
+    <div id="sitegotimes">载入时分秒...</div>
+    <div id="cussitetime" style="display:none">02/02/2020</div>
+    </div>
+</body>
+
+</html>
+<script src="https://ccccj.github.io/media/js/wordshow.js"></script>
+<script>
+    //----------------------站点运行时间
+    var now = new Date();
+
+    function createtime() {
+        var sitegotime = document.getElementById("cussitetime").innerHTML + " 00:00:00";
+        var grt = new Date(sitegotime); //此处修改你的建站时间或者网站上线时间 
+        now.setTime(now.getTime() + 250);
+        days = (now - grt) / 1000 / 60 / 60 / 24;
+        dnum = Math.floor(days);
+        hours = (now - grt) / 1000 / 60 / 60 - (24 * dnum);
+        hnum = Math.floor(hours);
+        if (String(hnum).length == 1) {
+            hnum = "0" + hnum;
+        }
+        minutes = (now - grt) / 1000 / 60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes);
+        if (String(mnum).length == 1) {
+            mnum = "0" + mnum;
+        }
+        seconds = (now - grt) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds);
+        if (String(snum).length == 1) {
+            snum = "0" + snum;
+        }
+        document.getElementById("sitegotimeDate").innerHTML = "本站已安全运行 " + dnum + " 天 ";
+        document.getElementById("sitegotimes").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+    }
+    setInterval("createtime()", 250);
+
+    //-------------------------------------------------搜索
+    // 获取搜索框、搜索按钮、清空搜索、结果输出对应的元素
+    var searchInput = document.querySelector('.search-input');
+    var searchResults = document.querySelector('.search-results');
+
+    // 申明保存文章的标题、链接、内容的数组变量
+    var searchValue = '',
+        arrItems = [],
+        arrLinks = [],
+        arrTitles = [],
+        arrResults = [],
+        indexItem = [],
+        itemLength = 0;
+    var tmpDiv = document.createElement('div');
+    tmpDiv.className = 'result-item';
+
+    // ajax 的兼容写法
+    var xhr = new XMLHttpRequest() || new ActiveXObject('Microsoft.XMLHTTP');
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            xml = xhr.responseXML;
+            arrItems = xml.getElementsByTagName('entry');
+            itemLength = arrItems.length;
+            console.log(arrItems);
+            // 遍历并保存所有文章对应的标题、链接、内容到对应的数组中
+            // 同时过滤掉 HTML 标签
+            for (i = 0; i < itemLength; i++) {
+                var link = arrItems[i].getElementsByTagName('link')[0];
+                arrLinks[i] = link.getAttribute("href");
+                arrTitles[i] = arrItems[i].getElementsByTagName('title')[0].
+                childNodes[0].nodeValue.replace(/<.*?>/g, '');
+            }
+        }
+    }
+
+    // 开始获取根目录下 feed.xml 文件内的数据
+    xhr.open('get', '/atom.xml', true);
+    xhr.send();
+
+
+
+    // 输入框内容变化后就开始匹配，可以不用点按钮
+    // 经测试，onkeydown, onchange 等方法效果不太理想，
+    // 存在输入延迟等问题，最后发现触发 input 事件最理想，
+    // 并且可以处理中文输入法拼写的变化
+    searchInput.oninput = function () {
+        setTimeout(searchConfirm, 0);
+    }
+    searchInput.onfocus = function () {
+        searchResults.style.display = 'block';
+    }
+
+    function searchConfirm() {
+        if (searchInput.value == '') {
+            searchResults.style.display = 'none';
+        } else if (searchInput.value.search(/^\s+$/) >= 0) {
+            // 检测输入值全是空白的情况
+            searchInit();
+            var itemDiv = tmpDiv.cloneNode(true);
+            itemDiv.innerText = '请输入有效内容...';
+            searchResults.appendChild(itemDiv);
+        } else {
+            // 合法输入值的情况
+            searchInit();
+            searchValue = searchInput.value;
+            // 在标题、内容中查找
+            searchMatching(arrTitles, searchValue);
+        }
+    }
+
+    // 每次搜索完成后的初始化
+    function searchInit() {
+        arrResults = [];
+        indexItem = [];
+        searchResults.innerHTML = '';
+        searchResults.style.display = 'block';
+    }
+
+    function searchMatching(arr1, input) {
+        // 忽略输入大小写
+        input = new RegExp(input, 'i');
+        // 在所有文章标题、内容中匹配查询值
+        for (i = 0; i < itemLength; i++) {
+            if (arr1[i].search(input) !== -1) {
+                var arr = arr1;
+                indexItem.push(i); // 保存匹配值的索引
+                var indexContent = arr[i].search(input);
+                // 此时 input 为 RegExp 格式 /input/i，转换为原 input 字符串长度
+                var l = input.toString().length - 3;
+                var step = 10;
+
+                // 将匹配到内容的地方进行黄色标记，并包括周围一定数量的文本
+                arrResults.push(arr[i].slice(indexContent - step, indexContent));
+            }
+        }
+
+        // 输出总共匹配到的数目
+        var totalDiv = tmpDiv.cloneNode(true);
+        totalDiv.innerHTML = '<b>总匹配：' + indexItem.length + ' 项<hr></b>';
+        searchResults.appendChild(totalDiv);
+
+        // 未匹配到内容的情况
+        if (indexItem.length == 0) {
+            var itemDiv = tmpDiv.cloneNode(true);
+            itemDiv.innerText = '未匹配到内容...';
+            searchResults.appendChild(itemDiv);
+        }
+
+        // 将所有匹配内容进行组合
+        for (i = 0; i < arrResults.length; i++) {
+            var itemDiv = tmpDiv.cloneNode(true);
+            itemDiv.innerHTML = '<b>[' + arrTitles[indexItem[i]] +
+                ']</b><p>' + arrResults[i] + "</p><hr />";
+            itemDiv.setAttribute('onclick', 'changeHref(arrLinks[indexItem[' + i + ']])');
+            searchResults.appendChild(itemDiv);
+        }
+    }
+
+    function changeHref(href) {
+        location.href = href;
+    }
+
+    function showqq() {
+        var qq = document.getElementById("qq").innerHTML;
+        if (qq != '')
+            alert("博主的QQ联系方式为：" + qq);
+        else
+            alert("博主暂未设置QQ联系方式");
+    }
+</script></div>
+                <div id="tab1" class="tab">
+                    <div class="bars">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <div class="close"></div>
+                </div>
+                <div id="main" class="col-xs-12 col-sm-7">
+                    <link rel="stylesheet" href="https://ccccj.github.io/media/css/font-awesome.css">
+<style>
+
+</style>
+
+<body>
+    <div class="allcontent">
+        <div class="postshow">
+            
+            <div class="postdetailimg" style="width:100%;overflow: hidden;display: none">
+                <img src="https://ccccj.github.io/post-images/acmignatius-and-the-princess-iv.png" class="postimage" style="cursor:auto">
+            </div>
+            <div class="postinfo">
+                <div class="postdate"><i class="fa fa-calendar"></i>2017-10-14</div>
+                <div class="poststatus postdate"><i class="fa fa-clock-o"></i> 6 min read</div>
+                <div class="posttag">
+                    
+                </div>
+            </div>
+            
+            <div id="texttitle" style="text-align: center">
+                <h2>ACM：Ignatius and the Princess IV</h2>
+            </div>
+            <div class="text ">
+                <h4 id="ignatius-and-the-princess-iv">Ignatius and the Princess IV</h4>
+<p>&quot;OK, you are not too bad, em... But you can never pass the next test.&quot; feng5166 says.<br>
+&quot;I will tell you an odd number N, and then N integers. There will be a special integer among them, you have to tell me which integer is the special one after I tell you all the integers.&quot; feng5166 says.<br>
+&quot;But what is the characteristic of the special integer?&quot; Ignatius asks.<br>
+&quot;The integer will appear at least (N+1)/2 times. If you can't find the right integer, I will kill the Princess, and you will be my dinner, too. Hahahaha.....&quot; feng5166 says.<br>
+Can you find the special integer for Ignatius?</p>
+<p>Input</p>
+<p>The input contains several test cases. Each test case contains two lines. The first line consists of an odd integer N(1&lt;=N&lt;=999999) which indicate the number of the integers feng5166 will tell our hero. The second line contains the N integers. The input is terminated by the end of file.</p>
+<p>Output</p>
+<p>For each test case, you have to output only one line which contains the special number you have found.</p>
+<p>Sample Input</p>
+<p>5<br>
+1 3 2 3 3<br>
+11<br>
+1 1 1 1 1 5 5 5 5 5 5<br>
+7<br>
+1 1 1 1 1 1 1</p>
+<p>Sample Output</p>
+<p>3<br>
+5<br>
+1</p>
+<p>方法1：<br>
+题目里已说明，N为奇数，那么当我们将所有的数放到数组里，再进行排序，第N/2个一定是出现次数最多的数（因为这个数出现次数大于N/2），但是排序的时候注意不能用冒泡，会超时，c++中可以直接调用sort函数，c中调用qsort（或者可以自己写一个快排吧...），但是这里的qsort还需要自己写一个用于比较的函数，再传入函数指针。</p>
+<pre><code>
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+int a[1000000];//数较大，不用全局会栈溢出报错
+
+int cmp(const void* a, const void* b) {
+    return ( *(int *)a - *(int *)b );
+}//用sort时用到的函数，具体参考函数指针的知识
+
+int main(int argc, const char * argv[]) {
+    
+    int N;
+    while ( scanf(&quot;%d&quot;,&amp;N) != EOF ) {
+        int i = 0;
+        for ( ; i &lt; N; i++) {
+            scanf(&quot;%d&quot;, &amp;a[i]);
+        }
+        qsort(a, N, sizeof(int), cmp);
+        
+        printf(&quot;%d\n&quot;,a[N/2]);
+    }
+    return 0;
+}
+
+</code></pre>
+<p>方法2：<br>
+创建一个数组并初始化为0，当输入一个数时，以这个数为下标，数组的内容+1，例如输入5次3，那么以3为下标的空间内，存储着的是5，意味着有5次出现，最后找哪个数出现的次数大于N/2，输出即可。<br>
+但是要注意的是，如果输入完，再查找一遍就会超时，因为有了两个for循环，我们可以在输入数据的同时去查找，即当要输入3时，看一下空间内的数是否已经等于N/2了，若等于，再输入一次，就会大于了，我们把下标也就是这个数存储起来，最后再输入，可以省去一个for的时间。<br>
+这个方法与第一个方法相比，更节省时间，因为省去了排序的时间。</p>
+<pre><code>#include &lt;stdio.h&gt;
+
+int main(int argc, const char * argv[]) {
+    int N;
+    while ( scanf(&quot;%d&quot;,&amp;N) != EOF ) {
+        int a[32768] = {0};
+        int i = 0;
+        int r = 0;
+        for (; i &lt; N; i++) {
+            int n;
+            scanf(&quot;%d&quot;, &amp;n);
+            if (a[n] &gt;= N/2) {
+                r = n;
+            }
+                a[n]++;
+        }
+        printf(&quot;%d\n&quot;, r);
+    }
+}
+</code></pre>
+<p>方法3：<br>
+我们将所有数据分成两组，例如输入：<br>
+<code>2 4 1 1 2 2 3 2 2</code><br>
+共9个数据，分成两组为：<br>
+<code>2 2 2 2 2</code><br>
+<code>4 1 1 3</code><br>
+当 我们每次去掉两个不同的数，最后剩下的数一定是那个特殊的数，即 2。<br>
+因此，我们可以在输入时，判断这个数与上一个数是否相同，若不同，我们将这个数与上一个数相互抵消。<br>
+那两个数相同时如何处理？在这组数据里我们可以发现，先出现了两个相同的1，再出现了两个相同的2，不能单独消去，所以必须记录下其出现次数来。在出现两个相同的1时，出现一次就加1，当这时再出现与这个数不同的数，再减1。<br>
+讲到这里，可以看出，这与栈的原理十分相似。不理解的可以看下图：<br>
+<img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTgwMTE5MTUyNzAwNzU4?x-oss-process=image/format,png" alt="这里写图片描述" loading="lazy"><br>
+<img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTgwMTE5MTUyODE4MDM1?x-oss-process=image/format,png" alt="这里写图片描述" loading="lazy"><br>
+输入最后一个数为2时，会发现所有的数都已经抵消，所以2再入栈后，最后剩下的数为2，输入即可。</p>
+<p>简单理解为，当读取一个数，与栈底相同时，这个数继续入栈，与这个数不同时，出栈抵消。<br>
+那么会出现两种情况，第1组（特殊的数）会叠加数量，第2组（其余的数）也会叠加数量（但最后会被第1组或第二组其他的数抵消），相互抵消后，最后剩下的必定为特殊的数。</p>
+<p>在这里可以虚构一个栈来写代码：</p>
+<pre><code>#include &lt;stdio.h&gt;
+int main(int argc, const char * argv[]) {
+    int N;
+    while ( scanf(&quot;%d&quot;,&amp;N) != EOF ) {
+        int spec_n = 0;//记录栈底数
+        int appear = 0;//记录栈中数量
+        int n;//记录每次手动输入的数
+        while (N--) {
+            scanf(&quot;%d&quot;, &amp;n);
+            if (appear == 0) {//相当于栈空，直接入栈
+                appear = 1;//记录当前栈中有多少个数
+                spec_n = n;//记录栈底的数
+            }
+            else {//此时栈中一定有数
+                if (n != spec_n) {
+                    appear--;
+                }
+                else {//此次读到的数与栈底的数相同
+                    appear++;
+                }
+            }
+        }
+        printf(&quot;%d\n&quot;, spec_n);//最后在栈底的数
+    }
+}
+</code></pre>
+<p>这个方法与第二个方法时间效率差不多，但是会略微省空间一些，因为不用开辟一个较大的数组。</p>
+
+            </div>
+            
+            <div class="prev-post">
+                上一篇
+                <a href="https://ccccj.github.io/acmlcm-walk/">
+                    ACM：LCM Walk
+                </a>
+            </div>
+            
+            
+            <div class="next-post">
+                下一篇
+                <a href="https://ccccj.github.io/acm-or-hdu-1005-number-sequence/">
+                    ACM | HDU 1005 Number Sequence
+                </a>
+            </div>
+            
+        </div>
+    </div>
+</body>
+<script>
+    var t_img; // 定时器
+    var isLoad = true; // 控制变量
+    isImgLoad(function () {
+        // 加载完成
+        $('.postdetailimg').css("display", "block");
+    });
+    // 判断图片加载的函数
+    function isImgLoad(callback) {
+        // 注意我的图片类名都是cover，因为我只需要处理cover。其它图片可以不管。
+        // 查找所有封面图，迭代处理
+        $('.postdetailimg').each(function () {
+            // 找到为0就将isLoad设为false，并退出each
+            if (this.height === 0) {
+                isLoad = false;
+                return false;
+            }
+        });
+        // 为true，没有发现为0的。加载完毕
+        if (isLoad) {
+            clearTimeout(t_img); // 清除定时器
+            // 回调函数
+            callback();
+            // 为false，因为找到了没有加载完成的图，将调用定时器递归
+        } else {
+            isLoad = true;
+            t_img = setTimeout(function () {
+                isImgLoad(callback); // 递归扫描
+            }, 500); // 我这里设置的是500毫秒就扫描一次，可以自己调整
+        }
+    }
+</script>
+                    <div name="comment" style="background: white">
+                        <div class="commentcontainer">
+                            
+                            <p>请到客户端“主题--自定义配置--valine”中填入ID和KEY</p>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="toc-container">
+                    <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#ignatius-and-the-princess-iv">Ignatius and the Princess IV</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+                </div>
+            </div>
+        </div>
+        <div id="bg">
+        </div>
+        <div id="bgurl" style="display:none">/media/images/custom-bgimage.png</div>
+    </div>
+    <!-- 响应式布局，针对手机端内容显示 -->
+    <div class="nav-small">
+        <head>
+
+  <!-- 引入Bootstrap核心样式文件 -->
+  <link rel="stylesheet" href="https://ccccj.github.io/media/css/bootstrap.min.css">
+</head>
+
+<body>
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+          data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">Amon&#39;s Homepage&nbsp;&nbsp;|</a>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          
+          
+          <li>
+            <a href="/">
+              home
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/archives">
+              archives
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="https://github.com/ccccj">
+              github
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="https://blog.csdn.net/qq_40873884">
+              CSDN
+            </a>
+          </li>
+          
+          
+          
+          <li><a href="https://ccccj.github.io/friends">友链</a></li>
+
+          
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+
+
+  <!-- 引入jQuery核心js文件 -->
+  <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+  <!-- 引入BootStrap核心js文件 -->
+  <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+        <div style="margin-top:30px"></div>
+        <link rel="stylesheet" href="https://ccccj.github.io/media/css/font-awesome.css">
+<style>
+
+</style>
+
+<body>
+    <div class="allcontent">
+        <div class="postshow">
+            
+            <div class="postdetailimg" style="width:100%;overflow: hidden;display: none">
+                <img src="https://ccccj.github.io/post-images/acmignatius-and-the-princess-iv.png" class="postimage" style="cursor:auto">
+            </div>
+            <div class="postinfo">
+                <div class="postdate"><i class="fa fa-calendar"></i>2017-10-14</div>
+                <div class="poststatus postdate"><i class="fa fa-clock-o"></i> 6 min read</div>
+                <div class="posttag">
+                    
+                </div>
+            </div>
+            
+            <div id="texttitle" style="text-align: center">
+                <h2>ACM：Ignatius and the Princess IV</h2>
+            </div>
+            <div class="text ">
+                <h4 id="ignatius-and-the-princess-iv">Ignatius and the Princess IV</h4>
+<p>&quot;OK, you are not too bad, em... But you can never pass the next test.&quot; feng5166 says.<br>
+&quot;I will tell you an odd number N, and then N integers. There will be a special integer among them, you have to tell me which integer is the special one after I tell you all the integers.&quot; feng5166 says.<br>
+&quot;But what is the characteristic of the special integer?&quot; Ignatius asks.<br>
+&quot;The integer will appear at least (N+1)/2 times. If you can't find the right integer, I will kill the Princess, and you will be my dinner, too. Hahahaha.....&quot; feng5166 says.<br>
+Can you find the special integer for Ignatius?</p>
+<p>Input</p>
+<p>The input contains several test cases. Each test case contains two lines. The first line consists of an odd integer N(1&lt;=N&lt;=999999) which indicate the number of the integers feng5166 will tell our hero. The second line contains the N integers. The input is terminated by the end of file.</p>
+<p>Output</p>
+<p>For each test case, you have to output only one line which contains the special number you have found.</p>
+<p>Sample Input</p>
+<p>5<br>
+1 3 2 3 3<br>
+11<br>
+1 1 1 1 1 5 5 5 5 5 5<br>
+7<br>
+1 1 1 1 1 1 1</p>
+<p>Sample Output</p>
+<p>3<br>
+5<br>
+1</p>
+<p>方法1：<br>
+题目里已说明，N为奇数，那么当我们将所有的数放到数组里，再进行排序，第N/2个一定是出现次数最多的数（因为这个数出现次数大于N/2），但是排序的时候注意不能用冒泡，会超时，c++中可以直接调用sort函数，c中调用qsort（或者可以自己写一个快排吧...），但是这里的qsort还需要自己写一个用于比较的函数，再传入函数指针。</p>
+<pre><code>
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+int a[1000000];//数较大，不用全局会栈溢出报错
+
+int cmp(const void* a, const void* b) {
+    return ( *(int *)a - *(int *)b );
+}//用sort时用到的函数，具体参考函数指针的知识
+
+int main(int argc, const char * argv[]) {
+    
+    int N;
+    while ( scanf(&quot;%d&quot;,&amp;N) != EOF ) {
+        int i = 0;
+        for ( ; i &lt; N; i++) {
+            scanf(&quot;%d&quot;, &amp;a[i]);
+        }
+        qsort(a, N, sizeof(int), cmp);
+        
+        printf(&quot;%d\n&quot;,a[N/2]);
+    }
+    return 0;
+}
+
+</code></pre>
+<p>方法2：<br>
+创建一个数组并初始化为0，当输入一个数时，以这个数为下标，数组的内容+1，例如输入5次3，那么以3为下标的空间内，存储着的是5，意味着有5次出现，最后找哪个数出现的次数大于N/2，输出即可。<br>
+但是要注意的是，如果输入完，再查找一遍就会超时，因为有了两个for循环，我们可以在输入数据的同时去查找，即当要输入3时，看一下空间内的数是否已经等于N/2了，若等于，再输入一次，就会大于了，我们把下标也就是这个数存储起来，最后再输入，可以省去一个for的时间。<br>
+这个方法与第一个方法相比，更节省时间，因为省去了排序的时间。</p>
+<pre><code>#include &lt;stdio.h&gt;
+
+int main(int argc, const char * argv[]) {
+    int N;
+    while ( scanf(&quot;%d&quot;,&amp;N) != EOF ) {
+        int a[32768] = {0};
+        int i = 0;
+        int r = 0;
+        for (; i &lt; N; i++) {
+            int n;
+            scanf(&quot;%d&quot;, &amp;n);
+            if (a[n] &gt;= N/2) {
+                r = n;
+            }
+                a[n]++;
+        }
+        printf(&quot;%d\n&quot;, r);
+    }
+}
+</code></pre>
+<p>方法3：<br>
+我们将所有数据分成两组，例如输入：<br>
+<code>2 4 1 1 2 2 3 2 2</code><br>
+共9个数据，分成两组为：<br>
+<code>2 2 2 2 2</code><br>
+<code>4 1 1 3</code><br>
+当 我们每次去掉两个不同的数，最后剩下的数一定是那个特殊的数，即 2。<br>
+因此，我们可以在输入时，判断这个数与上一个数是否相同，若不同，我们将这个数与上一个数相互抵消。<br>
+那两个数相同时如何处理？在这组数据里我们可以发现，先出现了两个相同的1，再出现了两个相同的2，不能单独消去，所以必须记录下其出现次数来。在出现两个相同的1时，出现一次就加1，当这时再出现与这个数不同的数，再减1。<br>
+讲到这里，可以看出，这与栈的原理十分相似。不理解的可以看下图：<br>
+<img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTgwMTE5MTUyNzAwNzU4?x-oss-process=image/format,png" alt="这里写图片描述" loading="lazy"><br>
+<img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTgwMTE5MTUyODE4MDM1?x-oss-process=image/format,png" alt="这里写图片描述" loading="lazy"><br>
+输入最后一个数为2时，会发现所有的数都已经抵消，所以2再入栈后，最后剩下的数为2，输入即可。</p>
+<p>简单理解为，当读取一个数，与栈底相同时，这个数继续入栈，与这个数不同时，出栈抵消。<br>
+那么会出现两种情况，第1组（特殊的数）会叠加数量，第2组（其余的数）也会叠加数量（但最后会被第1组或第二组其他的数抵消），相互抵消后，最后剩下的必定为特殊的数。</p>
+<p>在这里可以虚构一个栈来写代码：</p>
+<pre><code>#include &lt;stdio.h&gt;
+int main(int argc, const char * argv[]) {
+    int N;
+    while ( scanf(&quot;%d&quot;,&amp;N) != EOF ) {
+        int spec_n = 0;//记录栈底数
+        int appear = 0;//记录栈中数量
+        int n;//记录每次手动输入的数
+        while (N--) {
+            scanf(&quot;%d&quot;, &amp;n);
+            if (appear == 0) {//相当于栈空，直接入栈
+                appear = 1;//记录当前栈中有多少个数
+                spec_n = n;//记录栈底的数
+            }
+            else {//此时栈中一定有数
+                if (n != spec_n) {
+                    appear--;
+                }
+                else {//此次读到的数与栈底的数相同
+                    appear++;
+                }
+            }
+        }
+        printf(&quot;%d\n&quot;, spec_n);//最后在栈底的数
+    }
+}
+</code></pre>
+<p>这个方法与第二个方法时间效率差不多，但是会略微省空间一些，因为不用开辟一个较大的数组。</p>
+
+            </div>
+            
+            <div class="prev-post">
+                上一篇
+                <a href="https://ccccj.github.io/acmlcm-walk/">
+                    ACM：LCM Walk
+                </a>
+            </div>
+            
+            
+            <div class="next-post">
+                下一篇
+                <a href="https://ccccj.github.io/acm-or-hdu-1005-number-sequence/">
+                    ACM | HDU 1005 Number Sequence
+                </a>
+            </div>
+            
+        </div>
+    </div>
+</body>
+<script>
+    var t_img; // 定时器
+    var isLoad = true; // 控制变量
+    isImgLoad(function () {
+        // 加载完成
+        $('.postdetailimg').css("display", "block");
+    });
+    // 判断图片加载的函数
+    function isImgLoad(callback) {
+        // 注意我的图片类名都是cover，因为我只需要处理cover。其它图片可以不管。
+        // 查找所有封面图，迭代处理
+        $('.postdetailimg').each(function () {
+            // 找到为0就将isLoad设为false，并退出each
+            if (this.height === 0) {
+                isLoad = false;
+                return false;
+            }
+        });
+        // 为true，没有发现为0的。加载完毕
+        if (isLoad) {
+            clearTimeout(t_img); // 清除定时器
+            // 回调函数
+            callback();
+            // 为false，因为找到了没有加载完成的图，将调用定时器递归
+        } else {
+            isLoad = true;
+            t_img = setTimeout(function () {
+                isImgLoad(callback); // 递归扫描
+            }, 500); // 我这里设置的是500毫秒就扫描一次，可以自己调整
+        }
+    }
+</script>
+        <div name="comment" style="background: white">
+            <div class="commentcontainer">
+                
+                <p>请到客户端“主题--自定义配置--valine”中填入ID和KEY</p>
+                
+            </div>
+        </div>
+    </div>
+    <div id="landlord">
+        <div class="message" style="opacity:0"></div>
+        <canvas id="live2d" width="240" height="250" class="live2d"></canvas>
+    </div>
+</body>
+<script>
+    hljs.initHighlightingOnLoad()
+</script>
+<script src="https://ccccj.github.io/media/js/post.js"></script>

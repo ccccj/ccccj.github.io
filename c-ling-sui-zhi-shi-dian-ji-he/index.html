@@ -1,0 +1,748 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="比较简单的我就直接写在这篇里了，比较复杂的会单独写一篇博客。
+
+
+
+@[toc]
+C/C++ 新旧风格
+命名空间
+缺省参数（默认参数）
+函数重载
+引用变量
+
+
+
+
+C/C++ 新旧风格
+
+C 旧风格
+以 .h 结尾，如 math.h ，由于..." />
+    <meta name="keywords" content="" />
+    <link rel="stylesheet" href="https://ccccj.github.io/media/css/bootstrap.min.css">
+    
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.1/build/styles/default.min.css">
+              
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.1/build/highlight.min.js"></script>
+    <link rel="stylesheet" href="https://ccccj.github.io/media/css/live2d.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="https://ccccj.github.io/media/css/bootstrap.min.css">
+    <title>Amon's Homepage</title>
+</head>
+
+<body>
+    <!-- 响应式布局，针对PC端内容显示 -->
+    <div id="content">
+        <div class="nav-large">
+            <div class="row">
+                <div class="side"><html>
+
+<head>
+    <link rel="stylesheet" href="https://ccccj.github.io/styles/main.css">
+    <meta name="description" content="温故而知新" />
+    <title>Document</title>
+</head>
+<style>
+</style>
+
+<body>
+    <div id=side>
+        <div class="avatar-border">
+            <img src="https://ccccj.github.io/images/avatar.png?v=1591258531945" class="avatar">
+        </div>
+        <div class="sitename">Amon&#39;s Homepage</div>
+        <span class="describtion" data-text='["温故而知新"]'>&nbsp;</span>
+        
+        <div class="search">
+            <!-- <input type="text" class="search-input" placeholder="标题搜索(●'◡'●)" /> -->
+            <input type="text" class="search-input" placeholder="标题搜索 ⚆_⚆ つ♡">
+            <div class="search-results"></div>
+        </div>
+        
+    <div class="share-button">
+        <span>社交按钮</span>
+        
+        <a href="https://github.com/ccccj" target="_blank"><i><img class="icon"
+                    src="https://ccccj.github.io/media/images/github.png" alt=""></i></a>
+        
+        
+        <a onclick="showqq()"><i><img class="icon" src="https://ccccj.github.io/media/images/QQ.png" alt=""></i></a>
+        
+        
+        
+        
+        
+    </div>
+    <div id="qq" style="display:none">839808679</div>
+    
+    
+    <div class="mchocie describtion">
+        <a href="/" class="menubutton">
+            home
+        </a>
+    </div>
+    
+    
+    
+    <div class="mchocie describtion">
+        <a href="/archives" class="menubutton">
+            archives
+        </a>
+    </div>
+    
+    
+    
+    <div class="mchocie describtion">
+        <a href="https://github.com/ccccj" class="menubutton">
+            github
+        </a>
+    </div>
+    
+    
+    
+    <div class="mchocie describtion">
+        <a href="https://blog.csdn.net/qq_40873884" class="menubutton">
+            CSDN
+        </a>
+    </div>
+    
+    
+    
+        <div class="mchocie describtion">
+            <a href="https://ccccj.github.io/friends" class="menubutton">友人帐</a>
+        </div>
+    
+    <hr>
+    <div id="footinfo">Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | Theme: <a href="https://github.com/850552586/gridea-theme-fog">Fog</a></div>
+    <div id="sitegotimeDate">载入天数...</div>
+    <div id="sitegotimes">载入时分秒...</div>
+    <div id="cussitetime" style="display:none">02/02/2020</div>
+    </div>
+</body>
+
+</html>
+<script src="https://ccccj.github.io/media/js/wordshow.js"></script>
+<script>
+    //----------------------站点运行时间
+    var now = new Date();
+
+    function createtime() {
+        var sitegotime = document.getElementById("cussitetime").innerHTML + " 00:00:00";
+        var grt = new Date(sitegotime); //此处修改你的建站时间或者网站上线时间 
+        now.setTime(now.getTime() + 250);
+        days = (now - grt) / 1000 / 60 / 60 / 24;
+        dnum = Math.floor(days);
+        hours = (now - grt) / 1000 / 60 / 60 - (24 * dnum);
+        hnum = Math.floor(hours);
+        if (String(hnum).length == 1) {
+            hnum = "0" + hnum;
+        }
+        minutes = (now - grt) / 1000 / 60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes);
+        if (String(mnum).length == 1) {
+            mnum = "0" + mnum;
+        }
+        seconds = (now - grt) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds);
+        if (String(snum).length == 1) {
+            snum = "0" + snum;
+        }
+        document.getElementById("sitegotimeDate").innerHTML = "本站已安全运行 " + dnum + " 天 ";
+        document.getElementById("sitegotimes").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+    }
+    setInterval("createtime()", 250);
+
+    //-------------------------------------------------搜索
+    // 获取搜索框、搜索按钮、清空搜索、结果输出对应的元素
+    var searchInput = document.querySelector('.search-input');
+    var searchResults = document.querySelector('.search-results');
+
+    // 申明保存文章的标题、链接、内容的数组变量
+    var searchValue = '',
+        arrItems = [],
+        arrLinks = [],
+        arrTitles = [],
+        arrResults = [],
+        indexItem = [],
+        itemLength = 0;
+    var tmpDiv = document.createElement('div');
+    tmpDiv.className = 'result-item';
+
+    // ajax 的兼容写法
+    var xhr = new XMLHttpRequest() || new ActiveXObject('Microsoft.XMLHTTP');
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            xml = xhr.responseXML;
+            arrItems = xml.getElementsByTagName('entry');
+            itemLength = arrItems.length;
+            console.log(arrItems);
+            // 遍历并保存所有文章对应的标题、链接、内容到对应的数组中
+            // 同时过滤掉 HTML 标签
+            for (i = 0; i < itemLength; i++) {
+                var link = arrItems[i].getElementsByTagName('link')[0];
+                arrLinks[i] = link.getAttribute("href");
+                arrTitles[i] = arrItems[i].getElementsByTagName('title')[0].
+                childNodes[0].nodeValue.replace(/<.*?>/g, '');
+            }
+        }
+    }
+
+    // 开始获取根目录下 feed.xml 文件内的数据
+    xhr.open('get', '/atom.xml', true);
+    xhr.send();
+
+
+
+    // 输入框内容变化后就开始匹配，可以不用点按钮
+    // 经测试，onkeydown, onchange 等方法效果不太理想，
+    // 存在输入延迟等问题，最后发现触发 input 事件最理想，
+    // 并且可以处理中文输入法拼写的变化
+    searchInput.oninput = function () {
+        setTimeout(searchConfirm, 0);
+    }
+    searchInput.onfocus = function () {
+        searchResults.style.display = 'block';
+    }
+
+    function searchConfirm() {
+        if (searchInput.value == '') {
+            searchResults.style.display = 'none';
+        } else if (searchInput.value.search(/^\s+$/) >= 0) {
+            // 检测输入值全是空白的情况
+            searchInit();
+            var itemDiv = tmpDiv.cloneNode(true);
+            itemDiv.innerText = '请输入有效内容...';
+            searchResults.appendChild(itemDiv);
+        } else {
+            // 合法输入值的情况
+            searchInit();
+            searchValue = searchInput.value;
+            // 在标题、内容中查找
+            searchMatching(arrTitles, searchValue);
+        }
+    }
+
+    // 每次搜索完成后的初始化
+    function searchInit() {
+        arrResults = [];
+        indexItem = [];
+        searchResults.innerHTML = '';
+        searchResults.style.display = 'block';
+    }
+
+    function searchMatching(arr1, input) {
+        // 忽略输入大小写
+        input = new RegExp(input, 'i');
+        // 在所有文章标题、内容中匹配查询值
+        for (i = 0; i < itemLength; i++) {
+            if (arr1[i].search(input) !== -1) {
+                var arr = arr1;
+                indexItem.push(i); // 保存匹配值的索引
+                var indexContent = arr[i].search(input);
+                // 此时 input 为 RegExp 格式 /input/i，转换为原 input 字符串长度
+                var l = input.toString().length - 3;
+                var step = 10;
+
+                // 将匹配到内容的地方进行黄色标记，并包括周围一定数量的文本
+                arrResults.push(arr[i].slice(indexContent - step, indexContent));
+            }
+        }
+
+        // 输出总共匹配到的数目
+        var totalDiv = tmpDiv.cloneNode(true);
+        totalDiv.innerHTML = '<b>总匹配：' + indexItem.length + ' 项<hr></b>';
+        searchResults.appendChild(totalDiv);
+
+        // 未匹配到内容的情况
+        if (indexItem.length == 0) {
+            var itemDiv = tmpDiv.cloneNode(true);
+            itemDiv.innerText = '未匹配到内容...';
+            searchResults.appendChild(itemDiv);
+        }
+
+        // 将所有匹配内容进行组合
+        for (i = 0; i < arrResults.length; i++) {
+            var itemDiv = tmpDiv.cloneNode(true);
+            itemDiv.innerHTML = '<b>[' + arrTitles[indexItem[i]] +
+                ']</b><p>' + arrResults[i] + "</p><hr />";
+            itemDiv.setAttribute('onclick', 'changeHref(arrLinks[indexItem[' + i + ']])');
+            searchResults.appendChild(itemDiv);
+        }
+    }
+
+    function changeHref(href) {
+        location.href = href;
+    }
+
+    function showqq() {
+        var qq = document.getElementById("qq").innerHTML;
+        if (qq != '')
+            alert("博主的QQ联系方式为：" + qq);
+        else
+            alert("博主暂未设置QQ联系方式");
+    }
+</script></div>
+                <div id="tab1" class="tab">
+                    <div class="bars">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <div class="close"></div>
+                </div>
+                <div id="main" class="col-xs-12 col-sm-7">
+                    <link rel="stylesheet" href="https://ccccj.github.io/media/css/font-awesome.css">
+<style>
+
+</style>
+
+<body>
+    <div class="allcontent">
+        <div class="postshow">
+            
+            <div class="postdetailimg" style="width:100%;overflow: hidden;display: none">
+                <img src="https://ccccj.github.io/post-images/c-ling-sui-zhi-shi-dian-ji-he.png" class="postimage" style="cursor:auto">
+            </div>
+            <div class="postinfo">
+                <div class="postdate"><i class="fa fa-calendar"></i>2018-03-15</div>
+                <div class="poststatus postdate"><i class="fa fa-clock-o"></i> 5 min read</div>
+                <div class="posttag">
+                    
+                </div>
+            </div>
+            
+            <div id="texttitle" style="text-align: center">
+                <h2>C++ 零碎知识点集合</h2>
+            </div>
+            <div class="text ">
+                <p>比较简单的我就直接写在这篇里了，比较复杂的会单独写一篇博客。</p>
+<h2 id=""><ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#">@[toc]</a></li>
+<li><a href="#cc-%E6%96%B0%E6%97%A7%E9%A3%8E%E6%A0%BC">C/C++ 新旧风格</a></li>
+<li><a href="#%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4">命名空间</a></li>
+<li><a href="#%E7%BC%BA%E7%9C%81%E5%8F%82%E6%95%B0%E9%BB%98%E8%AE%A4%E5%8F%82%E6%95%B0">缺省参数（默认参数）</a></li>
+<li><a href="#%E5%87%BD%E6%95%B0%E9%87%8D%E8%BD%BD">函数重载</a></li>
+<li><a href="#%E5%BC%95%E7%94%A8%E5%8F%98%E9%87%8F">引用变量</a></li>
+</ul>
+</li>
+</ul>
+</h2>
+<h2 id="cc-新旧风格">C/C++ 新旧风格</h2>
+<ol>
+<li><strong>C</strong> 旧风格<br>
+以 <strong>.h</strong> 结尾，如 <strong>math.h</strong> ，由于 <strong>C++</strong> 兼容 <strong>C</strong> ，所以 <strong>C/C++</strong> 均可使用。</li>
+<li><strong>C++</strong> 旧风格<br>
+以 <strong>.h</strong> 结尾，如 <strong>iostream.h</strong> ，此时无 <strong>名字空间</strong> 等特性。</li>
+<li><strong>C</strong> 新风格<br>
+前缀加上 <strong>c</strong> ，无 <strong>.h</strong> 的扩展名，如 <strong>math.h</strong> 改为了 <strong>cmath</strong> ，增加了新特性，可以使用不是 <strong>C</strong> 的特性，如 <strong>namespace std</strong> 。</li>
+<li><strong>C++</strong> 新风格<br>
+如 <strong>iostream</strong> ，增加了使用 <strong>名字空间(namespace std)</strong> 的特性。</li>
+</ol>
+<hr>
+<h2 id="命名空间">命名空间</h2>
+<p>namespace 即“命名空间”，也称“名称空间” 、”名字空间”。C++ 使用命名空间的原因主要是，人类可用的单词数太少，并且不同的人写的程序不可能所有的变量都没有重名现象，为了解决变量重名，于是引入命名空间来区分，将变量限制在不同的域内。<br>
+详细介绍：<br>
+https://blog.csdn.net/qq_40873884/article/details/79576045</p>
+<hr>
+<h2 id="缺省参数默认参数">缺省参数（默认参数）</h2>
+<p>C++ 引入函数缺省参数，即默认参数，极大地提高了使用函数的灵活性，</p>
+<p>我们来举一个简单的例子：</p>
+<pre><code>#include &lt;iostream&gt;
+using namespace std;
+
+int test(int x = 3, int y = 5) {
+    return x + y;
+}
+
+int main(int argc, const char * argv[]) {
+    int a = 1, b = 2;
+    cout &lt;&lt; &quot;传两个参数：&quot; &lt;&lt; test(a, b) &lt;&lt; endl;
+    cout &lt;&lt; &quot;传一个参数：&quot; &lt;&lt; test(a) &lt;&lt; endl;
+    cout &lt;&lt; &quot;不传参数：&quot; &lt;&lt; test() &lt;&lt; endl;
+    return 0;
+}
+</code></pre>
+<p>输出结果：</p>
+<blockquote>
+<p>传两个参数：3<br>
+传一个参数：6<br>
+不传参数：8</p>
+</blockquote>
+<p>很容易看出，当我们传两个参数时，形参 x 变成了 a 的值(1)，形参 y 变成了 b 的值(2)，所以输出结果为 3 ；当我们传一个参数时，形参 x 变成了 a 的值(1)，形参 y 是我们指定了的 5 ，所以输出结果为 6 ；当我们不传参数时，形参 x 使我们指定的值 3 ，形参 y 是我们指定了的 5 ，所以输出结果为 8 。</p>
+<p>这就是所谓的<strong>缺省参数</strong>，就是在<strong>声明函数的某个参数时</strong>，给他<strong>指定一个默认值</strong>，当你传参数了，这个参数会是你传的值；当你未传参，这个参数就是指定的值。</p>
+<p>缺省参数分为两类：</p>
+<ol>
+<li>全缺省参数</li>
+<li>半缺省参数</li>
+</ol>
+<p>全缺省参数就是我们上面所举的例子：</p>
+<pre><code>int test(int x = 3, int y = 5);
+</code></pre>
+<p>也就是说，我们给所有的参数都指定了值，而使用者可以选择 传所有参数、或部分参数、或完全不传参。<br>
+注意：若您选择传部分参数，您只能从最后一个参数开始进行省略；也就是说，您要省略一个参数，那么必须省略它后面所有的参数。正如上面的例子，您若要选择省略传参 a ，那么 b 也无法传入，否则，您单传一个参数，那么这个参数必定是 a 的形参。</p>
+<p>说完全缺省参数，那么半缺省参数呢？</p>
+<pre><code>int test(int x, int y, int z = 1); 
+</code></pre>
+<p>像上面这种写法，便是半缺省参数，即我们只指定了部分参数的值。但是这种指定方式也是有讲究的，指定的必须是右边的参数。其实想想也很简单了，我们省略参数是从右边开始省略，那么必定是右边的先开始指定。</p>
+<p>在使用的时候，我们也可以采取将默认参数写在声明中，而函数定义与没有默认参数时一样，如下：<br>
+<img src="https://img-blog.csdn.net/20180401210738113?" alt="声明与定义" loading="lazy"></p>
+<blockquote>
+<p>当我们要经常使用某个值，而其他值只是偶尔使用，这样，我们将经常使用的值作为缺省的参数，将会有很大帮助。<br>
+但这并非是编程上的重大突破，只是会带来很多便利。通过使用缺省参数，可以减少要定义的析构函数、方法以及方法重载的数量。</p>
+</blockquote>
+<hr>
+<h2 id="函数重载">函数重载</h2>
+<p>缺省参数让我们在参数数目不同时可以调用同一个函数，而函数重载让我们能够使用多个同名函数。详细链接：<br>
+https://blog.csdn.net/qq_40873884/article/details/79827796</p>
+<hr>
+<h2 id="引用变量">引用变量</h2>
+<p>引用是 C++ 对 C 语言的重要扩充，详解链接：<br>
+https://blog.csdn.net/qq_40873884/article/details/79632314</p>
+<hr>
+<blockquote>
+<p>持续更新...</p>
+</blockquote>
+
+            </div>
+            
+            <div class="prev-post">
+                上一篇
+                <a href="https://ccccj.github.io/c-or-ming-ming-kong-jian/">
+                    C++ | 命名空间
+                </a>
+            </div>
+            
+            
+            <div class="next-post">
+                下一篇
+                <a href="https://ccccj.github.io/da-jian-ji-yu-github-de-ge-ren-wang-zhan/">
+                    搭建基于github的个人网站
+                </a>
+            </div>
+            
+        </div>
+    </div>
+</body>
+<script>
+    var t_img; // 定时器
+    var isLoad = true; // 控制变量
+    isImgLoad(function () {
+        // 加载完成
+        $('.postdetailimg').css("display", "block");
+    });
+    // 判断图片加载的函数
+    function isImgLoad(callback) {
+        // 注意我的图片类名都是cover，因为我只需要处理cover。其它图片可以不管。
+        // 查找所有封面图，迭代处理
+        $('.postdetailimg').each(function () {
+            // 找到为0就将isLoad设为false，并退出each
+            if (this.height === 0) {
+                isLoad = false;
+                return false;
+            }
+        });
+        // 为true，没有发现为0的。加载完毕
+        if (isLoad) {
+            clearTimeout(t_img); // 清除定时器
+            // 回调函数
+            callback();
+            // 为false，因为找到了没有加载完成的图，将调用定时器递归
+        } else {
+            isLoad = true;
+            t_img = setTimeout(function () {
+                isImgLoad(callback); // 递归扫描
+            }, 500); // 我这里设置的是500毫秒就扫描一次，可以自己调整
+        }
+    }
+</script>
+                    <div name="comment" style="background: white">
+                        <div class="commentcontainer">
+                            
+                            <p>请到客户端“主题--自定义配置--valine”中填入ID和KEY</p>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="toc-container">
+                    <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#">@[toc]</a></li>
+<li><a href="#cc-%E6%96%B0%E6%97%A7%E9%A3%8E%E6%A0%BC">C/C++ 新旧风格</a></li>
+<li><a href="#%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4">命名空间</a></li>
+<li><a href="#%E7%BC%BA%E7%9C%81%E5%8F%82%E6%95%B0%E9%BB%98%E8%AE%A4%E5%8F%82%E6%95%B0">缺省参数（默认参数）</a></li>
+<li><a href="#%E5%87%BD%E6%95%B0%E9%87%8D%E8%BD%BD">函数重载</a></li>
+<li><a href="#%E5%BC%95%E7%94%A8%E5%8F%98%E9%87%8F">引用变量</a></li>
+</ul>
+</li>
+</ul>
+
+                </div>
+            </div>
+        </div>
+        <div id="bg">
+        </div>
+        <div id="bgurl" style="display:none">/media/images/custom-bgimage.png</div>
+    </div>
+    <!-- 响应式布局，针对手机端内容显示 -->
+    <div class="nav-small">
+        <head>
+
+  <!-- 引入Bootstrap核心样式文件 -->
+  <link rel="stylesheet" href="https://ccccj.github.io/media/css/bootstrap.min.css">
+</head>
+
+<body>
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+          data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">Amon&#39;s Homepage&nbsp;&nbsp;|</a>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          
+          
+          <li>
+            <a href="/">
+              home
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/archives">
+              archives
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="https://github.com/ccccj">
+              github
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="https://blog.csdn.net/qq_40873884">
+              CSDN
+            </a>
+          </li>
+          
+          
+          
+          <li><a href="https://ccccj.github.io/friends">友链</a></li>
+
+          
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+
+
+  <!-- 引入jQuery核心js文件 -->
+  <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+  <!-- 引入BootStrap核心js文件 -->
+  <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+        <div style="margin-top:30px"></div>
+        <link rel="stylesheet" href="https://ccccj.github.io/media/css/font-awesome.css">
+<style>
+
+</style>
+
+<body>
+    <div class="allcontent">
+        <div class="postshow">
+            
+            <div class="postdetailimg" style="width:100%;overflow: hidden;display: none">
+                <img src="https://ccccj.github.io/post-images/c-ling-sui-zhi-shi-dian-ji-he.png" class="postimage" style="cursor:auto">
+            </div>
+            <div class="postinfo">
+                <div class="postdate"><i class="fa fa-calendar"></i>2018-03-15</div>
+                <div class="poststatus postdate"><i class="fa fa-clock-o"></i> 5 min read</div>
+                <div class="posttag">
+                    
+                </div>
+            </div>
+            
+            <div id="texttitle" style="text-align: center">
+                <h2>C++ 零碎知识点集合</h2>
+            </div>
+            <div class="text ">
+                <p>比较简单的我就直接写在这篇里了，比较复杂的会单独写一篇博客。</p>
+<h2 id=""><ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#">@[toc]</a></li>
+<li><a href="#cc-%E6%96%B0%E6%97%A7%E9%A3%8E%E6%A0%BC">C/C++ 新旧风格</a></li>
+<li><a href="#%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4">命名空间</a></li>
+<li><a href="#%E7%BC%BA%E7%9C%81%E5%8F%82%E6%95%B0%E9%BB%98%E8%AE%A4%E5%8F%82%E6%95%B0">缺省参数（默认参数）</a></li>
+<li><a href="#%E5%87%BD%E6%95%B0%E9%87%8D%E8%BD%BD">函数重载</a></li>
+<li><a href="#%E5%BC%95%E7%94%A8%E5%8F%98%E9%87%8F">引用变量</a></li>
+</ul>
+</li>
+</ul>
+</h2>
+<h2 id="cc-新旧风格">C/C++ 新旧风格</h2>
+<ol>
+<li><strong>C</strong> 旧风格<br>
+以 <strong>.h</strong> 结尾，如 <strong>math.h</strong> ，由于 <strong>C++</strong> 兼容 <strong>C</strong> ，所以 <strong>C/C++</strong> 均可使用。</li>
+<li><strong>C++</strong> 旧风格<br>
+以 <strong>.h</strong> 结尾，如 <strong>iostream.h</strong> ，此时无 <strong>名字空间</strong> 等特性。</li>
+<li><strong>C</strong> 新风格<br>
+前缀加上 <strong>c</strong> ，无 <strong>.h</strong> 的扩展名，如 <strong>math.h</strong> 改为了 <strong>cmath</strong> ，增加了新特性，可以使用不是 <strong>C</strong> 的特性，如 <strong>namespace std</strong> 。</li>
+<li><strong>C++</strong> 新风格<br>
+如 <strong>iostream</strong> ，增加了使用 <strong>名字空间(namespace std)</strong> 的特性。</li>
+</ol>
+<hr>
+<h2 id="命名空间">命名空间</h2>
+<p>namespace 即“命名空间”，也称“名称空间” 、”名字空间”。C++ 使用命名空间的原因主要是，人类可用的单词数太少，并且不同的人写的程序不可能所有的变量都没有重名现象，为了解决变量重名，于是引入命名空间来区分，将变量限制在不同的域内。<br>
+详细介绍：<br>
+https://blog.csdn.net/qq_40873884/article/details/79576045</p>
+<hr>
+<h2 id="缺省参数默认参数">缺省参数（默认参数）</h2>
+<p>C++ 引入函数缺省参数，即默认参数，极大地提高了使用函数的灵活性，</p>
+<p>我们来举一个简单的例子：</p>
+<pre><code>#include &lt;iostream&gt;
+using namespace std;
+
+int test(int x = 3, int y = 5) {
+    return x + y;
+}
+
+int main(int argc, const char * argv[]) {
+    int a = 1, b = 2;
+    cout &lt;&lt; &quot;传两个参数：&quot; &lt;&lt; test(a, b) &lt;&lt; endl;
+    cout &lt;&lt; &quot;传一个参数：&quot; &lt;&lt; test(a) &lt;&lt; endl;
+    cout &lt;&lt; &quot;不传参数：&quot; &lt;&lt; test() &lt;&lt; endl;
+    return 0;
+}
+</code></pre>
+<p>输出结果：</p>
+<blockquote>
+<p>传两个参数：3<br>
+传一个参数：6<br>
+不传参数：8</p>
+</blockquote>
+<p>很容易看出，当我们传两个参数时，形参 x 变成了 a 的值(1)，形参 y 变成了 b 的值(2)，所以输出结果为 3 ；当我们传一个参数时，形参 x 变成了 a 的值(1)，形参 y 是我们指定了的 5 ，所以输出结果为 6 ；当我们不传参数时，形参 x 使我们指定的值 3 ，形参 y 是我们指定了的 5 ，所以输出结果为 8 。</p>
+<p>这就是所谓的<strong>缺省参数</strong>，就是在<strong>声明函数的某个参数时</strong>，给他<strong>指定一个默认值</strong>，当你传参数了，这个参数会是你传的值；当你未传参，这个参数就是指定的值。</p>
+<p>缺省参数分为两类：</p>
+<ol>
+<li>全缺省参数</li>
+<li>半缺省参数</li>
+</ol>
+<p>全缺省参数就是我们上面所举的例子：</p>
+<pre><code>int test(int x = 3, int y = 5);
+</code></pre>
+<p>也就是说，我们给所有的参数都指定了值，而使用者可以选择 传所有参数、或部分参数、或完全不传参。<br>
+注意：若您选择传部分参数，您只能从最后一个参数开始进行省略；也就是说，您要省略一个参数，那么必须省略它后面所有的参数。正如上面的例子，您若要选择省略传参 a ，那么 b 也无法传入，否则，您单传一个参数，那么这个参数必定是 a 的形参。</p>
+<p>说完全缺省参数，那么半缺省参数呢？</p>
+<pre><code>int test(int x, int y, int z = 1); 
+</code></pre>
+<p>像上面这种写法，便是半缺省参数，即我们只指定了部分参数的值。但是这种指定方式也是有讲究的，指定的必须是右边的参数。其实想想也很简单了，我们省略参数是从右边开始省略，那么必定是右边的先开始指定。</p>
+<p>在使用的时候，我们也可以采取将默认参数写在声明中，而函数定义与没有默认参数时一样，如下：<br>
+<img src="https://img-blog.csdn.net/20180401210738113?" alt="声明与定义" loading="lazy"></p>
+<blockquote>
+<p>当我们要经常使用某个值，而其他值只是偶尔使用，这样，我们将经常使用的值作为缺省的参数，将会有很大帮助。<br>
+但这并非是编程上的重大突破，只是会带来很多便利。通过使用缺省参数，可以减少要定义的析构函数、方法以及方法重载的数量。</p>
+</blockquote>
+<hr>
+<h2 id="函数重载">函数重载</h2>
+<p>缺省参数让我们在参数数目不同时可以调用同一个函数，而函数重载让我们能够使用多个同名函数。详细链接：<br>
+https://blog.csdn.net/qq_40873884/article/details/79827796</p>
+<hr>
+<h2 id="引用变量">引用变量</h2>
+<p>引用是 C++ 对 C 语言的重要扩充，详解链接：<br>
+https://blog.csdn.net/qq_40873884/article/details/79632314</p>
+<hr>
+<blockquote>
+<p>持续更新...</p>
+</blockquote>
+
+            </div>
+            
+            <div class="prev-post">
+                上一篇
+                <a href="https://ccccj.github.io/c-or-ming-ming-kong-jian/">
+                    C++ | 命名空间
+                </a>
+            </div>
+            
+            
+            <div class="next-post">
+                下一篇
+                <a href="https://ccccj.github.io/da-jian-ji-yu-github-de-ge-ren-wang-zhan/">
+                    搭建基于github的个人网站
+                </a>
+            </div>
+            
+        </div>
+    </div>
+</body>
+<script>
+    var t_img; // 定时器
+    var isLoad = true; // 控制变量
+    isImgLoad(function () {
+        // 加载完成
+        $('.postdetailimg').css("display", "block");
+    });
+    // 判断图片加载的函数
+    function isImgLoad(callback) {
+        // 注意我的图片类名都是cover，因为我只需要处理cover。其它图片可以不管。
+        // 查找所有封面图，迭代处理
+        $('.postdetailimg').each(function () {
+            // 找到为0就将isLoad设为false，并退出each
+            if (this.height === 0) {
+                isLoad = false;
+                return false;
+            }
+        });
+        // 为true，没有发现为0的。加载完毕
+        if (isLoad) {
+            clearTimeout(t_img); // 清除定时器
+            // 回调函数
+            callback();
+            // 为false，因为找到了没有加载完成的图，将调用定时器递归
+        } else {
+            isLoad = true;
+            t_img = setTimeout(function () {
+                isImgLoad(callback); // 递归扫描
+            }, 500); // 我这里设置的是500毫秒就扫描一次，可以自己调整
+        }
+    }
+</script>
+        <div name="comment" style="background: white">
+            <div class="commentcontainer">
+                
+                <p>请到客户端“主题--自定义配置--valine”中填入ID和KEY</p>
+                
+            </div>
+        </div>
+    </div>
+    <div id="landlord">
+        <div class="message" style="opacity:0"></div>
+        <canvas id="live2d" width="240" height="250" class="live2d"></canvas>
+    </div>
+</body>
+<script>
+    hljs.initHighlightingOnLoad()
+</script>
+<script src="https://ccccj.github.io/media/js/post.js"></script>

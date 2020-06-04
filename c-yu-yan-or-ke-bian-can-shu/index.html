@@ -1,0 +1,832 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="可变参数..其实我也是第一次听说..
+但是说起来，要说到当年用vim之前，还在用xcode的日子...每次打开xcode新建一个程序，他会帮你写好那么一小段代码：
+#include &lt;stdio.h&gt;
+int main(int ..." />
+    <meta name="keywords" content="" />
+    <link rel="stylesheet" href="https://ccccj.github.io/media/css/bootstrap.min.css">
+    
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.1/build/styles/default.min.css">
+              
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.1/build/highlight.min.js"></script>
+    <link rel="stylesheet" href="https://ccccj.github.io/media/css/live2d.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="https://ccccj.github.io/media/css/bootstrap.min.css">
+    <title>Amon's Homepage</title>
+</head>
+
+<body>
+    <!-- 响应式布局，针对PC端内容显示 -->
+    <div id="content">
+        <div class="nav-large">
+            <div class="row">
+                <div class="side"><html>
+
+<head>
+    <link rel="stylesheet" href="https://ccccj.github.io/styles/main.css">
+    <meta name="description" content="温故而知新" />
+    <title>Document</title>
+</head>
+<style>
+</style>
+
+<body>
+    <div id=side>
+        <div class="avatar-border">
+            <img src="https://ccccj.github.io/images/avatar.png?v=1591258531945" class="avatar">
+        </div>
+        <div class="sitename">Amon&#39;s Homepage</div>
+        <span class="describtion" data-text='["温故而知新"]'>&nbsp;</span>
+        
+        <div class="search">
+            <!-- <input type="text" class="search-input" placeholder="标题搜索(●'◡'●)" /> -->
+            <input type="text" class="search-input" placeholder="标题搜索 ⚆_⚆ つ♡">
+            <div class="search-results"></div>
+        </div>
+        
+    <div class="share-button">
+        <span>社交按钮</span>
+        
+        <a href="https://github.com/ccccj" target="_blank"><i><img class="icon"
+                    src="https://ccccj.github.io/media/images/github.png" alt=""></i></a>
+        
+        
+        <a onclick="showqq()"><i><img class="icon" src="https://ccccj.github.io/media/images/QQ.png" alt=""></i></a>
+        
+        
+        
+        
+        
+    </div>
+    <div id="qq" style="display:none">839808679</div>
+    
+    
+    <div class="mchocie describtion">
+        <a href="/" class="menubutton">
+            home
+        </a>
+    </div>
+    
+    
+    
+    <div class="mchocie describtion">
+        <a href="/archives" class="menubutton">
+            archives
+        </a>
+    </div>
+    
+    
+    
+    <div class="mchocie describtion">
+        <a href="https://github.com/ccccj" class="menubutton">
+            github
+        </a>
+    </div>
+    
+    
+    
+    <div class="mchocie describtion">
+        <a href="https://blog.csdn.net/qq_40873884" class="menubutton">
+            CSDN
+        </a>
+    </div>
+    
+    
+    
+        <div class="mchocie describtion">
+            <a href="https://ccccj.github.io/friends" class="menubutton">友人帐</a>
+        </div>
+    
+    <hr>
+    <div id="footinfo">Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | Theme: <a href="https://github.com/850552586/gridea-theme-fog">Fog</a></div>
+    <div id="sitegotimeDate">载入天数...</div>
+    <div id="sitegotimes">载入时分秒...</div>
+    <div id="cussitetime" style="display:none">02/02/2020</div>
+    </div>
+</body>
+
+</html>
+<script src="https://ccccj.github.io/media/js/wordshow.js"></script>
+<script>
+    //----------------------站点运行时间
+    var now = new Date();
+
+    function createtime() {
+        var sitegotime = document.getElementById("cussitetime").innerHTML + " 00:00:00";
+        var grt = new Date(sitegotime); //此处修改你的建站时间或者网站上线时间 
+        now.setTime(now.getTime() + 250);
+        days = (now - grt) / 1000 / 60 / 60 / 24;
+        dnum = Math.floor(days);
+        hours = (now - grt) / 1000 / 60 / 60 - (24 * dnum);
+        hnum = Math.floor(hours);
+        if (String(hnum).length == 1) {
+            hnum = "0" + hnum;
+        }
+        minutes = (now - grt) / 1000 / 60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes);
+        if (String(mnum).length == 1) {
+            mnum = "0" + mnum;
+        }
+        seconds = (now - grt) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds);
+        if (String(snum).length == 1) {
+            snum = "0" + snum;
+        }
+        document.getElementById("sitegotimeDate").innerHTML = "本站已安全运行 " + dnum + " 天 ";
+        document.getElementById("sitegotimes").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+    }
+    setInterval("createtime()", 250);
+
+    //-------------------------------------------------搜索
+    // 获取搜索框、搜索按钮、清空搜索、结果输出对应的元素
+    var searchInput = document.querySelector('.search-input');
+    var searchResults = document.querySelector('.search-results');
+
+    // 申明保存文章的标题、链接、内容的数组变量
+    var searchValue = '',
+        arrItems = [],
+        arrLinks = [],
+        arrTitles = [],
+        arrResults = [],
+        indexItem = [],
+        itemLength = 0;
+    var tmpDiv = document.createElement('div');
+    tmpDiv.className = 'result-item';
+
+    // ajax 的兼容写法
+    var xhr = new XMLHttpRequest() || new ActiveXObject('Microsoft.XMLHTTP');
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            xml = xhr.responseXML;
+            arrItems = xml.getElementsByTagName('entry');
+            itemLength = arrItems.length;
+            console.log(arrItems);
+            // 遍历并保存所有文章对应的标题、链接、内容到对应的数组中
+            // 同时过滤掉 HTML 标签
+            for (i = 0; i < itemLength; i++) {
+                var link = arrItems[i].getElementsByTagName('link')[0];
+                arrLinks[i] = link.getAttribute("href");
+                arrTitles[i] = arrItems[i].getElementsByTagName('title')[0].
+                childNodes[0].nodeValue.replace(/<.*?>/g, '');
+            }
+        }
+    }
+
+    // 开始获取根目录下 feed.xml 文件内的数据
+    xhr.open('get', '/atom.xml', true);
+    xhr.send();
+
+
+
+    // 输入框内容变化后就开始匹配，可以不用点按钮
+    // 经测试，onkeydown, onchange 等方法效果不太理想，
+    // 存在输入延迟等问题，最后发现触发 input 事件最理想，
+    // 并且可以处理中文输入法拼写的变化
+    searchInput.oninput = function () {
+        setTimeout(searchConfirm, 0);
+    }
+    searchInput.onfocus = function () {
+        searchResults.style.display = 'block';
+    }
+
+    function searchConfirm() {
+        if (searchInput.value == '') {
+            searchResults.style.display = 'none';
+        } else if (searchInput.value.search(/^\s+$/) >= 0) {
+            // 检测输入值全是空白的情况
+            searchInit();
+            var itemDiv = tmpDiv.cloneNode(true);
+            itemDiv.innerText = '请输入有效内容...';
+            searchResults.appendChild(itemDiv);
+        } else {
+            // 合法输入值的情况
+            searchInit();
+            searchValue = searchInput.value;
+            // 在标题、内容中查找
+            searchMatching(arrTitles, searchValue);
+        }
+    }
+
+    // 每次搜索完成后的初始化
+    function searchInit() {
+        arrResults = [];
+        indexItem = [];
+        searchResults.innerHTML = '';
+        searchResults.style.display = 'block';
+    }
+
+    function searchMatching(arr1, input) {
+        // 忽略输入大小写
+        input = new RegExp(input, 'i');
+        // 在所有文章标题、内容中匹配查询值
+        for (i = 0; i < itemLength; i++) {
+            if (arr1[i].search(input) !== -1) {
+                var arr = arr1;
+                indexItem.push(i); // 保存匹配值的索引
+                var indexContent = arr[i].search(input);
+                // 此时 input 为 RegExp 格式 /input/i，转换为原 input 字符串长度
+                var l = input.toString().length - 3;
+                var step = 10;
+
+                // 将匹配到内容的地方进行黄色标记，并包括周围一定数量的文本
+                arrResults.push(arr[i].slice(indexContent - step, indexContent));
+            }
+        }
+
+        // 输出总共匹配到的数目
+        var totalDiv = tmpDiv.cloneNode(true);
+        totalDiv.innerHTML = '<b>总匹配：' + indexItem.length + ' 项<hr></b>';
+        searchResults.appendChild(totalDiv);
+
+        // 未匹配到内容的情况
+        if (indexItem.length == 0) {
+            var itemDiv = tmpDiv.cloneNode(true);
+            itemDiv.innerText = '未匹配到内容...';
+            searchResults.appendChild(itemDiv);
+        }
+
+        // 将所有匹配内容进行组合
+        for (i = 0; i < arrResults.length; i++) {
+            var itemDiv = tmpDiv.cloneNode(true);
+            itemDiv.innerHTML = '<b>[' + arrTitles[indexItem[i]] +
+                ']</b><p>' + arrResults[i] + "</p><hr />";
+            itemDiv.setAttribute('onclick', 'changeHref(arrLinks[indexItem[' + i + ']])');
+            searchResults.appendChild(itemDiv);
+        }
+    }
+
+    function changeHref(href) {
+        location.href = href;
+    }
+
+    function showqq() {
+        var qq = document.getElementById("qq").innerHTML;
+        if (qq != '')
+            alert("博主的QQ联系方式为：" + qq);
+        else
+            alert("博主暂未设置QQ联系方式");
+    }
+</script></div>
+                <div id="tab1" class="tab">
+                    <div class="bars">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <div class="close"></div>
+                </div>
+                <div id="main" class="col-xs-12 col-sm-7">
+                    <link rel="stylesheet" href="https://ccccj.github.io/media/css/font-awesome.css">
+<style>
+
+</style>
+
+<body>
+    <div class="allcontent">
+        <div class="postshow">
+            
+            <div class="postdetailimg" style="width:100%;overflow: hidden;display: none">
+                <img src="https://ccccj.github.io/post-images/c-yu-yan-or-ke-bian-can-shu.jpg" class="postimage" style="cursor:auto">
+            </div>
+            <div class="postinfo">
+                <div class="postdate"><i class="fa fa-calendar"></i>2018-02-08</div>
+                <div class="poststatus postdate"><i class="fa fa-clock-o"></i> 9 min read</div>
+                <div class="posttag">
+                    
+                </div>
+            </div>
+            
+            <div id="texttitle" style="text-align: center">
+                <h2>C语言| 可变参数</h2>
+            </div>
+            <div class="text ">
+                <p>可变参数..其实我也是第一次听说..<br>
+但是说起来，要说到当年用vim之前，还在用xcode的日子...每次打开xcode新建一个程序，他会帮你写好那么一小段代码：</p>
+<pre><code>#include &lt;stdio.h&gt;
+int main(int argc, const char * argv[]) {
+    // insert code here...
+    printf(&quot;Hello, World!\n&quot;);
+    return 0;
+}
+</code></pre>
+<p>当年我还...什么都不懂..还没开始敲代码就懵了。。main后面那一段是什么鬼？？？<br>
+让我们来看一段函数：</p>
+<pre><code>int add(int x, int y) {
+    return x+y;
+}
+</code></pre>
+<p>在小括号里的是这个函数的参数，有没有觉得和main函数的参数很像？</p>
+<pre><code>int main(int argc, const char * argv[]) {
+    return 0;
+}
+</code></pre>
+<p>要知道，<strong>main函数并不是我们程序运行的第一个函数</strong>，在调用 main 前，还有 _tmainCRTstartup 等函数，当然，这不是我们关注的重点，重点是，就<strong>如同main调用其他函数一样，会传入参数</strong>，<code>int argc, const char * argv[]</code>这些，就是调用 main 函数时，<strong>给 main 传入的参数</strong>。<br>
+当然，这不是完整的main参数列表，更完整的应为：</p>
+<pre><code>int main(int argc, char * argv[], char * envy[]) {
+    pragma—statements
+}
+</code></pre>
+<p>这就是一个很完整的可变参数列表了。为什么说是“可变”呢？因为他的<strong>参数个数不是一定的</strong>。下面我们来具体分析：</p>
+<blockquote>
+<p>argc ：一个整型变量，参数个数；<br>
+argv ：一个字符指针的数组，参数列表；<br>
+envp ：传递给该程序的环境变量列表（告诉编译器，头文件、库等信息在哪里）。</p>
+</blockquote>
+<p>撇开环境变量不提（因为我也不知道用来干啥的..以前看linux的书的时候有见过环境变量..但是没仔细看所以也不大清楚），我们主要来看前两个。</p>
+<p>第一个参数，argc指接下来会传入多少个参数，这个很好理解，但是<code>char * argv[]</code>，光看形式可能就有人不懂了。要理解他，我们首先得知道 <strong>指针数组</strong> 与 <strong>数组指针</strong> 的概念。<br>
+<img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTgwMjA4MTk1OTIyMTEy?x-oss-process=image/format,png" alt="c语言运算符优先级" loading="lazy"><br>
+从这张图中可以看出，在<code>char * argv[]</code>中，数组下标的优先级更高，于是，argc首先与数组下标先结合，因此，argc是一个数组，那么数组中存放着什么呢？接下来继续看，他又与指针相结合，噢，放着指针。什么类型的指针？继续看，噢，char型啊。这就是一个指针数组了。如下图：</p>
+<figure data-type="image" tabindex="1"><img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTgwMjA4MjAwNzM1NDYw?x-oss-process=image/format,png" alt="char * argv[]图解" loading="lazy"></figure>
+<p>那么这些指针指向什么呢？我们来看两条语句：</p>
+<pre><code>char str1[] = &quot;hi&quot;;
+char* str2 = &quot;hello&quot;;
+</code></pre>
+<p>像这样两种定义方式，区别在于，str1可能在栈、堆、在全局区（具体看怎么定义的），可以修改，而str2在地址空间中的字符常量区，不可修改；在这里我们可以类比着去理解。</p>
+<ul>
+<li>第一种类型：数组是开辟了一块空间后，每一块小空间，都放入一个数据（可能是int型，可能是char型，可能是指针、结构体等等）。</li>
+<li>第二种类型：一个指针，指向了一片空间，这块空间里存放着一串字符，如图所示：</li>
+</ul>
+<figure data-type="image" tabindex="2"><img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTgwMjA4MjAyMzI5NzY3?x-oss-process=image/format,png" alt="字符串指针" loading="lazy"></figure>
+<p>这个指针p，指向了内存中的一块空间（在字符常量区），我们顺着这个指针，就能找到这个字符串，和数组原理相同，有时候（注意是有时候，不要以为数组名就是地址！！）数组名代表着数组首元素的地址，我们顺着这个地址去查找，就能知道这个地址的空间里存放着什么。<br>
+知道了这点以后，我们再来看<code>char * argv[]</code> 代表着什么：<br>
+<img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTgwMjA4MjAzODMzNjA5?x-oss-process=image/format,png" alt="char * argv[]" loading="lazy"><br>
+图中可以看出，argc是一个数组，数组中存放着指针，每个指针指向一个字符串。（<strong>数组最后一个元素存放NULL指针</strong>，图中未画出）</p>
+<hr>
+<p>关于main函数的可变参数，在linux下的体现更突出一些，我们可以在编译链接期间传入参数，来达到一些特定的目的，这里暂且不提（不提的原因是...还没学linux..所以具体什么作用我了解的也不是很清楚TAT）。</p>
+<p>接下来说说可变参数的<strong>用处</strong>。</p>
+<p>根据可变参数列表的特性，在什么地方用起来会很方便呢？<br>
+看一个例子：</p>
+<blockquote>
+<p>求几个数的平均数（具体多少个数不知道）</p>
+</blockquote>
+<p>这样一道题，或许我们可以将所有数放入一个数组中，再将数组和元素个数作为参数传入，一个数一个数的读取取平均值即可。但这里要介绍的是另一种方法：利用可变参数。</p>
+<p>以此函数为例，我们来具体分析下。<br>
+一个含可变参数的函数由以下几部分组成：</p>
+<ul>
+<li>头文件</li>
+</ul>
+<pre><code>#include &lt;stdarg.h&gt;
+</code></pre>
+<ul>
+<li>函数名：</li>
+</ul>
+<pre><code>// 注意，参数列表里的 &quot;...&quot; 实际写的时候就是这么写的
+// n代表之后还会传入n个参数，n后面可以没有参数，但n一定要传
+int average(int n, ...) { 
+	// ...
+}
+</code></pre>
+<ul>
+<li>函数主要内容</li>
+</ul>
+<pre><code>va_list arg;
+va_start(arg, n);
+// ... va_arg(arg, int); // int也可为其他类型
+va_end(arg);
+</code></pre>
+<p>这里的 <code>va_list</code>，用于定义一个变量，变量名我取名为arg，他的本质其实就是一个<strong>字符型指针</strong>，vs中定义如下（由于我没有vs，所以摘抄自网络）：</p>
+<pre><code>typedef char* va_list;
+</code></pre>
+<p><strong>注意，这里为什么需要是char？</strong> 接下来后面会提到。</p>
+<p>我们的arg这个指针，声明完，需要让他指向地址空间中的某一地址处，就用到了接下来这个函数：</p>
+<pre><code>void va_start ( va_list ap, prev_param ); 
+</code></pre>
+<p><code>va_start(arg, n)</code>的功能 毫无疑问是将arg指针指向某一地址处，但我们还不清楚是指向哪里，目前我们所知道的地址只有 n 的地址，测试下和 n 的地址有何关联。<br>
+<img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTgwMjA4MjMyNjQ2NDk2?x-oss-process=image/format,png" alt="测试程序" loading="lazy"><br>
+程序运行结果：<br>
+<img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTgwMjA4MjI1MDQzODEw?x-oss-process=image/format,png" alt="arg的地址" loading="lazy"></p>
+<p>可以看出，n 和 arg 的地址只<strong>相差了4</strong>（这里是64位平台int型，占4字节），且 arg 的地址比 n 大4。<br>
+再来看vc中的宏：</p>
+<pre><code>// 获取类型占用的空间长度，最小占用长度为int的整数倍
+#define _INTSIZEOF(n) ((sizeof(n)+sizeof(int)-1)&amp;~(sizeof(int) - 1) )
+#define va_start(ap,v) ( ap = (va_list)&amp;v + _INTSIZEOF(v) ) 
+</code></pre>
+<p>v即为这里的n，ap即为这里的arg，<code>ap = (va_list)&amp;v</code>，可知arg 赋为n的地址加上n的类型的大小（我写的代码中为4）。</p>
+<p><strong>这里说一句，前面对arg的定义为什么需要是字符型呢？我们知道，对指针进行自增或自减操作，实际上是加或减了指针的类型的字节数。什么意思呢，比如说这里定义arg为int型，当arg+k，其实并不是加了k，而是加了4k（是跳过了其类型的k倍）。</strong></p>
+<p>那么，加上这么一段大小后，指向了哪里呢？<br>
+其实，传参时，参数从后往前传（这个解释起来就很麻烦了，以后可能会写一篇关于栈帧的博客，应该会具体解析，写完再传地址吧...），这里只需要知道，<br>
+传参时，<strong>后面的参数比前面的参数地址大</strong>即可，由此可知，<strong>arg指向了 n 后面的第一个参数</strong>，即可变参数部分的第一个参数。</p>
+<p>既然我们已经知道了第一个参数的地址，由于函数调用的性质（啊又要用到栈帧的知识了...话说我真的应该先写栈帧再写可变参数的..），<strong>参数的地址，由低到高连续排列</strong>（就像数组一样）。我们将其类比成数组（还记得我前面讲到的那个用数组的方法吗，原理都是差不多的），由其地址得到他们的值，再将所有值相加来求平均数。</p>
+<p>那么如何通过地址得到他们的值？<br>
+下一个函数为<code>va_arg(arg, int)</code>，vs中定义如下：</p>
+<pre><code>type va_arg ( va_list ap, type ); 
+</code></pre>
+<p>此函数用于提取数据，从网上找到了其宏如下：</p>
+<pre><code> #define _crt_va_arg(ap,t) ( *(t *)((ap += _INTSIZEOF(t)) - _INTSIZEOF(t)) )
+</code></pre>
+<p>这条语句更能说明 <code>va_arg</code>是如何运作的。他将arg指针先强转为当前可变参数的类型，再解引用后返回，并将其指向下一个可变参数（ap += _INTSIZEOF(t)）。由于会有返回值，所以我们可以用一个变量来接受返回值。</p>
+<p>最后，让arg指针指向NULL。</p>
+<pre><code> void va_end ( va_list ap ); 
+</code></pre>
+<ul>
+<li>完整的求平均值的函数：</li>
+</ul>
+<pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdarg.h&gt;
+
+int average(int n, ...) {
+    va_list arg; // 定义指针
+    int i = 0, sum = 0;
+    va_start(arg, n); // 指针指向第一个可变参数
+    for ( ; i &lt; n; ++i) {
+	    // 用于接收每个参数的值
+        sum += va_arg(arg, int);
+    }
+    va_end(arg); // 置空
+    return sum/n;
+}
+
+int main()
+{
+    printf(&quot;%d\n&quot;, average(5, 1, 2, 3, 4, 5));
+    return 0;
+}
+</code></pre>
+<p>以上就是所有内容了... emmm..写的比较仓促，其实很不全...补上栈帧的知识就比较全了..但是栈帧又涉及到很多，写一起不方便，到时候分开写~</p>
+<p>// 另外。。。具体可变参数的实现原理。。过几天可能会写一篇栈帧的博客。。写完再补上博客地址</p>
+
+            </div>
+            
+            <div class="prev-post">
+                上一篇
+                <a href="https://ccccj.github.io/da-jian-ji-yu-github-de-ge-ren-wang-zhan/">
+                    搭建基于github的个人网站
+                </a>
+            </div>
+            
+            
+            <div class="next-post">
+                下一篇
+                <a href="https://ccccj.github.io/acmsu-shu-xian-xing-shai-fa-su-shu-da-biao/">
+                    ACM：素数线性筛法（素数打表）
+                </a>
+            </div>
+            
+        </div>
+    </div>
+</body>
+<script>
+    var t_img; // 定时器
+    var isLoad = true; // 控制变量
+    isImgLoad(function () {
+        // 加载完成
+        $('.postdetailimg').css("display", "block");
+    });
+    // 判断图片加载的函数
+    function isImgLoad(callback) {
+        // 注意我的图片类名都是cover，因为我只需要处理cover。其它图片可以不管。
+        // 查找所有封面图，迭代处理
+        $('.postdetailimg').each(function () {
+            // 找到为0就将isLoad设为false，并退出each
+            if (this.height === 0) {
+                isLoad = false;
+                return false;
+            }
+        });
+        // 为true，没有发现为0的。加载完毕
+        if (isLoad) {
+            clearTimeout(t_img); // 清除定时器
+            // 回调函数
+            callback();
+            // 为false，因为找到了没有加载完成的图，将调用定时器递归
+        } else {
+            isLoad = true;
+            t_img = setTimeout(function () {
+                isImgLoad(callback); // 递归扫描
+            }, 500); // 我这里设置的是500毫秒就扫描一次，可以自己调整
+        }
+    }
+</script>
+                    <div name="comment" style="background: white">
+                        <div class="commentcontainer">
+                            
+                            <p>请到客户端“主题--自定义配置--valine”中填入ID和KEY</p>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="toc-container">
+                    
+                </div>
+            </div>
+        </div>
+        <div id="bg">
+        </div>
+        <div id="bgurl" style="display:none">/media/images/custom-bgimage.png</div>
+    </div>
+    <!-- 响应式布局，针对手机端内容显示 -->
+    <div class="nav-small">
+        <head>
+
+  <!-- 引入Bootstrap核心样式文件 -->
+  <link rel="stylesheet" href="https://ccccj.github.io/media/css/bootstrap.min.css">
+</head>
+
+<body>
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+          data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">Amon&#39;s Homepage&nbsp;&nbsp;|</a>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          
+          
+          <li>
+            <a href="/">
+              home
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/archives">
+              archives
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="https://github.com/ccccj">
+              github
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="https://blog.csdn.net/qq_40873884">
+              CSDN
+            </a>
+          </li>
+          
+          
+          
+          <li><a href="https://ccccj.github.io/friends">友链</a></li>
+
+          
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+
+
+  <!-- 引入jQuery核心js文件 -->
+  <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+  <!-- 引入BootStrap核心js文件 -->
+  <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+        <div style="margin-top:30px"></div>
+        <link rel="stylesheet" href="https://ccccj.github.io/media/css/font-awesome.css">
+<style>
+
+</style>
+
+<body>
+    <div class="allcontent">
+        <div class="postshow">
+            
+            <div class="postdetailimg" style="width:100%;overflow: hidden;display: none">
+                <img src="https://ccccj.github.io/post-images/c-yu-yan-or-ke-bian-can-shu.jpg" class="postimage" style="cursor:auto">
+            </div>
+            <div class="postinfo">
+                <div class="postdate"><i class="fa fa-calendar"></i>2018-02-08</div>
+                <div class="poststatus postdate"><i class="fa fa-clock-o"></i> 9 min read</div>
+                <div class="posttag">
+                    
+                </div>
+            </div>
+            
+            <div id="texttitle" style="text-align: center">
+                <h2>C语言| 可变参数</h2>
+            </div>
+            <div class="text ">
+                <p>可变参数..其实我也是第一次听说..<br>
+但是说起来，要说到当年用vim之前，还在用xcode的日子...每次打开xcode新建一个程序，他会帮你写好那么一小段代码：</p>
+<pre><code>#include &lt;stdio.h&gt;
+int main(int argc, const char * argv[]) {
+    // insert code here...
+    printf(&quot;Hello, World!\n&quot;);
+    return 0;
+}
+</code></pre>
+<p>当年我还...什么都不懂..还没开始敲代码就懵了。。main后面那一段是什么鬼？？？<br>
+让我们来看一段函数：</p>
+<pre><code>int add(int x, int y) {
+    return x+y;
+}
+</code></pre>
+<p>在小括号里的是这个函数的参数，有没有觉得和main函数的参数很像？</p>
+<pre><code>int main(int argc, const char * argv[]) {
+    return 0;
+}
+</code></pre>
+<p>要知道，<strong>main函数并不是我们程序运行的第一个函数</strong>，在调用 main 前，还有 _tmainCRTstartup 等函数，当然，这不是我们关注的重点，重点是，就<strong>如同main调用其他函数一样，会传入参数</strong>，<code>int argc, const char * argv[]</code>这些，就是调用 main 函数时，<strong>给 main 传入的参数</strong>。<br>
+当然，这不是完整的main参数列表，更完整的应为：</p>
+<pre><code>int main(int argc, char * argv[], char * envy[]) {
+    pragma—statements
+}
+</code></pre>
+<p>这就是一个很完整的可变参数列表了。为什么说是“可变”呢？因为他的<strong>参数个数不是一定的</strong>。下面我们来具体分析：</p>
+<blockquote>
+<p>argc ：一个整型变量，参数个数；<br>
+argv ：一个字符指针的数组，参数列表；<br>
+envp ：传递给该程序的环境变量列表（告诉编译器，头文件、库等信息在哪里）。</p>
+</blockquote>
+<p>撇开环境变量不提（因为我也不知道用来干啥的..以前看linux的书的时候有见过环境变量..但是没仔细看所以也不大清楚），我们主要来看前两个。</p>
+<p>第一个参数，argc指接下来会传入多少个参数，这个很好理解，但是<code>char * argv[]</code>，光看形式可能就有人不懂了。要理解他，我们首先得知道 <strong>指针数组</strong> 与 <strong>数组指针</strong> 的概念。<br>
+<img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTgwMjA4MTk1OTIyMTEy?x-oss-process=image/format,png" alt="c语言运算符优先级" loading="lazy"><br>
+从这张图中可以看出，在<code>char * argv[]</code>中，数组下标的优先级更高，于是，argc首先与数组下标先结合，因此，argc是一个数组，那么数组中存放着什么呢？接下来继续看，他又与指针相结合，噢，放着指针。什么类型的指针？继续看，噢，char型啊。这就是一个指针数组了。如下图：</p>
+<figure data-type="image" tabindex="1"><img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTgwMjA4MjAwNzM1NDYw?x-oss-process=image/format,png" alt="char * argv[]图解" loading="lazy"></figure>
+<p>那么这些指针指向什么呢？我们来看两条语句：</p>
+<pre><code>char str1[] = &quot;hi&quot;;
+char* str2 = &quot;hello&quot;;
+</code></pre>
+<p>像这样两种定义方式，区别在于，str1可能在栈、堆、在全局区（具体看怎么定义的），可以修改，而str2在地址空间中的字符常量区，不可修改；在这里我们可以类比着去理解。</p>
+<ul>
+<li>第一种类型：数组是开辟了一块空间后，每一块小空间，都放入一个数据（可能是int型，可能是char型，可能是指针、结构体等等）。</li>
+<li>第二种类型：一个指针，指向了一片空间，这块空间里存放着一串字符，如图所示：</li>
+</ul>
+<figure data-type="image" tabindex="2"><img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTgwMjA4MjAyMzI5NzY3?x-oss-process=image/format,png" alt="字符串指针" loading="lazy"></figure>
+<p>这个指针p，指向了内存中的一块空间（在字符常量区），我们顺着这个指针，就能找到这个字符串，和数组原理相同，有时候（注意是有时候，不要以为数组名就是地址！！）数组名代表着数组首元素的地址，我们顺着这个地址去查找，就能知道这个地址的空间里存放着什么。<br>
+知道了这点以后，我们再来看<code>char * argv[]</code> 代表着什么：<br>
+<img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTgwMjA4MjAzODMzNjA5?x-oss-process=image/format,png" alt="char * argv[]" loading="lazy"><br>
+图中可以看出，argc是一个数组，数组中存放着指针，每个指针指向一个字符串。（<strong>数组最后一个元素存放NULL指针</strong>，图中未画出）</p>
+<hr>
+<p>关于main函数的可变参数，在linux下的体现更突出一些，我们可以在编译链接期间传入参数，来达到一些特定的目的，这里暂且不提（不提的原因是...还没学linux..所以具体什么作用我了解的也不是很清楚TAT）。</p>
+<p>接下来说说可变参数的<strong>用处</strong>。</p>
+<p>根据可变参数列表的特性，在什么地方用起来会很方便呢？<br>
+看一个例子：</p>
+<blockquote>
+<p>求几个数的平均数（具体多少个数不知道）</p>
+</blockquote>
+<p>这样一道题，或许我们可以将所有数放入一个数组中，再将数组和元素个数作为参数传入，一个数一个数的读取取平均值即可。但这里要介绍的是另一种方法：利用可变参数。</p>
+<p>以此函数为例，我们来具体分析下。<br>
+一个含可变参数的函数由以下几部分组成：</p>
+<ul>
+<li>头文件</li>
+</ul>
+<pre><code>#include &lt;stdarg.h&gt;
+</code></pre>
+<ul>
+<li>函数名：</li>
+</ul>
+<pre><code>// 注意，参数列表里的 &quot;...&quot; 实际写的时候就是这么写的
+// n代表之后还会传入n个参数，n后面可以没有参数，但n一定要传
+int average(int n, ...) { 
+	// ...
+}
+</code></pre>
+<ul>
+<li>函数主要内容</li>
+</ul>
+<pre><code>va_list arg;
+va_start(arg, n);
+// ... va_arg(arg, int); // int也可为其他类型
+va_end(arg);
+</code></pre>
+<p>这里的 <code>va_list</code>，用于定义一个变量，变量名我取名为arg，他的本质其实就是一个<strong>字符型指针</strong>，vs中定义如下（由于我没有vs，所以摘抄自网络）：</p>
+<pre><code>typedef char* va_list;
+</code></pre>
+<p><strong>注意，这里为什么需要是char？</strong> 接下来后面会提到。</p>
+<p>我们的arg这个指针，声明完，需要让他指向地址空间中的某一地址处，就用到了接下来这个函数：</p>
+<pre><code>void va_start ( va_list ap, prev_param ); 
+</code></pre>
+<p><code>va_start(arg, n)</code>的功能 毫无疑问是将arg指针指向某一地址处，但我们还不清楚是指向哪里，目前我们所知道的地址只有 n 的地址，测试下和 n 的地址有何关联。<br>
+<img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTgwMjA4MjMyNjQ2NDk2?x-oss-process=image/format,png" alt="测试程序" loading="lazy"><br>
+程序运行结果：<br>
+<img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTgwMjA4MjI1MDQzODEw?x-oss-process=image/format,png" alt="arg的地址" loading="lazy"></p>
+<p>可以看出，n 和 arg 的地址只<strong>相差了4</strong>（这里是64位平台int型，占4字节），且 arg 的地址比 n 大4。<br>
+再来看vc中的宏：</p>
+<pre><code>// 获取类型占用的空间长度，最小占用长度为int的整数倍
+#define _INTSIZEOF(n) ((sizeof(n)+sizeof(int)-1)&amp;~(sizeof(int) - 1) )
+#define va_start(ap,v) ( ap = (va_list)&amp;v + _INTSIZEOF(v) ) 
+</code></pre>
+<p>v即为这里的n，ap即为这里的arg，<code>ap = (va_list)&amp;v</code>，可知arg 赋为n的地址加上n的类型的大小（我写的代码中为4）。</p>
+<p><strong>这里说一句，前面对arg的定义为什么需要是字符型呢？我们知道，对指针进行自增或自减操作，实际上是加或减了指针的类型的字节数。什么意思呢，比如说这里定义arg为int型，当arg+k，其实并不是加了k，而是加了4k（是跳过了其类型的k倍）。</strong></p>
+<p>那么，加上这么一段大小后，指向了哪里呢？<br>
+其实，传参时，参数从后往前传（这个解释起来就很麻烦了，以后可能会写一篇关于栈帧的博客，应该会具体解析，写完再传地址吧...），这里只需要知道，<br>
+传参时，<strong>后面的参数比前面的参数地址大</strong>即可，由此可知，<strong>arg指向了 n 后面的第一个参数</strong>，即可变参数部分的第一个参数。</p>
+<p>既然我们已经知道了第一个参数的地址，由于函数调用的性质（啊又要用到栈帧的知识了...话说我真的应该先写栈帧再写可变参数的..），<strong>参数的地址，由低到高连续排列</strong>（就像数组一样）。我们将其类比成数组（还记得我前面讲到的那个用数组的方法吗，原理都是差不多的），由其地址得到他们的值，再将所有值相加来求平均数。</p>
+<p>那么如何通过地址得到他们的值？<br>
+下一个函数为<code>va_arg(arg, int)</code>，vs中定义如下：</p>
+<pre><code>type va_arg ( va_list ap, type ); 
+</code></pre>
+<p>此函数用于提取数据，从网上找到了其宏如下：</p>
+<pre><code> #define _crt_va_arg(ap,t) ( *(t *)((ap += _INTSIZEOF(t)) - _INTSIZEOF(t)) )
+</code></pre>
+<p>这条语句更能说明 <code>va_arg</code>是如何运作的。他将arg指针先强转为当前可变参数的类型，再解引用后返回，并将其指向下一个可变参数（ap += _INTSIZEOF(t)）。由于会有返回值，所以我们可以用一个变量来接受返回值。</p>
+<p>最后，让arg指针指向NULL。</p>
+<pre><code> void va_end ( va_list ap ); 
+</code></pre>
+<ul>
+<li>完整的求平均值的函数：</li>
+</ul>
+<pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdarg.h&gt;
+
+int average(int n, ...) {
+    va_list arg; // 定义指针
+    int i = 0, sum = 0;
+    va_start(arg, n); // 指针指向第一个可变参数
+    for ( ; i &lt; n; ++i) {
+	    // 用于接收每个参数的值
+        sum += va_arg(arg, int);
+    }
+    va_end(arg); // 置空
+    return sum/n;
+}
+
+int main()
+{
+    printf(&quot;%d\n&quot;, average(5, 1, 2, 3, 4, 5));
+    return 0;
+}
+</code></pre>
+<p>以上就是所有内容了... emmm..写的比较仓促，其实很不全...补上栈帧的知识就比较全了..但是栈帧又涉及到很多，写一起不方便，到时候分开写~</p>
+<p>// 另外。。。具体可变参数的实现原理。。过几天可能会写一篇栈帧的博客。。写完再补上博客地址</p>
+
+            </div>
+            
+            <div class="prev-post">
+                上一篇
+                <a href="https://ccccj.github.io/da-jian-ji-yu-github-de-ge-ren-wang-zhan/">
+                    搭建基于github的个人网站
+                </a>
+            </div>
+            
+            
+            <div class="next-post">
+                下一篇
+                <a href="https://ccccj.github.io/acmsu-shu-xian-xing-shai-fa-su-shu-da-biao/">
+                    ACM：素数线性筛法（素数打表）
+                </a>
+            </div>
+            
+        </div>
+    </div>
+</body>
+<script>
+    var t_img; // 定时器
+    var isLoad = true; // 控制变量
+    isImgLoad(function () {
+        // 加载完成
+        $('.postdetailimg').css("display", "block");
+    });
+    // 判断图片加载的函数
+    function isImgLoad(callback) {
+        // 注意我的图片类名都是cover，因为我只需要处理cover。其它图片可以不管。
+        // 查找所有封面图，迭代处理
+        $('.postdetailimg').each(function () {
+            // 找到为0就将isLoad设为false，并退出each
+            if (this.height === 0) {
+                isLoad = false;
+                return false;
+            }
+        });
+        // 为true，没有发现为0的。加载完毕
+        if (isLoad) {
+            clearTimeout(t_img); // 清除定时器
+            // 回调函数
+            callback();
+            // 为false，因为找到了没有加载完成的图，将调用定时器递归
+        } else {
+            isLoad = true;
+            t_img = setTimeout(function () {
+                isImgLoad(callback); // 递归扫描
+            }, 500); // 我这里设置的是500毫秒就扫描一次，可以自己调整
+        }
+    }
+</script>
+        <div name="comment" style="background: white">
+            <div class="commentcontainer">
+                
+                <p>请到客户端“主题--自定义配置--valine”中填入ID和KEY</p>
+                
+            </div>
+        </div>
+    </div>
+    <div id="landlord">
+        <div class="message" style="opacity:0"></div>
+        <canvas id="live2d" width="240" height="250" class="live2d"></canvas>
+    </div>
+</body>
+<script>
+    hljs.initHighlightingOnLoad()
+</script>
+<script src="https://ccccj.github.io/media/js/post.js"></script>

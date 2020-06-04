@@ -1,0 +1,795 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="题目链接点这里
+No More Tic-tac-toe
+Problem Description
+Alice was bored with the game tic-tac-toe. Usually she used to play agai..." />
+    <meta name="keywords" content="" />
+    <link rel="stylesheet" href="https://ccccj.github.io/media/css/bootstrap.min.css">
+    
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.1/build/styles/default.min.css">
+              
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.1/build/highlight.min.js"></script>
+    <link rel="stylesheet" href="https://ccccj.github.io/media/css/live2d.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="https://ccccj.github.io/media/css/bootstrap.min.css">
+    <title>Amon's Homepage</title>
+</head>
+
+<body>
+    <!-- 响应式布局，针对PC端内容显示 -->
+    <div id="content">
+        <div class="nav-large">
+            <div class="row">
+                <div class="side"><html>
+
+<head>
+    <link rel="stylesheet" href="https://ccccj.github.io/styles/main.css">
+    <meta name="description" content="温故而知新" />
+    <title>Document</title>
+</head>
+<style>
+</style>
+
+<body>
+    <div id=side>
+        <div class="avatar-border">
+            <img src="https://ccccj.github.io/images/avatar.png?v=1591258531945" class="avatar">
+        </div>
+        <div class="sitename">Amon&#39;s Homepage</div>
+        <span class="describtion" data-text='["温故而知新"]'>&nbsp;</span>
+        
+        <div class="search">
+            <!-- <input type="text" class="search-input" placeholder="标题搜索(●'◡'●)" /> -->
+            <input type="text" class="search-input" placeholder="标题搜索 ⚆_⚆ つ♡">
+            <div class="search-results"></div>
+        </div>
+        
+    <div class="share-button">
+        <span>社交按钮</span>
+        
+        <a href="https://github.com/ccccj" target="_blank"><i><img class="icon"
+                    src="https://ccccj.github.io/media/images/github.png" alt=""></i></a>
+        
+        
+        <a onclick="showqq()"><i><img class="icon" src="https://ccccj.github.io/media/images/QQ.png" alt=""></i></a>
+        
+        
+        
+        
+        
+    </div>
+    <div id="qq" style="display:none">839808679</div>
+    
+    
+    <div class="mchocie describtion">
+        <a href="/" class="menubutton">
+            home
+        </a>
+    </div>
+    
+    
+    
+    <div class="mchocie describtion">
+        <a href="/archives" class="menubutton">
+            archives
+        </a>
+    </div>
+    
+    
+    
+    <div class="mchocie describtion">
+        <a href="https://github.com/ccccj" class="menubutton">
+            github
+        </a>
+    </div>
+    
+    
+    
+    <div class="mchocie describtion">
+        <a href="https://blog.csdn.net/qq_40873884" class="menubutton">
+            CSDN
+        </a>
+    </div>
+    
+    
+    
+        <div class="mchocie describtion">
+            <a href="https://ccccj.github.io/friends" class="menubutton">友人帐</a>
+        </div>
+    
+    <hr>
+    <div id="footinfo">Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | Theme: <a href="https://github.com/850552586/gridea-theme-fog">Fog</a></div>
+    <div id="sitegotimeDate">载入天数...</div>
+    <div id="sitegotimes">载入时分秒...</div>
+    <div id="cussitetime" style="display:none">02/02/2020</div>
+    </div>
+</body>
+
+</html>
+<script src="https://ccccj.github.io/media/js/wordshow.js"></script>
+<script>
+    //----------------------站点运行时间
+    var now = new Date();
+
+    function createtime() {
+        var sitegotime = document.getElementById("cussitetime").innerHTML + " 00:00:00";
+        var grt = new Date(sitegotime); //此处修改你的建站时间或者网站上线时间 
+        now.setTime(now.getTime() + 250);
+        days = (now - grt) / 1000 / 60 / 60 / 24;
+        dnum = Math.floor(days);
+        hours = (now - grt) / 1000 / 60 / 60 - (24 * dnum);
+        hnum = Math.floor(hours);
+        if (String(hnum).length == 1) {
+            hnum = "0" + hnum;
+        }
+        minutes = (now - grt) / 1000 / 60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes);
+        if (String(mnum).length == 1) {
+            mnum = "0" + mnum;
+        }
+        seconds = (now - grt) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds);
+        if (String(snum).length == 1) {
+            snum = "0" + snum;
+        }
+        document.getElementById("sitegotimeDate").innerHTML = "本站已安全运行 " + dnum + " 天 ";
+        document.getElementById("sitegotimes").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+    }
+    setInterval("createtime()", 250);
+
+    //-------------------------------------------------搜索
+    // 获取搜索框、搜索按钮、清空搜索、结果输出对应的元素
+    var searchInput = document.querySelector('.search-input');
+    var searchResults = document.querySelector('.search-results');
+
+    // 申明保存文章的标题、链接、内容的数组变量
+    var searchValue = '',
+        arrItems = [],
+        arrLinks = [],
+        arrTitles = [],
+        arrResults = [],
+        indexItem = [],
+        itemLength = 0;
+    var tmpDiv = document.createElement('div');
+    tmpDiv.className = 'result-item';
+
+    // ajax 的兼容写法
+    var xhr = new XMLHttpRequest() || new ActiveXObject('Microsoft.XMLHTTP');
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            xml = xhr.responseXML;
+            arrItems = xml.getElementsByTagName('entry');
+            itemLength = arrItems.length;
+            console.log(arrItems);
+            // 遍历并保存所有文章对应的标题、链接、内容到对应的数组中
+            // 同时过滤掉 HTML 标签
+            for (i = 0; i < itemLength; i++) {
+                var link = arrItems[i].getElementsByTagName('link')[0];
+                arrLinks[i] = link.getAttribute("href");
+                arrTitles[i] = arrItems[i].getElementsByTagName('title')[0].
+                childNodes[0].nodeValue.replace(/<.*?>/g, '');
+            }
+        }
+    }
+
+    // 开始获取根目录下 feed.xml 文件内的数据
+    xhr.open('get', '/atom.xml', true);
+    xhr.send();
+
+
+
+    // 输入框内容变化后就开始匹配，可以不用点按钮
+    // 经测试，onkeydown, onchange 等方法效果不太理想，
+    // 存在输入延迟等问题，最后发现触发 input 事件最理想，
+    // 并且可以处理中文输入法拼写的变化
+    searchInput.oninput = function () {
+        setTimeout(searchConfirm, 0);
+    }
+    searchInput.onfocus = function () {
+        searchResults.style.display = 'block';
+    }
+
+    function searchConfirm() {
+        if (searchInput.value == '') {
+            searchResults.style.display = 'none';
+        } else if (searchInput.value.search(/^\s+$/) >= 0) {
+            // 检测输入值全是空白的情况
+            searchInit();
+            var itemDiv = tmpDiv.cloneNode(true);
+            itemDiv.innerText = '请输入有效内容...';
+            searchResults.appendChild(itemDiv);
+        } else {
+            // 合法输入值的情况
+            searchInit();
+            searchValue = searchInput.value;
+            // 在标题、内容中查找
+            searchMatching(arrTitles, searchValue);
+        }
+    }
+
+    // 每次搜索完成后的初始化
+    function searchInit() {
+        arrResults = [];
+        indexItem = [];
+        searchResults.innerHTML = '';
+        searchResults.style.display = 'block';
+    }
+
+    function searchMatching(arr1, input) {
+        // 忽略输入大小写
+        input = new RegExp(input, 'i');
+        // 在所有文章标题、内容中匹配查询值
+        for (i = 0; i < itemLength; i++) {
+            if (arr1[i].search(input) !== -1) {
+                var arr = arr1;
+                indexItem.push(i); // 保存匹配值的索引
+                var indexContent = arr[i].search(input);
+                // 此时 input 为 RegExp 格式 /input/i，转换为原 input 字符串长度
+                var l = input.toString().length - 3;
+                var step = 10;
+
+                // 将匹配到内容的地方进行黄色标记，并包括周围一定数量的文本
+                arrResults.push(arr[i].slice(indexContent - step, indexContent));
+            }
+        }
+
+        // 输出总共匹配到的数目
+        var totalDiv = tmpDiv.cloneNode(true);
+        totalDiv.innerHTML = '<b>总匹配：' + indexItem.length + ' 项<hr></b>';
+        searchResults.appendChild(totalDiv);
+
+        // 未匹配到内容的情况
+        if (indexItem.length == 0) {
+            var itemDiv = tmpDiv.cloneNode(true);
+            itemDiv.innerText = '未匹配到内容...';
+            searchResults.appendChild(itemDiv);
+        }
+
+        // 将所有匹配内容进行组合
+        for (i = 0; i < arrResults.length; i++) {
+            var itemDiv = tmpDiv.cloneNode(true);
+            itemDiv.innerHTML = '<b>[' + arrTitles[indexItem[i]] +
+                ']</b><p>' + arrResults[i] + "</p><hr />";
+            itemDiv.setAttribute('onclick', 'changeHref(arrLinks[indexItem[' + i + ']])');
+            searchResults.appendChild(itemDiv);
+        }
+    }
+
+    function changeHref(href) {
+        location.href = href;
+    }
+
+    function showqq() {
+        var qq = document.getElementById("qq").innerHTML;
+        if (qq != '')
+            alert("博主的QQ联系方式为：" + qq);
+        else
+            alert("博主暂未设置QQ联系方式");
+    }
+</script></div>
+                <div id="tab1" class="tab">
+                    <div class="bars">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <div class="close"></div>
+                </div>
+                <div id="main" class="col-xs-12 col-sm-7">
+                    <link rel="stylesheet" href="https://ccccj.github.io/media/css/font-awesome.css">
+<style>
+
+</style>
+
+<body>
+    <div class="allcontent">
+        <div class="postshow">
+            
+            <div class="postdetailimg" style="width:100%;overflow: hidden;display: none">
+                <img src="https://ccccj.github.io/post-images/acm-or-lightoj-1401-no-more-tic-tac-toe-bo-yi-lun-sg-da-biao.png" class="postimage" style="cursor:auto">
+            </div>
+            <div class="postinfo">
+                <div class="postdate"><i class="fa fa-calendar"></i>2017-10-04</div>
+                <div class="poststatus postdate"><i class="fa fa-clock-o"></i> 6 min read</div>
+                <div class="posttag">
+                    
+                </div>
+            </div>
+            
+            <div id="texttitle" style="text-align: center">
+                <h2>ACM | LightOJ 1401 No More Tic-tac-toe 博弈论SG打表</h2>
+            </div>
+            <div class="text ">
+                <p><a href="http://lightoj.com/login_main.php?url=volume_showproblem.php?problem=1401">题目链接点这里</a></p>
+<h3 id="no-more-tic-tac-toe">No More Tic-tac-toe</h3>
+<h5 id="problem-description">Problem Description</h5>
+<p>Alice was bored with the game tic-tac-toe. Usually she used to play against computer. She was so bored because, she always managed to make a tie against computer as she already became an expert in this game. She was also bored about the matching things, that means she does not like to see two adjacent 'X's or two adjacent 'O's. So Bob created a new computer game for her.<br>
+Here is the description of this new 2-player game:</p>
+<ol>
+<li>A 1 x N grid will be given.</li>
+<li>In each turn, a player can mark an unmarked cell by an 'X' or by an 'O' (it's not Zero it is big 'O').</li>
+<li>No two adjacent 'X's are allowed in this game.</li>
+<li>No two adjacent 'O's are allowed in this game.</li>
+<li>The player who marks the last cell wins the game.<br>
+Let's have an example for N = 3. Suppose first player mark the leftmost cell with an 'X'. Then the grid will look like this:</li>
+</ol>
+<center>
+<img src="https://img-blog.csdnimg.cn/20181112211940403.png" width="30%">
+<p>From this state, the winning move of the second player is to mark the rightmost cell with an 'O'.</p>
+<center>
+<img src="https://img-blog.csdnimg.cn/2018111221245050.png" width="30%">
+<p>Now first player has no move, because in the only empty cell she cannot mark 'X' and cannot mark 'O' because the left of this cell is already marked 'X' and the right of this cell is marked 'O'. The second player will win.</p>
+<p>But this is not an optimal example for first player. If in first move, the first player marks the middle cell with any one of 'X' or 'O', she will win.</p>
+<p>Now about Bob's computer game, Alice always makes the first move. Alice usually used to start playing with Bob. But most often after some move, Bob gave his responsibility to the computer. Computer always plays optimally. You are given the state of the grid after Bob's departure and your task is to determine whether it is possible to win against computer from this state for Alice.</p>
+<h5 id="input">Input</h5>
+<p>Input starts with an integer T (≤ 10000), denoting the number of test cases.</p>
+<p>Each case starts with a line containing a string which represents the state of the game after Bob's departure. Here the length of the string is N (1 ≤ N ≤ 100). In this string besides 'X' and 'O', another character '.' is used, which represents an unmarked cell.</p>
+<h5 id="output">Output</h5>
+<p>For each case, print the case number and 'Yes' if it is possible to win against computer, otherwise print 'No'.</p>
+<h5 id="sample-input">Sample Input</h5>
+<p>5<br>
+...<br>
+X..<br>
+....O<br>
+..X..<br>
+O</p>
+<h5 id="sample-output">Sample Output</h5>
+<p>Case 1: Yes<br>
+Case 2: No<br>
+Case 3: No<br>
+Case 4: Yes<br>
+Case 5: Yes</p>
+<h5 id="题意">题意：</h5>
+<p>一开始没看懂题，理解错了题面，其实需要根据给出的字符串判断，现在该谁操作了，如，X 和 O 加起来，如果有偶数个，那么现在该 Alice 操作，否则该电脑操作。</p>
+<h5 id="sg打表">SG打表</h5>
+<p>用一个三维数组，sg[n][i][j] 来表示<br>
+<img src="https://img-blog.csdnimg.cn/20181112214532122.png" alt="sg" loading="lazy"></p>
+<p>如，我们用 i/j = 0 代表 <code>.</code> ， i/j = 1 代表 <code>O</code> ，i/j = 2 代表 <code>X</code>，<br>
+那么 sg[3][1][2] 代表，中间有 3 个空的格子，这些格子左边是 O，右边是 X。</p>
+<p>而对于 方个数 为 n 的情况，可将 X/O 放在 1-n 的任意一个格子处，每次分成了左右两边两堆格子，由于他们是独立的左右两堆格子，因此可异或得出分开后的 sg 值，最后找出没出现过的 sg 值即可。</p>
+<h5 id="打表代码">打表+代码:</h5>
+<pre><code class="language-c">#include &lt;cstdio&gt;
+#include &lt;cstring&gt;
+using namespace std;
+const int maxn = 110;
+
+int sg[maxn][3][3]; // 0-&gt;.  1-&gt;O  2-&gt;X
+int vis[maxn];
+
+void init() {
+    for (int i = 1; i &lt; maxn; ++i) {
+        for (int j = 0; j &lt; 3; ++j) {
+            for (int k = 0; k &lt; 3; ++k) {
+                memset(vis, 0, sizeof(vis));
+                for (int pos = 1; pos &lt;= i; ++pos) {
+                    if (!((pos == 1 &amp;&amp; j == 1)
+                          || (i == pos &amp;&amp; 1 == k))) {
+                        vis[sg[pos - 1][j][1] ^ sg[i - pos][1][k]] = 1;
+                        //printf(&quot;%d %d\n&quot;, sg[pos - 1][j][1], sg[i - pos][1][k]);
+                    }
+                    if (!((pos == 1 &amp;&amp; j == 2)
+                          || (i == pos &amp;&amp; k == 2))) {
+                        vis[sg[pos - 1][j][2] ^ sg[i - pos][2][k]] = 1;
+                        //printf(&quot;%d %d\n&quot;, sg[pos - 1][j][2], sg[i - pos][2][k]);
+                    }
+                }
+                for (int t = 0; ; ++t) {
+                    if (vis[t] == 0) {
+                        sg[i][j][k] = t;
+                        //if (j &gt; 0 &amp;&amp; k &gt; 0) printf(&quot;%d %d %d %d\n&quot;, i, j, k, t);
+                        break;
+                    }
+                }
+            }
+        }
+    }
+}
+
+int main() {
+    init();
+    int t, ca = 1;
+    char s[maxn];
+    scanf(&quot;%d&quot;, &amp;t);
+    while (t--) {
+        scanf(&quot;%s&quot;, s);
+        int num = 0, last = 0, lc = 0, ans = 0;
+        for (int i = 0; s[i]; ++i) {
+            if (s[i] != '.') {
+                ++num;
+                int nowc = s[i] == 'O' ? 1 : 2;
+                ans ^= sg[i - last][lc][nowc];
+                lc = nowc, last = i + 1;
+            }
+        }
+        ans ^= sg[strlen(s) - last][lc][0];
+        if (num % 2 == 0) {
+            if (ans == 0) printf(&quot;Case %d: No\n&quot;, ca++);
+            else printf(&quot;Case %d: Yes\n&quot;, ca++);
+        } else {
+            if (ans != 0) printf(&quot;Case %d: No\n&quot;, ca++);
+            else printf(&quot;Case %d: Yes\n&quot;, ca++);
+        }
+    }
+    return 0;
+}
+</code></pre>
+<p>其实打完表我们就可以发现，不看两边是 <code>.</code>的情况（因为在实际用的时候，除了最边边，不会用到两边有点的情况），若最左边和最右边，一边是 X，一边是 O，那么SG 值是 0， 其余都是1，可直接找规律得出答案。</p>
+
+            </div>
+            
+            <div class="prev-post">
+                上一篇
+                <a href="https://ccccj.github.io/acm-or-hdu-1005-number-sequence/">
+                    ACM | HDU 1005 Number Sequence
+                </a>
+            </div>
+            
+            
+            <div class="next-post">
+                下一篇
+                <a href="https://ccccj.github.io/acm-or-lightoj-1344-aladdin-and-the-game-of-bracelets-bo-yi-lun-sg-da-biao/">
+                    ACM | LightOJ - 1344 Aladdin and the Game of Bracelets博弈论SG打表
+                </a>
+            </div>
+            
+        </div>
+    </div>
+</body>
+<script>
+    var t_img; // 定时器
+    var isLoad = true; // 控制变量
+    isImgLoad(function () {
+        // 加载完成
+        $('.postdetailimg').css("display", "block");
+    });
+    // 判断图片加载的函数
+    function isImgLoad(callback) {
+        // 注意我的图片类名都是cover，因为我只需要处理cover。其它图片可以不管。
+        // 查找所有封面图，迭代处理
+        $('.postdetailimg').each(function () {
+            // 找到为0就将isLoad设为false，并退出each
+            if (this.height === 0) {
+                isLoad = false;
+                return false;
+            }
+        });
+        // 为true，没有发现为0的。加载完毕
+        if (isLoad) {
+            clearTimeout(t_img); // 清除定时器
+            // 回调函数
+            callback();
+            // 为false，因为找到了没有加载完成的图，将调用定时器递归
+        } else {
+            isLoad = true;
+            t_img = setTimeout(function () {
+                isImgLoad(callback); // 递归扫描
+            }, 500); // 我这里设置的是500毫秒就扫描一次，可以自己调整
+        }
+    }
+</script>
+                    <div name="comment" style="background: white">
+                        <div class="commentcontainer">
+                            
+                            <p>请到客户端“主题--自定义配置--valine”中填入ID和KEY</p>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="toc-container">
+                    <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#no-more-tic-tac-toe">No More Tic-tac-toe</a><br>
+*
+<ul>
+<li><a href="#problem-description">Problem Description</a></li>
+<li><a href="#input">Input</a></li>
+<li><a href="#output">Output</a></li>
+<li><a href="#sample-input">Sample Input</a></li>
+<li><a href="#sample-output">Sample Output</a></li>
+<li><a href="#%E9%A2%98%E6%84%8F">题意：</a></li>
+<li><a href="#sg%E6%89%93%E8%A1%A8">SG打表</a></li>
+<li><a href="#%E6%89%93%E8%A1%A8%E4%BB%A3%E7%A0%81">打表+代码:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+                </div>
+            </div>
+        </div>
+        <div id="bg">
+        </div>
+        <div id="bgurl" style="display:none">/media/images/custom-bgimage.png</div>
+    </div>
+    <!-- 响应式布局，针对手机端内容显示 -->
+    <div class="nav-small">
+        <head>
+
+  <!-- 引入Bootstrap核心样式文件 -->
+  <link rel="stylesheet" href="https://ccccj.github.io/media/css/bootstrap.min.css">
+</head>
+
+<body>
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+          data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">Amon&#39;s Homepage&nbsp;&nbsp;|</a>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          
+          
+          <li>
+            <a href="/">
+              home
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/archives">
+              archives
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="https://github.com/ccccj">
+              github
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="https://blog.csdn.net/qq_40873884">
+              CSDN
+            </a>
+          </li>
+          
+          
+          
+          <li><a href="https://ccccj.github.io/friends">友链</a></li>
+
+          
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+
+
+  <!-- 引入jQuery核心js文件 -->
+  <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+  <!-- 引入BootStrap核心js文件 -->
+  <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+        <div style="margin-top:30px"></div>
+        <link rel="stylesheet" href="https://ccccj.github.io/media/css/font-awesome.css">
+<style>
+
+</style>
+
+<body>
+    <div class="allcontent">
+        <div class="postshow">
+            
+            <div class="postdetailimg" style="width:100%;overflow: hidden;display: none">
+                <img src="https://ccccj.github.io/post-images/acm-or-lightoj-1401-no-more-tic-tac-toe-bo-yi-lun-sg-da-biao.png" class="postimage" style="cursor:auto">
+            </div>
+            <div class="postinfo">
+                <div class="postdate"><i class="fa fa-calendar"></i>2017-10-04</div>
+                <div class="poststatus postdate"><i class="fa fa-clock-o"></i> 6 min read</div>
+                <div class="posttag">
+                    
+                </div>
+            </div>
+            
+            <div id="texttitle" style="text-align: center">
+                <h2>ACM | LightOJ 1401 No More Tic-tac-toe 博弈论SG打表</h2>
+            </div>
+            <div class="text ">
+                <p><a href="http://lightoj.com/login_main.php?url=volume_showproblem.php?problem=1401">题目链接点这里</a></p>
+<h3 id="no-more-tic-tac-toe">No More Tic-tac-toe</h3>
+<h5 id="problem-description">Problem Description</h5>
+<p>Alice was bored with the game tic-tac-toe. Usually she used to play against computer. She was so bored because, she always managed to make a tie against computer as she already became an expert in this game. She was also bored about the matching things, that means she does not like to see two adjacent 'X's or two adjacent 'O's. So Bob created a new computer game for her.<br>
+Here is the description of this new 2-player game:</p>
+<ol>
+<li>A 1 x N grid will be given.</li>
+<li>In each turn, a player can mark an unmarked cell by an 'X' or by an 'O' (it's not Zero it is big 'O').</li>
+<li>No two adjacent 'X's are allowed in this game.</li>
+<li>No two adjacent 'O's are allowed in this game.</li>
+<li>The player who marks the last cell wins the game.<br>
+Let's have an example for N = 3. Suppose first player mark the leftmost cell with an 'X'. Then the grid will look like this:</li>
+</ol>
+<center>
+<img src="https://img-blog.csdnimg.cn/20181112211940403.png" width="30%">
+<p>From this state, the winning move of the second player is to mark the rightmost cell with an 'O'.</p>
+<center>
+<img src="https://img-blog.csdnimg.cn/2018111221245050.png" width="30%">
+<p>Now first player has no move, because in the only empty cell she cannot mark 'X' and cannot mark 'O' because the left of this cell is already marked 'X' and the right of this cell is marked 'O'. The second player will win.</p>
+<p>But this is not an optimal example for first player. If in first move, the first player marks the middle cell with any one of 'X' or 'O', she will win.</p>
+<p>Now about Bob's computer game, Alice always makes the first move. Alice usually used to start playing with Bob. But most often after some move, Bob gave his responsibility to the computer. Computer always plays optimally. You are given the state of the grid after Bob's departure and your task is to determine whether it is possible to win against computer from this state for Alice.</p>
+<h5 id="input">Input</h5>
+<p>Input starts with an integer T (≤ 10000), denoting the number of test cases.</p>
+<p>Each case starts with a line containing a string which represents the state of the game after Bob's departure. Here the length of the string is N (1 ≤ N ≤ 100). In this string besides 'X' and 'O', another character '.' is used, which represents an unmarked cell.</p>
+<h5 id="output">Output</h5>
+<p>For each case, print the case number and 'Yes' if it is possible to win against computer, otherwise print 'No'.</p>
+<h5 id="sample-input">Sample Input</h5>
+<p>5<br>
+...<br>
+X..<br>
+....O<br>
+..X..<br>
+O</p>
+<h5 id="sample-output">Sample Output</h5>
+<p>Case 1: Yes<br>
+Case 2: No<br>
+Case 3: No<br>
+Case 4: Yes<br>
+Case 5: Yes</p>
+<h5 id="题意">题意：</h5>
+<p>一开始没看懂题，理解错了题面，其实需要根据给出的字符串判断，现在该谁操作了，如，X 和 O 加起来，如果有偶数个，那么现在该 Alice 操作，否则该电脑操作。</p>
+<h5 id="sg打表">SG打表</h5>
+<p>用一个三维数组，sg[n][i][j] 来表示<br>
+<img src="https://img-blog.csdnimg.cn/20181112214532122.png" alt="sg" loading="lazy"></p>
+<p>如，我们用 i/j = 0 代表 <code>.</code> ， i/j = 1 代表 <code>O</code> ，i/j = 2 代表 <code>X</code>，<br>
+那么 sg[3][1][2] 代表，中间有 3 个空的格子，这些格子左边是 O，右边是 X。</p>
+<p>而对于 方个数 为 n 的情况，可将 X/O 放在 1-n 的任意一个格子处，每次分成了左右两边两堆格子，由于他们是独立的左右两堆格子，因此可异或得出分开后的 sg 值，最后找出没出现过的 sg 值即可。</p>
+<h5 id="打表代码">打表+代码:</h5>
+<pre><code class="language-c">#include &lt;cstdio&gt;
+#include &lt;cstring&gt;
+using namespace std;
+const int maxn = 110;
+
+int sg[maxn][3][3]; // 0-&gt;.  1-&gt;O  2-&gt;X
+int vis[maxn];
+
+void init() {
+    for (int i = 1; i &lt; maxn; ++i) {
+        for (int j = 0; j &lt; 3; ++j) {
+            for (int k = 0; k &lt; 3; ++k) {
+                memset(vis, 0, sizeof(vis));
+                for (int pos = 1; pos &lt;= i; ++pos) {
+                    if (!((pos == 1 &amp;&amp; j == 1)
+                          || (i == pos &amp;&amp; 1 == k))) {
+                        vis[sg[pos - 1][j][1] ^ sg[i - pos][1][k]] = 1;
+                        //printf(&quot;%d %d\n&quot;, sg[pos - 1][j][1], sg[i - pos][1][k]);
+                    }
+                    if (!((pos == 1 &amp;&amp; j == 2)
+                          || (i == pos &amp;&amp; k == 2))) {
+                        vis[sg[pos - 1][j][2] ^ sg[i - pos][2][k]] = 1;
+                        //printf(&quot;%d %d\n&quot;, sg[pos - 1][j][2], sg[i - pos][2][k]);
+                    }
+                }
+                for (int t = 0; ; ++t) {
+                    if (vis[t] == 0) {
+                        sg[i][j][k] = t;
+                        //if (j &gt; 0 &amp;&amp; k &gt; 0) printf(&quot;%d %d %d %d\n&quot;, i, j, k, t);
+                        break;
+                    }
+                }
+            }
+        }
+    }
+}
+
+int main() {
+    init();
+    int t, ca = 1;
+    char s[maxn];
+    scanf(&quot;%d&quot;, &amp;t);
+    while (t--) {
+        scanf(&quot;%s&quot;, s);
+        int num = 0, last = 0, lc = 0, ans = 0;
+        for (int i = 0; s[i]; ++i) {
+            if (s[i] != '.') {
+                ++num;
+                int nowc = s[i] == 'O' ? 1 : 2;
+                ans ^= sg[i - last][lc][nowc];
+                lc = nowc, last = i + 1;
+            }
+        }
+        ans ^= sg[strlen(s) - last][lc][0];
+        if (num % 2 == 0) {
+            if (ans == 0) printf(&quot;Case %d: No\n&quot;, ca++);
+            else printf(&quot;Case %d: Yes\n&quot;, ca++);
+        } else {
+            if (ans != 0) printf(&quot;Case %d: No\n&quot;, ca++);
+            else printf(&quot;Case %d: Yes\n&quot;, ca++);
+        }
+    }
+    return 0;
+}
+</code></pre>
+<p>其实打完表我们就可以发现，不看两边是 <code>.</code>的情况（因为在实际用的时候，除了最边边，不会用到两边有点的情况），若最左边和最右边，一边是 X，一边是 O，那么SG 值是 0， 其余都是1，可直接找规律得出答案。</p>
+
+            </div>
+            
+            <div class="prev-post">
+                上一篇
+                <a href="https://ccccj.github.io/acm-or-hdu-1005-number-sequence/">
+                    ACM | HDU 1005 Number Sequence
+                </a>
+            </div>
+            
+            
+            <div class="next-post">
+                下一篇
+                <a href="https://ccccj.github.io/acm-or-lightoj-1344-aladdin-and-the-game-of-bracelets-bo-yi-lun-sg-da-biao/">
+                    ACM | LightOJ - 1344 Aladdin and the Game of Bracelets博弈论SG打表
+                </a>
+            </div>
+            
+        </div>
+    </div>
+</body>
+<script>
+    var t_img; // 定时器
+    var isLoad = true; // 控制变量
+    isImgLoad(function () {
+        // 加载完成
+        $('.postdetailimg').css("display", "block");
+    });
+    // 判断图片加载的函数
+    function isImgLoad(callback) {
+        // 注意我的图片类名都是cover，因为我只需要处理cover。其它图片可以不管。
+        // 查找所有封面图，迭代处理
+        $('.postdetailimg').each(function () {
+            // 找到为0就将isLoad设为false，并退出each
+            if (this.height === 0) {
+                isLoad = false;
+                return false;
+            }
+        });
+        // 为true，没有发现为0的。加载完毕
+        if (isLoad) {
+            clearTimeout(t_img); // 清除定时器
+            // 回调函数
+            callback();
+            // 为false，因为找到了没有加载完成的图，将调用定时器递归
+        } else {
+            isLoad = true;
+            t_img = setTimeout(function () {
+                isImgLoad(callback); // 递归扫描
+            }, 500); // 我这里设置的是500毫秒就扫描一次，可以自己调整
+        }
+    }
+</script>
+        <div name="comment" style="background: white">
+            <div class="commentcontainer">
+                
+                <p>请到客户端“主题--自定义配置--valine”中填入ID和KEY</p>
+                
+            </div>
+        </div>
+    </div>
+    <div id="landlord">
+        <div class="message" style="opacity:0"></div>
+        <canvas id="live2d" width="240" height="250" class="live2d"></canvas>
+    </div>
+</body>
+<script>
+    hljs.initHighlightingOnLoad()
+</script>
+<script src="https://ccccj.github.io/media/js/post.js"></script>

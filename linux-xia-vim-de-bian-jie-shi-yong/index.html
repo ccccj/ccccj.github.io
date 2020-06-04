@@ -1,0 +1,1126 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="
+本篇较多的都是关于 vim 的快捷使用，另外夹杂着一些我觉得好用的技巧。
+
+1.快捷键设置
+举个栗子，例如每次在vim中敲完代码，退出vim再编译链接有点麻烦，可以用快捷键替换来实现写完代码立即运行
+
+nnoremap &lt;F5&gt..." />
+    <meta name="keywords" content="" />
+    <link rel="stylesheet" href="https://ccccj.github.io/media/css/bootstrap.min.css">
+    
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.1/build/styles/default.min.css">
+              
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.1/build/highlight.min.js"></script>
+    <link rel="stylesheet" href="https://ccccj.github.io/media/css/live2d.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="https://ccccj.github.io/media/css/bootstrap.min.css">
+    <title>Amon's Homepage</title>
+</head>
+
+<body>
+    <!-- 响应式布局，针对PC端内容显示 -->
+    <div id="content">
+        <div class="nav-large">
+            <div class="row">
+                <div class="side"><html>
+
+<head>
+    <link rel="stylesheet" href="https://ccccj.github.io/styles/main.css">
+    <meta name="description" content="温故而知新" />
+    <title>Document</title>
+</head>
+<style>
+</style>
+
+<body>
+    <div id=side>
+        <div class="avatar-border">
+            <img src="https://ccccj.github.io/images/avatar.png?v=1591258531945" class="avatar">
+        </div>
+        <div class="sitename">Amon&#39;s Homepage</div>
+        <span class="describtion" data-text='["温故而知新"]'>&nbsp;</span>
+        
+        <div class="search">
+            <!-- <input type="text" class="search-input" placeholder="标题搜索(●'◡'●)" /> -->
+            <input type="text" class="search-input" placeholder="标题搜索 ⚆_⚆ つ♡">
+            <div class="search-results"></div>
+        </div>
+        
+    <div class="share-button">
+        <span>社交按钮</span>
+        
+        <a href="https://github.com/ccccj" target="_blank"><i><img class="icon"
+                    src="https://ccccj.github.io/media/images/github.png" alt=""></i></a>
+        
+        
+        <a onclick="showqq()"><i><img class="icon" src="https://ccccj.github.io/media/images/QQ.png" alt=""></i></a>
+        
+        
+        
+        
+        
+    </div>
+    <div id="qq" style="display:none">839808679</div>
+    
+    
+    <div class="mchocie describtion">
+        <a href="/" class="menubutton">
+            home
+        </a>
+    </div>
+    
+    
+    
+    <div class="mchocie describtion">
+        <a href="/archives" class="menubutton">
+            archives
+        </a>
+    </div>
+    
+    
+    
+    <div class="mchocie describtion">
+        <a href="https://github.com/ccccj" class="menubutton">
+            github
+        </a>
+    </div>
+    
+    
+    
+    <div class="mchocie describtion">
+        <a href="https://blog.csdn.net/qq_40873884" class="menubutton">
+            CSDN
+        </a>
+    </div>
+    
+    
+    
+        <div class="mchocie describtion">
+            <a href="https://ccccj.github.io/friends" class="menubutton">友人帐</a>
+        </div>
+    
+    <hr>
+    <div id="footinfo">Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | Theme: <a href="https://github.com/850552586/gridea-theme-fog">Fog</a></div>
+    <div id="sitegotimeDate">载入天数...</div>
+    <div id="sitegotimes">载入时分秒...</div>
+    <div id="cussitetime" style="display:none">02/02/2020</div>
+    </div>
+</body>
+
+</html>
+<script src="https://ccccj.github.io/media/js/wordshow.js"></script>
+<script>
+    //----------------------站点运行时间
+    var now = new Date();
+
+    function createtime() {
+        var sitegotime = document.getElementById("cussitetime").innerHTML + " 00:00:00";
+        var grt = new Date(sitegotime); //此处修改你的建站时间或者网站上线时间 
+        now.setTime(now.getTime() + 250);
+        days = (now - grt) / 1000 / 60 / 60 / 24;
+        dnum = Math.floor(days);
+        hours = (now - grt) / 1000 / 60 / 60 - (24 * dnum);
+        hnum = Math.floor(hours);
+        if (String(hnum).length == 1) {
+            hnum = "0" + hnum;
+        }
+        minutes = (now - grt) / 1000 / 60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes);
+        if (String(mnum).length == 1) {
+            mnum = "0" + mnum;
+        }
+        seconds = (now - grt) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds);
+        if (String(snum).length == 1) {
+            snum = "0" + snum;
+        }
+        document.getElementById("sitegotimeDate").innerHTML = "本站已安全运行 " + dnum + " 天 ";
+        document.getElementById("sitegotimes").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+    }
+    setInterval("createtime()", 250);
+
+    //-------------------------------------------------搜索
+    // 获取搜索框、搜索按钮、清空搜索、结果输出对应的元素
+    var searchInput = document.querySelector('.search-input');
+    var searchResults = document.querySelector('.search-results');
+
+    // 申明保存文章的标题、链接、内容的数组变量
+    var searchValue = '',
+        arrItems = [],
+        arrLinks = [],
+        arrTitles = [],
+        arrResults = [],
+        indexItem = [],
+        itemLength = 0;
+    var tmpDiv = document.createElement('div');
+    tmpDiv.className = 'result-item';
+
+    // ajax 的兼容写法
+    var xhr = new XMLHttpRequest() || new ActiveXObject('Microsoft.XMLHTTP');
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            xml = xhr.responseXML;
+            arrItems = xml.getElementsByTagName('entry');
+            itemLength = arrItems.length;
+            console.log(arrItems);
+            // 遍历并保存所有文章对应的标题、链接、内容到对应的数组中
+            // 同时过滤掉 HTML 标签
+            for (i = 0; i < itemLength; i++) {
+                var link = arrItems[i].getElementsByTagName('link')[0];
+                arrLinks[i] = link.getAttribute("href");
+                arrTitles[i] = arrItems[i].getElementsByTagName('title')[0].
+                childNodes[0].nodeValue.replace(/<.*?>/g, '');
+            }
+        }
+    }
+
+    // 开始获取根目录下 feed.xml 文件内的数据
+    xhr.open('get', '/atom.xml', true);
+    xhr.send();
+
+
+
+    // 输入框内容变化后就开始匹配，可以不用点按钮
+    // 经测试，onkeydown, onchange 等方法效果不太理想，
+    // 存在输入延迟等问题，最后发现触发 input 事件最理想，
+    // 并且可以处理中文输入法拼写的变化
+    searchInput.oninput = function () {
+        setTimeout(searchConfirm, 0);
+    }
+    searchInput.onfocus = function () {
+        searchResults.style.display = 'block';
+    }
+
+    function searchConfirm() {
+        if (searchInput.value == '') {
+            searchResults.style.display = 'none';
+        } else if (searchInput.value.search(/^\s+$/) >= 0) {
+            // 检测输入值全是空白的情况
+            searchInit();
+            var itemDiv = tmpDiv.cloneNode(true);
+            itemDiv.innerText = '请输入有效内容...';
+            searchResults.appendChild(itemDiv);
+        } else {
+            // 合法输入值的情况
+            searchInit();
+            searchValue = searchInput.value;
+            // 在标题、内容中查找
+            searchMatching(arrTitles, searchValue);
+        }
+    }
+
+    // 每次搜索完成后的初始化
+    function searchInit() {
+        arrResults = [];
+        indexItem = [];
+        searchResults.innerHTML = '';
+        searchResults.style.display = 'block';
+    }
+
+    function searchMatching(arr1, input) {
+        // 忽略输入大小写
+        input = new RegExp(input, 'i');
+        // 在所有文章标题、内容中匹配查询值
+        for (i = 0; i < itemLength; i++) {
+            if (arr1[i].search(input) !== -1) {
+                var arr = arr1;
+                indexItem.push(i); // 保存匹配值的索引
+                var indexContent = arr[i].search(input);
+                // 此时 input 为 RegExp 格式 /input/i，转换为原 input 字符串长度
+                var l = input.toString().length - 3;
+                var step = 10;
+
+                // 将匹配到内容的地方进行黄色标记，并包括周围一定数量的文本
+                arrResults.push(arr[i].slice(indexContent - step, indexContent));
+            }
+        }
+
+        // 输出总共匹配到的数目
+        var totalDiv = tmpDiv.cloneNode(true);
+        totalDiv.innerHTML = '<b>总匹配：' + indexItem.length + ' 项<hr></b>';
+        searchResults.appendChild(totalDiv);
+
+        // 未匹配到内容的情况
+        if (indexItem.length == 0) {
+            var itemDiv = tmpDiv.cloneNode(true);
+            itemDiv.innerText = '未匹配到内容...';
+            searchResults.appendChild(itemDiv);
+        }
+
+        // 将所有匹配内容进行组合
+        for (i = 0; i < arrResults.length; i++) {
+            var itemDiv = tmpDiv.cloneNode(true);
+            itemDiv.innerHTML = '<b>[' + arrTitles[indexItem[i]] +
+                ']</b><p>' + arrResults[i] + "</p><hr />";
+            itemDiv.setAttribute('onclick', 'changeHref(arrLinks[indexItem[' + i + ']])');
+            searchResults.appendChild(itemDiv);
+        }
+    }
+
+    function changeHref(href) {
+        location.href = href;
+    }
+
+    function showqq() {
+        var qq = document.getElementById("qq").innerHTML;
+        if (qq != '')
+            alert("博主的QQ联系方式为：" + qq);
+        else
+            alert("博主暂未设置QQ联系方式");
+    }
+</script></div>
+                <div id="tab1" class="tab">
+                    <div class="bars">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <div class="close"></div>
+                </div>
+                <div id="main" class="col-xs-12 col-sm-7">
+                    <link rel="stylesheet" href="https://ccccj.github.io/media/css/font-awesome.css">
+<style>
+
+</style>
+
+<body>
+    <div class="allcontent">
+        <div class="postshow">
+            
+            <div class="postdetailimg" style="width:100%;overflow: hidden;display: none">
+                <img src="https://ccccj.github.io/post-images/linux-xia-vim-de-bian-jie-shi-yong.png" class="postimage" style="cursor:auto">
+            </div>
+            <div class="postinfo">
+                <div class="postdate"><i class="fa fa-calendar"></i>2019-08-24</div>
+                <div class="poststatus postdate"><i class="fa fa-clock-o"></i> 13 min read</div>
+                <div class="posttag">
+                    
+                </div>
+            </div>
+            
+            <div id="texttitle" style="text-align: center">
+                <h2>Linux下vim的便捷使用</h2>
+            </div>
+            <div class="text ">
+                <blockquote>
+<p>本篇较多的都是关于 vim 的快捷使用，另外夹杂着一些我觉得好用的技巧。</p>
+</blockquote>
+<h3 id="1快捷键设置">1.快捷键设置</h3>
+<p>举个栗子，例如每次在vim中敲完代码，退出vim再编译链接有点麻烦，可以用快捷键替换来实现写完代码立即运行</p>
+<blockquote>
+<p><code>nnoremap &lt;F5&gt; :!gcc -o a.out % &amp;&amp; ./a.out&lt;CR&gt;</code></p>
+</blockquote>
+<p>写到vim配置文件 (~/.vimrc) 中即可。<br>
+如果没有，可以自己创建一个，但是创建之后，会缺少一些基本配置，因为默认的配置文件是 /etc/vimrc ，里面有一些原本的功能，有了 ~/.vimrc 后，系统会使用这个，所以配置时，建议其他功能一起配置。</p>
+<p>这其实是一条映射，也就是把<code>&lt;F5&gt;</code>映射成后面一长条语句，当按下F5，就相当于执行了那一条语句。</p>
+<p><code>nnoremap</code> 表示生效范围</p>
+<blockquote>
+<p>1.第一个 n 代表<code>普通模式</code>，如果要在插入模式下实行替换，可以用 <code>i</code> ，可视模式为 <code>v</code>；<br>
+2.<code>nore</code>表示不递归，看网上说大概是大概是 no recursion..？如果不加 nore，将会递归替换，大多数时候容易造成混乱。</p>
+</blockquote>
+<p><code>&lt;F5&gt;</code>  表示按下F5键；<br>
+<code>:</code>  进入命令行模式；<br>
+<code>!</code>  在vim的命令行模式下用shell的命令；<br>
+<code>!gcc -o a.out %</code>  %代表当前文件名，gcc -o a.out % 即为编译链接当前文件，生成 a.out；<br>
+<code>&amp;&amp;</code>  表示同时执行两条命令<br>
+<code>./a.out</code>  运行当前目录下的a.out文件<br>
+<code>&lt;CR&gt;</code>  回车即&quot;enter&quot;键（也可小写）</p>
+<blockquote>
+<p>定义组合键时，例如 <code>ctrl + w</code>，配置时为 <code>&lt;c-w&gt;</code>;<br>
+<code>alt + w</code> 时， 配置为 <code>&lt;m-w&gt;</code><br>
+(w为任意键)</p>
+</blockquote>
+<p>如果还没学会这个，那我们再来看一条（这个就不算快捷键了，只是简单的替换而已）：</p>
+<blockquote>
+<p><code>inoremap ( ()&lt;esc&gt;i</code></p>
+</blockquote>
+<p>即在插入模式下，输入<code>(</code>，就会自动变为输入<code>()&lt;esc&gt;i</code>，为什么输入 () 不够，还要推出回到普通模式再输入 i 呢？因为这样，光标就会移动到括号中间，方便输入啦。现在学会了没有呢？</p>
+<p>（后面第九条还有更多的 vim 的配置，这条为啥单独写这呢..我也不知道...可能是因为这个在我看来属于自己设置快捷键，你想实现什么功能就实现什么功能，可以设置单独的键，而后面的只能算配置自己的 vim 吧）</p>
+<p>！！敲黑板：这个设置完真的是超级方便。</p>
+<h3 id="2设置书签">2.设置书签</h3>
+<p>在某一行，按下m，再按某个字母，例如'a'，表示在这一行设置了名为a的书签，当要查找这个书签时，按下单引号，再按下书签名即可。</p>
+<blockquote>
+<p>设置书签:<code>mx</code> //x代表任意字母<br>
+查找书签:<code>'x</code> //x代表设置书签时选择的任意字母</p>
+</blockquote>
+<p>同时还可以设置很多字母，设置很多个书签。。。有时候写代码，函数与测试文件分开时，需要写一个函数测试一下，那在函数与测试代码之间就需要跳来跳去，用书签就很方便。</p>
+<p>总体来说，写较长的代码，并且需要来回切换的时候比较方便吧，但是也可以直接开两个窗口（我屏幕小，还是喜欢跳来跳去...）</p>
+<h3 id="3打开标签页">3.打开标签页</h3>
+<p>就像我们的网页，同时开启多个上面会有多个标签页，vim 也能这样：</p>
+<blockquote>
+<p><code>:tabe xxx</code></p>
+</blockquote>
+<p>xxx 为文件名，也可以加上路径，使得可以同时打开多个文件。</p>
+<blockquote>
+<p><code>gt</code> 切换到下一个标签页<br>
+<code>gT</code> 切换到上一个标签页<br>
+<code>:q</code> 关闭当前标签页</p>
+</blockquote>
+<p>这个我倒是不常用..可能是因为我一般代码就开一两个窗口而已，最多也就三个，所以打开 vim 的时候我就会直接打开两个，然后用 <code>:bn</code> 来切换，但是什么时候我会用到呢，一般写着写着，突然发现要看下以前某个文件，我就会用标签页的方式打开（当然你也可以直接新开个窗口）。</p>
+<h3 id="4快捷缩进与注释">4.快捷缩进与注释</h3>
+<p>[单行快捷缩进]</p>
+<blockquote>
+<p><code>按“&gt;&gt;”或“&lt;&lt;”</code>(向右缩进/向左缩进)<br>
+无需选中本行，光标在这一行即可，按两下 <code>shift+</code> , 或两下 <code>shift+.</code> 即可。</p>
+</blockquote>
+<p>[快捷缩进]</p>
+<blockquote>
+<p>进入可视块模式后，选中每行第一个字母，按<br>
+<code>&quot;&lt;&quot;</code> (shift+,) 向左缩进<br>
+<code>&quot;&gt;&quot;</code> (shift+.) 向右缩进</p>
+</blockquote>
+<p>[快捷注释]</p>
+<blockquote>
+<p>进入可视块模式，选中注释的行开头，按 <code>shift+i/I</code>（即在行首插入） ，再按<code>//</code>，再按两下<code>esc</code></p>
+</blockquote>
+<p>[取消注释]</p>
+<blockquote>
+<p>可视块模式选中所有的<code>//</code>，再按<code>d(或x)</code>删除</p>
+</blockquote>
+<p>总结：常用，非常好用。</p>
+<h3 id="5vim的粘贴格式">5.vim的粘贴格式</h3>
+<p>很多时候可能复制了一段代码，要粘贴到vim里。然后就发现，啊这格式咋不了啊，多出来辣么多空格是咋回事...<br>
+就是格式的问题...<br>
+输入<code>:set paste</code> ，就可以解决格式问题，而只是简单的粘贴文本。<br>
+记得粘贴完成后退出 <code>set no paste</code>。</p>
+<p>emmmmm，很好记，要用到的时候能记住就好了，不然会发现粘贴格式很乱。</p>
+<h3 id="6vim内快捷查找">6.vim内快捷查找</h3>
+<blockquote>
+<p><code>:/xxx</code>  查找“xxx”这个词<br>
+[按n查找下一个 N查找上一个]<br>
+[如果输入完 <code>:/xxx</code>后，再按<code>*</code>，即完全匹配查找（如果你查找的是 a，有个词叫 aa ，这时候查找结果不会有 aa ）]<br>
+<code>?xxx</code><br>
+[不需要冒号，也是查找 xxx 这个词，但是和  :/xxx 方向相反]<br>
+<code>:n</code>     到第n行</p>
+</blockquote>
+<p>不记住这个的话...还用什么 vim ...</p>
+<h3 id="7快捷替换">7.快捷替换</h3>
+<blockquote>
+<p><code>:%s/word1/word2</code><br>
+[把当前行第一个word1替换为word2]<br>
+<code>:n1,n2 s/word1/word2/gc</code><br>
+[n1行到n2行，把word1都替换为word2，有c会一个个询问是否替换]<br>
+[如果只有<code>/g</code>，就不会询问，直接全部替换]</p>
+</blockquote>
+<p>这个有时候超级方便，我有时候用别的编辑器比如 word 什么的，也超希望能有这个功能...用过 n 多次，但是永远记不住..每次要用就打开自己这篇博客来看下...</p>
+<h3 id="8vim内置分屏">8.vim内置分屏</h3>
+<p>依靠命令行模式来进行分屏，写代码时如果和前面有段代码要比对这些，但是又看不到前面的，就可以这么干（当然你也可以再打开个窗口啦，只是有时候分屏比较方便，虽然很多终端也自带分屏功能..）</p>
+<blockquote>
+<p><code>:vs</code> 水平分屏（后面+空格+文件名，可以打开指定文件来分屏）<br>
+<code>ctrl+w</code> 再移动光标，会在分屏幕模式下，左右移动光标</p>
+</blockquote>
+<hr>
+<blockquote>
+<p><code>:sp</code> 垂直分屏<br>
+<code>ctrl+g</code> 再移动光标，会在分屏幕模式下，上下移动光标</p>
+</blockquote>
+<hr>
+<blockquote>
+<p><code>:q</code> 退出当前分屏窗口<br>
+<code>:qa</code> 退出当前所有分屏窗口</p>
+</blockquote>
+<p>可以将这些组合键设置成快捷键，更方便~<br>
+（但是悄咪咪的说一句..我一般直接再开个屏..因为我蠢记不住..）</p>
+<h3 id="9vim的基本配置">9.vim的基本配置</h3>
+<p>vim ~/.vimrc 修改配置文件<br>
+（加个 <code>.</code> 代表隐藏文件）</p>
+<pre><code>syntax on &quot; 语法高亮
+set hlsearch  &quot; 设置搜索结果高亮 highlight search
+set number &quot; 显示行号
+set tabstop=4 &quot; Tab代表4个空格的宽度（我一般用2个）
+set autoindent &quot; 表示换行后自动缩进
+set history=1000 &quot; 记住的历史操作的数量，默认的是20
+set mouse=a &quot; 可以使用鼠标
+&quot;set mouse-=a &quot; 不可使用鼠标
+
+&quot; 括号匹配
+inoremap ( ()&lt;ESC&gt;i
+inoremap { {&lt;CR&gt;}&lt;ESC&gt;O
+inoremap [ []&lt;ESC&gt;i
+inoremap &quot; &quot;&quot;&lt;ESC&gt;i
+inoremap ' ''&lt;ESC&gt;i
+
+&quot; inoremap jk &lt;ESC&gt; &quot; jk退出
+
+&quot; 检测下一个是不是右括号，是的话自动覆盖（摘自百度）
+inoremap ) &lt;c-r&gt;=ClosePair(')')&lt;CR&gt;
+inoremap ] &lt;c-r&gt;=ClosePair(']')&lt;CR&gt;
+inoremap } &lt;c-r&gt;=CloseBracket()&lt;CR&gt;
+inoremap &quot; &lt;c-r&gt;=QuoteDelim('&quot;')&lt;CR&gt;
+inoremap ' &lt;c-r&gt;=QuoteDelim(&quot;'&quot;)&lt;CR&gt;
+
+function ClosePair(char)
+	if getline('.')[col('.') - 1] == a:char
+		return &quot;\&lt;Right&gt;&quot;
+	else
+		return a:char
+	endif
+endf
+
+function CloseBracket()
+	if match(getline(line('.') + 1), '\s*}') &lt; 0
+		return &quot;\&lt;CR&gt;}&quot;
+	else
+		return &quot;\&lt;Esc&gt;j0f}a&quot;
+	endif
+endf
+
+function QuoteDelim(char)
+	let line = getline('.')
+	let col = col('.')
+	if line[col - 2] == &quot;\\&quot;
+		return a:char
+	elseif line[col - 1] == a:char
+		return &quot;\&lt;Right&gt;&quot;
+	else
+		return a:char.a:char.&quot;\&lt;Esc&gt;i&quot;
+	endif
+endf
+</code></pre>
+<p>关于这一块的配置..本来是只写了这么点，其余的希望大家自己直接上网搜的，因为我自己写的一些配置，可能不是很好，怕误导了大家。但是写完这篇博客后的几个月的今天..还是忍不住给大家分享几条我的配置，由于是自己写的，也借阅网上的配置，所以写的我自己都觉得不太好...</p>
+<blockquote>
+<p><code>nnoremap ii i&lt;TAB&gt;</code></p>
+</blockquote>
+<p>这个就是，大家有没有发现..有时候敲代码，光标在行首，按了个 <code>i</code> ，光标还是在行首，但是我想要直接写代码滴呀，我要缩进啊，于是就设置个快捷键..按两下 i ，就直接进入插入模式，并且前面有缩进，真的超级方便..</p>
+<blockquote>
+<p><code>nnoremap qq &lt;esc&gt;A</code></p>
+</blockquote>
+<p>有时候正在输入，但是想立马到行尾，就可以这样实现<sub>先回到普通模式，再插入到行尾</sub></p>
+<p>其余的我想到再补充~~</p>
+<h3 id="10vim内使用shell命令行">10.vim内使用shell命令行</h3>
+<p>有时候需要在 vim 内使用 shell 的命令（例如要编译执行当前代码），当然可以立马新开一个窗口，或者像之前讲过的那样设置快捷键，但是现在要讲的是另一种方法：</p>
+<blockquote>
+<p><code>:!xxx</code></p>
+</blockquote>
+<p>即先进入 vim 的命令行模式，在按下 <code>!</code> ，这时候的目录是你当前文件的目录，然后就可以输入命令了，例如有时候，需要编译执行当前文件，就可以直接这么用。</p>
+<p>是的..你用再开个窗口大法也可以，但是我还是会经常用这个的，因为方便啊，再开个窗口还要移动光标，这个直接按个 <code>:</code> 就好啦。</p>
+<h3 id="11按键使用">11.按键使用</h3>
+<p>总结了一些vim下常用的按键，已经熟练使用vim的请跳过本条....</p>
+<p>（所有的大写建议 shift+.. 来使用）</p>
+<p>（1）一般模式下<br>
+移动光标：<br>
+(前面加数字，可以一下子跳很多格)</p>
+<blockquote>
+<p>左：<code>h</code>；<br>
+下：<code>j</code>；<br>
+上：<code>k</code>；<br>
+右：<code>l</code>；</p>
+</blockquote>
+<hr>
+<blockquote>
+<p><code>b</code>：移到前一个单词开头<br>
+<code>w</code>：移到后一个单词开头<br>
+<code>e</code>：移到后一个单词末尾<br>
+<code>gg</code>：移到首行开头<br>
+<code>shift+g</code>/<code>G</code>：移到末行开头<br>
+<code>0</code>(零)：移到当前行开头<br>
+<code>^</code>：移动到行首非空白字符<br>
+<code>$</code>：移到当前行行尾<br>
+<code>[]</code>：跳转到上一个函数<br>
+<code>][</code>：跳转到下一个函数</p>
+</blockquote>
+<p>模式转换：</p>
+<blockquote>
+<p><code>i</code>：进入插入模式(写在光标之前)<br>
+<code>a</code>：进入插入模式(写在光标之后)<br>
+<code>shift+i</code>/<code>I</code>：进入插入模式(写在行首)<br>
+<code>shift+a</code>/<code>A</code>：进入插入模式(写在行尾)<br>
+<code>o</code>(字母o)：到下一行，插入空行，并进入插入模式<br>
+<code>shift+o</code>/<code>O</code>(大写O)：到上一行，插入空行，并进入插入模式</p>
+</blockquote>
+<blockquote>
+<p><code>esc</code>：退出插入模式，回到命令模式<br>
+<code>:</code>(冒号)：到命令行模式</p>
+</blockquote>
+<p>复制粘贴删除：</p>
+<blockquote>
+<p><code>yy</code>(或<code>Y</code>)：复制一行（3yy为复制3行）<br>
+<code>p</code>：粘贴<br>
+<code>dd</code>：删除一行（5dd为删除5行）<br>
+<code>x</code>：删除一个字符（3x删除后面3个字符）<br>
+<code>dw</code>：从当前光标开始，删除到单词结束<br>
+<code>d$</code>：从当前光标开始，删除到行尾<br>
+<code>r</code>：替换<br>
+<code>shift+r</code>/<code>R</code>：行替换</p>
+</blockquote>
+<p>可视模式：</p>
+<blockquote>
+<p><code>v</code>：可视模式<br>
+<code>ctrl+v</code>：可视块模式<br>
+<code>shift+v</code>/<code>V</code>：可视行模式</p>
+</blockquote>
+<p>撤销：</p>
+<blockquote>
+<p><code>u</code>：撤销<br>
+<code>ctrl+r</code>：取消撤销</p>
+</blockquote>
+<p>（2）命令行模式中：</p>
+<p>保存与退出</p>
+<blockquote>
+<p><code>:w</code> 保存<br>
+<code>:q</code> 退出 （:qw  保存并退出  :q! 不保存退出）</p>
+</blockquote>
+<p>其他：</p>
+<blockquote>
+<p><code>:set nu</code> 设置行号  （set nonu 取消行号）<br>
+<code>:set mouse=a</code> 设置可以使用鼠标<br>
+<code>:set mouse-=a</code> 设置不能使用鼠标</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>普通模式下， 将光标放在<code>(</code>/<code>[</code>/<code>{</code>上，按下<code>%</code>，光标将会跳到下一个匹配的<code>)</code>/<code>]</code>/<code>}</code>，再次按<code>%</code>，将会跳回去。（可用于调试时查看括号配对）</p>
+</blockquote>
+<p>更具体的可以看 <code>vimtutor</code>(直接在bash输入即可)</p>
+<h3 id="12学会查找">12.学会查找</h3>
+<p>按文件名查找：<br>
+<code>find -name &lt;filename&gt;</code><br>
+这是一个最简单的查找命令，按名字查找当前目录下的文件，查找结果会显示路径。</p>
+<p>按文件内容查找：<br>
+<code>grep xxx &lt;directory&gt;</code><br>
+&quot;xxx&quot; 是你要查找的字符串，<directory>是要查找的目录。当然我们还可以添加选项，如<code>-n</code>显示行号，<code>-i</code>查找时忽略大小写，<code>-v</code>反向查找。其他还可以搭配管道等等应用，但最简单的应用</p>
+<h3 id="参考">参考</h3>
+<p>https://blog.csdn.net/sunlanchang/article/details/52549756</p>
+
+            </div>
+            
+            <div class="prev-post">
+                上一篇
+                <a href="https://ccccj.github.io/lu-li-shu/">
+                    履歴書
+                </a>
+            </div>
+            
+            
+            <div class="next-post">
+                下一篇
+                <a href="https://ccccj.github.io/python-xue-xi-bi-ji/">
+                    python学习笔记
+                </a>
+            </div>
+            
+        </div>
+    </div>
+</body>
+<script>
+    var t_img; // 定时器
+    var isLoad = true; // 控制变量
+    isImgLoad(function () {
+        // 加载完成
+        $('.postdetailimg').css("display", "block");
+    });
+    // 判断图片加载的函数
+    function isImgLoad(callback) {
+        // 注意我的图片类名都是cover，因为我只需要处理cover。其它图片可以不管。
+        // 查找所有封面图，迭代处理
+        $('.postdetailimg').each(function () {
+            // 找到为0就将isLoad设为false，并退出each
+            if (this.height === 0) {
+                isLoad = false;
+                return false;
+            }
+        });
+        // 为true，没有发现为0的。加载完毕
+        if (isLoad) {
+            clearTimeout(t_img); // 清除定时器
+            // 回调函数
+            callback();
+            // 为false，因为找到了没有加载完成的图，将调用定时器递归
+        } else {
+            isLoad = true;
+            t_img = setTimeout(function () {
+                isImgLoad(callback); // 递归扫描
+            }, 500); // 我这里设置的是500毫秒就扫描一次，可以自己调整
+        }
+    }
+</script>
+                    <div name="comment" style="background: white">
+                        <div class="commentcontainer">
+                            
+                            <p>请到客户端“主题--自定义配置--valine”中填入ID和KEY</p>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="toc-container">
+                    <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#1%E5%BF%AB%E6%8D%B7%E9%94%AE%E8%AE%BE%E7%BD%AE">1.快捷键设置</a></li>
+<li><a href="#2%E8%AE%BE%E7%BD%AE%E4%B9%A6%E7%AD%BE">2.设置书签</a></li>
+<li><a href="#3%E6%89%93%E5%BC%80%E6%A0%87%E7%AD%BE%E9%A1%B5">3.打开标签页</a></li>
+<li><a href="#4%E5%BF%AB%E6%8D%B7%E7%BC%A9%E8%BF%9B%E4%B8%8E%E6%B3%A8%E9%87%8A">4.快捷缩进与注释</a></li>
+<li><a href="#5vim%E7%9A%84%E7%B2%98%E8%B4%B4%E6%A0%BC%E5%BC%8F">5.vim的粘贴格式</a></li>
+<li><a href="#6vim%E5%86%85%E5%BF%AB%E6%8D%B7%E6%9F%A5%E6%89%BE">6.vim内快捷查找</a></li>
+<li><a href="#7%E5%BF%AB%E6%8D%B7%E6%9B%BF%E6%8D%A2">7.快捷替换</a></li>
+<li><a href="#8vim%E5%86%85%E7%BD%AE%E5%88%86%E5%B1%8F">8.vim内置分屏</a></li>
+<li><a href="#9vim%E7%9A%84%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE">9.vim的基本配置</a></li>
+<li><a href="#10vim%E5%86%85%E4%BD%BF%E7%94%A8shell%E5%91%BD%E4%BB%A4%E8%A1%8C">10.vim内使用shell命令行</a></li>
+<li><a href="#11%E6%8C%89%E9%94%AE%E4%BD%BF%E7%94%A8">11.按键使用</a></li>
+<li><a href="#12%E5%AD%A6%E4%BC%9A%E6%9F%A5%E6%89%BE">12.学会查找</a></li>
+<li><a href="#%E5%8F%82%E8%80%83">参考</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+                </div>
+            </div>
+        </div>
+        <div id="bg">
+        </div>
+        <div id="bgurl" style="display:none">/media/images/custom-bgimage.png</div>
+    </div>
+    <!-- 响应式布局，针对手机端内容显示 -->
+    <div class="nav-small">
+        <head>
+
+  <!-- 引入Bootstrap核心样式文件 -->
+  <link rel="stylesheet" href="https://ccccj.github.io/media/css/bootstrap.min.css">
+</head>
+
+<body>
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+          data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">Amon&#39;s Homepage&nbsp;&nbsp;|</a>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          
+          
+          <li>
+            <a href="/">
+              home
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/archives">
+              archives
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="https://github.com/ccccj">
+              github
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="https://blog.csdn.net/qq_40873884">
+              CSDN
+            </a>
+          </li>
+          
+          
+          
+          <li><a href="https://ccccj.github.io/friends">友链</a></li>
+
+          
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+
+
+  <!-- 引入jQuery核心js文件 -->
+  <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+  <!-- 引入BootStrap核心js文件 -->
+  <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+        <div style="margin-top:30px"></div>
+        <link rel="stylesheet" href="https://ccccj.github.io/media/css/font-awesome.css">
+<style>
+
+</style>
+
+<body>
+    <div class="allcontent">
+        <div class="postshow">
+            
+            <div class="postdetailimg" style="width:100%;overflow: hidden;display: none">
+                <img src="https://ccccj.github.io/post-images/linux-xia-vim-de-bian-jie-shi-yong.png" class="postimage" style="cursor:auto">
+            </div>
+            <div class="postinfo">
+                <div class="postdate"><i class="fa fa-calendar"></i>2019-08-24</div>
+                <div class="poststatus postdate"><i class="fa fa-clock-o"></i> 13 min read</div>
+                <div class="posttag">
+                    
+                </div>
+            </div>
+            
+            <div id="texttitle" style="text-align: center">
+                <h2>Linux下vim的便捷使用</h2>
+            </div>
+            <div class="text ">
+                <blockquote>
+<p>本篇较多的都是关于 vim 的快捷使用，另外夹杂着一些我觉得好用的技巧。</p>
+</blockquote>
+<h3 id="1快捷键设置">1.快捷键设置</h3>
+<p>举个栗子，例如每次在vim中敲完代码，退出vim再编译链接有点麻烦，可以用快捷键替换来实现写完代码立即运行</p>
+<blockquote>
+<p><code>nnoremap &lt;F5&gt; :!gcc -o a.out % &amp;&amp; ./a.out&lt;CR&gt;</code></p>
+</blockquote>
+<p>写到vim配置文件 (~/.vimrc) 中即可。<br>
+如果没有，可以自己创建一个，但是创建之后，会缺少一些基本配置，因为默认的配置文件是 /etc/vimrc ，里面有一些原本的功能，有了 ~/.vimrc 后，系统会使用这个，所以配置时，建议其他功能一起配置。</p>
+<p>这其实是一条映射，也就是把<code>&lt;F5&gt;</code>映射成后面一长条语句，当按下F5，就相当于执行了那一条语句。</p>
+<p><code>nnoremap</code> 表示生效范围</p>
+<blockquote>
+<p>1.第一个 n 代表<code>普通模式</code>，如果要在插入模式下实行替换，可以用 <code>i</code> ，可视模式为 <code>v</code>；<br>
+2.<code>nore</code>表示不递归，看网上说大概是大概是 no recursion..？如果不加 nore，将会递归替换，大多数时候容易造成混乱。</p>
+</blockquote>
+<p><code>&lt;F5&gt;</code>  表示按下F5键；<br>
+<code>:</code>  进入命令行模式；<br>
+<code>!</code>  在vim的命令行模式下用shell的命令；<br>
+<code>!gcc -o a.out %</code>  %代表当前文件名，gcc -o a.out % 即为编译链接当前文件，生成 a.out；<br>
+<code>&amp;&amp;</code>  表示同时执行两条命令<br>
+<code>./a.out</code>  运行当前目录下的a.out文件<br>
+<code>&lt;CR&gt;</code>  回车即&quot;enter&quot;键（也可小写）</p>
+<blockquote>
+<p>定义组合键时，例如 <code>ctrl + w</code>，配置时为 <code>&lt;c-w&gt;</code>;<br>
+<code>alt + w</code> 时， 配置为 <code>&lt;m-w&gt;</code><br>
+(w为任意键)</p>
+</blockquote>
+<p>如果还没学会这个，那我们再来看一条（这个就不算快捷键了，只是简单的替换而已）：</p>
+<blockquote>
+<p><code>inoremap ( ()&lt;esc&gt;i</code></p>
+</blockquote>
+<p>即在插入模式下，输入<code>(</code>，就会自动变为输入<code>()&lt;esc&gt;i</code>，为什么输入 () 不够，还要推出回到普通模式再输入 i 呢？因为这样，光标就会移动到括号中间，方便输入啦。现在学会了没有呢？</p>
+<p>（后面第九条还有更多的 vim 的配置，这条为啥单独写这呢..我也不知道...可能是因为这个在我看来属于自己设置快捷键，你想实现什么功能就实现什么功能，可以设置单独的键，而后面的只能算配置自己的 vim 吧）</p>
+<p>！！敲黑板：这个设置完真的是超级方便。</p>
+<h3 id="2设置书签">2.设置书签</h3>
+<p>在某一行，按下m，再按某个字母，例如'a'，表示在这一行设置了名为a的书签，当要查找这个书签时，按下单引号，再按下书签名即可。</p>
+<blockquote>
+<p>设置书签:<code>mx</code> //x代表任意字母<br>
+查找书签:<code>'x</code> //x代表设置书签时选择的任意字母</p>
+</blockquote>
+<p>同时还可以设置很多字母，设置很多个书签。。。有时候写代码，函数与测试文件分开时，需要写一个函数测试一下，那在函数与测试代码之间就需要跳来跳去，用书签就很方便。</p>
+<p>总体来说，写较长的代码，并且需要来回切换的时候比较方便吧，但是也可以直接开两个窗口（我屏幕小，还是喜欢跳来跳去...）</p>
+<h3 id="3打开标签页">3.打开标签页</h3>
+<p>就像我们的网页，同时开启多个上面会有多个标签页，vim 也能这样：</p>
+<blockquote>
+<p><code>:tabe xxx</code></p>
+</blockquote>
+<p>xxx 为文件名，也可以加上路径，使得可以同时打开多个文件。</p>
+<blockquote>
+<p><code>gt</code> 切换到下一个标签页<br>
+<code>gT</code> 切换到上一个标签页<br>
+<code>:q</code> 关闭当前标签页</p>
+</blockquote>
+<p>这个我倒是不常用..可能是因为我一般代码就开一两个窗口而已，最多也就三个，所以打开 vim 的时候我就会直接打开两个，然后用 <code>:bn</code> 来切换，但是什么时候我会用到呢，一般写着写着，突然发现要看下以前某个文件，我就会用标签页的方式打开（当然你也可以直接新开个窗口）。</p>
+<h3 id="4快捷缩进与注释">4.快捷缩进与注释</h3>
+<p>[单行快捷缩进]</p>
+<blockquote>
+<p><code>按“&gt;&gt;”或“&lt;&lt;”</code>(向右缩进/向左缩进)<br>
+无需选中本行，光标在这一行即可，按两下 <code>shift+</code> , 或两下 <code>shift+.</code> 即可。</p>
+</blockquote>
+<p>[快捷缩进]</p>
+<blockquote>
+<p>进入可视块模式后，选中每行第一个字母，按<br>
+<code>&quot;&lt;&quot;</code> (shift+,) 向左缩进<br>
+<code>&quot;&gt;&quot;</code> (shift+.) 向右缩进</p>
+</blockquote>
+<p>[快捷注释]</p>
+<blockquote>
+<p>进入可视块模式，选中注释的行开头，按 <code>shift+i/I</code>（即在行首插入） ，再按<code>//</code>，再按两下<code>esc</code></p>
+</blockquote>
+<p>[取消注释]</p>
+<blockquote>
+<p>可视块模式选中所有的<code>//</code>，再按<code>d(或x)</code>删除</p>
+</blockquote>
+<p>总结：常用，非常好用。</p>
+<h3 id="5vim的粘贴格式">5.vim的粘贴格式</h3>
+<p>很多时候可能复制了一段代码，要粘贴到vim里。然后就发现，啊这格式咋不了啊，多出来辣么多空格是咋回事...<br>
+就是格式的问题...<br>
+输入<code>:set paste</code> ，就可以解决格式问题，而只是简单的粘贴文本。<br>
+记得粘贴完成后退出 <code>set no paste</code>。</p>
+<p>emmmmm，很好记，要用到的时候能记住就好了，不然会发现粘贴格式很乱。</p>
+<h3 id="6vim内快捷查找">6.vim内快捷查找</h3>
+<blockquote>
+<p><code>:/xxx</code>  查找“xxx”这个词<br>
+[按n查找下一个 N查找上一个]<br>
+[如果输入完 <code>:/xxx</code>后，再按<code>*</code>，即完全匹配查找（如果你查找的是 a，有个词叫 aa ，这时候查找结果不会有 aa ）]<br>
+<code>?xxx</code><br>
+[不需要冒号，也是查找 xxx 这个词，但是和  :/xxx 方向相反]<br>
+<code>:n</code>     到第n行</p>
+</blockquote>
+<p>不记住这个的话...还用什么 vim ...</p>
+<h3 id="7快捷替换">7.快捷替换</h3>
+<blockquote>
+<p><code>:%s/word1/word2</code><br>
+[把当前行第一个word1替换为word2]<br>
+<code>:n1,n2 s/word1/word2/gc</code><br>
+[n1行到n2行，把word1都替换为word2，有c会一个个询问是否替换]<br>
+[如果只有<code>/g</code>，就不会询问，直接全部替换]</p>
+</blockquote>
+<p>这个有时候超级方便，我有时候用别的编辑器比如 word 什么的，也超希望能有这个功能...用过 n 多次，但是永远记不住..每次要用就打开自己这篇博客来看下...</p>
+<h3 id="8vim内置分屏">8.vim内置分屏</h3>
+<p>依靠命令行模式来进行分屏，写代码时如果和前面有段代码要比对这些，但是又看不到前面的，就可以这么干（当然你也可以再打开个窗口啦，只是有时候分屏比较方便，虽然很多终端也自带分屏功能..）</p>
+<blockquote>
+<p><code>:vs</code> 水平分屏（后面+空格+文件名，可以打开指定文件来分屏）<br>
+<code>ctrl+w</code> 再移动光标，会在分屏幕模式下，左右移动光标</p>
+</blockquote>
+<hr>
+<blockquote>
+<p><code>:sp</code> 垂直分屏<br>
+<code>ctrl+g</code> 再移动光标，会在分屏幕模式下，上下移动光标</p>
+</blockquote>
+<hr>
+<blockquote>
+<p><code>:q</code> 退出当前分屏窗口<br>
+<code>:qa</code> 退出当前所有分屏窗口</p>
+</blockquote>
+<p>可以将这些组合键设置成快捷键，更方便~<br>
+（但是悄咪咪的说一句..我一般直接再开个屏..因为我蠢记不住..）</p>
+<h3 id="9vim的基本配置">9.vim的基本配置</h3>
+<p>vim ~/.vimrc 修改配置文件<br>
+（加个 <code>.</code> 代表隐藏文件）</p>
+<pre><code>syntax on &quot; 语法高亮
+set hlsearch  &quot; 设置搜索结果高亮 highlight search
+set number &quot; 显示行号
+set tabstop=4 &quot; Tab代表4个空格的宽度（我一般用2个）
+set autoindent &quot; 表示换行后自动缩进
+set history=1000 &quot; 记住的历史操作的数量，默认的是20
+set mouse=a &quot; 可以使用鼠标
+&quot;set mouse-=a &quot; 不可使用鼠标
+
+&quot; 括号匹配
+inoremap ( ()&lt;ESC&gt;i
+inoremap { {&lt;CR&gt;}&lt;ESC&gt;O
+inoremap [ []&lt;ESC&gt;i
+inoremap &quot; &quot;&quot;&lt;ESC&gt;i
+inoremap ' ''&lt;ESC&gt;i
+
+&quot; inoremap jk &lt;ESC&gt; &quot; jk退出
+
+&quot; 检测下一个是不是右括号，是的话自动覆盖（摘自百度）
+inoremap ) &lt;c-r&gt;=ClosePair(')')&lt;CR&gt;
+inoremap ] &lt;c-r&gt;=ClosePair(']')&lt;CR&gt;
+inoremap } &lt;c-r&gt;=CloseBracket()&lt;CR&gt;
+inoremap &quot; &lt;c-r&gt;=QuoteDelim('&quot;')&lt;CR&gt;
+inoremap ' &lt;c-r&gt;=QuoteDelim(&quot;'&quot;)&lt;CR&gt;
+
+function ClosePair(char)
+	if getline('.')[col('.') - 1] == a:char
+		return &quot;\&lt;Right&gt;&quot;
+	else
+		return a:char
+	endif
+endf
+
+function CloseBracket()
+	if match(getline(line('.') + 1), '\s*}') &lt; 0
+		return &quot;\&lt;CR&gt;}&quot;
+	else
+		return &quot;\&lt;Esc&gt;j0f}a&quot;
+	endif
+endf
+
+function QuoteDelim(char)
+	let line = getline('.')
+	let col = col('.')
+	if line[col - 2] == &quot;\\&quot;
+		return a:char
+	elseif line[col - 1] == a:char
+		return &quot;\&lt;Right&gt;&quot;
+	else
+		return a:char.a:char.&quot;\&lt;Esc&gt;i&quot;
+	endif
+endf
+</code></pre>
+<p>关于这一块的配置..本来是只写了这么点，其余的希望大家自己直接上网搜的，因为我自己写的一些配置，可能不是很好，怕误导了大家。但是写完这篇博客后的几个月的今天..还是忍不住给大家分享几条我的配置，由于是自己写的，也借阅网上的配置，所以写的我自己都觉得不太好...</p>
+<blockquote>
+<p><code>nnoremap ii i&lt;TAB&gt;</code></p>
+</blockquote>
+<p>这个就是，大家有没有发现..有时候敲代码，光标在行首，按了个 <code>i</code> ，光标还是在行首，但是我想要直接写代码滴呀，我要缩进啊，于是就设置个快捷键..按两下 i ，就直接进入插入模式，并且前面有缩进，真的超级方便..</p>
+<blockquote>
+<p><code>nnoremap qq &lt;esc&gt;A</code></p>
+</blockquote>
+<p>有时候正在输入，但是想立马到行尾，就可以这样实现<sub>先回到普通模式，再插入到行尾</sub></p>
+<p>其余的我想到再补充~~</p>
+<h3 id="10vim内使用shell命令行">10.vim内使用shell命令行</h3>
+<p>有时候需要在 vim 内使用 shell 的命令（例如要编译执行当前代码），当然可以立马新开一个窗口，或者像之前讲过的那样设置快捷键，但是现在要讲的是另一种方法：</p>
+<blockquote>
+<p><code>:!xxx</code></p>
+</blockquote>
+<p>即先进入 vim 的命令行模式，在按下 <code>!</code> ，这时候的目录是你当前文件的目录，然后就可以输入命令了，例如有时候，需要编译执行当前文件，就可以直接这么用。</p>
+<p>是的..你用再开个窗口大法也可以，但是我还是会经常用这个的，因为方便啊，再开个窗口还要移动光标，这个直接按个 <code>:</code> 就好啦。</p>
+<h3 id="11按键使用">11.按键使用</h3>
+<p>总结了一些vim下常用的按键，已经熟练使用vim的请跳过本条....</p>
+<p>（所有的大写建议 shift+.. 来使用）</p>
+<p>（1）一般模式下<br>
+移动光标：<br>
+(前面加数字，可以一下子跳很多格)</p>
+<blockquote>
+<p>左：<code>h</code>；<br>
+下：<code>j</code>；<br>
+上：<code>k</code>；<br>
+右：<code>l</code>；</p>
+</blockquote>
+<hr>
+<blockquote>
+<p><code>b</code>：移到前一个单词开头<br>
+<code>w</code>：移到后一个单词开头<br>
+<code>e</code>：移到后一个单词末尾<br>
+<code>gg</code>：移到首行开头<br>
+<code>shift+g</code>/<code>G</code>：移到末行开头<br>
+<code>0</code>(零)：移到当前行开头<br>
+<code>^</code>：移动到行首非空白字符<br>
+<code>$</code>：移到当前行行尾<br>
+<code>[]</code>：跳转到上一个函数<br>
+<code>][</code>：跳转到下一个函数</p>
+</blockquote>
+<p>模式转换：</p>
+<blockquote>
+<p><code>i</code>：进入插入模式(写在光标之前)<br>
+<code>a</code>：进入插入模式(写在光标之后)<br>
+<code>shift+i</code>/<code>I</code>：进入插入模式(写在行首)<br>
+<code>shift+a</code>/<code>A</code>：进入插入模式(写在行尾)<br>
+<code>o</code>(字母o)：到下一行，插入空行，并进入插入模式<br>
+<code>shift+o</code>/<code>O</code>(大写O)：到上一行，插入空行，并进入插入模式</p>
+</blockquote>
+<blockquote>
+<p><code>esc</code>：退出插入模式，回到命令模式<br>
+<code>:</code>(冒号)：到命令行模式</p>
+</blockquote>
+<p>复制粘贴删除：</p>
+<blockquote>
+<p><code>yy</code>(或<code>Y</code>)：复制一行（3yy为复制3行）<br>
+<code>p</code>：粘贴<br>
+<code>dd</code>：删除一行（5dd为删除5行）<br>
+<code>x</code>：删除一个字符（3x删除后面3个字符）<br>
+<code>dw</code>：从当前光标开始，删除到单词结束<br>
+<code>d$</code>：从当前光标开始，删除到行尾<br>
+<code>r</code>：替换<br>
+<code>shift+r</code>/<code>R</code>：行替换</p>
+</blockquote>
+<p>可视模式：</p>
+<blockquote>
+<p><code>v</code>：可视模式<br>
+<code>ctrl+v</code>：可视块模式<br>
+<code>shift+v</code>/<code>V</code>：可视行模式</p>
+</blockquote>
+<p>撤销：</p>
+<blockquote>
+<p><code>u</code>：撤销<br>
+<code>ctrl+r</code>：取消撤销</p>
+</blockquote>
+<p>（2）命令行模式中：</p>
+<p>保存与退出</p>
+<blockquote>
+<p><code>:w</code> 保存<br>
+<code>:q</code> 退出 （:qw  保存并退出  :q! 不保存退出）</p>
+</blockquote>
+<p>其他：</p>
+<blockquote>
+<p><code>:set nu</code> 设置行号  （set nonu 取消行号）<br>
+<code>:set mouse=a</code> 设置可以使用鼠标<br>
+<code>:set mouse-=a</code> 设置不能使用鼠标</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>普通模式下， 将光标放在<code>(</code>/<code>[</code>/<code>{</code>上，按下<code>%</code>，光标将会跳到下一个匹配的<code>)</code>/<code>]</code>/<code>}</code>，再次按<code>%</code>，将会跳回去。（可用于调试时查看括号配对）</p>
+</blockquote>
+<p>更具体的可以看 <code>vimtutor</code>(直接在bash输入即可)</p>
+<h3 id="12学会查找">12.学会查找</h3>
+<p>按文件名查找：<br>
+<code>find -name &lt;filename&gt;</code><br>
+这是一个最简单的查找命令，按名字查找当前目录下的文件，查找结果会显示路径。</p>
+<p>按文件内容查找：<br>
+<code>grep xxx &lt;directory&gt;</code><br>
+&quot;xxx&quot; 是你要查找的字符串，<directory>是要查找的目录。当然我们还可以添加选项，如<code>-n</code>显示行号，<code>-i</code>查找时忽略大小写，<code>-v</code>反向查找。其他还可以搭配管道等等应用，但最简单的应用</p>
+<h3 id="参考">参考</h3>
+<p>https://blog.csdn.net/sunlanchang/article/details/52549756</p>
+
+            </div>
+            
+            <div class="prev-post">
+                上一篇
+                <a href="https://ccccj.github.io/lu-li-shu/">
+                    履歴書
+                </a>
+            </div>
+            
+            
+            <div class="next-post">
+                下一篇
+                <a href="https://ccccj.github.io/python-xue-xi-bi-ji/">
+                    python学习笔记
+                </a>
+            </div>
+            
+        </div>
+    </div>
+</body>
+<script>
+    var t_img; // 定时器
+    var isLoad = true; // 控制变量
+    isImgLoad(function () {
+        // 加载完成
+        $('.postdetailimg').css("display", "block");
+    });
+    // 判断图片加载的函数
+    function isImgLoad(callback) {
+        // 注意我的图片类名都是cover，因为我只需要处理cover。其它图片可以不管。
+        // 查找所有封面图，迭代处理
+        $('.postdetailimg').each(function () {
+            // 找到为0就将isLoad设为false，并退出each
+            if (this.height === 0) {
+                isLoad = false;
+                return false;
+            }
+        });
+        // 为true，没有发现为0的。加载完毕
+        if (isLoad) {
+            clearTimeout(t_img); // 清除定时器
+            // 回调函数
+            callback();
+            // 为false，因为找到了没有加载完成的图，将调用定时器递归
+        } else {
+            isLoad = true;
+            t_img = setTimeout(function () {
+                isImgLoad(callback); // 递归扫描
+            }, 500); // 我这里设置的是500毫秒就扫描一次，可以自己调整
+        }
+    }
+</script>
+        <div name="comment" style="background: white">
+            <div class="commentcontainer">
+                
+                <p>请到客户端“主题--自定义配置--valine”中填入ID和KEY</p>
+                
+            </div>
+        </div>
+    </div>
+    <div id="landlord">
+        <div class="message" style="opacity:0"></div>
+        <canvas id="live2d" width="240" height="250" class="live2d"></canvas>
+    </div>
+</body>
+<script>
+    hljs.initHighlightingOnLoad()
+</script>
+<script src="https://ccccj.github.io/media/js/post.js"></script>

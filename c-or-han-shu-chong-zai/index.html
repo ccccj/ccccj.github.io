@@ -1,0 +1,1020 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="目录
+
+
+
+目录
+
+函数重载是什么
+可以构成重载的要求
+
+参数列表的要求
+其他注意点
+
+1、类型需要完全匹配
+2、注意引用
+3、const 指针类型匹配
+
+
+
+
+重载引用参数
+何时采用函数重载
+函数重载的原理
+
+
+
+
+
+
+函数重载是什么
+缺..." />
+    <meta name="keywords" content="" />
+    <link rel="stylesheet" href="https://ccccj.github.io/media/css/bootstrap.min.css">
+    
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.1/build/styles/default.min.css">
+              
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.1/build/highlight.min.js"></script>
+    <link rel="stylesheet" href="https://ccccj.github.io/media/css/live2d.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="https://ccccj.github.io/media/css/bootstrap.min.css">
+    <title>Amon's Homepage</title>
+</head>
+
+<body>
+    <!-- 响应式布局，针对PC端内容显示 -->
+    <div id="content">
+        <div class="nav-large">
+            <div class="row">
+                <div class="side"><html>
+
+<head>
+    <link rel="stylesheet" href="https://ccccj.github.io/styles/main.css">
+    <meta name="description" content="温故而知新" />
+    <title>Document</title>
+</head>
+<style>
+</style>
+
+<body>
+    <div id=side>
+        <div class="avatar-border">
+            <img src="https://ccccj.github.io/images/avatar.png?v=1591258531945" class="avatar">
+        </div>
+        <div class="sitename">Amon&#39;s Homepage</div>
+        <span class="describtion" data-text='["温故而知新"]'>&nbsp;</span>
+        
+        <div class="search">
+            <!-- <input type="text" class="search-input" placeholder="标题搜索(●'◡'●)" /> -->
+            <input type="text" class="search-input" placeholder="标题搜索 ⚆_⚆ つ♡">
+            <div class="search-results"></div>
+        </div>
+        
+    <div class="share-button">
+        <span>社交按钮</span>
+        
+        <a href="https://github.com/ccccj" target="_blank"><i><img class="icon"
+                    src="https://ccccj.github.io/media/images/github.png" alt=""></i></a>
+        
+        
+        <a onclick="showqq()"><i><img class="icon" src="https://ccccj.github.io/media/images/QQ.png" alt=""></i></a>
+        
+        
+        
+        
+        
+    </div>
+    <div id="qq" style="display:none">839808679</div>
+    
+    
+    <div class="mchocie describtion">
+        <a href="/" class="menubutton">
+            home
+        </a>
+    </div>
+    
+    
+    
+    <div class="mchocie describtion">
+        <a href="/archives" class="menubutton">
+            archives
+        </a>
+    </div>
+    
+    
+    
+    <div class="mchocie describtion">
+        <a href="https://github.com/ccccj" class="menubutton">
+            github
+        </a>
+    </div>
+    
+    
+    
+    <div class="mchocie describtion">
+        <a href="https://blog.csdn.net/qq_40873884" class="menubutton">
+            CSDN
+        </a>
+    </div>
+    
+    
+    
+        <div class="mchocie describtion">
+            <a href="https://ccccj.github.io/friends" class="menubutton">友人帐</a>
+        </div>
+    
+    <hr>
+    <div id="footinfo">Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | Theme: <a href="https://github.com/850552586/gridea-theme-fog">Fog</a></div>
+    <div id="sitegotimeDate">载入天数...</div>
+    <div id="sitegotimes">载入时分秒...</div>
+    <div id="cussitetime" style="display:none">02/02/2020</div>
+    </div>
+</body>
+
+</html>
+<script src="https://ccccj.github.io/media/js/wordshow.js"></script>
+<script>
+    //----------------------站点运行时间
+    var now = new Date();
+
+    function createtime() {
+        var sitegotime = document.getElementById("cussitetime").innerHTML + " 00:00:00";
+        var grt = new Date(sitegotime); //此处修改你的建站时间或者网站上线时间 
+        now.setTime(now.getTime() + 250);
+        days = (now - grt) / 1000 / 60 / 60 / 24;
+        dnum = Math.floor(days);
+        hours = (now - grt) / 1000 / 60 / 60 - (24 * dnum);
+        hnum = Math.floor(hours);
+        if (String(hnum).length == 1) {
+            hnum = "0" + hnum;
+        }
+        minutes = (now - grt) / 1000 / 60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes);
+        if (String(mnum).length == 1) {
+            mnum = "0" + mnum;
+        }
+        seconds = (now - grt) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds);
+        if (String(snum).length == 1) {
+            snum = "0" + snum;
+        }
+        document.getElementById("sitegotimeDate").innerHTML = "本站已安全运行 " + dnum + " 天 ";
+        document.getElementById("sitegotimes").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+    }
+    setInterval("createtime()", 250);
+
+    //-------------------------------------------------搜索
+    // 获取搜索框、搜索按钮、清空搜索、结果输出对应的元素
+    var searchInput = document.querySelector('.search-input');
+    var searchResults = document.querySelector('.search-results');
+
+    // 申明保存文章的标题、链接、内容的数组变量
+    var searchValue = '',
+        arrItems = [],
+        arrLinks = [],
+        arrTitles = [],
+        arrResults = [],
+        indexItem = [],
+        itemLength = 0;
+    var tmpDiv = document.createElement('div');
+    tmpDiv.className = 'result-item';
+
+    // ajax 的兼容写法
+    var xhr = new XMLHttpRequest() || new ActiveXObject('Microsoft.XMLHTTP');
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            xml = xhr.responseXML;
+            arrItems = xml.getElementsByTagName('entry');
+            itemLength = arrItems.length;
+            console.log(arrItems);
+            // 遍历并保存所有文章对应的标题、链接、内容到对应的数组中
+            // 同时过滤掉 HTML 标签
+            for (i = 0; i < itemLength; i++) {
+                var link = arrItems[i].getElementsByTagName('link')[0];
+                arrLinks[i] = link.getAttribute("href");
+                arrTitles[i] = arrItems[i].getElementsByTagName('title')[0].
+                childNodes[0].nodeValue.replace(/<.*?>/g, '');
+            }
+        }
+    }
+
+    // 开始获取根目录下 feed.xml 文件内的数据
+    xhr.open('get', '/atom.xml', true);
+    xhr.send();
+
+
+
+    // 输入框内容变化后就开始匹配，可以不用点按钮
+    // 经测试，onkeydown, onchange 等方法效果不太理想，
+    // 存在输入延迟等问题，最后发现触发 input 事件最理想，
+    // 并且可以处理中文输入法拼写的变化
+    searchInput.oninput = function () {
+        setTimeout(searchConfirm, 0);
+    }
+    searchInput.onfocus = function () {
+        searchResults.style.display = 'block';
+    }
+
+    function searchConfirm() {
+        if (searchInput.value == '') {
+            searchResults.style.display = 'none';
+        } else if (searchInput.value.search(/^\s+$/) >= 0) {
+            // 检测输入值全是空白的情况
+            searchInit();
+            var itemDiv = tmpDiv.cloneNode(true);
+            itemDiv.innerText = '请输入有效内容...';
+            searchResults.appendChild(itemDiv);
+        } else {
+            // 合法输入值的情况
+            searchInit();
+            searchValue = searchInput.value;
+            // 在标题、内容中查找
+            searchMatching(arrTitles, searchValue);
+        }
+    }
+
+    // 每次搜索完成后的初始化
+    function searchInit() {
+        arrResults = [];
+        indexItem = [];
+        searchResults.innerHTML = '';
+        searchResults.style.display = 'block';
+    }
+
+    function searchMatching(arr1, input) {
+        // 忽略输入大小写
+        input = new RegExp(input, 'i');
+        // 在所有文章标题、内容中匹配查询值
+        for (i = 0; i < itemLength; i++) {
+            if (arr1[i].search(input) !== -1) {
+                var arr = arr1;
+                indexItem.push(i); // 保存匹配值的索引
+                var indexContent = arr[i].search(input);
+                // 此时 input 为 RegExp 格式 /input/i，转换为原 input 字符串长度
+                var l = input.toString().length - 3;
+                var step = 10;
+
+                // 将匹配到内容的地方进行黄色标记，并包括周围一定数量的文本
+                arrResults.push(arr[i].slice(indexContent - step, indexContent));
+            }
+        }
+
+        // 输出总共匹配到的数目
+        var totalDiv = tmpDiv.cloneNode(true);
+        totalDiv.innerHTML = '<b>总匹配：' + indexItem.length + ' 项<hr></b>';
+        searchResults.appendChild(totalDiv);
+
+        // 未匹配到内容的情况
+        if (indexItem.length == 0) {
+            var itemDiv = tmpDiv.cloneNode(true);
+            itemDiv.innerText = '未匹配到内容...';
+            searchResults.appendChild(itemDiv);
+        }
+
+        // 将所有匹配内容进行组合
+        for (i = 0; i < arrResults.length; i++) {
+            var itemDiv = tmpDiv.cloneNode(true);
+            itemDiv.innerHTML = '<b>[' + arrTitles[indexItem[i]] +
+                ']</b><p>' + arrResults[i] + "</p><hr />";
+            itemDiv.setAttribute('onclick', 'changeHref(arrLinks[indexItem[' + i + ']])');
+            searchResults.appendChild(itemDiv);
+        }
+    }
+
+    function changeHref(href) {
+        location.href = href;
+    }
+
+    function showqq() {
+        var qq = document.getElementById("qq").innerHTML;
+        if (qq != '')
+            alert("博主的QQ联系方式为：" + qq);
+        else
+            alert("博主暂未设置QQ联系方式");
+    }
+</script></div>
+                <div id="tab1" class="tab">
+                    <div class="bars">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <div class="close"></div>
+                </div>
+                <div id="main" class="col-xs-12 col-sm-7">
+                    <link rel="stylesheet" href="https://ccccj.github.io/media/css/font-awesome.css">
+<style>
+
+</style>
+
+<body>
+    <div class="allcontent">
+        <div class="postshow">
+            
+            <div class="postdetailimg" style="width:100%;overflow: hidden;display: none">
+                <img src="https://ccccj.github.io/post-images/c-or-han-shu-chong-zai.png" class="postimage" style="cursor:auto">
+            </div>
+            <div class="postinfo">
+                <div class="postdate"><i class="fa fa-calendar"></i>2018-04-05</div>
+                <div class="poststatus postdate"><i class="fa fa-clock-o"></i> 10 min read</div>
+                <div class="posttag">
+                    
+                </div>
+            </div>
+            
+            <div id="texttitle" style="text-align: center">
+                <h2>C++ | 函数重载</h2>
+            </div>
+            <div class="text ">
+                <h2 id="目录">目录</h2>
+<p><ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#%E7%9B%AE%E5%BD%95">目录</a>
+<ul>
+<li><a href="#%E5%87%BD%E6%95%B0%E9%87%8D%E8%BD%BD%E6%98%AF%E4%BB%80%E4%B9%88">函数重载是什么</a></li>
+<li><a href="#%E5%8F%AF%E4%BB%A5%E6%9E%84%E6%88%90%E9%87%8D%E8%BD%BD%E7%9A%84%E8%A6%81%E6%B1%82">可以构成重载的要求</a>
+<ul>
+<li><a href="#%E5%8F%82%E6%95%B0%E5%88%97%E8%A1%A8%E7%9A%84%E8%A6%81%E6%B1%82">参数列表的要求</a></li>
+<li><a href="#%E5%85%B6%E4%BB%96%E6%B3%A8%E6%84%8F%E7%82%B9">其他注意点</a>
+<ul>
+<li><a href="#1-%E7%B1%BB%E5%9E%8B%E9%9C%80%E8%A6%81%E5%AE%8C%E5%85%A8%E5%8C%B9%E9%85%8D">1、类型需要完全匹配</a></li>
+<li><a href="#2-%E6%B3%A8%E6%84%8F%E5%BC%95%E7%94%A8">2、注意引用</a></li>
+<li><a href="#3-const-%E6%8C%87%E9%92%88%E7%B1%BB%E5%9E%8B%E5%8C%B9%E9%85%8D">3、const 指针类型匹配</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#%E9%87%8D%E8%BD%BD%E5%BC%95%E7%94%A8%E5%8F%82%E6%95%B0">重载引用参数</a></li>
+<li><a href="#%E4%BD%95%E6%97%B6%E9%87%87%E7%94%A8%E5%87%BD%E6%95%B0%E9%87%8D%E8%BD%BD">何时采用函数重载</a></li>
+<li><a href="#%E5%87%BD%E6%95%B0%E9%87%8D%E8%BD%BD%E7%9A%84%E5%8E%9F%E7%90%86">函数重载的原理</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</p>
+<h3 id="函数重载是什么">函数重载是什么</h3>
+<p><strong>缺省参数</strong>让我们在参数数目不同时可以调用同一个函数（不清楚的可以看下我 C++ 零碎知识点集合 那篇博客），而<strong>函数重载</strong>让我们能够使用多个<strong>同名函数</strong>。</p>
+<hr>
+<p>（其实写完这篇博客，觉得举这个例子不是很好..因为很多人并不是像我一样，先接触了 STL 再学习的 C++，看这篇博客的很多人应该并不理解 vector 之类的...然而已经写完了...）</p>
+<p>第一次接触函数缺省参数应该是在使用 STL 的各种容器的时候，那时候还没开始学 C++，但是一直听说做题的时候容器很好用，就试着用了下。当时第一个用的是 vector，对于它的构造方法觉得惊为天人...<br>
+（其实这里举这个例子可能会有些听不懂...虽然可以再讲很多别的例子..但是对我印象最深刻的函数重载就是这个= =）</p>
+<p>刚才特地去 cplusplus 上验证了下到底是重载还是参数缺省..事实证明就是重载..推荐大家多用这个网站..真的好用<sup>o</sup></p>
+<figure data-type="image" tabindex="1"><img src="https://img-blog.csdn.net/2018040513113615?" alt="vector" loading="lazy"></figure>
+<p>关于 const allocator_type&amp; alloc 这个参数我们暂时不用管（百度了下是模板..然而没学过..只能暂时不管了...），只需要看其他的即可 。<br>
+这里声明了几个的 vector 的构造函数，从这也能看出传参方式不同：</p>
+<blockquote>
+<p>1.无参数；<br>
+2.传一个 n 来设定 vector 的初始元素个数；<br>
+3.传 n 设定元素个数，传 value 设定每个元素的初始值；<br>
+4.是拷贝构造，传入一个 vector 的对象；<br>
+5.传两个迭代器，设定第一个元素的地址与最后一个元素的下一位置的地址。</p>
+</blockquote>
+<p>暂时只能看懂以上构造函数，但是也可以说明一个问题，那就是，<strong>当我们传入的参数不同时，所调用的函数也会不同</strong>。</p>
+<figure data-type="image" tabindex="2"><img src="https://img-blog.csdn.net/20180405132306163?" alt="构造方法" loading="lazy"></figure>
+<p>这里是几个构造方法的例子，分别对应了我上面所举的例子的 1、3、5、4 这四种方法。</p>
+<p>到这里有没有稍微明白一点<strong>函数重载</strong>到底是什么呢？</p>
+<blockquote>
+<p>函数重载即，我们设计一系列函数——他们有相同的函数名，并且完成相同的工作，但有不同的参数列表。</p>
+</blockquote>
+<p>C++ 相对于 C 引入了函数重载，很方便的解决了我们很多问题，就像之前那个 vector 的几种构造方法一样，他们略微有一些差异，但最终实现的功能是一样的，我们可以根据他们的功能来记住这一类函数的名字，但若是每个函数都有不同的名字，调用时便会很不方便。</p>
+<h3 id="可以构成重载的要求">可以构成重载的要求</h3>
+<h4 id="参数列表的要求">参数列表的要求</h4>
+<p>但不是所有函数都可以重名的。函数重载也有前提：<strong>参数列表不同</strong>。<br>
+函数的<strong>参数列表</strong>也成为<strong>函数特征标</strong>。他由三个特性构成：<br>
+1.<strong>参数数目和类型</strong><br>
+2.<strong>参数的排列顺序</strong><br>
+也就是说，有两个函数，在这两点中有任意一点不同，我们称其参数列表（特征标）不同。</p>
+<p>注意，我们所说的是要求参数列表（特征标）不同，而不是函数类型不同，以下这两个声明是<strong>互斥</strong>的：</p>
+<pre><code>int test(int x);
+double test(int x);
+</code></pre>
+<p>但是当参数列表不同时，返回类型可以不同：</p>
+<pre><code>int test(int x);
+double test(float x);
+</code></pre>
+<p><strong>总结</strong>：需要使用函数重载，其参数列表必须不同，而返回类型可不同也可相同（具体原因后面会讲）。</p>
+<h4 id="其他注意点">其他注意点</h4>
+<h5 id="1-类型需要完全匹配">1、类型需要完全匹配</h5>
+<p>在使用时有很多地方需要我们注意：</p>
+<pre><code>	void test(int a); 
+	void test(float f);
+</code></pre>
+<p>这时候如果调用：</p>
+<pre><code>double t = 1;
+test(t);
+</code></pre>
+<p>当 test 函数没有重载时，传入参数类型若不匹配，编译器便会将类型强转，然而现在有了两种转换 t 的方式，编译器便会将其视为错误。</p>
+<h5 id="2-注意引用">2、注意引用</h5>
+<p>另外，有些看起来彼此不同的参数列表是不能共存的：</p>
+<pre><code>void test(int x);
+void test(int&amp; x);
+</code></pre>
+<p>的确，您可能认为他们参数列表不同，可是换一种考虑方式：当您调用</p>
+<pre><code>    int a = 1;
+    test(a);
+</code></pre>
+<p>这时候两个函数都匹配，又让编译器去调用哪个呢？为了避免这种情况，编译器在检查函数特征标时，将类型本身与类型引用视为同一特征标。</p>
+<h5 id="3-const-指针类型匹配">3、const 指针类型匹配</h5>
+<p>看下面一个简单的例子：</p>
+<pre><code>void test(const char* s) {
+    cout &lt;&lt; &quot;test1&quot; &lt;&lt; endl;
+}
+
+void test(char* s) {
+    cout &lt;&lt; &quot;test2&quot; &lt;&lt; endl;
+}
+
+int main() {
+    const char a[] = &quot;hello&quot;;
+    char b[] = &quot;hello&quot;;
+    test(a);
+    test(b);
+    return 0;
+}
+</code></pre>
+<p>输出结果：</p>
+<blockquote>
+<p>test1<br>
+test2</p>
+</blockquote>
+<p>可以看出，const 修饰的参数会与 const 类型匹配，而非 const 参数与非 const 类型匹配，但是注意，若不是指针，而是普通变量，编译器则会报错：</p>
+<pre><code>void test(int x);
+void test(const int x);
+</code></pre>
+<p>上面的代码编译器会提示你函数重定义，说明编译器并不区分const变量与非const变量（我的猜测是，无论是不是const变量，对于原变量，都不会修改，因为参数是原本参数的一份拷贝，因此，除指针和引用外的变量，是不是const变量都无所谓）。</p>
+<h3 id="重载引用参数">重载引用参数</h3>
+<p>在C++中经常用到引用，因此重载引用参数也值得探讨。</p>
+<pre><code>void test(double &amp; x);
+void test(const double &amp; x);
+void test(double &amp;&amp; x);
+</code></pre>
+<p>可能有人是第一次见两个引用符号...比如我...<br>
+下面具体解释下这三种参数对应的传参：</p>
+<ol>
+<li>形参为 可变的左值；</li>
+<li>形参为 可变的左值、不可变的左值 或 右值</li>
+<li>形参为 右值（最后这个书上说 rvalue，但翻译又说是左值，怀疑是写错了）。</li>
+</ol>
+<p>可以发现，可变的左值既可匹配 1 也可匹配 2；右值既可匹配 2 又可匹配 3；那么到底如何匹配呢？<br>
+答案是：选择最匹配的。<br>
+看下面一个对比就明白了：</p>
+<pre><code>void test(double&amp; x) {
+    cout &lt;&lt; &quot;test1&quot; &lt;&lt; endl;
+}
+
+void test(const double&amp; x) {
+    cout &lt;&lt; &quot;test2&quot; &lt;&lt; endl;
+}
+
+void test(double&amp;&amp; x) {
+    cout &lt;&lt; &quot;test3&quot; &lt;&lt; endl;
+}
+
+int main() {
+    double a = 1;
+    const double b = 2;
+    test(a);
+    test(b);
+    test(a + b);
+    return 0;
+}
+</code></pre>
+<p>答案：</p>
+<blockquote>
+<p>test1<br>
+test2<br>
+test3</p>
+</blockquote>
+<p>这里 a 为左值，所以匹配最匹配的 test1，b 为不可变的左值，所以匹配 test2， a+b 为右值，所以匹配最匹配的 test3。而下一个例子则不是：</p>
+<pre><code>void test(const double&amp; x) {
+    cout &lt;&lt; &quot;test2&quot; &lt;&lt; endl;
+}
+
+int main() {
+    double a = 1;
+    const double b = 2;
+    test(a);
+    test(b);
+    test(a + b);
+    return 0;
+}
+</code></pre>
+<p>答案：</p>
+<blockquote>
+<p>test2<br>
+test2<br>
+test2</p>
+</blockquote>
+<p>这里的三个答案均为 test2，是因为 a 和 a+b 没有最原本那两个选择，最匹配的变为了 test2。这就是<strong>选择最匹配</strong>的意思。</p>
+<h3 id="何时采用函数重载">何时采用函数重载</h3>
+<p>当我们的函数将执行相同的任务，但使用不同形式的数据时，可采用函数重载。当然，并不是所有时候都需要用到函数重载，有些地方用缺省参数会更方便些。</p>
+<h3 id="函数重载的原理">函数重载的原理</h3>
+<p>想要明白函数的原理，就需要先明白<strong>名称修饰</strong>（名称矫正）。什么是名称修饰呢？<br>
+我们的编译器在<strong>编译</strong>阶段，将函数名进行了修饰，将其从原本的函数名，变为了修饰后的修饰名。在调用函数的时候，并不是按函数名去直接调用函数的，而是按照<strong>修饰名</strong>去调用函数。<br>
+那么C++是如何对函数名进行修饰的呢？来看一个例子：</p>
+<pre><code>void test(int a, float b) {
+	// ...
+}
+
+int main() {
+	test(1, 2);
+	return 0;
+}
+</code></pre>
+<p>一段简单的代码，我们分别在 c 和 c++ 中运行，查看其汇编代码。<br>
+linux 下执行以下语句来查看：</p>
+<blockquote>
+<p>objdump -D a.out | grep &quot;test&quot;<br>
+a.out：是我生成的可执行文件名，如果不是这个名字，可修改下；<br>
+grep：由于汇编代码有点长..我就写了辣么几行代码就有好多啊..干脆就通过管道找起来方便点...</p>
+</blockquote>
+<p>c的结果：<br>
+<img src="https://img-blog.csdn.net/20180405172057234?" alt="c" loading="lazy"><br>
+c++的结果：<br>
+<img src="https://img-blog.csdn.net/20180405172109749?" alt="c++" loading="lazy"></p>
+<p>可以看出，test 这一函数，在 c 与 c++ 汇编中的名字是不同的，c++ 对其进行的名称修饰，将原本的名字前面加了 <strong>4</strong>，表示函数名的长度为 4；test 后面加了 <strong>i</strong> 和 <strong>f</strong> ，表示第一个参数类型为 int ，第二个参数类型为 float。（当然，不同的编译器命名规则也不同）<br>
+因此也就可以解释，当我们的函数名相同时，参数类型不同，或其顺序不同时，参数列表也就不同了。</p>
+<p>从中也可以看出，这在 c 中是不适用的，因为其未对函数名进行修饰，所有相同名字的函数，即使参数列表不同，在汇编中的名字是相同的。<br>
+所以，在<strong>链接</strong>这一阶段，便会报错，产生链接错误。</p>
+
+            </div>
+            
+            <div class="prev-post">
+                上一篇
+                <a href="https://ccccj.github.io/python-xue-xi-bi-ji/">
+                    python学习笔记
+                </a>
+            </div>
+            
+            
+            <div class="next-post">
+                下一篇
+                <a href="https://ccccj.github.io/c-or-yin-yong-bian-liang/">
+                    C++ | 引用变量
+                </a>
+            </div>
+            
+        </div>
+    </div>
+</body>
+<script>
+    var t_img; // 定时器
+    var isLoad = true; // 控制变量
+    isImgLoad(function () {
+        // 加载完成
+        $('.postdetailimg').css("display", "block");
+    });
+    // 判断图片加载的函数
+    function isImgLoad(callback) {
+        // 注意我的图片类名都是cover，因为我只需要处理cover。其它图片可以不管。
+        // 查找所有封面图，迭代处理
+        $('.postdetailimg').each(function () {
+            // 找到为0就将isLoad设为false，并退出each
+            if (this.height === 0) {
+                isLoad = false;
+                return false;
+            }
+        });
+        // 为true，没有发现为0的。加载完毕
+        if (isLoad) {
+            clearTimeout(t_img); // 清除定时器
+            // 回调函数
+            callback();
+            // 为false，因为找到了没有加载完成的图，将调用定时器递归
+        } else {
+            isLoad = true;
+            t_img = setTimeout(function () {
+                isImgLoad(callback); // 递归扫描
+            }, 500); // 我这里设置的是500毫秒就扫描一次，可以自己调整
+        }
+    }
+</script>
+                    <div name="comment" style="background: white">
+                        <div class="commentcontainer">
+                            
+                            <p>请到客户端“主题--自定义配置--valine”中填入ID和KEY</p>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="toc-container">
+                    <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#%E7%9B%AE%E5%BD%95">目录</a>
+<ul>
+<li><a href="#%E5%87%BD%E6%95%B0%E9%87%8D%E8%BD%BD%E6%98%AF%E4%BB%80%E4%B9%88">函数重载是什么</a></li>
+<li><a href="#%E5%8F%AF%E4%BB%A5%E6%9E%84%E6%88%90%E9%87%8D%E8%BD%BD%E7%9A%84%E8%A6%81%E6%B1%82">可以构成重载的要求</a>
+<ul>
+<li><a href="#%E5%8F%82%E6%95%B0%E5%88%97%E8%A1%A8%E7%9A%84%E8%A6%81%E6%B1%82">参数列表的要求</a></li>
+<li><a href="#%E5%85%B6%E4%BB%96%E6%B3%A8%E6%84%8F%E7%82%B9">其他注意点</a>
+<ul>
+<li><a href="#1-%E7%B1%BB%E5%9E%8B%E9%9C%80%E8%A6%81%E5%AE%8C%E5%85%A8%E5%8C%B9%E9%85%8D">1、类型需要完全匹配</a></li>
+<li><a href="#2-%E6%B3%A8%E6%84%8F%E5%BC%95%E7%94%A8">2、注意引用</a></li>
+<li><a href="#3-const-%E6%8C%87%E9%92%88%E7%B1%BB%E5%9E%8B%E5%8C%B9%E9%85%8D">3、const 指针类型匹配</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#%E9%87%8D%E8%BD%BD%E5%BC%95%E7%94%A8%E5%8F%82%E6%95%B0">重载引用参数</a></li>
+<li><a href="#%E4%BD%95%E6%97%B6%E9%87%87%E7%94%A8%E5%87%BD%E6%95%B0%E9%87%8D%E8%BD%BD">何时采用函数重载</a></li>
+<li><a href="#%E5%87%BD%E6%95%B0%E9%87%8D%E8%BD%BD%E7%9A%84%E5%8E%9F%E7%90%86">函数重载的原理</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+                </div>
+            </div>
+        </div>
+        <div id="bg">
+        </div>
+        <div id="bgurl" style="display:none">/media/images/custom-bgimage.png</div>
+    </div>
+    <!-- 响应式布局，针对手机端内容显示 -->
+    <div class="nav-small">
+        <head>
+
+  <!-- 引入Bootstrap核心样式文件 -->
+  <link rel="stylesheet" href="https://ccccj.github.io/media/css/bootstrap.min.css">
+</head>
+
+<body>
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+          data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">Amon&#39;s Homepage&nbsp;&nbsp;|</a>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          
+          
+          <li>
+            <a href="/">
+              home
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/archives">
+              archives
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="https://github.com/ccccj">
+              github
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="https://blog.csdn.net/qq_40873884">
+              CSDN
+            </a>
+          </li>
+          
+          
+          
+          <li><a href="https://ccccj.github.io/friends">友链</a></li>
+
+          
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+
+
+  <!-- 引入jQuery核心js文件 -->
+  <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+  <!-- 引入BootStrap核心js文件 -->
+  <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+        <div style="margin-top:30px"></div>
+        <link rel="stylesheet" href="https://ccccj.github.io/media/css/font-awesome.css">
+<style>
+
+</style>
+
+<body>
+    <div class="allcontent">
+        <div class="postshow">
+            
+            <div class="postdetailimg" style="width:100%;overflow: hidden;display: none">
+                <img src="https://ccccj.github.io/post-images/c-or-han-shu-chong-zai.png" class="postimage" style="cursor:auto">
+            </div>
+            <div class="postinfo">
+                <div class="postdate"><i class="fa fa-calendar"></i>2018-04-05</div>
+                <div class="poststatus postdate"><i class="fa fa-clock-o"></i> 10 min read</div>
+                <div class="posttag">
+                    
+                </div>
+            </div>
+            
+            <div id="texttitle" style="text-align: center">
+                <h2>C++ | 函数重载</h2>
+            </div>
+            <div class="text ">
+                <h2 id="目录">目录</h2>
+<p><ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#%E7%9B%AE%E5%BD%95">目录</a>
+<ul>
+<li><a href="#%E5%87%BD%E6%95%B0%E9%87%8D%E8%BD%BD%E6%98%AF%E4%BB%80%E4%B9%88">函数重载是什么</a></li>
+<li><a href="#%E5%8F%AF%E4%BB%A5%E6%9E%84%E6%88%90%E9%87%8D%E8%BD%BD%E7%9A%84%E8%A6%81%E6%B1%82">可以构成重载的要求</a>
+<ul>
+<li><a href="#%E5%8F%82%E6%95%B0%E5%88%97%E8%A1%A8%E7%9A%84%E8%A6%81%E6%B1%82">参数列表的要求</a></li>
+<li><a href="#%E5%85%B6%E4%BB%96%E6%B3%A8%E6%84%8F%E7%82%B9">其他注意点</a>
+<ul>
+<li><a href="#1-%E7%B1%BB%E5%9E%8B%E9%9C%80%E8%A6%81%E5%AE%8C%E5%85%A8%E5%8C%B9%E9%85%8D">1、类型需要完全匹配</a></li>
+<li><a href="#2-%E6%B3%A8%E6%84%8F%E5%BC%95%E7%94%A8">2、注意引用</a></li>
+<li><a href="#3-const-%E6%8C%87%E9%92%88%E7%B1%BB%E5%9E%8B%E5%8C%B9%E9%85%8D">3、const 指针类型匹配</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#%E9%87%8D%E8%BD%BD%E5%BC%95%E7%94%A8%E5%8F%82%E6%95%B0">重载引用参数</a></li>
+<li><a href="#%E4%BD%95%E6%97%B6%E9%87%87%E7%94%A8%E5%87%BD%E6%95%B0%E9%87%8D%E8%BD%BD">何时采用函数重载</a></li>
+<li><a href="#%E5%87%BD%E6%95%B0%E9%87%8D%E8%BD%BD%E7%9A%84%E5%8E%9F%E7%90%86">函数重载的原理</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</p>
+<h3 id="函数重载是什么">函数重载是什么</h3>
+<p><strong>缺省参数</strong>让我们在参数数目不同时可以调用同一个函数（不清楚的可以看下我 C++ 零碎知识点集合 那篇博客），而<strong>函数重载</strong>让我们能够使用多个<strong>同名函数</strong>。</p>
+<hr>
+<p>（其实写完这篇博客，觉得举这个例子不是很好..因为很多人并不是像我一样，先接触了 STL 再学习的 C++，看这篇博客的很多人应该并不理解 vector 之类的...然而已经写完了...）</p>
+<p>第一次接触函数缺省参数应该是在使用 STL 的各种容器的时候，那时候还没开始学 C++，但是一直听说做题的时候容器很好用，就试着用了下。当时第一个用的是 vector，对于它的构造方法觉得惊为天人...<br>
+（其实这里举这个例子可能会有些听不懂...虽然可以再讲很多别的例子..但是对我印象最深刻的函数重载就是这个= =）</p>
+<p>刚才特地去 cplusplus 上验证了下到底是重载还是参数缺省..事实证明就是重载..推荐大家多用这个网站..真的好用<sup>o</sup></p>
+<figure data-type="image" tabindex="1"><img src="https://img-blog.csdn.net/2018040513113615?" alt="vector" loading="lazy"></figure>
+<p>关于 const allocator_type&amp; alloc 这个参数我们暂时不用管（百度了下是模板..然而没学过..只能暂时不管了...），只需要看其他的即可 。<br>
+这里声明了几个的 vector 的构造函数，从这也能看出传参方式不同：</p>
+<blockquote>
+<p>1.无参数；<br>
+2.传一个 n 来设定 vector 的初始元素个数；<br>
+3.传 n 设定元素个数，传 value 设定每个元素的初始值；<br>
+4.是拷贝构造，传入一个 vector 的对象；<br>
+5.传两个迭代器，设定第一个元素的地址与最后一个元素的下一位置的地址。</p>
+</blockquote>
+<p>暂时只能看懂以上构造函数，但是也可以说明一个问题，那就是，<strong>当我们传入的参数不同时，所调用的函数也会不同</strong>。</p>
+<figure data-type="image" tabindex="2"><img src="https://img-blog.csdn.net/20180405132306163?" alt="构造方法" loading="lazy"></figure>
+<p>这里是几个构造方法的例子，分别对应了我上面所举的例子的 1、3、5、4 这四种方法。</p>
+<p>到这里有没有稍微明白一点<strong>函数重载</strong>到底是什么呢？</p>
+<blockquote>
+<p>函数重载即，我们设计一系列函数——他们有相同的函数名，并且完成相同的工作，但有不同的参数列表。</p>
+</blockquote>
+<p>C++ 相对于 C 引入了函数重载，很方便的解决了我们很多问题，就像之前那个 vector 的几种构造方法一样，他们略微有一些差异，但最终实现的功能是一样的，我们可以根据他们的功能来记住这一类函数的名字，但若是每个函数都有不同的名字，调用时便会很不方便。</p>
+<h3 id="可以构成重载的要求">可以构成重载的要求</h3>
+<h4 id="参数列表的要求">参数列表的要求</h4>
+<p>但不是所有函数都可以重名的。函数重载也有前提：<strong>参数列表不同</strong>。<br>
+函数的<strong>参数列表</strong>也成为<strong>函数特征标</strong>。他由三个特性构成：<br>
+1.<strong>参数数目和类型</strong><br>
+2.<strong>参数的排列顺序</strong><br>
+也就是说，有两个函数，在这两点中有任意一点不同，我们称其参数列表（特征标）不同。</p>
+<p>注意，我们所说的是要求参数列表（特征标）不同，而不是函数类型不同，以下这两个声明是<strong>互斥</strong>的：</p>
+<pre><code>int test(int x);
+double test(int x);
+</code></pre>
+<p>但是当参数列表不同时，返回类型可以不同：</p>
+<pre><code>int test(int x);
+double test(float x);
+</code></pre>
+<p><strong>总结</strong>：需要使用函数重载，其参数列表必须不同，而返回类型可不同也可相同（具体原因后面会讲）。</p>
+<h4 id="其他注意点">其他注意点</h4>
+<h5 id="1-类型需要完全匹配">1、类型需要完全匹配</h5>
+<p>在使用时有很多地方需要我们注意：</p>
+<pre><code>	void test(int a); 
+	void test(float f);
+</code></pre>
+<p>这时候如果调用：</p>
+<pre><code>double t = 1;
+test(t);
+</code></pre>
+<p>当 test 函数没有重载时，传入参数类型若不匹配，编译器便会将类型强转，然而现在有了两种转换 t 的方式，编译器便会将其视为错误。</p>
+<h5 id="2-注意引用">2、注意引用</h5>
+<p>另外，有些看起来彼此不同的参数列表是不能共存的：</p>
+<pre><code>void test(int x);
+void test(int&amp; x);
+</code></pre>
+<p>的确，您可能认为他们参数列表不同，可是换一种考虑方式：当您调用</p>
+<pre><code>    int a = 1;
+    test(a);
+</code></pre>
+<p>这时候两个函数都匹配，又让编译器去调用哪个呢？为了避免这种情况，编译器在检查函数特征标时，将类型本身与类型引用视为同一特征标。</p>
+<h5 id="3-const-指针类型匹配">3、const 指针类型匹配</h5>
+<p>看下面一个简单的例子：</p>
+<pre><code>void test(const char* s) {
+    cout &lt;&lt; &quot;test1&quot; &lt;&lt; endl;
+}
+
+void test(char* s) {
+    cout &lt;&lt; &quot;test2&quot; &lt;&lt; endl;
+}
+
+int main() {
+    const char a[] = &quot;hello&quot;;
+    char b[] = &quot;hello&quot;;
+    test(a);
+    test(b);
+    return 0;
+}
+</code></pre>
+<p>输出结果：</p>
+<blockquote>
+<p>test1<br>
+test2</p>
+</blockquote>
+<p>可以看出，const 修饰的参数会与 const 类型匹配，而非 const 参数与非 const 类型匹配，但是注意，若不是指针，而是普通变量，编译器则会报错：</p>
+<pre><code>void test(int x);
+void test(const int x);
+</code></pre>
+<p>上面的代码编译器会提示你函数重定义，说明编译器并不区分const变量与非const变量（我的猜测是，无论是不是const变量，对于原变量，都不会修改，因为参数是原本参数的一份拷贝，因此，除指针和引用外的变量，是不是const变量都无所谓）。</p>
+<h3 id="重载引用参数">重载引用参数</h3>
+<p>在C++中经常用到引用，因此重载引用参数也值得探讨。</p>
+<pre><code>void test(double &amp; x);
+void test(const double &amp; x);
+void test(double &amp;&amp; x);
+</code></pre>
+<p>可能有人是第一次见两个引用符号...比如我...<br>
+下面具体解释下这三种参数对应的传参：</p>
+<ol>
+<li>形参为 可变的左值；</li>
+<li>形参为 可变的左值、不可变的左值 或 右值</li>
+<li>形参为 右值（最后这个书上说 rvalue，但翻译又说是左值，怀疑是写错了）。</li>
+</ol>
+<p>可以发现，可变的左值既可匹配 1 也可匹配 2；右值既可匹配 2 又可匹配 3；那么到底如何匹配呢？<br>
+答案是：选择最匹配的。<br>
+看下面一个对比就明白了：</p>
+<pre><code>void test(double&amp; x) {
+    cout &lt;&lt; &quot;test1&quot; &lt;&lt; endl;
+}
+
+void test(const double&amp; x) {
+    cout &lt;&lt; &quot;test2&quot; &lt;&lt; endl;
+}
+
+void test(double&amp;&amp; x) {
+    cout &lt;&lt; &quot;test3&quot; &lt;&lt; endl;
+}
+
+int main() {
+    double a = 1;
+    const double b = 2;
+    test(a);
+    test(b);
+    test(a + b);
+    return 0;
+}
+</code></pre>
+<p>答案：</p>
+<blockquote>
+<p>test1<br>
+test2<br>
+test3</p>
+</blockquote>
+<p>这里 a 为左值，所以匹配最匹配的 test1，b 为不可变的左值，所以匹配 test2， a+b 为右值，所以匹配最匹配的 test3。而下一个例子则不是：</p>
+<pre><code>void test(const double&amp; x) {
+    cout &lt;&lt; &quot;test2&quot; &lt;&lt; endl;
+}
+
+int main() {
+    double a = 1;
+    const double b = 2;
+    test(a);
+    test(b);
+    test(a + b);
+    return 0;
+}
+</code></pre>
+<p>答案：</p>
+<blockquote>
+<p>test2<br>
+test2<br>
+test2</p>
+</blockquote>
+<p>这里的三个答案均为 test2，是因为 a 和 a+b 没有最原本那两个选择，最匹配的变为了 test2。这就是<strong>选择最匹配</strong>的意思。</p>
+<h3 id="何时采用函数重载">何时采用函数重载</h3>
+<p>当我们的函数将执行相同的任务，但使用不同形式的数据时，可采用函数重载。当然，并不是所有时候都需要用到函数重载，有些地方用缺省参数会更方便些。</p>
+<h3 id="函数重载的原理">函数重载的原理</h3>
+<p>想要明白函数的原理，就需要先明白<strong>名称修饰</strong>（名称矫正）。什么是名称修饰呢？<br>
+我们的编译器在<strong>编译</strong>阶段，将函数名进行了修饰，将其从原本的函数名，变为了修饰后的修饰名。在调用函数的时候，并不是按函数名去直接调用函数的，而是按照<strong>修饰名</strong>去调用函数。<br>
+那么C++是如何对函数名进行修饰的呢？来看一个例子：</p>
+<pre><code>void test(int a, float b) {
+	// ...
+}
+
+int main() {
+	test(1, 2);
+	return 0;
+}
+</code></pre>
+<p>一段简单的代码，我们分别在 c 和 c++ 中运行，查看其汇编代码。<br>
+linux 下执行以下语句来查看：</p>
+<blockquote>
+<p>objdump -D a.out | grep &quot;test&quot;<br>
+a.out：是我生成的可执行文件名，如果不是这个名字，可修改下；<br>
+grep：由于汇编代码有点长..我就写了辣么几行代码就有好多啊..干脆就通过管道找起来方便点...</p>
+</blockquote>
+<p>c的结果：<br>
+<img src="https://img-blog.csdn.net/20180405172057234?" alt="c" loading="lazy"><br>
+c++的结果：<br>
+<img src="https://img-blog.csdn.net/20180405172109749?" alt="c++" loading="lazy"></p>
+<p>可以看出，test 这一函数，在 c 与 c++ 汇编中的名字是不同的，c++ 对其进行的名称修饰，将原本的名字前面加了 <strong>4</strong>，表示函数名的长度为 4；test 后面加了 <strong>i</strong> 和 <strong>f</strong> ，表示第一个参数类型为 int ，第二个参数类型为 float。（当然，不同的编译器命名规则也不同）<br>
+因此也就可以解释，当我们的函数名相同时，参数类型不同，或其顺序不同时，参数列表也就不同了。</p>
+<p>从中也可以看出，这在 c 中是不适用的，因为其未对函数名进行修饰，所有相同名字的函数，即使参数列表不同，在汇编中的名字是相同的。<br>
+所以，在<strong>链接</strong>这一阶段，便会报错，产生链接错误。</p>
+
+            </div>
+            
+            <div class="prev-post">
+                上一篇
+                <a href="https://ccccj.github.io/python-xue-xi-bi-ji/">
+                    python学习笔记
+                </a>
+            </div>
+            
+            
+            <div class="next-post">
+                下一篇
+                <a href="https://ccccj.github.io/c-or-yin-yong-bian-liang/">
+                    C++ | 引用变量
+                </a>
+            </div>
+            
+        </div>
+    </div>
+</body>
+<script>
+    var t_img; // 定时器
+    var isLoad = true; // 控制变量
+    isImgLoad(function () {
+        // 加载完成
+        $('.postdetailimg').css("display", "block");
+    });
+    // 判断图片加载的函数
+    function isImgLoad(callback) {
+        // 注意我的图片类名都是cover，因为我只需要处理cover。其它图片可以不管。
+        // 查找所有封面图，迭代处理
+        $('.postdetailimg').each(function () {
+            // 找到为0就将isLoad设为false，并退出each
+            if (this.height === 0) {
+                isLoad = false;
+                return false;
+            }
+        });
+        // 为true，没有发现为0的。加载完毕
+        if (isLoad) {
+            clearTimeout(t_img); // 清除定时器
+            // 回调函数
+            callback();
+            // 为false，因为找到了没有加载完成的图，将调用定时器递归
+        } else {
+            isLoad = true;
+            t_img = setTimeout(function () {
+                isImgLoad(callback); // 递归扫描
+            }, 500); // 我这里设置的是500毫秒就扫描一次，可以自己调整
+        }
+    }
+</script>
+        <div name="comment" style="background: white">
+            <div class="commentcontainer">
+                
+                <p>请到客户端“主题--自定义配置--valine”中填入ID和KEY</p>
+                
+            </div>
+        </div>
+    </div>
+    <div id="landlord">
+        <div class="message" style="opacity:0"></div>
+        <canvas id="live2d" width="240" height="250" class="live2d"></canvas>
+    </div>
+</body>
+<script>
+    hljs.initHighlightingOnLoad()
+</script>
+<script src="https://ccccj.github.io/media/js/post.js"></script>

@@ -1,0 +1,1125 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="目录：
+
+
+
+目录：
+C语言操作符分类总结：
+一、算数操作符
+二、移位操作符
+*
+
+移动规律：
+大小的变化：
+
+
+三、位操作符
+四、赋值操作符 =
+五、单目操作符
+六、关系操作符
+七、逻辑操作符
+八、条件操作符（三目操作符）
+九、逗号表达式..." />
+    <meta name="keywords" content="" />
+    <link rel="stylesheet" href="https://ccccj.github.io/media/css/bootstrap.min.css">
+    
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.1/build/styles/default.min.css">
+              
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.1/build/highlight.min.js"></script>
+    <link rel="stylesheet" href="https://ccccj.github.io/media/css/live2d.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="https://ccccj.github.io/media/css/bootstrap.min.css">
+    <title>Amon's Homepage</title>
+</head>
+
+<body>
+    <!-- 响应式布局，针对PC端内容显示 -->
+    <div id="content">
+        <div class="nav-large">
+            <div class="row">
+                <div class="side"><html>
+
+<head>
+    <link rel="stylesheet" href="https://ccccj.github.io/styles/main.css">
+    <meta name="description" content="温故而知新" />
+    <title>Document</title>
+</head>
+<style>
+</style>
+
+<body>
+    <div id=side>
+        <div class="avatar-border">
+            <img src="https://ccccj.github.io/images/avatar.png?v=1591258531945" class="avatar">
+        </div>
+        <div class="sitename">Amon&#39;s Homepage</div>
+        <span class="describtion" data-text='["温故而知新"]'>&nbsp;</span>
+        
+        <div class="search">
+            <!-- <input type="text" class="search-input" placeholder="标题搜索(●'◡'●)" /> -->
+            <input type="text" class="search-input" placeholder="标题搜索 ⚆_⚆ つ♡">
+            <div class="search-results"></div>
+        </div>
+        
+    <div class="share-button">
+        <span>社交按钮</span>
+        
+        <a href="https://github.com/ccccj" target="_blank"><i><img class="icon"
+                    src="https://ccccj.github.io/media/images/github.png" alt=""></i></a>
+        
+        
+        <a onclick="showqq()"><i><img class="icon" src="https://ccccj.github.io/media/images/QQ.png" alt=""></i></a>
+        
+        
+        
+        
+        
+    </div>
+    <div id="qq" style="display:none">839808679</div>
+    
+    
+    <div class="mchocie describtion">
+        <a href="/" class="menubutton">
+            home
+        </a>
+    </div>
+    
+    
+    
+    <div class="mchocie describtion">
+        <a href="/archives" class="menubutton">
+            archives
+        </a>
+    </div>
+    
+    
+    
+    <div class="mchocie describtion">
+        <a href="https://github.com/ccccj" class="menubutton">
+            github
+        </a>
+    </div>
+    
+    
+    
+    <div class="mchocie describtion">
+        <a href="https://blog.csdn.net/qq_40873884" class="menubutton">
+            CSDN
+        </a>
+    </div>
+    
+    
+    
+        <div class="mchocie describtion">
+            <a href="https://ccccj.github.io/friends" class="menubutton">友人帐</a>
+        </div>
+    
+    <hr>
+    <div id="footinfo">Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | Theme: <a href="https://github.com/850552586/gridea-theme-fog">Fog</a></div>
+    <div id="sitegotimeDate">载入天数...</div>
+    <div id="sitegotimes">载入时分秒...</div>
+    <div id="cussitetime" style="display:none">02/02/2020</div>
+    </div>
+</body>
+
+</html>
+<script src="https://ccccj.github.io/media/js/wordshow.js"></script>
+<script>
+    //----------------------站点运行时间
+    var now = new Date();
+
+    function createtime() {
+        var sitegotime = document.getElementById("cussitetime").innerHTML + " 00:00:00";
+        var grt = new Date(sitegotime); //此处修改你的建站时间或者网站上线时间 
+        now.setTime(now.getTime() + 250);
+        days = (now - grt) / 1000 / 60 / 60 / 24;
+        dnum = Math.floor(days);
+        hours = (now - grt) / 1000 / 60 / 60 - (24 * dnum);
+        hnum = Math.floor(hours);
+        if (String(hnum).length == 1) {
+            hnum = "0" + hnum;
+        }
+        minutes = (now - grt) / 1000 / 60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes);
+        if (String(mnum).length == 1) {
+            mnum = "0" + mnum;
+        }
+        seconds = (now - grt) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds);
+        if (String(snum).length == 1) {
+            snum = "0" + snum;
+        }
+        document.getElementById("sitegotimeDate").innerHTML = "本站已安全运行 " + dnum + " 天 ";
+        document.getElementById("sitegotimes").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+    }
+    setInterval("createtime()", 250);
+
+    //-------------------------------------------------搜索
+    // 获取搜索框、搜索按钮、清空搜索、结果输出对应的元素
+    var searchInput = document.querySelector('.search-input');
+    var searchResults = document.querySelector('.search-results');
+
+    // 申明保存文章的标题、链接、内容的数组变量
+    var searchValue = '',
+        arrItems = [],
+        arrLinks = [],
+        arrTitles = [],
+        arrResults = [],
+        indexItem = [],
+        itemLength = 0;
+    var tmpDiv = document.createElement('div');
+    tmpDiv.className = 'result-item';
+
+    // ajax 的兼容写法
+    var xhr = new XMLHttpRequest() || new ActiveXObject('Microsoft.XMLHTTP');
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            xml = xhr.responseXML;
+            arrItems = xml.getElementsByTagName('entry');
+            itemLength = arrItems.length;
+            console.log(arrItems);
+            // 遍历并保存所有文章对应的标题、链接、内容到对应的数组中
+            // 同时过滤掉 HTML 标签
+            for (i = 0; i < itemLength; i++) {
+                var link = arrItems[i].getElementsByTagName('link')[0];
+                arrLinks[i] = link.getAttribute("href");
+                arrTitles[i] = arrItems[i].getElementsByTagName('title')[0].
+                childNodes[0].nodeValue.replace(/<.*?>/g, '');
+            }
+        }
+    }
+
+    // 开始获取根目录下 feed.xml 文件内的数据
+    xhr.open('get', '/atom.xml', true);
+    xhr.send();
+
+
+
+    // 输入框内容变化后就开始匹配，可以不用点按钮
+    // 经测试，onkeydown, onchange 等方法效果不太理想，
+    // 存在输入延迟等问题，最后发现触发 input 事件最理想，
+    // 并且可以处理中文输入法拼写的变化
+    searchInput.oninput = function () {
+        setTimeout(searchConfirm, 0);
+    }
+    searchInput.onfocus = function () {
+        searchResults.style.display = 'block';
+    }
+
+    function searchConfirm() {
+        if (searchInput.value == '') {
+            searchResults.style.display = 'none';
+        } else if (searchInput.value.search(/^\s+$/) >= 0) {
+            // 检测输入值全是空白的情况
+            searchInit();
+            var itemDiv = tmpDiv.cloneNode(true);
+            itemDiv.innerText = '请输入有效内容...';
+            searchResults.appendChild(itemDiv);
+        } else {
+            // 合法输入值的情况
+            searchInit();
+            searchValue = searchInput.value;
+            // 在标题、内容中查找
+            searchMatching(arrTitles, searchValue);
+        }
+    }
+
+    // 每次搜索完成后的初始化
+    function searchInit() {
+        arrResults = [];
+        indexItem = [];
+        searchResults.innerHTML = '';
+        searchResults.style.display = 'block';
+    }
+
+    function searchMatching(arr1, input) {
+        // 忽略输入大小写
+        input = new RegExp(input, 'i');
+        // 在所有文章标题、内容中匹配查询值
+        for (i = 0; i < itemLength; i++) {
+            if (arr1[i].search(input) !== -1) {
+                var arr = arr1;
+                indexItem.push(i); // 保存匹配值的索引
+                var indexContent = arr[i].search(input);
+                // 此时 input 为 RegExp 格式 /input/i，转换为原 input 字符串长度
+                var l = input.toString().length - 3;
+                var step = 10;
+
+                // 将匹配到内容的地方进行黄色标记，并包括周围一定数量的文本
+                arrResults.push(arr[i].slice(indexContent - step, indexContent));
+            }
+        }
+
+        // 输出总共匹配到的数目
+        var totalDiv = tmpDiv.cloneNode(true);
+        totalDiv.innerHTML = '<b>总匹配：' + indexItem.length + ' 项<hr></b>';
+        searchResults.appendChild(totalDiv);
+
+        // 未匹配到内容的情况
+        if (indexItem.length == 0) {
+            var itemDiv = tmpDiv.cloneNode(true);
+            itemDiv.innerText = '未匹配到内容...';
+            searchResults.appendChild(itemDiv);
+        }
+
+        // 将所有匹配内容进行组合
+        for (i = 0; i < arrResults.length; i++) {
+            var itemDiv = tmpDiv.cloneNode(true);
+            itemDiv.innerHTML = '<b>[' + arrTitles[indexItem[i]] +
+                ']</b><p>' + arrResults[i] + "</p><hr />";
+            itemDiv.setAttribute('onclick', 'changeHref(arrLinks[indexItem[' + i + ']])');
+            searchResults.appendChild(itemDiv);
+        }
+    }
+
+    function changeHref(href) {
+        location.href = href;
+    }
+
+    function showqq() {
+        var qq = document.getElementById("qq").innerHTML;
+        if (qq != '')
+            alert("博主的QQ联系方式为：" + qq);
+        else
+            alert("博主暂未设置QQ联系方式");
+    }
+</script></div>
+                <div id="tab1" class="tab">
+                    <div class="bars">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <div class="close"></div>
+                </div>
+                <div id="main" class="col-xs-12 col-sm-7">
+                    <link rel="stylesheet" href="https://ccccj.github.io/media/css/font-awesome.css">
+<style>
+
+</style>
+
+<body>
+    <div class="allcontent">
+        <div class="postshow">
+            
+            <div class="postdetailimg" style="width:100%;overflow: hidden;display: none">
+                <img src="https://ccccj.github.io/post-images/xiao-jie-or-c-yu-yan-cao-zuo-fu.png" class="postimage" style="cursor:auto">
+            </div>
+            <div class="postinfo">
+                <div class="postdate"><i class="fa fa-calendar"></i>2017-11-10</div>
+                <div class="poststatus postdate"><i class="fa fa-clock-o"></i> 8 min read</div>
+                <div class="posttag">
+                    
+                </div>
+            </div>
+            
+            <div id="texttitle" style="text-align: center">
+                <h2>小结 | C语言操作符</h2>
+            </div>
+            <div class="text ">
+                <h2 id="目录">目录：</h2>
+<p><ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#%E7%9B%AE%E5%BD%95">目录：</a></li>
+<li><a href="#c%E8%AF%AD%E8%A8%80%E6%93%8D%E4%BD%9C%E7%AC%A6%E5%88%86%E7%B1%BB%E6%80%BB%E7%BB%93">C语言操作符分类总结：</a></li>
+<li><a href="#%E4%B8%80-%E7%AE%97%E6%95%B0%E6%93%8D%E4%BD%9C%E7%AC%A6">一、算数操作符</a></li>
+<li><a href="#%E4%BA%8C-%E7%A7%BB%E4%BD%8D%E6%93%8D%E4%BD%9C%E7%AC%A6">二、移位操作符</a><br>
+*
+<ul>
+<li><a href="#%E7%A7%BB%E5%8A%A8%E8%A7%84%E5%BE%8B">移动规律：</a></li>
+<li><a href="#%E5%A4%A7%E5%B0%8F%E7%9A%84%E5%8F%98%E5%8C%96">大小的变化：</a></li>
+</ul>
+</li>
+<li><a href="#%E4%B8%89-%E4%BD%8D%E6%93%8D%E4%BD%9C%E7%AC%A6">三、位操作符</a></li>
+<li><a href="#%E5%9B%9B-%E8%B5%8B%E5%80%BC%E6%93%8D%E4%BD%9C%E7%AC%A6">四、赋值操作符 <code>=</code></a></li>
+<li><a href="#%E4%BA%94-%E5%8D%95%E7%9B%AE%E6%93%8D%E4%BD%9C%E7%AC%A6">五、单目操作符</a></li>
+<li><a href="#%E5%85%AD-%E5%85%B3%E7%B3%BB%E6%93%8D%E4%BD%9C%E7%AC%A6">六、关系操作符</a></li>
+<li><a href="#%E4%B8%83-%E9%80%BB%E8%BE%91%E6%93%8D%E4%BD%9C%E7%AC%A6">七、逻辑操作符</a></li>
+<li><a href="#%E5%85%AB-%E6%9D%A1%E4%BB%B6%E6%93%8D%E4%BD%9C%E7%AC%A6%E4%B8%89%E7%9B%AE%E6%93%8D%E4%BD%9C%E7%AC%A6">八、条件操作符（三目操作符）</a></li>
+<li><a href="#%E4%B9%9D-%E9%80%97%E5%8F%B7%E8%A1%A8%E8%BE%BE%E5%BC%8F">九、逗号表达式</a></li>
+<li><a href="#%E5%8D%81-%E4%B8%8B%E6%A0%87%E5%BC%95%E7%94%A8-%E5%87%BD%E6%95%B0%E8%B0%83%E7%94%A8-%E7%BB%93%E6%9E%84%E6%88%90%E5%91%98%E8%AE%BF%E9%97%AE%E6%93%8D%E4%BD%9C%E7%AC%A6">十、下标引用、函数调用、结构成员访问操作符</a></li>
+</ul>
+</li>
+</ul>
+</p>
+<h2 id="c语言操作符分类总结">C语言操作符分类总结：</h2>
+<p>C语言中大致分为以下几类：</p>
+<ol>
+<li>算数操作符</li>
+<li>移位操作符</li>
+<li>位操作符</li>
+<li>赋值操作符</li>
+<li>单目操作符</li>
+<li>关系操作符</li>
+<li>逻辑操作符</li>
+<li>条件操作符</li>
+<li>逗号表达式</li>
+<li>下标引用、函数调用、结构成员访问操作符</li>
+</ol>
+<p>**  注意：**<br>
+其中，移位操作符和位操作符都是对二进制序列进行操作。</p>
+<p><strong>=<mark><mark><mark>具体分析</mark></mark></mark>=</strong></p>
+<hr>
+<h2 id="一-算数操作符">一、算数操作符</h2>
+<hr>
+<p><code>+ - * / %</code></p>
+<p>这里需要注意的是：<br>
+1.除法（/）<br>
+整数除法时，左右两边都需要为整数；<br>
+而浮点数除法时，左右两边至少有一个数为浮点数。<br>
+2.取模运算（%）<br>
+只能对整数操作。</p>
+<hr>
+<h2 id="二-移位操作符">二、移位操作符</h2>
+<hr>
+<p><code>&lt;&lt;左移操作符</code><br>
+<code>&gt;&gt;右移操作符</code></p>
+<h4 id="移动规律">移动规律：</h4>
+<p>左移：左边丢弃，右边补0；<br>
+右移：<br>
+1.算数右移：右边丢弃，左边补符号位（正数补0，负数补1）；<br>
+2.逻辑右移：右边丢弃，左边补0；</p>
+<h4 id="大小的变化">大小的变化：</h4>
+<p>左移：每左移一位，相当于乘2；<br>
+右移：每右移一位，相当于除2。</p>
+<hr>
+<h2 id="三-位操作符">三、位操作符</h2>
+<hr>
+<ul>
+<li>&amp; 按位与 （两数二进制位都为1 —&gt;1）</li>
+<li>| 按位或 （两数二进制位有一个为1 —&gt;1）</li>
+<li>^ 按位异或 （两数二进制位不同为1，相同为0）</li>
+</ul>
+<p>关于异或的应用例题：<br>
+在一个是数组中，只有一个数字单独出现，其余都两两出现，求单独出现的数字。</p>
+<pre><code>int ret = 0;
+for(i = 0; i &lt; n; i++){
+ret = ret ^ a[i];
+}
+</code></pre>
+<p><strong>异或（^）的特点：</strong><br>
+1.两数相同，异或为0；<br>
+2.0与任何数异或，还是这个数。</p>
+<p>这里有一道关于异或的题，是上一题的升级版解题思路较巧妙，有兴趣的可以看下：</p>
+<p>题目：一个数组中只有两个数字是出现一次，其他所有数字都出现了两次,找出这两个数字，编程实现。</p>
+<pre><code>#include &lt;stdio.h&gt;
+
+void search_one(int arr[],int len)
+{
+    
+    int data = arr[0];
+    int i = 1;
+    for (; i &lt; len; i++) {
+        data ^= arr[i];
+    }
+    //异或结果为 data = m ^ n; (假设单独出现的两数为m、n)
+    //由于m、n为单独出现的两数，所以m一定不等于n，即data一定不为0，data的二进制位至少有一位为1
+    
+    int flag = 1;
+    for (i = 0; i &lt; sizeof(int)*8; i++) {
+        if (data &amp; (flag&lt;&lt;i) ) {
+            flag &lt;&lt;= i;
+            break;//可不加break,因为用flag记录哪一位都可以
+        }
+        
+    }
+    //找出m与n相异的一位，即data二进制位为1的一位
+    //用flag来记录是哪一位，在这里我们假设是第x位
+    
+    int dataA = 0;//组A
+    int dataB = 0;//组B
+    
+    for (i = 0; i &lt; len; i++) {
+        if (arr[i] &amp;flag) {
+            dataA ^= arr[i];
+        }
+        else{
+            dataB ^= arr[i];
+        }
+            
+    }
+    /*在这里我们将整个数组的数分成两组，分组条件是，第x位为1的在一组里，为0的在一组里，可得出两点结论
+    1.m、n肯定不在一组里
+    2.重复出现的两个数一定在一组里*/
+    
+    printf(&quot;%d %d\n&quot;,dataA,dataB);
+    
+}
+
+
+
+int main(int argc, const char * argv[]) {
+    int a[] = {1,1,2,8,2,3,3,4,4,5,6,5};
+    search_one(a,12);
+    
+    return 0;
+}
+</code></pre>
+<hr>
+<h2 id="四-赋值操作符">四、赋值操作符 <code>=</code></h2>
+<hr>
+<p>赋值操作符可以与其他操作符连用，形成复合赋值符，<br>
+如：<br>
+<code>+= ， -= ， *= ， /= ， %= ， &gt;&gt;= ， &lt;&lt; ， &amp;= ， |= ， ^=</code></p>
+<p>用法：<br>
+<code>a += 2;</code>等同于 <code>a = a + 2;</code><br>
+其余类似。</p>
+<hr>
+<h2 id="五-单目操作符">五、单目操作符</h2>
+<hr>
+<ul>
+<li>! 取反</li>
+<li>-- 负值</li>
+<li>+ 正值</li>
+<li>&amp; 取地址</li>
+<li>sizeof 计算字符串长度（以字节为单位）</li>
+<li>~ 对二进制取反</li>
+<li>-- 前置、后置--</li>
+<li>++ 前置、后置++</li>
+<li>* 间接操作符（解引用操作符）</li>
+<li>(类型) 强制类型转换</li>
+</ul>
+<p>单目操作符即只有一个操作元素（可以看到，前面几个操作符都有两个操作元素）；</p>
+<p>这里需要注意的是，sizeof这个操作符，<br>
+<code>int a = 10;</code><br>
+<code>sizeof (a)</code>——这里括号可以省略，即写成 <code>sizeof a</code> 也可以；<br>
+但是<code>sizeof(int)</code>这种情况下括号不可省略；</p>
+<p>另外和数组结合时，也需要注意：<br>
+<code>int arr[3] = {1,2,3}</code><br>
+<code>sizeof(arr)</code> 结果为12（arr表示整个数组）<br>
+<code>sizeof(arr+0)</code> 结果为4（表示首元素地址）</p>
+<p>下面再来看一段关于sizeof的代码：</p>
+<pre><code>int a = 1;
+short s = 3;
+printf(&quot;%d\n&quot;,sizeof(s=a+5));
+printf(&quot;&quot;%d\n&quot;,s);
+</code></pre>
+<p>结果为：<br>
+2<br>
+3</p>
+<p>可能会有人有疑问，明明 s = a + 5 赋值给了s，为什么s的值还是3？<br>
+这里有一点需要记住，放在sizeof内部的表达式不参与运算，因为关于sizeof的运算是在编译期间就完成了的，而我们所讲的sizeof运算，需要在运行期间完成，即在运行前，sizeof内部的值已经被替换成了2（sizeof最终看s的类型），代码相当于</p>
+<pre><code>int a = 1;
+short s = 3;
+printf(&quot;%d\n&quot;,sizeof(2));
+printf(&quot;&quot;%d\n&quot;,s);
+</code></pre>
+<p>那s的值也就不会发生变化，输出时仍为3。</p>
+<hr>
+<h2 id="六-关系操作符">六、关系操作符</h2>
+<hr>
+<p><code>&gt;= ， &lt;= ， &gt; ， &lt; ， != ， ==</code></p>
+<hr>
+<h2 id="七-逻辑操作符">七、逻辑操作符</h2>
+<hr>
+<p><code>&amp;&amp; 逻辑与</code><br>
+<code>|| 逻辑或</code><br>
+需要与位运算（按位与&amp;、按位或|）区分开来。</p>
+<p>下面是一道关于逻辑与经典的例题：</p>
+<pre><code> int i = 0 , a = 0 , b = 2 , d = 4;
+    i = a++ &amp;&amp; ++b &amp;&amp; d++;
+    printf(&quot;%d %d %d\n&quot;,a,b,d);
+</code></pre>
+<p>结果为 1 2 4<br>
+可以看到，a先参与了运算，再自增，但是参与运算时它的值为0，逻辑与（&amp;&amp;）操作符的运算特点是，全为1结果才为1，当出现了一个0时，后面的他将不会继续运算下去，因此，++b和d++并未实现，所以结果只有a加了1.</p>
+<p>再看另一个操作符：</p>
+<pre><code>int i = 0 , a = 0 , b = 2 , d = 4;
+i = a++ || ++b || d++;
+printf(&quot;%d %d %d\n&quot;,a,b,d);
+</code></pre>
+<p>结果为 1 3 4<br>
+逻辑或的运算特点是，当所有值都为0时，结果才为0，当a参与运算时为0，||会继续看后面的运算，当++b的值不为0时，无论后面的值是多少，其结果已经是1了，后面的d++也就不会运算下去了。</p>
+<hr>
+<h2 id="八-条件操作符三目操作符">八、条件操作符（三目操作符）</h2>
+<hr>
+<p><code>exp1 ? exp2 : exp3</code><br>
+当exp1的值为真时，执行exp2表达式，反之，执行exp3表达式；</p>
+<p>例：<br>
+求a，b中最大值可以这么求<br>
+<code>int max = a&gt;b ? a : b;</code></p>
+<hr>
+<h2 id="九-逗号表达式">九、逗号表达式</h2>
+<hr>
+<p><code>exp1,exp2,exp3,...,expN</code><br>
+从左向右依次执行，最终结果为expN。</p>
+<hr>
+<h2 id="十-下标引用-函数调用-结构成员访问操作符">十、下标引用、函数调用、结构成员访问操作符</h2>
+<hr>
+<ul>
+<li>
+<p>下标引用操作符即 [ ]，经常在数组中能看到，<br>
+例如 <code>int arr[10] = {0};</code><br>
+当赋值<code>arr[5] = 2;</code>相当于执行了<code>*（arr+5）= 2;</code>这样一个操作。</p>
+</li>
+<li>
+<p>函数调用操作符 （）, 在函数中经常能看到。</p>
+</li>
+<li>
+<p>结构成员访问操作符，分为两类：<code>.</code>  和 <code>-&gt;</code><br>
+当我们定义一个结构体</p>
+</li>
+</ul>
+<pre><code>struct Stu{
+    char name[20];
+    char id[13];
+    int age;
+};
+</code></pre>
+<p>这时候只是定义，创造了一个类型，注意这个时候并没有给他分配空间，类似于创造了int这样一个类型。<br>
+而当我们用时，</p>
+<pre><code>struct Stu s;//这相当于我们 int a;(开辟了空间)
+    strcpy(s.name,&quot;张三&quot;);
+  strcpy(s.id, &quot;201606060501&quot;);
+    s.age = 20;
+</code></pre>
+<p>在这里s.name中的<code>.</code> 就是成员访问操作符。</p>
+<p>但是另一种情况，<br>
+<code>struct Stu *p = &amp;s;</code><br>
+如果这时候需要通过指针p来修改结构体成员的值，<br>
+则：</p>
+<pre><code>strcpy((*p).name,&quot;张三&quot;);
+    strcpy((*p).id, &quot;201606060501&quot;);
+    (*p).age = 20;
+</code></pre>
+<p>但是<code>(*p).</code>这种写法复杂繁琐，于是有了另一个操作符<code>-&gt;</code>，它的用法如下：</p>
+<pre><code>strcpy(p-&gt;name,&quot;张三&quot;);
+    strcpy(p-&gt;id, &quot;201606060501&quot;);
+    p-&gt;age = 20;
+</code></pre>
+
+            </div>
+            
+            <div class="prev-post">
+                上一篇
+                <a href="https://ccccj.github.io/atom-pei-zhi-ba-bian-yi-yun-xing-zhong-duan-zi-dai-gai-wei-platformio-ide-terminal/">
+                    atom 配置 把编译运行终端(自带)改为 platformio-ide-terminal
+                </a>
+            </div>
+            
+            
+            <div class="next-post">
+                下一篇
+                <a href="https://ccccj.github.io/acm-stl-biao-zhun-ku-rong-qi-de-ying-yong-vectorqueuelistmap/">
+                    ACM: STL标准库容器的应用（vector、queue、list、map）
+                </a>
+            </div>
+            
+        </div>
+    </div>
+</body>
+<script>
+    var t_img; // 定时器
+    var isLoad = true; // 控制变量
+    isImgLoad(function () {
+        // 加载完成
+        $('.postdetailimg').css("display", "block");
+    });
+    // 判断图片加载的函数
+    function isImgLoad(callback) {
+        // 注意我的图片类名都是cover，因为我只需要处理cover。其它图片可以不管。
+        // 查找所有封面图，迭代处理
+        $('.postdetailimg').each(function () {
+            // 找到为0就将isLoad设为false，并退出each
+            if (this.height === 0) {
+                isLoad = false;
+                return false;
+            }
+        });
+        // 为true，没有发现为0的。加载完毕
+        if (isLoad) {
+            clearTimeout(t_img); // 清除定时器
+            // 回调函数
+            callback();
+            // 为false，因为找到了没有加载完成的图，将调用定时器递归
+        } else {
+            isLoad = true;
+            t_img = setTimeout(function () {
+                isImgLoad(callback); // 递归扫描
+            }, 500); // 我这里设置的是500毫秒就扫描一次，可以自己调整
+        }
+    }
+</script>
+                    <div name="comment" style="background: white">
+                        <div class="commentcontainer">
+                            
+                            <p>请到客户端“主题--自定义配置--valine”中填入ID和KEY</p>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="toc-container">
+                    <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#%E7%9B%AE%E5%BD%95">目录：</a></li>
+<li><a href="#c%E8%AF%AD%E8%A8%80%E6%93%8D%E4%BD%9C%E7%AC%A6%E5%88%86%E7%B1%BB%E6%80%BB%E7%BB%93">C语言操作符分类总结：</a></li>
+<li><a href="#%E4%B8%80-%E7%AE%97%E6%95%B0%E6%93%8D%E4%BD%9C%E7%AC%A6">一、算数操作符</a></li>
+<li><a href="#%E4%BA%8C-%E7%A7%BB%E4%BD%8D%E6%93%8D%E4%BD%9C%E7%AC%A6">二、移位操作符</a><br>
+*
+<ul>
+<li><a href="#%E7%A7%BB%E5%8A%A8%E8%A7%84%E5%BE%8B">移动规律：</a></li>
+<li><a href="#%E5%A4%A7%E5%B0%8F%E7%9A%84%E5%8F%98%E5%8C%96">大小的变化：</a></li>
+</ul>
+</li>
+<li><a href="#%E4%B8%89-%E4%BD%8D%E6%93%8D%E4%BD%9C%E7%AC%A6">三、位操作符</a></li>
+<li><a href="#%E5%9B%9B-%E8%B5%8B%E5%80%BC%E6%93%8D%E4%BD%9C%E7%AC%A6">四、赋值操作符 <code>=</code></a></li>
+<li><a href="#%E4%BA%94-%E5%8D%95%E7%9B%AE%E6%93%8D%E4%BD%9C%E7%AC%A6">五、单目操作符</a></li>
+<li><a href="#%E5%85%AD-%E5%85%B3%E7%B3%BB%E6%93%8D%E4%BD%9C%E7%AC%A6">六、关系操作符</a></li>
+<li><a href="#%E4%B8%83-%E9%80%BB%E8%BE%91%E6%93%8D%E4%BD%9C%E7%AC%A6">七、逻辑操作符</a></li>
+<li><a href="#%E5%85%AB-%E6%9D%A1%E4%BB%B6%E6%93%8D%E4%BD%9C%E7%AC%A6%E4%B8%89%E7%9B%AE%E6%93%8D%E4%BD%9C%E7%AC%A6">八、条件操作符（三目操作符）</a></li>
+<li><a href="#%E4%B9%9D-%E9%80%97%E5%8F%B7%E8%A1%A8%E8%BE%BE%E5%BC%8F">九、逗号表达式</a></li>
+<li><a href="#%E5%8D%81-%E4%B8%8B%E6%A0%87%E5%BC%95%E7%94%A8-%E5%87%BD%E6%95%B0%E8%B0%83%E7%94%A8-%E7%BB%93%E6%9E%84%E6%88%90%E5%91%98%E8%AE%BF%E9%97%AE%E6%93%8D%E4%BD%9C%E7%AC%A6">十、下标引用、函数调用、结构成员访问操作符</a></li>
+</ul>
+</li>
+</ul>
+
+                </div>
+            </div>
+        </div>
+        <div id="bg">
+        </div>
+        <div id="bgurl" style="display:none">/media/images/custom-bgimage.png</div>
+    </div>
+    <!-- 响应式布局，针对手机端内容显示 -->
+    <div class="nav-small">
+        <head>
+
+  <!-- 引入Bootstrap核心样式文件 -->
+  <link rel="stylesheet" href="https://ccccj.github.io/media/css/bootstrap.min.css">
+</head>
+
+<body>
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+          data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">Amon&#39;s Homepage&nbsp;&nbsp;|</a>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          
+          
+          <li>
+            <a href="/">
+              home
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/archives">
+              archives
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="https://github.com/ccccj">
+              github
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="https://blog.csdn.net/qq_40873884">
+              CSDN
+            </a>
+          </li>
+          
+          
+          
+          <li><a href="https://ccccj.github.io/friends">友链</a></li>
+
+          
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+
+
+  <!-- 引入jQuery核心js文件 -->
+  <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+  <!-- 引入BootStrap核心js文件 -->
+  <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+        <div style="margin-top:30px"></div>
+        <link rel="stylesheet" href="https://ccccj.github.io/media/css/font-awesome.css">
+<style>
+
+</style>
+
+<body>
+    <div class="allcontent">
+        <div class="postshow">
+            
+            <div class="postdetailimg" style="width:100%;overflow: hidden;display: none">
+                <img src="https://ccccj.github.io/post-images/xiao-jie-or-c-yu-yan-cao-zuo-fu.png" class="postimage" style="cursor:auto">
+            </div>
+            <div class="postinfo">
+                <div class="postdate"><i class="fa fa-calendar"></i>2017-11-10</div>
+                <div class="poststatus postdate"><i class="fa fa-clock-o"></i> 8 min read</div>
+                <div class="posttag">
+                    
+                </div>
+            </div>
+            
+            <div id="texttitle" style="text-align: center">
+                <h2>小结 | C语言操作符</h2>
+            </div>
+            <div class="text ">
+                <h2 id="目录">目录：</h2>
+<p><ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#%E7%9B%AE%E5%BD%95">目录：</a></li>
+<li><a href="#c%E8%AF%AD%E8%A8%80%E6%93%8D%E4%BD%9C%E7%AC%A6%E5%88%86%E7%B1%BB%E6%80%BB%E7%BB%93">C语言操作符分类总结：</a></li>
+<li><a href="#%E4%B8%80-%E7%AE%97%E6%95%B0%E6%93%8D%E4%BD%9C%E7%AC%A6">一、算数操作符</a></li>
+<li><a href="#%E4%BA%8C-%E7%A7%BB%E4%BD%8D%E6%93%8D%E4%BD%9C%E7%AC%A6">二、移位操作符</a><br>
+*
+<ul>
+<li><a href="#%E7%A7%BB%E5%8A%A8%E8%A7%84%E5%BE%8B">移动规律：</a></li>
+<li><a href="#%E5%A4%A7%E5%B0%8F%E7%9A%84%E5%8F%98%E5%8C%96">大小的变化：</a></li>
+</ul>
+</li>
+<li><a href="#%E4%B8%89-%E4%BD%8D%E6%93%8D%E4%BD%9C%E7%AC%A6">三、位操作符</a></li>
+<li><a href="#%E5%9B%9B-%E8%B5%8B%E5%80%BC%E6%93%8D%E4%BD%9C%E7%AC%A6">四、赋值操作符 <code>=</code></a></li>
+<li><a href="#%E4%BA%94-%E5%8D%95%E7%9B%AE%E6%93%8D%E4%BD%9C%E7%AC%A6">五、单目操作符</a></li>
+<li><a href="#%E5%85%AD-%E5%85%B3%E7%B3%BB%E6%93%8D%E4%BD%9C%E7%AC%A6">六、关系操作符</a></li>
+<li><a href="#%E4%B8%83-%E9%80%BB%E8%BE%91%E6%93%8D%E4%BD%9C%E7%AC%A6">七、逻辑操作符</a></li>
+<li><a href="#%E5%85%AB-%E6%9D%A1%E4%BB%B6%E6%93%8D%E4%BD%9C%E7%AC%A6%E4%B8%89%E7%9B%AE%E6%93%8D%E4%BD%9C%E7%AC%A6">八、条件操作符（三目操作符）</a></li>
+<li><a href="#%E4%B9%9D-%E9%80%97%E5%8F%B7%E8%A1%A8%E8%BE%BE%E5%BC%8F">九、逗号表达式</a></li>
+<li><a href="#%E5%8D%81-%E4%B8%8B%E6%A0%87%E5%BC%95%E7%94%A8-%E5%87%BD%E6%95%B0%E8%B0%83%E7%94%A8-%E7%BB%93%E6%9E%84%E6%88%90%E5%91%98%E8%AE%BF%E9%97%AE%E6%93%8D%E4%BD%9C%E7%AC%A6">十、下标引用、函数调用、结构成员访问操作符</a></li>
+</ul>
+</li>
+</ul>
+</p>
+<h2 id="c语言操作符分类总结">C语言操作符分类总结：</h2>
+<p>C语言中大致分为以下几类：</p>
+<ol>
+<li>算数操作符</li>
+<li>移位操作符</li>
+<li>位操作符</li>
+<li>赋值操作符</li>
+<li>单目操作符</li>
+<li>关系操作符</li>
+<li>逻辑操作符</li>
+<li>条件操作符</li>
+<li>逗号表达式</li>
+<li>下标引用、函数调用、结构成员访问操作符</li>
+</ol>
+<p>**  注意：**<br>
+其中，移位操作符和位操作符都是对二进制序列进行操作。</p>
+<p><strong>=<mark><mark><mark>具体分析</mark></mark></mark>=</strong></p>
+<hr>
+<h2 id="一-算数操作符">一、算数操作符</h2>
+<hr>
+<p><code>+ - * / %</code></p>
+<p>这里需要注意的是：<br>
+1.除法（/）<br>
+整数除法时，左右两边都需要为整数；<br>
+而浮点数除法时，左右两边至少有一个数为浮点数。<br>
+2.取模运算（%）<br>
+只能对整数操作。</p>
+<hr>
+<h2 id="二-移位操作符">二、移位操作符</h2>
+<hr>
+<p><code>&lt;&lt;左移操作符</code><br>
+<code>&gt;&gt;右移操作符</code></p>
+<h4 id="移动规律">移动规律：</h4>
+<p>左移：左边丢弃，右边补0；<br>
+右移：<br>
+1.算数右移：右边丢弃，左边补符号位（正数补0，负数补1）；<br>
+2.逻辑右移：右边丢弃，左边补0；</p>
+<h4 id="大小的变化">大小的变化：</h4>
+<p>左移：每左移一位，相当于乘2；<br>
+右移：每右移一位，相当于除2。</p>
+<hr>
+<h2 id="三-位操作符">三、位操作符</h2>
+<hr>
+<ul>
+<li>&amp; 按位与 （两数二进制位都为1 —&gt;1）</li>
+<li>| 按位或 （两数二进制位有一个为1 —&gt;1）</li>
+<li>^ 按位异或 （两数二进制位不同为1，相同为0）</li>
+</ul>
+<p>关于异或的应用例题：<br>
+在一个是数组中，只有一个数字单独出现，其余都两两出现，求单独出现的数字。</p>
+<pre><code>int ret = 0;
+for(i = 0; i &lt; n; i++){
+ret = ret ^ a[i];
+}
+</code></pre>
+<p><strong>异或（^）的特点：</strong><br>
+1.两数相同，异或为0；<br>
+2.0与任何数异或，还是这个数。</p>
+<p>这里有一道关于异或的题，是上一题的升级版解题思路较巧妙，有兴趣的可以看下：</p>
+<p>题目：一个数组中只有两个数字是出现一次，其他所有数字都出现了两次,找出这两个数字，编程实现。</p>
+<pre><code>#include &lt;stdio.h&gt;
+
+void search_one(int arr[],int len)
+{
+    
+    int data = arr[0];
+    int i = 1;
+    for (; i &lt; len; i++) {
+        data ^= arr[i];
+    }
+    //异或结果为 data = m ^ n; (假设单独出现的两数为m、n)
+    //由于m、n为单独出现的两数，所以m一定不等于n，即data一定不为0，data的二进制位至少有一位为1
+    
+    int flag = 1;
+    for (i = 0; i &lt; sizeof(int)*8; i++) {
+        if (data &amp; (flag&lt;&lt;i) ) {
+            flag &lt;&lt;= i;
+            break;//可不加break,因为用flag记录哪一位都可以
+        }
+        
+    }
+    //找出m与n相异的一位，即data二进制位为1的一位
+    //用flag来记录是哪一位，在这里我们假设是第x位
+    
+    int dataA = 0;//组A
+    int dataB = 0;//组B
+    
+    for (i = 0; i &lt; len; i++) {
+        if (arr[i] &amp;flag) {
+            dataA ^= arr[i];
+        }
+        else{
+            dataB ^= arr[i];
+        }
+            
+    }
+    /*在这里我们将整个数组的数分成两组，分组条件是，第x位为1的在一组里，为0的在一组里，可得出两点结论
+    1.m、n肯定不在一组里
+    2.重复出现的两个数一定在一组里*/
+    
+    printf(&quot;%d %d\n&quot;,dataA,dataB);
+    
+}
+
+
+
+int main(int argc, const char * argv[]) {
+    int a[] = {1,1,2,8,2,3,3,4,4,5,6,5};
+    search_one(a,12);
+    
+    return 0;
+}
+</code></pre>
+<hr>
+<h2 id="四-赋值操作符">四、赋值操作符 <code>=</code></h2>
+<hr>
+<p>赋值操作符可以与其他操作符连用，形成复合赋值符，<br>
+如：<br>
+<code>+= ， -= ， *= ， /= ， %= ， &gt;&gt;= ， &lt;&lt; ， &amp;= ， |= ， ^=</code></p>
+<p>用法：<br>
+<code>a += 2;</code>等同于 <code>a = a + 2;</code><br>
+其余类似。</p>
+<hr>
+<h2 id="五-单目操作符">五、单目操作符</h2>
+<hr>
+<ul>
+<li>! 取反</li>
+<li>-- 负值</li>
+<li>+ 正值</li>
+<li>&amp; 取地址</li>
+<li>sizeof 计算字符串长度（以字节为单位）</li>
+<li>~ 对二进制取反</li>
+<li>-- 前置、后置--</li>
+<li>++ 前置、后置++</li>
+<li>* 间接操作符（解引用操作符）</li>
+<li>(类型) 强制类型转换</li>
+</ul>
+<p>单目操作符即只有一个操作元素（可以看到，前面几个操作符都有两个操作元素）；</p>
+<p>这里需要注意的是，sizeof这个操作符，<br>
+<code>int a = 10;</code><br>
+<code>sizeof (a)</code>——这里括号可以省略，即写成 <code>sizeof a</code> 也可以；<br>
+但是<code>sizeof(int)</code>这种情况下括号不可省略；</p>
+<p>另外和数组结合时，也需要注意：<br>
+<code>int arr[3] = {1,2,3}</code><br>
+<code>sizeof(arr)</code> 结果为12（arr表示整个数组）<br>
+<code>sizeof(arr+0)</code> 结果为4（表示首元素地址）</p>
+<p>下面再来看一段关于sizeof的代码：</p>
+<pre><code>int a = 1;
+short s = 3;
+printf(&quot;%d\n&quot;,sizeof(s=a+5));
+printf(&quot;&quot;%d\n&quot;,s);
+</code></pre>
+<p>结果为：<br>
+2<br>
+3</p>
+<p>可能会有人有疑问，明明 s = a + 5 赋值给了s，为什么s的值还是3？<br>
+这里有一点需要记住，放在sizeof内部的表达式不参与运算，因为关于sizeof的运算是在编译期间就完成了的，而我们所讲的sizeof运算，需要在运行期间完成，即在运行前，sizeof内部的值已经被替换成了2（sizeof最终看s的类型），代码相当于</p>
+<pre><code>int a = 1;
+short s = 3;
+printf(&quot;%d\n&quot;,sizeof(2));
+printf(&quot;&quot;%d\n&quot;,s);
+</code></pre>
+<p>那s的值也就不会发生变化，输出时仍为3。</p>
+<hr>
+<h2 id="六-关系操作符">六、关系操作符</h2>
+<hr>
+<p><code>&gt;= ， &lt;= ， &gt; ， &lt; ， != ， ==</code></p>
+<hr>
+<h2 id="七-逻辑操作符">七、逻辑操作符</h2>
+<hr>
+<p><code>&amp;&amp; 逻辑与</code><br>
+<code>|| 逻辑或</code><br>
+需要与位运算（按位与&amp;、按位或|）区分开来。</p>
+<p>下面是一道关于逻辑与经典的例题：</p>
+<pre><code> int i = 0 , a = 0 , b = 2 , d = 4;
+    i = a++ &amp;&amp; ++b &amp;&amp; d++;
+    printf(&quot;%d %d %d\n&quot;,a,b,d);
+</code></pre>
+<p>结果为 1 2 4<br>
+可以看到，a先参与了运算，再自增，但是参与运算时它的值为0，逻辑与（&amp;&amp;）操作符的运算特点是，全为1结果才为1，当出现了一个0时，后面的他将不会继续运算下去，因此，++b和d++并未实现，所以结果只有a加了1.</p>
+<p>再看另一个操作符：</p>
+<pre><code>int i = 0 , a = 0 , b = 2 , d = 4;
+i = a++ || ++b || d++;
+printf(&quot;%d %d %d\n&quot;,a,b,d);
+</code></pre>
+<p>结果为 1 3 4<br>
+逻辑或的运算特点是，当所有值都为0时，结果才为0，当a参与运算时为0，||会继续看后面的运算，当++b的值不为0时，无论后面的值是多少，其结果已经是1了，后面的d++也就不会运算下去了。</p>
+<hr>
+<h2 id="八-条件操作符三目操作符">八、条件操作符（三目操作符）</h2>
+<hr>
+<p><code>exp1 ? exp2 : exp3</code><br>
+当exp1的值为真时，执行exp2表达式，反之，执行exp3表达式；</p>
+<p>例：<br>
+求a，b中最大值可以这么求<br>
+<code>int max = a&gt;b ? a : b;</code></p>
+<hr>
+<h2 id="九-逗号表达式">九、逗号表达式</h2>
+<hr>
+<p><code>exp1,exp2,exp3,...,expN</code><br>
+从左向右依次执行，最终结果为expN。</p>
+<hr>
+<h2 id="十-下标引用-函数调用-结构成员访问操作符">十、下标引用、函数调用、结构成员访问操作符</h2>
+<hr>
+<ul>
+<li>
+<p>下标引用操作符即 [ ]，经常在数组中能看到，<br>
+例如 <code>int arr[10] = {0};</code><br>
+当赋值<code>arr[5] = 2;</code>相当于执行了<code>*（arr+5）= 2;</code>这样一个操作。</p>
+</li>
+<li>
+<p>函数调用操作符 （）, 在函数中经常能看到。</p>
+</li>
+<li>
+<p>结构成员访问操作符，分为两类：<code>.</code>  和 <code>-&gt;</code><br>
+当我们定义一个结构体</p>
+</li>
+</ul>
+<pre><code>struct Stu{
+    char name[20];
+    char id[13];
+    int age;
+};
+</code></pre>
+<p>这时候只是定义，创造了一个类型，注意这个时候并没有给他分配空间，类似于创造了int这样一个类型。<br>
+而当我们用时，</p>
+<pre><code>struct Stu s;//这相当于我们 int a;(开辟了空间)
+    strcpy(s.name,&quot;张三&quot;);
+  strcpy(s.id, &quot;201606060501&quot;);
+    s.age = 20;
+</code></pre>
+<p>在这里s.name中的<code>.</code> 就是成员访问操作符。</p>
+<p>但是另一种情况，<br>
+<code>struct Stu *p = &amp;s;</code><br>
+如果这时候需要通过指针p来修改结构体成员的值，<br>
+则：</p>
+<pre><code>strcpy((*p).name,&quot;张三&quot;);
+    strcpy((*p).id, &quot;201606060501&quot;);
+    (*p).age = 20;
+</code></pre>
+<p>但是<code>(*p).</code>这种写法复杂繁琐，于是有了另一个操作符<code>-&gt;</code>，它的用法如下：</p>
+<pre><code>strcpy(p-&gt;name,&quot;张三&quot;);
+    strcpy(p-&gt;id, &quot;201606060501&quot;);
+    p-&gt;age = 20;
+</code></pre>
+
+            </div>
+            
+            <div class="prev-post">
+                上一篇
+                <a href="https://ccccj.github.io/atom-pei-zhi-ba-bian-yi-yun-xing-zhong-duan-zi-dai-gai-wei-platformio-ide-terminal/">
+                    atom 配置 把编译运行终端(自带)改为 platformio-ide-terminal
+                </a>
+            </div>
+            
+            
+            <div class="next-post">
+                下一篇
+                <a href="https://ccccj.github.io/acm-stl-biao-zhun-ku-rong-qi-de-ying-yong-vectorqueuelistmap/">
+                    ACM: STL标准库容器的应用（vector、queue、list、map）
+                </a>
+            </div>
+            
+        </div>
+    </div>
+</body>
+<script>
+    var t_img; // 定时器
+    var isLoad = true; // 控制变量
+    isImgLoad(function () {
+        // 加载完成
+        $('.postdetailimg').css("display", "block");
+    });
+    // 判断图片加载的函数
+    function isImgLoad(callback) {
+        // 注意我的图片类名都是cover，因为我只需要处理cover。其它图片可以不管。
+        // 查找所有封面图，迭代处理
+        $('.postdetailimg').each(function () {
+            // 找到为0就将isLoad设为false，并退出each
+            if (this.height === 0) {
+                isLoad = false;
+                return false;
+            }
+        });
+        // 为true，没有发现为0的。加载完毕
+        if (isLoad) {
+            clearTimeout(t_img); // 清除定时器
+            // 回调函数
+            callback();
+            // 为false，因为找到了没有加载完成的图，将调用定时器递归
+        } else {
+            isLoad = true;
+            t_img = setTimeout(function () {
+                isImgLoad(callback); // 递归扫描
+            }, 500); // 我这里设置的是500毫秒就扫描一次，可以自己调整
+        }
+    }
+</script>
+        <div name="comment" style="background: white">
+            <div class="commentcontainer">
+                
+                <p>请到客户端“主题--自定义配置--valine”中填入ID和KEY</p>
+                
+            </div>
+        </div>
+    </div>
+    <div id="landlord">
+        <div class="message" style="opacity:0"></div>
+        <canvas id="live2d" width="240" height="250" class="live2d"></canvas>
+    </div>
+</body>
+<script>
+    hljs.initHighlightingOnLoad()
+</script>
+<script src="https://ccccj.github.io/media/js/post.js"></script>

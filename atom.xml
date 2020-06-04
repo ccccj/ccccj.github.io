@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ccccj.github.io</id>
     <title>Amon&apos;s Homepage</title>
-    <updated>2020-06-04T08:31:56.491Z</updated>
+    <updated>2020-06-04T08:37:13.338Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ccccj.github.io"/>
     <link rel="self" href="https://ccccj.github.io/atom.xml"/>
@@ -23,21 +23,20 @@
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 	<style type="text/css">
 		.table {
-			border: solid;
+			border: solid #000;
 			font-size: 18px;
 			font-weight: 300;
-		}
-		.td {
-			border: aliceblue;
-			background-color: #fff;
 		}
 		.tr {
 			height: 45px;
 		}
+		.td {
+			border: 1px solid #000;
+		}
 	</style>
 </head>
 <body>
-	<div class="container" style="width: 1050px;">
+	<div class="container" style="width: 1000px; padding: 0px;">
 		<table class="table table-bordered" style="text-align: center;">
 		  	<tbody>
 			    <tr>
@@ -79,7 +78,7 @@
 							</tr>
 						</tbody>
 					</table></td>
-					<td style="padding: 0px; width: 180px;">
+					<td style="padding: 0px; width: 172px;">
 						<img src="https://user-images.githubusercontent.com/33253635/83722791-30976e80-a670-11ea-9721-8f18fc55425a.jpg" alt="picture" style="height: 186px; width: 140px; margin: 5px;">
 					</td>
 			    </tr>

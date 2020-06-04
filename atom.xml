@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ccccj.github.io</id>
     <title>Amon&apos;s Homepage</title>
-    <updated>2020-06-04T10:01:23.772Z</updated>
+    <updated>2020-06-04T10:24:40.275Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ccccj.github.io"/>
     <link rel="self" href="https://ccccj.github.io/atom.xml"/>
@@ -36,7 +36,7 @@
 	</style>
 </head>
 <body>
-	<div class="container" style="width: 1050px;">
+	<div class="container" style="width: 950px;">
 		<table class="table table-bordered" style="text-align: center;">
 		  	<tbody>
 			    <tr>
@@ -120,7 +120,7 @@
 						<tbody>
 						    <tr>
 								<td style="padding: 0px;"><table class="table table-bordered" style="border: aliceblue; margin: auto;">
-								  	<tbody>
+								  	<tbody style="text-align: center;">
 								    	<tr>
 								    		<td style="border:aliceblue;">2016.09</td>
 								    		<td style="border: aliceblue;border-left: 1px solid #ddd;">2020.06</td>
@@ -131,7 +131,7 @@
 						    </tr>
 						    <tr>
 								<td style="padding: 0px;"><table class="table table-bordered" style="border: aliceblue; margin: auto;">
-								  	<tbody>
+								  	<tbody style="text-align: center;">
 								    	<tr>
 								    		<td style="border:aliceblue;">2013.09</td>
 								    		<td style="border: aliceblue;border-left: 1px solid #ddd;">2016.06</td>
@@ -142,7 +142,7 @@
 						    </tr>
 						    <tr>
 						      	<td style="padding: 0px;"><table class="table table-bordered" style="border: aliceblue; margin: auto;">
-								  	<tbody>
+								  	<tbody style="text-align: center;">
 								    	<tr>
 								    		<td style="border:aliceblue;">2010.09</td>
 								    		<td style="border: aliceblue;border-left: 1px solid #ddd;">2013.06</td>
@@ -153,7 +153,7 @@
 						    </tr>
 							<tr>
 						      	<td style="padding: 0px;"><table class="table table-bordered" style="border: aliceblue; margin: auto;">
-								  	<tbody>
+								  	<tbody style="text-align: center;">
 								    	<tr>
 								    		<td style="border:aliceblue;">2004.09</td>
 								    		<td style="border: aliceblue;border-left: 1px solid #ddd;">2010.06</td>
@@ -175,118 +175,61 @@
 		    		<td style="font-weight: 500; width: 70px;">習得 科目</td>
 		    		<td>データ構造、アルゴリズムの設計と分析、離散数学、高等数学と線形代数、確率論と数理統計、 C 言語プログラミング、プログラミング言語、コンパイルの原理など</td>
 		    	</tr>
+				<tr>
+		    		<td style="font-weight: 500; width: 70px;">成績</td>
+					<td>平均点：3.29点</td>
+		    	</tr>
+				<tr>
+					<td style="font-weight: 500; width: 70px;">資格</td>
+					<td>N2：118点 / TOEFL：準備中</td>
+				</tr>
 		  	</tbody>
 		</table>
-		<!-- 成績・資格・受賞 -->
+		<!-- 受賞 -->
 		<table class="table table-bordered">
-  			<thead>
-		    <tr>
-		      <th></th>
-		      <th>年月日</th>
-		      <th>成績・資格・受賞</th>
-		    </tr>
-		  </thead>
-		  <tbody>
-		    <tr>
-		      	<td style="font-weight: 500; width: 50px; text-align: center; vertical-align:middle">成績</td>
-		      	<td>2016年-2019年</td>
-		      	<td>平均点：3.29点</td>
-		    </tr>
-		    <tr>
-		      	<td style="font-weight: 500; width: 50px; text-align: center; vertical-align:middle;background-color: #fff;">資格</td>
-				<td style="padding: 0px;"><table class="table table-bordered" style="border: aliceblue; margin: auto;">
-					<tbody>
-						<tr>
-							<td style="border:aliceblue;">2019年12月</td>
-						</tr>
-						<tr>
-							<td style="border: aliceblue;border-top: 1px solid #ddd;background-color: #fff; color: #fff;height:45px;"></td>
-						</tr>
-					</tbody>
-				</table></td>
-				<td style="padding: 0px;"><table class="table table-bordered" style="border: aliceblue; margin: auto;">
-					<tbody>
-						<tr>
-							<td style="border:aliceblue;">N2：118点</td>
-						</tr>
-						<tr>
-							<td style="border: aliceblue;border-top: 1px solid #ddd;background-color: #fff;">TOEFL：準備中</td>
-						</tr>
-					</tbody>
-				</table></td>
-		    </tr>
-			<tr>
-		      	<td style="font-weight: 500; width: 50px; text-align: center; vertical-align:middle">受賞</td>
-				<td style="padding: 0px;"><table class="table table-bordered" style="border: aliceblue; margin: auto;">
-					<tbody>
-						<tr>
-							<td style="border:aliceblue;">2019年5月</td>
-						</tr>
-						<tr>
-							<td style="border: aliceblue;border-top: 1px solid #ddd;background-color: #fff;">2019年1月</td>
-						</tr>
-						<tr>
-							<td style="border: aliceblue;border-top: 1px solid #ddd;">2018年11月</td>
-						</tr>
-						<tr>
-							<td style="border: aliceblue;border-top: 1px solid #ddd;background-color: #fff;">2017年3月</td>
-						</tr>
-						<tr>
-							<td style="border: aliceblue;border-top: 1px solid #ddd;">2018年10月</td>
-						</tr>
-						<tr>
-							<td style="border: aliceblue;border-top: 1px solid #ddd;background-color: #fff;">2017年10月</td>
-						</tr>
-						<tr>
-							<td style="border: aliceblue;border-top: 1px solid #ddd;">2017年</td>
-						</tr>
-						<tr>
-							<td style="border: aliceblue;border-top: 1px solid #ddd;background-color: #fff;">2017年5月</td>
-						</tr>
-						<tr>
-							<td style="border: aliceblue;border-top: 1px solid #ddd;">2016年</td>
-						</tr>
-						<tr>
-							<td style="border: aliceblue;border-top: 1px solid #ddd;background-color: #fff;">2016年</td>
-						</tr>
-					</tbody>
-				</table></td>
-				<td style="padding: 0px;"><table class="table table-bordered" style="border: aliceblue; margin: auto;">
-					<tbody>
-						<tr>
-							<td style="border:aliceblue;">中国の大学生のコンピューターデザインコンテスト 三等賞</td>
-						</tr>
-						<tr>
-							<td style="border: aliceblue;border-top: 1px solid #ddd;background-color: #fff;">「粤嵌杯」インターネット＋科学技術革新設計大会 優秀賞</td>
-						</tr>
-						<tr>
-							<td style="border: aliceblue;border-top: 1px solid #ddd;">国際大学生プログラミングコンテスト(ACM-ICPC) 銅メダル</td>
-						</tr>
-						<tr>
-							<td style="border: aliceblue;border-top: 1px solid #ddd;background-color: #fff;">CCCC団体プログラミングラダートーナメント 三等賞（団体）　二等賞（個人）</td>
-						</tr>
-						<tr>
-							<td style="border: aliceblue;border-top: 1px solid #ddd;">「藍橋杯」コンテスト 一等賞（西安地区） 三等賞（全国総決勝戦）</td>
-						</tr>
-						<tr>
-							<td style="border: aliceblue;border-top: 1px solid #ddd;background-color: #fff;">レッドハット(Redhat)チャレンジコンテスト 一等賞（西安地区） ベスト15（全国総決勝戦）</td>
-						</tr>
-						<tr>
-							<td style="border: aliceblue;border-top: 1px solid #ddd;">二等奨学金</td>
-						</tr>
-						<tr>
-							<td style="border: aliceblue;border-top: 1px solid #ddd;background-color: #fff;">優秀なボランティア</td>
-						</tr>
-						<tr>
-							<td style="border: aliceblue;border-top: 1px solid #ddd;">三等奨学金</td>
-						</tr>
-						<tr>
-							<td style="border: aliceblue;border-top: 1px solid #ddd;background-color: #fff;">陝西科技大学・弁論大会 チャンピオン</td>
-						</tr>
-					</tbody>
-				</table></td>
-		    </tr>
-		  </tbody>
+			<caption style="font-weight: 500;">受賞</caption>
+			<tbody>
+				<tr>
+					<td style="">2019年5月</td>
+					<td style="">中国の大学生のコンピューターデザインコンテスト 三等賞</td>
+				</tr>
+				<tr>
+					<td style="border-top: 1px solid #ddd;background-color: #fff;">2019年1月</td>
+					<td style="border-top: 1px solid #ddd;background-color: #fff;">「粤嵌杯」インターネット＋科学技術革新設計大会 優秀賞</td>
+				</tr>
+				<tr>
+					<td style="border-top: 1px solid #ddd;">2018年11月</td>
+					<td style="border-top: 1px solid #ddd;">国際大学生プログラミングコンテスト(ACM-ICPC) 銅メダル</td>
+				</tr>
+				<tr>
+					<td style="border-top: 1px solid #ddd;background-color: #fff;">2017年3月</td>
+					<td style="border-top: 1px solid #ddd;background-color: #fff;">CCCC団体プログラミングラダートーナメント 三等賞（団体）　二等賞（個人）</td>
+				</tr>
+				<tr>
+					<td style="border-top: 1px solid #ddd;">2018年10月</td>
+					<td style="border-top: 1px solid #ddd;">「藍橋杯」コンテスト 一等賞（西安地区） 三等賞（全国総決勝戦）</td>
+				</tr>
+				<tr>
+					<td style="border-top: 1px solid #ddd;background-color: #fff;">2017年10月</td>
+					<td style="border-top: 1px solid #ddd;background-color: #fff;">レッドハット(Redhat)チャレンジコンテスト 一等賞（西安地区） ベスト15（全国総決勝戦）</td>
+				</tr>
+				<tr>
+					<td style="border-top: 1px solid #ddd;">2017年</td>
+					<td style="border-top: 1px solid #ddd;">二等奨学金</td>
+				</tr>
+				<tr>
+					<td style="border-top: 1px solid #ddd;background-color: #fff;">2017年5月</td>
+					<td style="border-top: 1px solid #ddd;background-color: #fff;">優秀なボランティア</td>
+				</tr>
+				<tr>
+					<td style="border-top: 1px solid #ddd;">2016年</td>
+					<td style="border-top: 1px solid #ddd;">三等奨学金</td>
+				</tr>
+				<tr>
+					<td style="border-top: 1px solid #ddd;background-color: #fff;">2016年</td>
+					<td style="border-top: 1px solid #ddd;background-color: #fff;">陝西科技大学・弁論大会 チャンピオン</td>
+				</tr>
+			</tbody>
 		</table>
 		<!-- 学術研究 -->
 		<table class="table table-bordered">

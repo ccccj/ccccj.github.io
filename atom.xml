@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ccccj.github.io</id>
     <title>Amon&apos;s Homepage</title>
-    <updated>2020-06-04T08:37:13.338Z</updated>
+    <updated>2020-06-04T10:01:23.772Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ccccj.github.io"/>
     <link rel="self" href="https://ccccj.github.io/atom.xml"/>
@@ -36,12 +36,12 @@
 	</style>
 </head>
 <body>
-	<div class="container" style="width: 1000px; padding: 0px;">
+	<div class="container" style="width: 1050px;">
 		<table class="table table-bordered" style="text-align: center;">
 		  	<tbody>
 			    <tr>
 					<td style="padding: 0px;"><table class="table table-bordered" style="border: aliceblue; margin: auto;">
-						<tbody>
+						<tbody style="text-align: center;">
 							<tr>
 								<td style="border:aliceblue;"><strong>ふりがな</strong></td>
 							</tr>
@@ -60,7 +60,7 @@
 						</tbody>
 					</table></td>
 					<td style="padding: 0px;"><table class="table table-bordered" style="border: aliceblue; margin: auto;">
-						<tbody>
+						<tbody style="text-align: center;">
 							<tr>
 								<td style="border:aliceblue;">そう　せい</td>
 							</tr>
@@ -82,55 +82,26 @@
 						<img src="https://user-images.githubusercontent.com/33253635/83722791-30976e80-a670-11ea-9721-8f18fc55425a.jpg" alt="picture" style="height: 186px; width: 140px; margin: 5px;">
 					</td>
 			    </tr>
-				<tr><td style="padding: 0px;"><table class="table table-bordered" style="border: aliceblue; margin: auto;">
-					<tbody>
-						<tr>
-							<td style="border:aliceblue;"><strong>E－mail</strong></td>
-						</tr>
-						<tr>
-							<td style="border: aliceblue;border-top: 1px solid #ddd;background-color: #fff;"><strong>Github</strong></td>
-						</tr>
-						<tr>
-							<td style="border: aliceblue;border-top: 1px solid #ddd;"><strong>個人サイト</strong></td>
-						</tr>
-						<tr>
-							<td style="border: aliceblue;border-top: 1px solid #ddd;background-color: #fff;"><strong>テクニカルブロク</strong>゙</td>
-						</tr>
-					</tbody>
-				</table></td>
-				<td style="padding: 0px;"><table class="table table-bordered" style="border: aliceblue; margin: auto;">
-					<tbody>
-						<tr>
-							<td style="border:aliceblue;"><a>amon1997@foxmail.com</a></td>
-						</tr>
-						<tr>
-							<td style="border: aliceblue;border-top: 1px solid #ddd;background-color: #fff;"><a>https://github.com/ccccj</a></td>
-						</tr>
-						<tr>
-							<td style="border: aliceblue;border-top: 1px solid #ddd;"><a>http://amon1997.com</a></td>
-						</tr>
-						<tr>
-							<td style="border: aliceblue;border-top: 1px solid #ddd;background-color: #fff;"><a>https://blog.csdn.net/qq_40873884</a></td>
-						</tr>
-					</tbody>
-				</table></td>
-				<td style="padding: 0px;"><table class="table table-bordered" style="border: aliceblue; margin: auto;">
-					<tbody>
-						<tr>
-							<td style="border:aliceblue;">（自宅電話）</td>
-						</tr>
-						<tr>
-							<td style="border: aliceblue;border-top: 1px solid #ddd;background-color: #fff;">なし</td>
-						</tr>
-						<tr>
-							<td style="border: aliceblue;border-top: 1px solid #ddd;">（携帯電話）</td>
-						</tr>
-						<tr>
-							<td style="border: aliceblue;border-top: 1px solid #ddd;background-color: #fff;">+86 18857379193</td>
-						</tr>
-					</tbody>
-				</table></td>
-			</tr>
+				<tr>
+					<td style="background-color: #fff;"><strong>E－mail</strong></td>
+					<td style="border-top: 1px solid #ddd;background-color: #fff;"><a>amon1997@foxmail.com</a></td>
+					<td style="">（自宅電話）</td>
+				</tr>
+				<tr>
+					<td style="border-top: 1px solid #ddd;background-color: #fff;"><strong>Github</strong></td>
+					<td style="border-top: 1px solid #ddd;background-color: #fff;"><a>https://github.com/ccccj</a></td>
+					<td style="border-top: 1px solid #ddd;background-color: #fff;">なし</td>
+				</tr>
+				<tr>
+					<td style="border-top: 1px solid #ddd;background-color: #fff;"><strong>個人サイト</strong></td>
+					<td style="border-top: 1px solid #ddd;background-color: #fff;"><a>http://amon1997.com</a></td>
+					<td style="border-top: 1px solid #ddd;">（携帯電話）</td>
+				</tr>
+				<tr>
+					<td style="border-top: 1px solid #ddd;background-color: #fff;"><strong>テクニカルブロク</strong>゙</td>
+					<td style="border-top: 1px solid #ddd;background-color: #fff;"><a>https://blog.csdn.net/qq_40873884</a></td>
+					<td style="border-top: 1px solid #ddd;background-color: #fff;">+86 18857379193</td>
+				</tr>
 		  	</tbody>
 		</table>
 		<!-- 入学、卒業、見込等年月 -->

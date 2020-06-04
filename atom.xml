@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ccccj.github.io</id>
     <title>Amon&apos;s Homepage</title>
-    <updated>2020-06-04T10:24:40.275Z</updated>
+    <updated>2020-06-04T11:11:13.889Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ccccj.github.io"/>
     <link rel="self" href="https://ccccj.github.io/atom.xml"/>
@@ -36,8 +36,8 @@
 	</style>
 </head>
 <body>
-	<div class="container" style="width: 950px;">
-		<table class="table table-bordered" style="text-align: center;">
+	<div class="container" style="width: 950px; ">
+		<table class="table table-bordered" style="text-align: center;font-weight: 400; color: #4e4d4d;">
 		  	<tbody>
 			    <tr>
 					<td style="padding: 0px;"><table class="table table-bordered" style="border: aliceblue; margin: auto;">
@@ -59,7 +59,7 @@
 							</tr>
 						</tbody>
 					</table></td>
-					<td style="padding: 0px;"><table class="table table-bordered" style="border: aliceblue; margin: auto;">
+					<td style="padding: 0px;"><table class="table table-bordered" style="font-weight: 400; color: #4e4d4d;border: aliceblue; margin: auto;">
 						<tbody style="text-align: center;">
 							<tr>
 								<td style="border:aliceblue;">そう　せい</td>
@@ -110,7 +110,7 @@
 			<tr>
 				<td style="font-weight: 500; width: 50px; text-align: center; vertical-align:middle">学歴</td>
 				<td style="padding: 0px;">
-					<table class="table table-bordered" style="text-align:center;border: aliceblue; margin: auto;">
+					<table class="table table-bordered" style="font-weight: 400; color: #4e4d4d;text-align:center;border: aliceblue; margin: auto;">
 			  			<thead>
 						    <tr>
 						      	<th style="text-align:center;">入学、卒業、見込等年月</th>
@@ -120,7 +120,7 @@
 						<tbody>
 						    <tr>
 								<td style="padding: 0px;"><table class="table table-bordered" style="border: aliceblue; margin: auto;">
-								  	<tbody style="text-align: center;">
+								  	<tbody style="font-weight: 400; color: #4e4d4d;text-align: center;">
 								    	<tr>
 								    		<td style="border:aliceblue;">2016.09</td>
 								    		<td style="border: aliceblue;border-left: 1px solid #ddd;">2020.06</td>
@@ -131,7 +131,7 @@
 						    </tr>
 						    <tr>
 								<td style="padding: 0px;"><table class="table table-bordered" style="border: aliceblue; margin: auto;">
-								  	<tbody style="text-align: center;">
+								  	<tbody style="font-weight: 400; color: #4e4d4d;text-align: center;">
 								    	<tr>
 								    		<td style="border:aliceblue;">2013.09</td>
 								    		<td style="border: aliceblue;border-left: 1px solid #ddd;">2016.06</td>
@@ -141,7 +141,7 @@
 						      	<td style="background-color: #fff;">浙江省・桐郷市高级中学</td>
 						    </tr>
 						    <tr>
-						      	<td style="padding: 0px;"><table class="table table-bordered" style="border: aliceblue; margin: auto;">
+						      	<td style="padding: 0px;"><table class="table table-bordered" style="font-weight: 400; color: #4e4d4d;border: aliceblue; margin: auto;">
 								  	<tbody style="text-align: center;">
 								    	<tr>
 								    		<td style="border:aliceblue;">2010.09</td>
@@ -152,7 +152,7 @@
 						      	<td>浙江省・桐郷市第六中学</td>
 						    </tr>
 							<tr>
-						      	<td style="padding: 0px;"><table class="table table-bordered" style="border: aliceblue; margin: auto;">
+						      	<td style="padding: 0px;"><table class="table table-bordered" style="font-weight: 400; color: #4e4d4d;border: aliceblue; margin: auto;">
 								  	<tbody style="text-align: center;">
 								    	<tr>
 								    		<td style="border:aliceblue;">2004.09</td>
@@ -169,7 +169,7 @@
 		  </tbody>
 		</table>
 		<!-- 習得科目 -->
-		<table class="table table-bordered">
+		<table class="table table-bordered" style="font-weight: 400; color: #4e4d4d;">
 		  	<tbody>
 		    	<tr>
 		    		<td style="font-weight: 500; width: 70px;">習得 科目</td>
@@ -186,8 +186,8 @@
 		  	</tbody>
 		</table>
 		<!-- 受賞 -->
-		<table class="table table-bordered">
-			<caption style="font-weight: 500;">受賞</caption>
+		<table class="table table-bordered" style="font-weight: 400; color: #4e4d4d;">
+			<caption style="font-weight: 500; color: #292929;">受賞</caption>
 			<tbody>
 				<tr>
 					<td style="">2019年5月</td>
@@ -232,8 +232,8 @@
 			</tbody>
 		</table>
 		<!-- 学術研究 -->
-		<table class="table table-bordered">
-  			<caption style="font-weight: 500;">学術研究</caption>
+		<table class="table table-bordered" style="font-weight: 400; color: #4e4d4d;">
+  			<caption style="font-weight: 500; color: #292929;">学術研究</caption>
 			 <tbody>
 			    <tr>
 			      	<td>
@@ -275,8 +275,8 @@
 			  </tbody>
 			</table>
 		<!-- 実践経歴＆校内外活動 -->
-		<table class="table table-bordered" style="text-align: center;">
-			<caption style="font-weight: 500;">実践経歴＆校内外活動</caption>
+		<table class="table table-bordered" style="font-weight: 400; color: #4e4d4d;text-align: center;">
+			<caption style="font-weight: 500; color: #292929;">実践経歴＆校内外活動</caption>
 		  	<tbody>
 		    	<tr>
 		    		<td style="width: 270px;">2016年9月-2017年9月</td>

@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ccccj.github.io</id>
     <title>Amon&apos;s Homepage</title>
-    <updated>2020-06-05T08:36:57.612Z</updated>
+    <updated>2020-06-05T08:41:03.162Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ccccj.github.io"/>
     <link rel="self" href="https://ccccj.github.io/atom.xml"/>
@@ -46,7 +46,7 @@
 								<td style="border:aliceblue;"><strong>ふりがな</strong></td>
 							</tr>
 							<tr>
-								<td style="border-right: aliceblue;border-top: 1px solid #ddd; background-color: #fff; height: 70px;border-bottom: 1px solid #ddd;"><strong>氏　　名</strong></td>
+								<td style="border-right: aliceblue;border-top: 1px solid #ddd; background-color: #fff; height: 71px;border-bottom: 1px solid #ddd;"><strong>氏　　名</strong></td>
 							</tr>
 							<tr>
 								<td style="border: aliceblue;"><strong>生年月日</strong></td>

@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ccccj.github.io</id>
     <title>Amon&apos;s Homepage</title>
-    <updated>2020-06-05T08:41:03.162Z</updated>
+    <updated>2020-06-05T19:53:06.051Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ccccj.github.io"/>
     <link rel="self" href="https://ccccj.github.io/atom.xml"/>
@@ -46,7 +46,7 @@
 								<td style="border:aliceblue;"><strong>ふりがな</strong></td>
 							</tr>
 							<tr>
-								<td style="border-right: aliceblue;border-top: 1px solid #ddd; background-color: #fff; height: 71px;border-bottom: 1px solid #ddd;"><strong>氏　　名</strong></td>
+								<td style="border-right: aliceblue;border-top: 1px solid #ddd; background-color: #fff; height: 72px;border-bottom: 1px solid #ddd;"><strong>氏　　名</strong></td>
 							</tr>
 							<tr>
 								<td style="border: aliceblue;"><strong>生年月日</strong></td>
@@ -68,7 +68,7 @@
 												<td style="border:aliceblue;">
 													そう　せい
 												</td>
-												<td style="border-top:aliceblue;border-right:aliceblue;border-bottom:aliceblue;width: 70px;">
+												<td style="border-top:aliceblue;border-right:aliceblue;border-bottom:aliceblue;width: 71px;">
 													女
 												</td>
 										</tbody>
@@ -82,7 +82,7 @@
 												<td style="border:aliceblue;">
 													曹 静
 												</td>
-												<td style="border-top:aliceblue;border-right:aliceblue;border-bottom:aliceblue; height: 70px; width: 70px; padding: 2px;">
+												<td style="border-top:aliceblue;border-right:aliceblue;border-bottom:aliceblue; height: 71px; width: 71px; padding: 2px;">
 													<img src="https://user-images.githubusercontent.com/33253635/83852635-a8d06380-a746-11ea-9494-09a6daae6187.png" style="height: 60px; width: 60px;">
 												</td>
 										</tbody>
@@ -267,22 +267,21 @@
 						<p><strong>研究室　：</strong>陝西科技大学-人工知能研究所</p>
 						<p><strong>内　　容：</strong></p>
 						<p>戦争では、軍用機、戦車、軍艦、装甲車、空母などの軍事目標が戦略的に非常に重要である。</p>
-						<p>軍事演習中の選択的破壊のための敵物体の識別を改善するために、複数の種類の軍事目標の画像を識別するために畳み込みニューラルネットワークが使用されています。 まず、サンプルサイズを大きくするために、写真を回転、反転、ノイズ付加などを行った後、畳み込みニューラルネットワークを用いて分類のための訓練を行った。</p>
+						<p>軍事演習では敵の目標を識別して選択的に破壊する必要がある。種類の違う軍事目標の画像を識別するために畳み込みニューラルネットワークが使用される。まず、サンプルサイズを大きくするために、写真を回転、反転、ノイズ付加などを行った。その後、畳み込みニューラルネットワークで訓練し、分類する。</p>
 						<p><strong>役　　目：</strong>深さ学習によって軍事目標を分類する。</p>
 						<p><strong>成果と収穫：</strong>機械学習・深層学習関連のプロジェクトに初触れ、初歩的な理解がある方。</p>
 					</td>
 			    </tr>
 			    <tr>
 			      	<td style="background-color: #fff;">
-						<strong>テーマ　：触觉刺激与大脑皮层空间映射关系の研究</strong>
+						<strong>テーマ　：触覚刺激と大脳皮質のマッピング関係の研究</strong>
 					 	<p><strong>指導教員：</strong>斉勇（講師）</p>
 						<p><strong>研究室　：</strong>陝西科技大学-人工知能研究所</p>
 						<p><strong>内　　容：</strong></p>
-						<p>このプロジェクトは多くの病院と協力し、主に医用画像と機械学習に関するアルゴリズムと結合して関連実験を行った。</p>
-						<p>体のさまざまな部分に刺激を与えると、脳のさまざまな部分が興奮します。 パルス刺激装置を用いて、皮質領域の興奮性の変化を観察し、脳の機能的磁気共鳴画像（fMRI）を撮影した。</p>
-						<p>ディープラーニングアルゴリズムにより、肉眼では観察できない特性の変化を持つ大脳皮質の機能領域の診断分析、トレーニングモデル、最終的には医用画像を用いて刺激点を特定する。</p>
-						<p><strong>役　　目：</strong>通过深度学习探究触觉刺激与大脑皮层激活区域的空间映射关系，构建触觉感知脑功能拓扑图。</p>
-						<p><strong>成果と収穫：</strong>機械学習や深層学習の基本的な手法を学び、統計学習理論の初歩的な理解を得た。</p>
+						<p>このプロジェクトは多くの病院と協力した。体のさまざまな部分に刺激を与えると、脳のさまざまな部分が興奮する。パルス刺激装置を用いて、大脳皮質の興奮性の変化を観察し、脳の機能的fMRIを撮影した。</p>
+						<p>深層学習アルゴリズムで、肉眼では観察できない大脳皮質の変化を分析し、モデルを訓練し、最後は医用画像に刺激点を特定する。</p>
+						<p><strong>役　　目：</strong>深層学習で触覚刺激と大脳皮質のマッピング関係を探究し、触覚感知脳機能トポロジー図を構築する。</p>
+						<p><strong>成果と収穫：</strong>機械学習や深層学習の基本的なアルゴリズムを学び、統計学習理論の初歩的な理解を獲得した。</p>
 				  	</td>
 			    </tr>
 			    <tr>
@@ -291,10 +290,10 @@
 					 	<p><strong>指導教員：</strong>斉勇（講師）</p>
 						<p><strong>研究室　：</strong>陝西科技大学-人工知能研究所</p>
 						<p><strong>内　　容：</strong></p>
-						<p>画像の三次元再構成とは、カメラ等を用いてシーンの多角度画像を取得し、対象物の二次元投影像を複数入力し、空間幾何学等の知識から対象物の幾何学的構造を推定し、対象物の二次元幾何学情報や位相情報を取得し、三次元モデルを構築することである。 しかし、その画像品質の要件は高く、いくつかの画像再構成効果が悪いですが、最初に画像処理する必要があり、画像品質を向上させます。</p>
-						<p>本研究では、一連のノイズの多い画像を三次元に再構成し、まず画像のノイズを低減するためにDnCNNネットワークモデルを試行した後、三次元再構成を行う。</p>
-						<p><strong>役　　目：</strong>複数の二次元画像に基づいて、原図の三次元点群を求める三次元再構成を行い、ディープラーニングと組み合わせることで、原図のアルゴリズムを修正し、三次元再構成の精度を向上させている。</p>
-						<p><strong>成果と収穫：</strong>マルチビューベースの3D再構成の初期理解が得られ、3D再構成の精度を向上させるためにディープラーニングと組み合わせる。</p>
+						<p>画像の三次元再構成とは、カメラなどを用いてシーンの多角度画像を取得し、二次元画像を複数入力し、空間幾何学等の知識で対象物の幾何学的構造を推定し、三次元モデルを構築することである。しかし、その画像品質の要求は高く、いくつかの画像再構成効果が悪いです。そして、最初に画像処理して画像品質を向上させる必要がある。</p>
+						<p>本研究では、まず画像のノイズを低減するためにDnCNNネットワークモデルを試行した。その後、3D再構成を行った。</p>
+						<p><strong>役　　目：</strong>複数の二次元画像に基づいて、深層学習を3D再構成と結びつけて、原図の三次元点群を求める。元のアルゴリズムを修正し、３D再構成の精度を向上させていった。</p>
+						<p><strong>成果と収穫：</strong>3D再構成の初期理解が得られ、深層学習を3D再構成と結びつけて精度を上げた。</p>
 					</td>
 			    </tr>
 			  </tbody>

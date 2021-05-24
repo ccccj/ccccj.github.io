@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ccccj.github.io</id>
     <title>Amon&apos;s Homepage</title>
-    <updated>2021-05-24T05:43:01.210Z</updated>
+    <updated>2021-05-24T05:51:10.587Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ccccj.github.io"/>
     <link rel="self" href="https://ccccj.github.io/atom.xml"/>
@@ -10,321 +10,6 @@
     <logo>https://ccccj.github.io/images/avatar.png</logo>
     <icon>https://ccccj.github.io/favicon.ico</icon>
     <rights>All rights reserved 2021, Amon&apos;s Homepage</rights>
-    <entry>
-        <title type="html"><![CDATA[履歴書]]></title>
-        <id>https://ccccj.github.io/lu-li-shu/</id>
-        <link href="https://ccccj.github.io/lu-li-shu/">
-        </link>
-        <updated>2020-06-03T15:48:36.000Z</updated>
-        <content type="html"><![CDATA[<!DOCTYPE html>
-<html>
-<head>
-	<title>履歴書</title>
-	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-	<style type="text/css">
-		.table {
-			border: solid #000;
-			font-size: 18px;
-			font-weight: 300;
-		}
-		.tr {
-			height: 45px;
-		}
-		.td {
-			border: 1px solid #000;
-		}
-	</style>
-</head>
-<body>
-	<div class="container" style="width: 950px; ">
-		<table class="table table-bordered" style="text-align: center;font-weight: 400; color: #4e4d4d;">
-		  	<tbody>
-			    <tr>
-					<td style="padding: 0px;"><table class="table table-bordered" style="border: aliceblue; margin: auto;">
-						<tbody style="text-align: center;">
-							<tr>
-								<td style="border:aliceblue;"><strong>ふりがな</strong></td>
-							</tr>
-							<tr>
-								<td style="border-right: aliceblue;border-top: 1px solid #ddd; background-color: #fff; height: 72px;border-bottom: 1px solid #ddd;"><strong>氏　　名</strong></td>
-							</tr>
-							<tr>
-								<td style="border: aliceblue;"><strong>生年月日</strong></td>
-							</tr>
-							<tr>
-								<td style="border: aliceblue;border-top: 1px solid #ddd;background-color: #fff;"><strong>所　　属</strong></td>
-							</tr>
-							<tr>
-								<td style="border: aliceblue;border-top: 1px solid #ddd;"><strong>現 住 所</strong></td>
-							</tr>
-						</tbody>
-					</table></td>
-					<td style="padding: 0px;"><table class="table table-bordered" style="font-weight: 400; color: #4e4d4d;border: aliceblue; margin: auto;">
-						<tbody style="text-align: center;">
-							<tr>
-								<td style="border:aliceblue; padding: 0px;">
-									<table class="table table-bordered" style="font-weight: 400; color: #4e4d4d;border: aliceblue; margin: auto;">
-										<tbody style="text-align: center;">
-												<td style="border:aliceblue;">
-													そう　せい
-												</td>
-												<td style="border-top:aliceblue;border-right:aliceblue;border-bottom:aliceblue;width: 71px;">
-													女
-												</td>
-										</tbody>
-									</table>
-								</td>
-							</tr>
-							<tr>
-								<td style="border-left:aliceblue; padding: 0px;">
-									<table class="table table-bordered" style="font-weight: 400; color: #4e4d4d;border: aliceblue; margin: auto;">
-										<tbody style="text-align: center;">
-												<td style="border:aliceblue;">
-													曹 静
-												</td>
-												<td style="border-top:aliceblue;border-right:aliceblue;border-bottom:aliceblue; height: 71px; width: 71px; padding: 2px;">
-													<img src="https://user-images.githubusercontent.com/33253635/83852635-a8d06380-a746-11ea-9494-09a6daae6187.png" style="height: 60px; width: 60px;">
-												</td>
-										</tbody>
-									</table>
-								</td>
-							</tr>
-							<tr>
-								<td style="border: aliceblue;border-top: 1px solid #ddd;">1997　年　12　月　7　日生　　満（22）歳</td>
-							</tr>
-							<tr>
-								<td style="border: aliceblue;border-top: 1px solid #ddd;background-color: #fff;">陝西科技大学　コンピューター科学と技術専攻</td>
-							</tr>
-							<tr>
-								<td style="border: aliceblue;border-top: 1px solid #ddd;">浙江省嘉興市桐郷市</td>
-							</tr>
-						</tbody>
-					</table></td>
-					<td style="padding: 0px; width: 172px;">
-						<img src="" alt="picture" style="height: 186px; width: 140px; margin: 5px;">
-					</td>
-			    </tr>
-				<tr>
-					<td style="background-color: #fff;"><strong>E－mail</strong></td>
-					<td style="border-top: 1px solid #ddd;background-color: #fff;"><a>amon1997@foxmail.com</a></td>
-					<td style="">（自宅電話）</td>
-				</tr>
-				<tr>
-					<td style="border-top: 1px solid #ddd;background-color: #fff;"><strong>Github</strong></td>
-					<td style="border-top: 1px solid #ddd;background-color: #fff;"><a>https://github.com/ccccj</a></td>
-					<td style="border-top: 1px solid #ddd;background-color: #fff;">なし</td>
-				</tr>
-				<tr>
-					<td style="border-top: 1px solid #ddd;background-color: #fff;"><strong>個人サイト</strong></td>
-					<td style="border-top: 1px solid #ddd;background-color: #fff;"><a>http://amon1997.com</a></td>
-					<td style="border-top: 1px solid #ddd;">（携帯電話）</td>
-				</tr>
-				<tr>
-					<td style="border-top: 1px solid #ddd;background-color: #fff;"><strong>テクニカルブロク</strong>゙</td>
-					<td style="border-top: 1px solid #ddd;background-color: #fff;"><a>https://blog.csdn.net/qq_40873884</a></td>
-					<td style="border-top: 1px solid #ddd;background-color: #fff;">+86 18857379193</td>
-				</tr>
-		  	</tbody>
-		</table>
-		<!-- 入学、卒業、見込等年月 -->
-		<table class="table table-bordered">
-		  <tbody>
-			<tr>
-				<td style="font-weight: 500; width: 50px; text-align: center; vertical-align:middle">学歴</td>
-				<td style="padding: 0px;">
-					<table class="table table-bordered" style="font-weight: 400; color: #4e4d4d;text-align:center;border: aliceblue; margin: auto;">
-			  			<thead>
-						    <tr>
-						      	<th style="text-align:center;">入学、卒業、見込等年月</th>
-						      	<th style="text-align:center;">学校名・学部（研究科）・学科（専攻）</th>
-						    </tr>
-						</thead>
-						<tbody>
-						    <tr>
-								<td style="padding: 0px;"><table class="table table-bordered" style="border: aliceblue; margin: auto;">
-								  	<tbody style="font-weight: 400; color: #4e4d4d;text-align: center;">
-								    	<tr>
-								    		<td style="border:aliceblue;">2016.09</td>
-								    		<td style="border: aliceblue;border-left: 1px solid #ddd;">2020.06</td>
-								    	</tr>
-								  	</tbody>
-								</table></td>
-						      	<td>陝西科技大学・コンピューター科学と技術専攻（大学）</td>
-						    </tr>
-						    <tr>
-								<td style="padding: 0px;"><table class="table table-bordered" style="border: aliceblue; margin: auto;">
-								  	<tbody style="font-weight: 400; color: #4e4d4d;text-align: center;">
-								    	<tr>
-								    		<td style="border:aliceblue;">2013.09</td>
-								    		<td style="border: aliceblue;border-left: 1px solid #ddd;">2016.06</td>
-								    </tr>
-								  	</tbody>
-								</table></td>
-						      	<td style="background-color: #fff;">浙江省・桐郷市高级中学</td>
-						    </tr>
-						    <tr>
-						      	<td style="padding: 0px;"><table class="table table-bordered" style="font-weight: 400; color: #4e4d4d;border: aliceblue; margin: auto;">
-								  	<tbody style="text-align: center;">
-								    	<tr>
-								    		<td style="border:aliceblue;">2010.09</td>
-								    		<td style="border: aliceblue;border-left: 1px solid #ddd;">2013.06</td>
-								    </tr>
-								  	</tbody>
-								</table></td>
-						      	<td>浙江省・桐郷市第六中学</td>
-						    </tr>
-							<tr>
-						      	<td style="padding: 0px;"><table class="table table-bordered" style="font-weight: 400; color: #4e4d4d;border: aliceblue; margin: auto;">
-								  	<tbody style="text-align: center;">
-								    	<tr>
-								    		<td style="border:aliceblue;">2004.09</td>
-								    		<td style="border: aliceblue;border-left: 1px solid #ddd;">2010.06</td>
-								    </tr>
-								  	</tbody>
-								</table></td>
-						      	<td style="background-color: #fff;">浙江省・桐郷市鳳鳴小学</td>
-						    </tr>
-						 </tbody>
-					</table>
-				</td>
-			</tr>
-		  </tbody>
-		</table>
-		<!-- 習得科目 -->
-		<table class="table table-bordered" style="font-weight: 400; color: #4e4d4d;">
-		  	<tbody>
-		    	<tr>
-		    		<td style="font-weight: 500; width: 70px;text-align: center; vertical-align:middle">習得 科目</td>
-		    		<td><p>プログラミング言語：C 言語/C＋＋プログラミング、Pythonなど</p>
-					<p>アルゴリズムコース：データ構造、アルゴリズムの設計と分析など</p>
-					<p>コンピュータコース：OS（Linux）、コンパイルの原理、コンピュータの構成原理など</p>
-					<p>数学：離散数学、高等数学と線形代数、確率論と数理統計など゙</p></td>
-		    	</tr>
-				<tr>
-		    		<td style="font-weight: 500; width: 70px;text-align: center; vertical-align:middle">成績</td>
-					<td>平均点：3.29点</td>
-		    	</tr>
-				<tr>
-					<td style="font-weight: 500; width: 70px;text-align: center; vertical-align:middle">資格</td>
-					<td>N2：118点 / TOEFL：準備中</td>
-				</tr>
-		  	</tbody>
-		</table>
-		<!-- 受賞 -->
-		<table class="table table-bordered" style="font-weight: 400; color: #4e4d4d;">
-			<caption style="font-weight: 500; color: #292929;">受賞</caption>
-			<tbody>
-				<tr>
-					<td style="">2019年5月</td>
-					<td style="">中国の大学生のコンピューター設計コンテスト　三等賞</td>
-				</tr>
-				<tr>
-					<td style="border-top: 1px solid #ddd;background-color: #fff;">2019年1月</td>
-					<td style="border-top: 1px solid #ddd;background-color: #fff;">「粤嵌杯」インターネット＋科学技術革新設計大会 優秀賞</td>
-				</tr>
-				<tr>
-					<td style="border-top: 1px solid #ddd;">2018年11月</td>
-					<td style="border-top: 1px solid #ddd;">国際大学生プログラミング設計コンテスト(ACM-ICPC)　銅メダル</td>
-				</tr>
-				<tr>
-					<td style="border-top: 1px solid #ddd;background-color: #fff;">2017年3月</td>
-					<td style="border-top: 1px solid #ddd;background-color: #fff;">CCCC団体プログラミング設計コンテスト 三等賞（団体）　二等賞（個人）</td>
-				</tr>
-				<tr>
-					<td style="border-top: 1px solid #ddd;">2018年10月</td>
-					<td style="border-top: 1px solid #ddd;">「藍橋杯」コンテスト 一等賞（西安地区） 三等賞（全国総決勝戦）</td>
-				</tr>
-				<tr>
-					<td style="border-top: 1px solid #ddd;background-color: #fff;">2017年10月</td>
-					<td style="border-top: 1px solid #ddd;background-color: #fff;">レッドハット(Redhat)チャレンジコンテスト 一等賞（西安地区） ベスト15（全国総決勝戦）</td>
-				</tr>
-				<tr>
-					<td style="border-top: 1px solid #ddd;">2017年</td>
-					<td style="border-top: 1px solid #ddd;">二等奨学金</td>
-				</tr>
-				<tr>
-					<td style="border-top: 1px solid #ddd;background-color: #fff;">2017年5月</td>
-					<td style="border-top: 1px solid #ddd;background-color: #fff;">優秀なボランティア</td>
-				</tr>
-				<tr>
-					<td style="border-top: 1px solid #ddd;">2016年</td>
-					<td style="border-top: 1px solid #ddd;">三等奨学金</td>
-				</tr>
-				<tr>
-					<td style="border-top: 1px solid #ddd;background-color: #fff;">2016年</td>
-					<td style="border-top: 1px solid #ddd;background-color: #fff;">陝西科技大学・弁論大会 チャンピオン</td>
-				</tr>
-			</tbody>
-		</table>
-		<!-- 学術研究 -->
-		<table class="table table-bordered" style="font-weight: 400; color: #4e4d4d;">
-  			<caption style="font-weight: 500; color: #292929;">学術研究</caption>
-			 <tbody>
-			    <tr>
-			      	<td>
-						<strong>テーマ　：軍事演習中の目標物の識別</strong>
-					 	<p><strong>指導教員：</strong>斉勇（講師）</p>
-						<p><strong>研究室　：</strong>陝西科技大学-人工知能研究所</p>
-						<p><strong>内　　容：</strong></p>
-						<p>戦争では、軍用機、戦車、軍艦、装甲車、空母などの軍事目標が戦略的に非常に重要である。</p>
-						<p>軍事演習では敵の目標を識別して選択的に破壊する必要がある。種類の違う軍事目標の画像を識別するために畳み込みニューラルネットワークが使用される。まず、サンプルサイズを大きくするために、写真を回転、反転、ノイズ付加などを行った。その後、畳み込みニューラルネットワークで訓練し、分類する。</p>
-						<p><strong>役　　目：</strong>深さ学習によって軍事目標を分類する。</p>
-						<p><strong>成果と収穫：</strong>機械学習・深層学習関連のプロジェクトに初触れ、初歩的な理解がある方。</p>
-					</td>
-			    </tr>
-			    <tr>
-			      	<td style="background-color: #fff;">
-						<strong>テーマ　：触覚刺激と大脳皮質のマッピング関係の研究</strong>
-					 	<p><strong>指導教員：</strong>斉勇（講師）</p>
-						<p><strong>研究室　：</strong>陝西科技大学-人工知能研究所</p>
-						<p><strong>内　　容：</strong></p>
-						<p>このプロジェクトは多くの病院と協力した。体のさまざまな部分に刺激を与えると、脳のさまざまな部分が興奮する。パルス刺激装置を用いて、大脳皮質の興奮性の変化を観察し、脳の機能的fMRIを撮影した。</p>
-						<p>深層学習アルゴリズムで、肉眼では観察できない大脳皮質の変化を分析し、モデルを訓練し、最後は医用画像に刺激点を特定する。</p>
-						<p><strong>役　　目：</strong>深層学習で触覚刺激と大脳皮質のマッピング関係を探究し、触覚感知脳機能トポロジー図を構築する。</p>
-						<p><strong>成果と収穫：</strong>機械学習や深層学習の基本的なアルゴリズムを学び、統計学習理論の初歩的な理解を獲得した。</p>
-				  	</td>
-			    </tr>
-			    <tr>
-			      	<td>
-						<strong>テーマ　：ノイズを考慮した画像の3Dモデリング</strong>
-					 	<p><strong>指導教員：</strong>斉勇（講師）</p>
-						<p><strong>研究室　：</strong>陝西科技大学-人工知能研究所</p>
-						<p><strong>内　　容：</strong></p>
-						<p>画像の三次元再構成とは、カメラなどを用いてシーンの多角度画像を取得し、二次元画像を複数入力し、空間幾何学等の知識で対象物の幾何学的構造を推定し、三次元モデルを構築することである。しかし、その画像品質の要求は高く、いくつかの画像再構成効果が悪いです。そして、最初に画像処理して画像品質を向上させる必要がある。</p>
-						<p>本研究では、まず画像のノイズを低減するためにDnCNNネットワークモデルを試行した。その後、3D再構成を行った。</p>
-						<p><strong>役　　目：</strong>複数の二次元画像に基づいて、深層学習を3D再構成と結びつけて、原図の三次元点群を求める。元のアルゴリズムを修正し、３D再構成の精度を向上させていった。</p>
-						<p><strong>成果と収穫：</strong>3D再構成の初期理解が得られ、深層学習を3D再構成と結びつけて精度を上げた。</p>
-					</td>
-			    </tr>
-			  </tbody>
-			</table>
-		<!-- 実践経歴＆校内外活動 -->
-		<table class="table table-bordered" style="font-weight: 400; color: #4e4d4d;text-align: center;">
-			<caption style="font-weight: 500; color: #292929;">実践経歴＆校内外活動</caption>
-		  	<tbody>
-		    	<tr>
-		    		<td style="width: 270px;">2016年9月-2017年9月</td>
-		    		<td>テ弁論社 & 「星の家」自閉症児童救助隊゙</td>
-		    	</tr>
-				<tr>
-		    		<td style="width: 270px;background-color: #fff;">2017年10月-2018年12月</td>
-		    		<td style="background-color: #fff;">ACM学校のチーム゙</td>
-		    	</tr>
-				<tr>
-		    		<td style="width: 270px;">2018年7月-2018年9月</td>
-		    		<td>学校のACM Summer Training & CCPC-Wannafly Camp゙</td>
-		    	</tr>
-				<tr>
-		    		<td style="width: 270px;background-color: #fff;">2019年1月-</td>
-		    		<td style="background-color: #fff;">陝西科技大学-人工知能研究所</td>
-		    	</tr>
-		  	</tbody>
-		</table>
-	</div>
-</body>
-</html>
-]]></content>
-    </entry>
     <entry>
         <title type="html"><![CDATA[Linux下vim的便捷使用]]></title>
         <id>https://ccccj.github.io/linux-xia-vim-de-bian-jie-shi-yong/</id>
@@ -2863,6 +2548,266 @@ int main()
 353<br>
 373<br>
 383</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[atom 配置 把编译运行终端(自带)改为 platformio-ide-terminal]]></title>
+        <id>https://ccccj.github.io/atom-pei-zhi-ba-bian-yi-yun-xing-zhong-duan-zi-dai-gai-wei-platformio-ide-terminal/</id>
+        <link href="https://ccccj.github.io/atom-pei-zhi-ba-bian-yi-yun-xing-zhong-duan-zi-dai-gai-wei-platformio-ide-terminal/">
+        </link>
+        <updated>2017-12-24T02:32:07.000Z</updated>
+        <content type="html"><![CDATA[<blockquote>
+<p>最近换掉了xcode...因为实在是..太卡了...555...以前好喜欢的超级漂亮的xcode啊...<br>
+于是换了 atom，改了一下配置。一些网上能找到的教程就不写了...懒...主要挑一些找不到的分享一下~<br>
+我下了中文的插件...所以部分有中文，没有中文的可以对照着找一下...下载的插件是 <code>simplified-chinese-menu</code></p>
+</blockquote>
+<p><ul class="markdownIt-TOC">
+<li><a href="#%E9%85%8D%E7%BD%AE%E5%86%85%E7%BD%AE%E8%BF%90%E8%A1%8C%E7%95%8C%E9%9D%A2">配置内置运行界面</a>
+<ul>
+<li><a href="#1%E4%B8%8B%E8%BD%BD%E6%8F%92%E4%BB%B6">1.下载插件</a></li>
+<li><a href="#2%E8%AE%BE%E7%BD%AE%E6%8F%92%E4%BB%B6">2.设置插件</a></li>
+<li><a href="#3%E8%AE%BE%E7%BD%AE%E8%BF%90%E8%A1%8C%E7%9A%84%E5%BF%AB%E6%8D%B7%E9%94%AE">3.设置运行的快捷键</a></li>
+</ul>
+</li>
+<li><a href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E4%BB%A3%E7%A0%81%E5%9D%97">自定义代码块</a></li>
+<li><a href="#%E5%85%B3%E4%BA%8E-mac-%E4%B8%8A%E7%9A%84-linter-gcc-%E9%97%AE%E9%A2%98">关于 mac 上的 linter-gcc 问题</a>
+<ul>
+<li><a href="#1%E4%B8%8B%E8%BD%BD-%E6%96%B0%E7%89%88%E6%9C%AC%E7%9A%84-gcc">1.下载 新版本的 gcc</a></li>
+<li><a href="#2%E4%BF%AE%E6%94%B9atom%E9%93%BE%E6%8E%A5%E7%9A%84gcc%E7%9B%AE%E5%BD%95">2.修改atom链接的gcc目录</a></li>
+</ul>
+</li>
+<li><a href="#%E6%81%A2%E5%A4%8D%E4%B8%8A%E6%AC%A1%E5%85%B3%E9%97%AD%E5%89%8D%E7%9A%84%E6%96%87%E4%BB%B6%E5%A4%B9">恢复上次关闭前的文件夹</a>
+<ul>
+<li><a href="#1-cmd-q">1. cmd + q</a></li>
+<li><a href="#2%E4%B8%8B%E8%BD%BD%E6%8F%92%E4%BB%B6">2.下载插件</a></li>
+</ul>
+</li>
+</ul>
+<br>
+<mark><mark><mark><mark><mark><mark><mark><mark><mark><mark>我是可爱的分割线</mark></mark></mark></mark></mark></mark></mark></mark></mark></mark></p>
+<h1 id="配置内置运行界面">配置内置运行界面</h1>
+<blockquote>
+<p>用的是 mac，对于 windows 用户来说这个没必要，可以直接看后面的。<br>
+mac 嘛...每个进程全屏了，切换进程就会切换整个界面，每次一运行，就会打开 mac 自带的终端，换来换去很晃眼的啊...所以调一下...</p>
+</blockquote>
+<h2 id="1下载插件">1.下载插件</h2>
+<p>插件名：</p>
+<blockquote>
+<p>platformio-ide-terminal</p>
+</blockquote>
+<p><code>扩展 &gt; Settings View &gt; Install Packages/Themes</code></p>
+<figure data-type="image" tabindex="1"><img src="https://img-blog.csdnimg.cn/20181120231206182.png" alt="图1" loading="lazy"></figure>
+<p><code>安装 &gt; 输入 platformio-ide-terminal</code></p>
+<figure data-type="image" tabindex="2"><img src="https://img-blog.csdnimg.cn/20181120231315920.png" alt="图2" loading="lazy"></figure>
+<p><strong><code>但是！！！炒鸡重要的一点是，这个需要每次运行前保存文件！！因为终端是不会帮你保存的！！不保存的话！！编译的就不是你写完的文件了！！！</code></strong></p>
+<h2 id="2设置插件">2.设置插件</h2>
+<p><code>扩展 &gt; Settings View &gt; Manage Packages</code></p>
+<figure data-type="image" tabindex="3"><img src="https://img-blog.csdnimg.cn/2018112022494150.png" alt="图3" loading="lazy"></figure>
+<p><code>扩展 &gt; 找到 platformio-ide-terminal &gt; 设置</code></p>
+<figure data-type="image" tabindex="4"><img src="https://img-blog.csdnimg.cn/20181120231605471.png" alt="图4" loading="lazy"></figure>
+<p><code>找到 Core &gt; 若未展开，点击下图箭头所指处</code></p>
+<figure data-type="image" tabindex="5"><img src="https://img-blog.csdnimg.cn/20181120231752887.png" alt="图5" loading="lazy"></figure>
+<p>得到以下界面：<br>
+<img src="https://img-blog.csdnimg.cn/20181120231935740.png" alt="图6" loading="lazy"></p>
+<p>若是 windows，则在 Default 那里 输入 <code>g++ -o a.exe *.cpp ; ./a.exe</code><br>
+若是 mac，则输入 <code>g++ -o a.out *.cpp &amp;&amp; ./a.out</code></p>
+<p>如图：<br>
+<img src="https://img-blog.csdnimg.cn/20181121141328945.png" alt="图7" loading="lazy"></p>
+<p>解释以下...：</p>
+<blockquote>
+<p><code>g++ -o</code> 是 制定可执行文件文件生成的名字（这里其实可以省略为 <code>g++ *.cpp</code>，因为 默认生成的文件就是 <code>a.exe</code> 和 <code>a.out</code>），<code>\*.cpp</code> 是<code>通配符</code>，指所有以 .cpp 结尾的文件，g++ 就是 编译器啦。<br>
+<code>./a.out</code> 和 <code>./a.exe</code> 分为别 mac 和 windows 下的 执行可执行文件。<br>
+然后要说一下，mac 的 组合命令符号 是 <code>&amp;&amp;</code> ，意思是 执行完第一条命令，就执行第二条。但是 windows 的不一定，若是在 <code>cmd</code>下 ，那么 组合命令一般是 <code>&amp;&amp;</code> （也有 <code>&amp;</code> / <code>|</code>）, 但是 atom 好像默认使用 <code>powershell</code>，他的组合命令符号为 <code>;</code>（似乎也有用 -and 的，但我试了一下，似乎没有运行）。</p>
+</blockquote>
+<p>结果如图：<br>
+<img src="https://img-blog.csdnimg.cn/20181121141500467.png" alt="windows" loading="lazy"></p>
+<figure data-type="image" tabindex="6"><img src="https://img-blog.csdnimg.cn/20181120234144701.png" alt="mac" loading="lazy"></figure>
+<p>另外，<code>Map Terminals To</code> 可以选择 <code>File 或者 Folder</code><img src="https://img-blog.csdnimg.cn/20181120234314523.png" alt="图8" loading="lazy"><br>
+如图<br>
+<img src="https://img-blog.csdnimg.cn/20181120234409384.png" alt="图9" loading="lazy"></p>
+<p>这样才可以直接编译当前目录下文件。</p>
+<p>所以打开文件时，我们要让页面变成这样：<br>
+<img src="https://img-blog.csdnimg.cn/2018112023454774.png" alt="图10" loading="lazy"></p>
+<p><strong>因为我们选择的是编译当前目录下所有文件，所以目录下只能有一个 <code>.cpp</code> 文件~~不然你可能最后得到的 <code>a.out</code> 不是你想要的可执行文件~</strong></p>
+<h2 id="3设置运行的快捷键">3.设置运行的快捷键</h2>
+<blockquote>
+<p>Atom &gt; 用户键盘映射</p>
+</blockquote>
+<figure data-type="image" tabindex="7"><img src="https://img-blog.csdnimg.cn/20181120234915583.png" alt="图11" loading="lazy"></figure>
+<blockquote>
+<p>加两行</p>
+</blockquote>
+<p><code>'atom-text-editor':</code><br>
+<code>'cmd-r': 'platformio-ide-terminal:new'</code></p>
+<figure data-type="image" tabindex="8"><img src="https://img-blog.csdnimg.cn/20181120235033174.png" alt="图12" loading="lazy"></figure>
+<p>意思也很好理解，就是指 将 我的 mac 的 <code>command键 + r</code>(以前用xcode就是这个运行键，比较习惯)，映射为 <code>platformio-ide-terminal</code> 这个插件的 <code>new 动作（新创建一个文件）</code>。</p>
+<p>当然，你也可以写更多上去，如图：<br>
+<img src="https://img-blog.csdnimg.cn/20181121000254900.png" alt="图13" loading="lazy"></p>
+<p>具体的后面写什么，可以看 <code>platformio-ide-terminal</code> 插件的 <code>Settings</code> 的最后面。<br>
+<img src="https://img-blog.csdnimg.cn/20181121000414253.png" alt="图14" loading="lazy"></p>
+<p>左边的是内容，后面的是原本的快捷键，这个应该很容易理解，不说了。</p>
+<h1 id="自定义代码块">自定义代码块</h1>
+<blockquote>
+<p>这个其实网上能找到一些，但是写的不详细。我当时找的时候一脸懵逼。</p>
+</blockquote>
+<blockquote>
+<p>Atom &gt; 用户代码片段</p>
+</blockquote>
+<figure data-type="image" tabindex="9"><img src="https://img-blog.csdnimg.cn/20181121004314348.png" alt="图1" loading="lazy"></figure>
+<p>接着就会打开一个文件：<br>
+<img src="https://img-blog.csdnimg.cn/20181121004404254.png" alt="图2" loading="lazy"></p>
+<p>网上关于 c/c++ 的代码块配置很少，放一下我的(部分)~</p>
+<pre><code>'.source.cpp':
+  'for':
+    'prefix': 'for'
+    'body': '''
+            for (int ${1:i} = 0; ${1:i} &lt; ${2:n}; ++${1:i}) {
+              $3
+            }
+            '''
+  'printf':
+    'prefix': 'printf'
+    'body': '''
+            printf(&quot;%${1:d}\\\\n&quot;, $2);
+            '''
+  'if':
+    'prefix': 'if'
+    'body': '''
+            if ($1) {
+
+            }
+            '''
+  'scanf':
+    'prefix': 'scanf'
+    'body': '''
+            scanf(&quot;%d&quot;, &amp;$1);
+            '''
+  '~scanf':
+    'prefix': '~scanf'
+    'body': '''
+            ~scanf(&quot;%d&quot;, &amp;n) &amp;&amp; n$1
+            '''
+  'while':
+    'prefix': 'while'
+    'body': '''
+            while ($1) {
+
+            }
+            '''
+  'memset':
+    'prefix': 'memset'
+    'body': '''
+            memset(${1:arr}, ${2:0}, sizeof ${1:arr});$3
+            '''
+  'sort':
+    'prefix': 'sort'
+    'body': '''
+            sort(${1:arr}, ${1:arr} + ${2:n});$3
+            '''
+  'return':
+    'prefix': 'return'
+    'body': '''
+            return 0;
+            '''
+  'using':
+    'prefix': 'using'
+    'body': '''
+            using namespace std;
+            '''
+  'include':
+    'prefix': &quot;include&quot;
+    'body': '''
+            include &lt;${1:cstdio}&gt;
+            '''
+  'vector':
+    'prefix': &quot;vector&quot;
+    'body': '''
+            vector&lt;${1:int}&gt; ${2:v};$3
+            '''
+</code></pre>
+<p>简单说明一下：</p>
+<blockquote>
+<p>'.source.coffee': 这个是需要找一下的。</p>
+</blockquote>
+<p>在已安装扩展里面搜索 <code>language</code>，找到你需要的语言，点开设置，例如我要修改 C/C++<br>
+<img src="https://img-blog.csdnimg.cn/20181121075232345.png" alt="图3" loading="lazy"></p>
+<p>找到这样的模块：<br>
+<img src="https://img-blog.csdnimg.cn/20181121075331352.png" alt="图4" loading="lazy"><br>
+<img src="https://img-blog.csdnimg.cn/20181121075344881.png" alt="图5" loading="lazy"></p>
+<p>然后在前面加一个点，例如我写的是c++，格式就是 <code>.source.cpp</code> 。</p>
+<blockquote>
+<p>'Console log': 是随意的，可以自己设置</p>
+</blockquote>
+<blockquote>
+<p>'prefix': 需要写上你的代码提示码</p>
+</blockquote>
+<blockquote>
+<p>'body': 'console.log $1'这个就是代码主体了</p>
+</blockquote>
+<p>我已开始写完，觉得写得没有原本的好，因为这里其实需要用到一些技巧。<br>
+例如，拿 for 循环来说，</p>
+<pre><code>  'for':
+    'prefix': 'for'
+    'body': '''
+            for (int ${1:i} = 0; ${1:i} &lt; ${2:n}; ++${1:i}) {
+              $3
+            }
+            '''
+</code></pre>
+<p>$1 代表第一次光标所在位置，$2 代表按了tab键后第二次光标所在位置，$3 代表第三次，以此类推...</p>
+<p><code>${num:k}</code> 这个的意思是，第 num 次光标处，写得是 k，但选中了，可以直接进行修改。</p>
+<p>上面一段代码的效果如下：<br>
+<img src="https://img-blog.csdnimg.cn/20181121082451328.png" alt="效果" loading="lazy"></p>
+<p>可以看到，由于有3个 ${1:i}  ，所以光标第一次所在位置就是这三个地方，可以同时选中，同时修改。</p>
+<p>这时候按一下 tab 键，如下：<br>
+<img src="https://img-blog.csdnimg.cn/20181121082559147.png" alt="按 tab" loading="lazy"><br>
+选中了 ${2:n} 处，</p>
+<p>再按一下 tab ：<br>
+<img src="https://img-blog.csdnimg.cn/20181121082640234.png" alt="$3" loading="lazy"><br>
+到了 $3 处，但并未选中。</p>
+<h1 id="关于-mac-上的-linter-gcc-问题">关于 mac 上的 linter-gcc 问题</h1>
+<p>点进 linter-gcc 的设置里面，可以看到这么一段话：</p>
+<figure data-type="image" tabindex="10"><img src="https://img-blog.csdnimg.cn/20181121095158767.png" alt="图1" loading="lazy"></figure>
+<p>如果 mac 上曾使用 xcode（例如我...），使用时 gcc 会有一些问题。<br>
+我的问题就是...他不报错...可以看到有错误，但是不提示你错误在哪的那种...</p>
+<p>点进这段话里的链接：<br>
+<img src="https://img-blog.csdnimg.cn/20181121090333910.png" alt="图2" loading="lazy"></p>
+<p>这里有一些说明。<br>
+大致意思就是，xcode 的 有自带的 gcc，但是呢他有一些问题...<br>
+（我当时就是因为有了 xcode 的 gcc，所以没有自己下载gcc）<br>
+然后他给了解决方案~</p>
+<p>所以呢，需要自己再下载一个 gcc。</p>
+<h2 id="1下载-新版本的-gcc">1.下载 新版本的 gcc</h2>
+<p>在终端里下载...这里不说了...因为我没下，我电脑里直接就有..也不知道啥时候下的...百度下有很多关系下载 gcc 的教程~</p>
+<h2 id="2修改atom链接的gcc目录">2.修改atom链接的gcc目录</h2>
+<p>下载完成后，终端会提示你安装的 gcc 目录在哪<br>
+如我的是：</p>
+<blockquote>
+<p>/usr/local/Cellar/gcc/8.2.0</p>
+</blockquote>
+<blockquote>
+<p>在后面加上 /bin/gcc-x<br>
+x 是你下载的 gcc 的版本号</p>
+</blockquote>
+<p>例如得到我的就是：</p>
+<blockquote>
+<p>/usr/local/Cellar/gcc/8.2.0/bin/gcc-8</p>
+</blockquote>
+<p>然后将这句话写在 linter-gcc 的Settings 里面的目录里</p>
+<figure data-type="image" tabindex="11"><img src="https://img-blog.csdnimg.cn/20181121094511435.png" alt="图3" loading="lazy"></figure>
+<p>然后就会发现，有正常的代码错误提示啦~<br>
+<img src="https://img-blog.csdnimg.cn/2018112109531871.png" alt="图4" loading="lazy"></p>
+<h1 id="恢复上次关闭前的文件夹">恢复上次关闭前的文件夹</h1>
+<p>如果你每次重启 atom 后，都需要手动打开项目文件，并且尝试了很多办法都米有用，那么不妨试一下以下两个方法：</p>
+<h2 id="1-cmd-q">1. cmd + q</h2>
+<p>atom 如果没有完全关闭（mac 用户经常会这样），也就是下面有个小点点的情况：<br>
+<img src="https://img-blog.csdnimg.cn/20181122234717431.png" alt="图1" loading="lazy"></p>
+<p>这样就相当于你没有关闭，那么再打开 atom，他会默认你要打开第二个文件/文件夹，所以出来的界面是不会恢复你本来打开着的文件的。<br>
+每次要关闭的话，用 <code>cmd + q</code>，这样可以完全关闭，就不会有这样的问题~</p>
+<h2 id="2下载插件">2.下载插件</h2>
+<p>其实网上有很多推荐的插件，例如 <code>open-last-project</code>，<code>project-manager</code>（需要保存项目才可以）等等。<br>
+但是我都下了试过，不行...不知道是不是因为 mac 没有完全关闭 atom 的原因...但是有一个插件可以：<code>restore-windows</code>，可以尝试一下~</p>
+<p>暂时就是这些啦，想到别的我再补充~</p>
 ]]></content>
     </entry>
 </feed>

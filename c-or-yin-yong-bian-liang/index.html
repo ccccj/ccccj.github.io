@@ -224,13 +224,13 @@ int main() {
 <h2 id="引用的概念">引用的概念</h2>
 <p>我们说的引用变量，实际上是给另一个变量取一个<strong>别名</strong>。例如，我们已经有了一个叫做 a ，将一个新的变量 b ，作为变量 a 的引用，相当于给 a 取了一个别名叫做 b 。如下图：<br>
 <img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9pbWctYmxvZy5jc2RuLm5ldC8yMDE4MDMxNjE1MjkzMjI4Nj8?x-oss-process=image/format,png" alt="引用图解ab" loading="lazy"><br>
-一开始我们**给这块空间取了一个名字叫做 a ，后来又给他取了个小名叫做 b **，相当于之后，我们对 b 进行任何操作，也会对 a 进行修改。</p>
+一开始我们<strong>给这块空间取了一个名字叫做 a ，后来又给他取了个小名叫做 b</strong>，相当于之后，我们对 b 进行任何操作，也会对 a 进行修改。</p>
 <h3 id="用法示例">用法示例</h3>
 <p>正如上面所举的例子， b 是 a 的引用变量，这就需要在创建 <strong>b</strong> 的时候，就告诉编译器这个信息，用 <strong>&amp;</strong> 来声明引用变量：</p>
 <pre><code>int a;
 int&amp; b = a;
 </code></pre>
-<p>在这里 <strong>&amp;</strong> 不是取地址操作符，而是类型标识符的一部分。正如 <strong>char</strong>* , ***** 也是类型标识符的一部分，表示一个指向 <strong>char</strong> 类型的指针变量，而我们的 <strong>int&amp;</strong> 表示一个指向 <strong>int</strong> 类型的引用变量。<br>
+<p>在这里 <strong>&amp;</strong> 不是取地址操作符，而是类型标识符的一部分。正如 <strong>char</strong>* , * 也是类型标识符的一部分，表示一个指向 <strong>char</strong> 类型的指针变量，而我们的 <strong>int&amp;</strong> 表示一个指向 <strong>int</strong> 类型的引用变量。<br>
 这里的 <strong>a</strong> 和 <strong>b</strong> 指向相同的值和内存单元（我的是64位平台）。可以测试一下：</p>
 <pre><code>int main() {
     int a = 5;
@@ -245,8 +245,10 @@ int&amp; b = a;
 <p>0x7fff5fbff80c<br>
 0x7fff5fbff80c</p>
 </blockquote>
-<p>可以看到，两个变量的地址是相同的。在这里， a 变量的地址是在他定义之时随机分配的，但 b 不是，他是根据自己即将要引用的变量的地址来分配。<br>
-既然如此，在引用变量 b 定义之时，必须初始化，而不能先声明，再赋值。也就是必须定义时就指向另一个<strong>已经定义了的变量</strong>，否则，引用变量将无法得知自己的地址，也就是说 &quot;<strong>int&amp; b;</strong>&quot; 这样的写法是错误的。</p>
+<p>可以看到，两个变量的地址是相同的。</p>
+<pre><code>在这里， a 变量的地址是在他定义之时随机分配的，但 b 不是，他是根据自己即将要引用的变量的地址来分配。
+</code></pre>
+<p>既然如此，在引用变量 b 定义之时，必须初始化，而不能先声明，再赋值。也就是必须定义时就指向另一个<strong>已经定义了的变量</strong>，否则，引用变量将无法得知自己的地址，也就是说 &quot;<strong>int&amp; b;</strong>&quot; 这样的写法是错误的。</p>
 <p><strong>注意：</strong><br>
 当引用变量在创建时进行初始化，一旦与某个变量关联起来，就会一起效忠于他。<br>
 即引用变量只能作为一个变量的引用，<strong>正如上面的 b ，当他成为 a 的引用之后，在他的生命周期里，就不能成为其他变量的引用</strong>。</p>

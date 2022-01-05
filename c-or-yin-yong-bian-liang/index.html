@@ -1,332 +1,171 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="目录
+ <meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta HTTP-EQUIV="pragma" CONTENT="no-cache"> 
+<meta HTTP-EQUIV="Cache-Control" CONTENT="no-cache, must-revalidate"> 
+<meta HTTP-EQUIV="expires" CONTENT="0"> 
+<title>C++ | 引用变量 | Amon&#39;s Homepage</title>	
+
+<link rel="stylesheet" href="https://ccccj.github.io/styles/main.css">
+<script type="text/javascript">
+function getCSS()
+{
+        datetoday = new Date();
+        timenow=datetoday.getTime();
+        datetoday.setTime(timenow);
+        thehour = datetoday.getHours();
+
+            display = "https://ccccj.github.io/media/css/night.css";
+
+            display = "https://ccccj.github.io/media/css/night.css";   
+      
+            display = "https://ccccj.github.io/media/css/day.css";
+
+            display = "https://ccccj.github.io/media/css/day.css";
+      
+
+var css = '<';
+        css+='link rel="stylesheet" href='+display+' \/';
+        css+='>';
+        document.write(css);
+}
+</script>
+<link href="https://fonts.googleapis.com/css?family=Dancing+Script|Liu+Jian+Mao+Cao&display=swap" rel="stylesheet">
+<link href="https://at.alicdn.com/t/font_1306644_jwtuc2zzbrd.css" rel="stylesheet" />
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<script type='text/javascript' src='https://ccccj.github.io/media/scripts/script.js'></script>
+<link href="https://cdn.bootcss.com/animate.css/3.5.2/animate.min.css" rel="stylesheet" />
+  <script src="https://cdn.bootcss.com/wow/1.1.2/wow.min.js"></script>
+  <script src="https://cdn.bootcss.com/highlight.js/9.15.8/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <script>wow=new WOW({boxClass:'wow',animateClass:'animated',offset:0,mobile:true,live:true});wow.init();</script>
+
+<script type="text/javascript">
+window.onload=getCSS();
+</script>
 
 
-
-目录
-导语：为什么要有引用变量
-引用的概念
-
-用法示例
-引用的属性与特别之处
-
-
-主要作用
-
-1.引用作参数
-
-用法
-引用传参的另一个好处
-小结
-
-
-2.引用作返回值
-
-为何要返回引用
-返回引用时要注意的问题
-小结
-
-
-
-
-何时..." />
-    <meta name="keywords" content="" />
-    <link rel="stylesheet" href="https://ccccj.github.io/media/css/bootstrap.min.css">
-    
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.1/build/styles/default.min.css">
-              
-    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.1/build/highlight.min.js"></script>
-    <link rel="stylesheet" href="https://ccccj.github.io/media/css/live2d.css">
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
-    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
-    <link rel="stylesheet" href="https://ccccj.github.io/media/css/bootstrap.min.css">
-    <title>Amon's Homepage</title>
+ 	
 </head>
-
-<body>
-    <!-- 响应式布局，针对PC端内容显示 -->
-    <div id="content">
-        <div class="nav-large">
-            <div class="row">
-                <div class="side"><html>
-
-<head>
-    <link rel="stylesheet" href="https://ccccj.github.io/styles/main.css">
-    <meta name="description" content="温故而知新" />
-    <title>Document</title>
-</head>
-<style>
-</style>
-
-<body>
-    <div id=side>
-        <div class="avatar-border">
-            <img src="https://ccccj.github.io/images/avatar.png?v=1641379464242" class="avatar">
-        </div>
-        <div class="sitename">Amon&#39;s Homepage</div>
-        <span class="describtion" data-text='["温故而知新"]'>&nbsp;</span>
+<body class="post-template-default single single-post postid-70 single-format-standard">
+    <div id="wrapper">
         
-        <div class="search">
-            <!-- <input type="text" class="search-input" placeholder="标题搜索(●'◡'●)" /> -->
-            <input type="text" class="search-input" placeholder="标题搜索 ⚆_⚆ つ♡">
-            <div class="search-results"></div>
-        </div>
-        
-    <div class="share-button">
-        <span>社交按钮</span>
-        
-        <a href="https://github.com/ccccj" target="_blank"><i><img class="icon"
-                    src="https://ccccj.github.io/media/images/github.png" alt=""></i></a>
-        
-        
-        <a onclick="showqq()"><i><img class="icon" src="https://ccccj.github.io/media/images/QQ.png" alt=""></i></a>
-        
-        
-        
-        
-        
-    </div>
-    <div id="qq" style="display:none">839808679</div>
+			
+		<header id="header" class="site-header" 
+		
+		style="background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),url(https://ccccj.github.io/post-images/c-or-yin-yong-bian-liang.png)"
+		
+		>
+			<div class="site-branding">
+									<h1 class="site-title"><a href="https://ccccj.github.io" rel="home">Amon&#39;s Homepage</a></h1>
+										
+					<h2 class="site-description">温故而知新</h2>
+										
+							</div>
+			<nav id="nav-wrapper">
+				<div class="container">
+					<div class="nav-toggle">
+						<div class="bars">
+							<div class="bar"></div>
+							<div class="bar"></div>
+							<div class="bar"></div>
+						</div>
+					</div>
+					<div class="clear"></div>
+					<ul id="" class="dove">
+		 
+     			
+<li>
+	 
+	<a  href="/"> home</a></li>
+	
     
+     			
+<li>
+	 
+	<a  href="/archives"> archives</a></li>
+	
     
-    <div class="mchocie describtion">
-        <a href="/" class="menubutton">
-            home
-        </a>
-    </div>
+     			
+<li>
+	 
+	<a  href="https://github.com/ccccj"> github</a></li>
+	
     
+     			
+<li>
+	 
+	<a  href="https://blog.csdn.net/qq_40873884"> CSDN</a></li>
+	
     
+
+</ul>
+</li>		
+		
+</ul>				</div>
+			</nav>
+						<div class="jingge">
+
+
     
-    <div class="mchocie describtion">
-        <a href="/archives" class="menubutton">
-            archives
-        </a>
-    </div>
+			
+<a  href="https://twitter.com/amoncj" target="_blank" ><i class="iconfont icon-twitter"></i></a>
+ 
     
+			
+<a  href="https://github.com/ccccj" target="_blank" ><i class="iconfont icon-github"></i></a>
+ 
     
+
     
-    <div class="mchocie describtion">
-        <a href="https://github.com/ccccj" class="menubutton">
-            github
-        </a>
-    </div>
+			
+<a  href="https://www.facebook.com/profile.php?id=100036297907795" target="_blank" ><i class="iconfont icon-facebook"></i></a>
+ 
     
+
     
+
     
-    <div class="mchocie describtion">
-        <a href="https://blog.csdn.net/qq_40873884" class="menubutton">
-            CSDN
-        </a>
-    </div>
+
     
+			
+<a  href="https://www.instagram.com/amon_cj/" target="_blank" ><i class="iconfont icon-instagram"></i></a>
+ 
     
+			
+<a  href="839808679" target="_blank" ><i class="iconfont icon-qq"></i></a>
+ 
     
-    <hr>
-    <div id="footinfo">Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | Theme: <a href="https://github.com/850552586/gridea-theme-fog">Fog</a></div>
-    <div id="sitegotimeDate">载入天数...</div>
-    <div id="sitegotimes">载入时分秒...</div>
-    <div id="cussitetime" style="display:none">02/02/2017</div>
-    </div>
-</body>
 
-</html>
-<script src="https://ccccj.github.io/media/js/wordshow.js"></script>
-<script>
-    //----------------------站点运行时间
-    var now = new Date();
+    
 
-    function createtime() {
-        var sitegotime = document.getElementById("cussitetime").innerHTML + " 00:00:00";
-        var grt = new Date(sitegotime); //此处修改你的建站时间或者网站上线时间 
-        now.setTime(now.getTime() + 250);
-        days = (now - grt) / 1000 / 60 / 60 / 24;
-        dnum = Math.floor(days);
-        hours = (now - grt) / 1000 / 60 / 60 - (24 * dnum);
-        hnum = Math.floor(hours);
-        if (String(hnum).length == 1) {
-            hnum = "0" + hnum;
-        }
-        minutes = (now - grt) / 1000 / 60 - (24 * 60 * dnum) - (60 * hnum);
-        mnum = Math.floor(minutes);
-        if (String(mnum).length == 1) {
-            mnum = "0" + mnum;
-        }
-        seconds = (now - grt) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
-        snum = Math.round(seconds);
-        if (String(snum).length == 1) {
-            snum = "0" + snum;
-        }
-        document.getElementById("sitegotimeDate").innerHTML = "本站已安全运行 " + dnum + " 天 ";
-        document.getElementById("sitegotimes").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
-    }
-    setInterval("createtime()", 250);
+    
+        </header>
 
-    //-------------------------------------------------搜索
-    // 获取搜索框、搜索按钮、清空搜索、结果输出对应的元素
-    var searchInput = document.querySelector('.search-input');
-    var searchResults = document.querySelector('.search-results');
+		<div id="content" class="container">
+			<div class="row">
+	<div class="col-md-8 site-main">
+				
+<article id="post-70" class="post-70 post type-post status-publish format-standard hentry category-5 tag-10 tag-9 tag-11">
 
-    // 申明保存文章的标题、链接、内容的数组变量
-    var searchValue = '',
-        arrItems = [],
-        arrLinks = [],
-        arrTitles = [],
-        arrResults = [],
-        indexItem = [],
-        itemLength = 0;
-    var tmpDiv = document.createElement('div');
-    tmpDiv.className = 'result-item';
-
-    // ajax 的兼容写法
-    var xhr = new XMLHttpRequest() || new ActiveXObject('Microsoft.XMLHTTP');
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState == 4 && xhr.status == 200) {
-            xml = xhr.responseXML;
-            arrItems = xml.getElementsByTagName('entry');
-            itemLength = arrItems.length;
-            console.log(arrItems);
-            // 遍历并保存所有文章对应的标题、链接、内容到对应的数组中
-            // 同时过滤掉 HTML 标签
-            for (i = 0; i < itemLength; i++) {
-                var link = arrItems[i].getElementsByTagName('link')[0];
-                arrLinks[i] = link.getAttribute("href");
-                arrTitles[i] = arrItems[i].getElementsByTagName('title')[0].
-                childNodes[0].nodeValue.replace(/<.*?>/g, '');
-            }
-        }
-    }
-
-    // 开始获取根目录下 feed.xml 文件内的数据
-    xhr.open('get', '/atom.xml', true);
-    xhr.send();
-
-
-
-    // 输入框内容变化后就开始匹配，可以不用点按钮
-    // 经测试，onkeydown, onchange 等方法效果不太理想，
-    // 存在输入延迟等问题，最后发现触发 input 事件最理想，
-    // 并且可以处理中文输入法拼写的变化
-    searchInput.oninput = function () {
-        setTimeout(searchConfirm, 0);
-    }
-    searchInput.onfocus = function () {
-        searchResults.style.display = 'block';
-    }
-
-    function searchConfirm() {
-        if (searchInput.value == '') {
-            searchResults.style.display = 'none';
-        } else if (searchInput.value.search(/^\s+$/) >= 0) {
-            // 检测输入值全是空白的情况
-            searchInit();
-            var itemDiv = tmpDiv.cloneNode(true);
-            itemDiv.innerText = '请输入有效内容...';
-            searchResults.appendChild(itemDiv);
-        } else {
-            // 合法输入值的情况
-            searchInit();
-            searchValue = searchInput.value;
-            // 在标题、内容中查找
-            searchMatching(arrTitles, searchValue);
-        }
-    }
-
-    // 每次搜索完成后的初始化
-    function searchInit() {
-        arrResults = [];
-        indexItem = [];
-        searchResults.innerHTML = '';
-        searchResults.style.display = 'block';
-    }
-
-    function searchMatching(arr1, input) {
-        // 忽略输入大小写
-        input = new RegExp(input, 'i');
-        // 在所有文章标题、内容中匹配查询值
-        for (i = 0; i < itemLength; i++) {
-            if (arr1[i].search(input) !== -1) {
-                var arr = arr1;
-                indexItem.push(i); // 保存匹配值的索引
-                var indexContent = arr[i].search(input);
-                // 此时 input 为 RegExp 格式 /input/i，转换为原 input 字符串长度
-                var l = input.toString().length - 3;
-                var step = 10;
-
-                // 将匹配到内容的地方进行黄色标记，并包括周围一定数量的文本
-                arrResults.push(arr[i].slice(indexContent - step, indexContent));
-            }
-        }
-
-        // 输出总共匹配到的数目
-        var totalDiv = tmpDiv.cloneNode(true);
-        totalDiv.innerHTML = '<b>总匹配：' + indexItem.length + ' 项<hr></b>';
-        searchResults.appendChild(totalDiv);
-
-        // 未匹配到内容的情况
-        if (indexItem.length == 0) {
-            var itemDiv = tmpDiv.cloneNode(true);
-            itemDiv.innerText = '未匹配到内容...';
-            searchResults.appendChild(itemDiv);
-        }
-
-        // 将所有匹配内容进行组合
-        for (i = 0; i < arrResults.length; i++) {
-            var itemDiv = tmpDiv.cloneNode(true);
-            itemDiv.innerHTML = '<b>[' + arrTitles[indexItem[i]] +
-                ']</b><p>' + arrResults[i] + "</p><hr />";
-            itemDiv.setAttribute('onclick', 'changeHref(arrLinks[indexItem[' + i + ']])');
-            searchResults.appendChild(itemDiv);
-        }
-    }
-
-    function changeHref(href) {
-        location.href = href;
-    }
-
-    function showqq() {
-        var qq = document.getElementById("qq").innerHTML;
-        if (qq != '')
-            alert("博主的QQ联系方式为：" + qq);
-        else
-            alert("博主暂未设置QQ联系方式");
-    }
-</script></div>
-                <div id="tab1" class="tab">
-                    <div class="bars">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </div>
-                    <div class="close"></div>
-                </div>
-                <div id="main" class="col-xs-12 col-sm-7">
-                    <link rel="stylesheet" href="https://ccccj.github.io/media/css/font-awesome.css">
-<style>
-
-</style>
-
-<body>
-    <div class="allcontent">
-        <div class="postshow">
-            
-            <div class="postdetailimg" style="width:100%;overflow: hidden;display: none">
-                <img src="https://ccccj.github.io/post-images/c-or-yin-yong-bian-liang.png" class="postimage" style="cursor:auto">
-            </div>
-            <div class="postinfo">
-                <div class="postdate"><i class="fa fa-calendar"></i>2018-03-22</div>
-                <div class="poststatus postdate"><i class="fa fa-clock-o"></i> 14 min read</div>
-                <div class="posttag">
-                    
-                </div>
-            </div>
-            
-            <div id="texttitle" style="text-align: center">
-                <h2>C++ | 引用变量</h2>
-            </div>
-            <div class="text ">
-                <h2 id="目录">目录</h2>
+	
+	                      
+		<div class="entry-content">
+			<h1 class="wow swing entry-title">C++ | 引用变量</h1>
+<div class="entry-meta">
+<div class="wow bounce">
+	<i class="iconfont icon-rili"> <time class="lately-a" datetime="2018-03-22 17:20:14" itemprop="datePublished" pubdate="">2018-03-22</time></i>
+	          </div>
+			
+</span>
+													 
+		</div>
+                  
+			<div class="wow slideInLeft entry-summary song">
+				<h2 id="目录">目录</h2>
 <p><ul class="markdownIt-TOC">
 <li>
 <ul>
@@ -597,780 +436,241 @@ int main() {
 <hr>
 <p>当然这肯定没把引用写完啦，但是目前就涉及了这么多，看完后面的内容再来补充啦。</p>
 
-            </div>
-            
-            <div class="prev-post">
-                上一篇
-                <a href="https://ccccj.github.io/c-or-han-shu-chong-zai/">
-                    C++ | 函数重载
-                </a>
-            </div>
-            
-            
-            <div class="next-post">
-                下一篇
-                <a href="https://ccccj.github.io/c-or-ming-ming-kong-jian/">
-                    C++ | 命名空间
-                </a>
-            </div>
-            
-        </div>
-    </div>
-</body>
+							</div>
+	<div class="wow bounceInDown vt-post-tags">
+ 
+					</div>						
+<nav class="navigation3 post-navigation3" role="navigation">
+		
+		<div class="nav-links3">
+      
+		<div class="wow bounceInLeft nav-previous3"><a href="https://ccccj.github.io/c-or-han-shu-chong-zai/" rel="prev"> C++ | 函数重载</a></div>
+		 
+		 
+		<div class="wow bounceInRight nav-next3"><a href="https://ccccj.github.io/c-or-ming-ming-kong-jian/" rel="next"> C++ | 命名空间</a></div>
+		
+		</div>
+	</nav>
+	<div class="wow rollIn author-info" style="visibility: visible; animation-name: rollIn;">
+	<div class="author-avatar pull-left"><img src="https://ccccj.github.io/images/avatar.png" ></div>
+ 
+	<div class="author-description"><div class="author-title"><div class="author-link" rel="author">Amon</div></div>
+
+
+	<p class="author-bio">哈哈哈哈哈哈</p></div></div>
+	
+		</div>
+		
+ 
+		
+</article>
+
+<div id="marlin_lite_about_widget-2" class="wow bounceInUp widget marlin_lite_about_widget" data-wow-delay="0.1s">
+		
+        
+		<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='https://ccccj.github.io/media/scripts/Valine.min.js'></script>
+
+<div class="comment"></div>
 <script>
-    var t_img; // 定时器
-    var isLoad = true; // 控制变量
-    isImgLoad(function () {
-        // 加载完成
-        $('.postdetailimg').css("display", "block");
-    });
-    // 判断图片加载的函数
-    function isImgLoad(callback) {
-        // 注意我的图片类名都是cover，因为我只需要处理cover。其它图片可以不管。
-        // 查找所有封面图，迭代处理
-        $('.postdetailimg').each(function () {
-            // 找到为0就将isLoad设为false，并退出each
-            if (this.height === 0) {
-                isLoad = false;
-                return false;
-            }
-        });
-        // 为true，没有发现为0的。加载完毕
-        if (isLoad) {
-            clearTimeout(t_img); // 清除定时器
-            // 回调函数
-            callback();
-            // 为false，因为找到了没有加载完成的图，将调用定时器递归
-        } else {
-            isLoad = true;
-            t_img = setTimeout(function () {
-                isImgLoad(callback); // 递归扫描
-            }, 500); // 我这里设置的是500毫秒就扫描一次，可以自己调整
-        }
-    }
-</script>
-                    <div name="comment" style="background: white">
-                        <div class="commentcontainer">
-                            
-                            <head>
-    <script src='https://ccccj.github.io/media/js/valine.min.js'></script>
-    <script src="https://ccccj.github.io/media/js/jquery.min.js"></script>
-</head>
-<style>
-    @media screen and (min-width: 1300px) {
-    .v .vbtn.vsubmit {
-        border-radius: 0;
-        padding: 0;
-        color: #fff;
-        line-height: 44px;
-        width: 100%;
-        border: none;
-        background: #1abc9c;
-    }
-
-    .v .vwrap .vedit .vctrl span.vpreview-btn,
-    .v .vwrap .vcontrol .col.col-20,
-    .v .vlist .vcard .vhead .vsys {
-        display: none;
-    }
-
-    .v .vwrap .vmark .valert {
-        padding-top: 0px;
-    }
-
-    .vtext{
-        padding: 0;
-    }
-}
-
-    @media screen and (max-width: 1300px) {
-        .v .vwrap .vmark .valert{
-            margin-top:60%;
-        }
-        .vwrap{
-            margin: 15px;
-            width: 90%;
-        }
-        .v .vwrap .vheader .vinput {
-            padding: 10px 5px;
-        }
-        .v .vwrap{
-            overflow: auto;
-        }
-        .v .veditor {
-            min-height: 30rem;
-            resize: none;
-        }
-
-        .v .vinput {
-            padding: 10px 15px;
-            font-size: 20px;
-        }
-
-        .v .vwrap .vedit .vctrl {
-            right: 0;
-        }
-
-        .v .vempty {
-            padding: 1.25em;
-            text-align: center;
-            color: #999;
-            font-size: 25px;
-        }
-
-    }
-</style>
-
-<body>
-    <div id="vcomments"></div>
-    <script>
         new Valine({
-            el: '#vcomments',
-            appId: '1',
-            appKey: '2',
-            notify: true,
-            verify: false,
-            avatar: 'retro',
-            pageSize: 30,
-            placeholder: '既然来了，何不畅所欲言呢？',
-        })
-    </script>
-</body>
-                            <div class="clear"></div>
-                            
-                        </div>
-                    </div>
-                </div>
-                <div class="toc-container">
-                    <ul class="markdownIt-TOC">
-<li>
-<ul>
-<li><a href="#%E7%9B%AE%E5%BD%95">目录</a></li>
-<li><a href="#%E5%AF%BC%E8%AF%AD%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E6%9C%89%E5%BC%95%E7%94%A8%E5%8F%98%E9%87%8F">导语：为什么要有引用变量</a></li>
-<li><a href="#%E5%BC%95%E7%94%A8%E7%9A%84%E6%A6%82%E5%BF%B5">引用的概念</a>
-<ul>
-<li><a href="#%E7%94%A8%E6%B3%95%E7%A4%BA%E4%BE%8B">用法示例</a></li>
-<li><a href="#%E5%BC%95%E7%94%A8%E7%9A%84%E5%B1%9E%E6%80%A7%E4%B8%8E%E7%89%B9%E5%88%AB%E4%B9%8B%E5%A4%84">引用的属性与特别之处</a></li>
-</ul>
-</li>
-<li><a href="#%E4%B8%BB%E8%A6%81%E4%BD%9C%E7%94%A8">主要作用</a>
-<ul>
-<li><a href="#1%E5%BC%95%E7%94%A8%E4%BD%9C%E5%8F%82%E6%95%B0">1.引用作参数</a>
-<ul>
-<li><a href="#%E7%94%A8%E6%B3%95">用法</a></li>
-<li><a href="#%E5%BC%95%E7%94%A8%E4%BC%A0%E5%8F%82%E7%9A%84%E5%8F%A6%E4%B8%80%E4%B8%AA%E5%A5%BD%E5%A4%84">引用传参的另一个好处</a></li>
-<li><a href="#%E5%B0%8F%E7%BB%93">小结</a></li>
-</ul>
-</li>
-<li><a href="#2%E5%BC%95%E7%94%A8%E4%BD%9C%E8%BF%94%E5%9B%9E%E5%80%BC">2.引用作返回值</a>
-<ul>
-<li><a href="#%E4%B8%BA%E4%BD%95%E8%A6%81%E8%BF%94%E5%9B%9E%E5%BC%95%E7%94%A8">为何要返回引用</a></li>
-<li><a href="#%E8%BF%94%E5%9B%9E%E5%BC%95%E7%94%A8%E6%97%B6%E8%A6%81%E6%B3%A8%E6%84%8F%E7%9A%84%E9%97%AE%E9%A2%98">返回引用时要注意的问题</a></li>
-<li><a href="#%E5%B0%8F%E7%BB%93-2">小结</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#%E4%BD%95%E6%97%B6%E4%BD%BF%E7%94%A8%E5%BC%95%E7%94%A8%E5%8F%82%E6%95%B0">何时使用引用参数</a>
-<ul>
-<li><a href="#1-%E4%BC%A0%E9%80%92%E5%80%BC%E8%80%8C%E4%B8%8D%E4%BF%AE%E6%94%B9%E5%80%BC%E5%B0%BD%E9%87%8F-const-%E4%BF%AE%E9%A5%B0">1. 传递值而不修改值(尽量 const 修饰)</a></li>
-<li><a href="#2-%E9%9C%80%E8%A6%81%E4%BF%AE%E6%94%B9%E5%8E%9F%E6%95%B0%E6%8D%AE">2. 需要修改原数据</a></li>
-</ul>
-</li>
-<li><a href="#%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95%E6%B1%87%E7%BC%96%E5%B1%82%E6%9D%A5%E7%9C%8B">实现方法（汇编层来看）</a></li>
-</ul>
-</li>
-</ul>
-
-                </div>
-            </div>
-        </div>
-        <div id="bg">
-        </div>
-        <div id="bgurl" style="display:none">/media/images/custom-bgimage.jpg</div>
-    </div>
-    <!-- 响应式布局，针对手机端内容显示 -->
-    <div class="nav-small">
-        <head>
-
-  <!-- 引入Bootstrap核心样式文件 -->
-  <link rel="stylesheet" href="https://ccccj.github.io/media/css/bootstrap.min.css">
-</head>
-
-<body>
-  <nav class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container-fluid">
-      <!-- Brand and toggle get grouped for better mobile display -->
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-          data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="#">Amon&#39;s Homepage&nbsp;&nbsp;|</a>
-      </div>
-
-      <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav">
-          
-          
-          <li>
-            <a href="/">
-              home
-            </a>
-          </li>
-          
-          
-          
-          <li>
-            <a href="/archives">
-              archives
-            </a>
-          </li>
-          
-          
-          
-          <li>
-            <a href="https://github.com/ccccj">
-              github
-            </a>
-          </li>
-          
-          
-          
-          <li>
-            <a href="https://blog.csdn.net/qq_40873884">
-              CSDN
-            </a>
-          </li>
-          
-          
-          
-        </ul>
-      </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
-  </nav>
-
-
-  <!-- 引入jQuery核心js文件 -->
-  <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
-  <!-- 引入BootStrap核心js文件 -->
-  <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</body>
-        <div style="margin-top:30px"></div>
-        <link rel="stylesheet" href="https://ccccj.github.io/media/css/font-awesome.css">
-<style>
-
-</style>
-
-<body>
-    <div class="allcontent">
-        <div class="postshow">
+            // AV 对象来自上面引入av-min.js(老司机们不要开车➳♡゛扎心了老铁)
+            av: AV, 
+            el: '.comment',
+            lang: 'zh-cn',
             
-            <div class="postdetailimg" style="width:100%;overflow: hidden;display: none">
-                <img src="https://ccccj.github.io/post-images/c-or-yin-yong-bian-liang.png" class="postimage" style="cursor:auto">
-            </div>
-            <div class="postinfo">
-                <div class="postdate"><i class="fa fa-calendar"></i>2018-03-22</div>
-                <div class="poststatus postdate"><i class="fa fa-clock-o"></i> 14 min read</div>
-                <div class="posttag">
-                    
-                </div>
-            </div>
-            
-            <div id="texttitle" style="text-align: center">
-                <h2>C++ | 引用变量</h2>
-            </div>
-            <div class="text ">
-                <h2 id="目录">目录</h2>
-<p><ul class="markdownIt-TOC">
-<li>
-<ul>
-<li><a href="#%E7%9B%AE%E5%BD%95">目录</a></li>
-<li><a href="#%E5%AF%BC%E8%AF%AD%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E6%9C%89%E5%BC%95%E7%94%A8%E5%8F%98%E9%87%8F">导语：为什么要有引用变量</a></li>
-<li><a href="#%E5%BC%95%E7%94%A8%E7%9A%84%E6%A6%82%E5%BF%B5">引用的概念</a>
-<ul>
-<li><a href="#%E7%94%A8%E6%B3%95%E7%A4%BA%E4%BE%8B">用法示例</a></li>
-<li><a href="#%E5%BC%95%E7%94%A8%E7%9A%84%E5%B1%9E%E6%80%A7%E4%B8%8E%E7%89%B9%E5%88%AB%E4%B9%8B%E5%A4%84">引用的属性与特别之处</a></li>
-</ul>
-</li>
-<li><a href="#%E4%B8%BB%E8%A6%81%E4%BD%9C%E7%94%A8">主要作用</a>
-<ul>
-<li><a href="#1%E5%BC%95%E7%94%A8%E4%BD%9C%E5%8F%82%E6%95%B0">1.引用作参数</a>
-<ul>
-<li><a href="#%E7%94%A8%E6%B3%95">用法</a></li>
-<li><a href="#%E5%BC%95%E7%94%A8%E4%BC%A0%E5%8F%82%E7%9A%84%E5%8F%A6%E4%B8%80%E4%B8%AA%E5%A5%BD%E5%A4%84">引用传参的另一个好处</a></li>
-<li><a href="#%E5%B0%8F%E7%BB%93">小结</a></li>
-</ul>
-</li>
-<li><a href="#2%E5%BC%95%E7%94%A8%E4%BD%9C%E8%BF%94%E5%9B%9E%E5%80%BC">2.引用作返回值</a>
-<ul>
-<li><a href="#%E4%B8%BA%E4%BD%95%E8%A6%81%E8%BF%94%E5%9B%9E%E5%BC%95%E7%94%A8">为何要返回引用</a></li>
-<li><a href="#%E8%BF%94%E5%9B%9E%E5%BC%95%E7%94%A8%E6%97%B6%E8%A6%81%E6%B3%A8%E6%84%8F%E7%9A%84%E9%97%AE%E9%A2%98">返回引用时要注意的问题</a></li>
-<li><a href="#%E5%B0%8F%E7%BB%93-2">小结</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#%E4%BD%95%E6%97%B6%E4%BD%BF%E7%94%A8%E5%BC%95%E7%94%A8%E5%8F%82%E6%95%B0">何时使用引用参数</a>
-<ul>
-<li><a href="#1-%E4%BC%A0%E9%80%92%E5%80%BC%E8%80%8C%E4%B8%8D%E4%BF%AE%E6%94%B9%E5%80%BC%E5%B0%BD%E9%87%8F-const-%E4%BF%AE%E9%A5%B0">1. 传递值而不修改值(尽量 const 修饰)</a></li>
-<li><a href="#2-%E9%9C%80%E8%A6%81%E4%BF%AE%E6%94%B9%E5%8E%9F%E6%95%B0%E6%8D%AE">2. 需要修改原数据</a></li>
-</ul>
-</li>
-<li><a href="#%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95%E6%B1%87%E7%BC%96%E5%B1%82%E6%9D%A5%E7%9C%8B">实现方法（汇编层来看）</a></li>
-</ul>
-</li>
-</ul>
-</p>
-<h2 id="导语为什么要有引用变量">导语：为什么要有引用变量</h2>
-<p>拿一个简单的例子来说，要交换两个变量的值，如何交换？注意这里我们说的是，交换的功能我们会封装成一个函数。<br>
-在 C 中我们都是这么调用的：</p>
-<pre><code>void Swap(int* a, int* b) {
-    int tmp = *a;
-    *a = *b;
-    *b = tmp;
-}
-
-int main() {
-    int a = 5;
-    int b = 3;
-    Swap(&amp;a, &amp;b);
-    return 0;
-}
-</code></pre>
-<p>我们采用的是一种传址的方式，而不是传值。原因在于，调用的 Swap 中的 a 、 b 是形参，而不是实参。那有没有更简便的方法？毕竟，我们这里举的只是一个简单的例子，当涉及到的东西更多时（比如之前学的单链表不带头结点删除..传二级指针简直太复杂），在 C++ 中有一个新的复合类型——引用变量。</p>
-<h2 id="引用的概念">引用的概念</h2>
-<p>我们说的引用变量，实际上是给另一个变量取一个<strong>别名</strong>。例如，我们已经有了一个叫做 a ，将一个新的变量 b ，作为变量 a 的引用，相当于给 a 取了一个别名叫做 b 。如下图：<br>
-<img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9pbWctYmxvZy5jc2RuLm5ldC8yMDE4MDMxNjE1MjkzMjI4Nj8?x-oss-process=image/format,png" alt="引用图解ab" loading="lazy"><br>
-一开始我们**给这块空间取了一个名字叫做 a ，后来又给他取了个小名叫做 b **，相当于之后，我们对 b 进行任何操作，也会对 a 进行修改。</p>
-<h3 id="用法示例">用法示例</h3>
-<p>正如上面所举的例子， b 是 a 的引用变量，这就需要在创建 <strong>b</strong> 的时候，就告诉编译器这个信息，用 <strong>&amp;</strong> 来声明引用变量：</p>
-<pre><code>int a;
-int&amp; b = a;
-</code></pre>
-<p>在这里 <strong>&amp;</strong> 不是取地址操作符，而是类型标识符的一部分。正如 <strong>char</strong>* , ***** 也是类型标识符的一部分，表示一个指向 <strong>char</strong> 类型的指针变量，而我们的 <strong>int&amp;</strong> 表示一个指向 <strong>int</strong> 类型的引用变量。<br>
-这里的 <strong>a</strong> 和 <strong>b</strong> 指向相同的值和内存单元（我的是64位平台）。可以测试一下：</p>
-<pre><code>int main() {
-    int a = 5;
-    int&amp; b = a;
-    cout &lt;&lt; &amp;a &lt;&lt; endl; // 取a的地址
-    cout &lt;&lt; &amp;b &lt;&lt; endl; // 取b的地址
-    return 0;
-}
-</code></pre>
-<p>输出：</p>
-<blockquote>
-<p>0x7fff5fbff80c<br>
-0x7fff5fbff80c</p>
-</blockquote>
-<p>可以看到，两个变量的地址是相同的。在这里， a 变量的地址是在他定义之时随机分配的，但 b 不是，他是根据自己即将要引用的变量的地址来分配。<br>
-既然如此，在引用变量 b 定义之时，必须初始化，而不能先声明，再赋值。也就是必须定义时就指向另一个<strong>已经定义了的变量</strong>，否则，引用变量将无法得知自己的地址，也就是说 &quot;<strong>int&amp; b;</strong>&quot; 这样的写法是错误的。</p>
-<p><strong>注意：</strong><br>
-当引用变量在创建时进行初始化，一旦与某个变量关联起来，就会一起效忠于他。<br>
-即引用变量只能作为一个变量的引用，<strong>正如上面的 b ，当他成为 a 的引用之后，在他的生命周期里，就不能成为其他变量的引用</strong>。</p>
-<p>例如，当 b 成为 a 的引用之后，如果我们试图让他成为c 的引用，并不会成功，只会实现赋值的效果(连 a 的值也相对的改变)：</p>
-<pre><code>int main(int argc, const char * argv[]) {
-    int a = 5;
-    int&amp; b = a;
-
-    int c = 20;
-    b = c;
-    cout &lt;&lt; a &lt;&lt; endl; // 输出a修改后的值
-    cout &lt;&lt; b &lt;&lt; endl; // 输出b修改后的值
-    return 0;
-}
-</code></pre>
-<p>输出结果：</p>
-<blockquote>
-<p>20<br>
-20</p>
-</blockquote>
-<p>总结一下上面所说的：<br>
-<strong>引用变量必须在创建的时候初始化，一旦与某个变量关联起来，就只能是这个变量的引用。</strong></p>
-<hr>
-<p>高能预警，以下有些复杂，涉及到 临时变量、引用参数和 const ，看了好几遍 primer 上的讲解才看懂。</p>
-<h3 id="引用的属性与特别之处">引用的属性与特别之处</h3>
-<p>我们不能将一个变量<strong>作为右值的引用</strong>。如下：</p>
-<pre><code>void test(int&amp; ra) {
-    // ...
-}
-
-int main(int argc, const char * argv[]) {
-    int a = 5;
-    test(a + 3);
-    return 0;
-}
-</code></pre>
-<p>这样编译器将会报错。因为 a + 3 并不是变量。但是早期的编译器会比较温和的发出警告，而不是直接报错，而现在的编译器，只有参数类型为 const引用 才能编译通过。</p>
-<p>这是为什么呢，接下来我们将详细剖析其中的原理。</p>
-<p>以前的编译器之所以允许将表达式传给引用变量是因为，由于 a + 3 并不是 int 类型的变量，于是程序将创建一个临时的无名变量，初始化为 a + 3 的值，然后将 ra 成为该无名变量的引用。</p>
-<p>那什么时候才会生成临时变量呢？有以下两种情况。</p>
-<blockquote>
-<p>1.实参类型正确，但不是左值<br>
-2.实参类型不正确，但可以转换为正确的类型</p>
-</blockquote>
-<p>第一种情况：非左值会产生临时变量，哪些是非左值呢？也就是常量或包含多项的表达式。<br>
-而左值就是我们可以赋值的对象。但是，在引入 const 关键字之后，<strong>常规变量</strong> 和 <strong>const 变量</strong> 都可视为左值，因为可通过地址访问他们。</p>
-<blockquote>
-<p>常规变量视为可修改的左值，const变量视为不可修改的左值。</p>
-</blockquote>
-<p>第二种情况则是类型不匹配。</p>
-<p>回到之前的一个例子：</p>
-<pre><code>void test(int&amp; ra) {
-    ++ra;
-}
-
-int main(int argc, const char * argv[]) {
-    int a = 5;
-    double b = 4;
-    
-    test(a + 3);
-    test(b);
-    return 0;
-}
-</code></pre>
-<p>上面这个例子，a + 3 作为参数属于第一种情况（不是左值）， b 属于第二种情况（类型不正确），这在以前的编译器，可以通过，是因为这时编译器产生了临时变量，分别让临时变量等于 a + 3 和 b 的值，而 ra 成为他们的引用，这对于原本的 a + 3 和 b 不并不会产生影响，所以他们的值不变。<br>
-换言之，从前的编译器采取了一种机制——创建临时变量，使得原本的变量的值不会改变。因此，如果我们现在采取一种类似的机制，也能使得编译通过：使用 const 。</p>
-<p>我们将代码修改为：</p>
-<pre><code>void test(const int&amp; ra);
-</code></pre>
-<p>这样也会使得编译通过。在这样的函数中，我们的目的只是<strong>使用传递的值，而不是修改他们</strong>。后面还会具体阐述这样使用 <strong>const 与引用搭配</strong>的好处。</p>
-<p>这就是为什么以前的编译器采用创建临时变量，现在采用加 const 修饰都可以编译通过的原因。</p>
-<h2 id="主要作用">主要作用</h2>
-<h3 id="1引用作参数">1.引用作参数</h3>
-<p>引用变量的主要作用体现在函数传参。以往我们已经有了两种传参方式：按值传参、按址传参（指针）。现在有了第三种方法：按引用传参。</p>
-<h4 id="用法">用法</h4>
-<p>还是之前交换a、b的例子，现在有了一种新的写法：</p>
-<pre><code>void Swap(int&amp; x, int&amp; y) {
-    int tmp = x;
-    x = y;
-    y = tmp;
-}
-
-int main(int argc, const char * argv[]) {
-    int a = 5;
-    int b = 3;
-    Swap(a, b);
-    return 0;
-}
-</code></pre>
-<p>但是有的时候，我们又不希望传入的值会改变，例如以下例子：</p>
-<pre><code>int cube(int&amp; ra) {
-    ra *= ra * ra;
-    return ra;
-}
-
-int main() {
-    int a = 3;
-    int ret = cube(a);
-    cout &lt;&lt; &quot;cube of &quot; &lt;&lt; a &lt;&lt; &quot; = &quot;&lt;&lt; ret &lt;&lt; endl;
-    return 0;
-}
-</code></pre>
-<blockquote>
-<p>结果：cube of 27 = 27</p>
-</blockquote>
-<p>我们想要求 a 的立方，并且之后还要用到 a ，这时候并不希望改变 a ，而这时候 a 却被改变了。为了解决这个问题，当我们希望不改变原值时，尽量采用 <strong>const</strong> 来修饰：</p>
-<pre><code>int cube(const int&amp; ra);
-</code></pre>
-<p>这时候我们若不小心改变了 a 的值，编译器便会报错。</p>
-<p>但是我相信您肯定要问了，传参时采用引用变量作为参数的原因就是，这样可以很方便的修改原值，这时候又说不改变原值，这不是自相矛盾么？</p>
-<h4 id="引用传参的另一个好处">引用传参的另一个好处</h4>
-<p>这其实是因为，引用变量作为参数还有另外一个好处，便是省时间、省空间。大家都知道，我们平时传参时，都需要将原来的变量拷贝一份至一个临时变量，再将这个临时变量作为形参传入函数，但现在不需要了，因为从始至终，都是原来的那个变量。<br>
-别看一个小小的原生类型占不了多少空间，复制一份也用不了多少时间，但是当我们传的是一个自定义变量，一个十分巨大的结构体或类的时候呢？，我们不需要去占用空间拷贝，这省了很多时间与空间。<br>
-但同时也要注意，如果这时候您不希望改变原值，记得加上 <strong>const</strong> 来修饰。</p>
-<h4 id="小结">小结</h4>
-<ol>
-<li>在您打算修改原变量的值时，尽量使用引用作参数，省时间省空间，更重要的是比采取指针传参的方式简单很多；</li>
-<li>在您并不打算改变变量的值，但是写了一个函数，要使用到您变量的值的时候，可以采用 <strong>const + 引用</strong> 的方式，表面上看和从前两者都不用的时候效果是一样的，但实际上省了很多的时间与空间（在传参较大时）。</li>
-</ol>
-<h3 id="2引用作返回值">2.引用作返回值</h3>
-<h4 id="为何要返回引用">为何要返回引用</h4>
-<p>来看一个例子：</p>
-<pre><code>double m = sqrt(16.0);
-</code></pre>
-<p>在这个例子中， sqrt 函数的返回值为 4.0 ，但若是让函数中的临时变量的值直接赋给 m 是不行的，因为 sqrt 函数结束，里面变量的生存周期已结束，再将其值赋给 m 可能会出错。总之，<strong>4.0 先被复制到了一个临时位置</strong>（实际上在寄存器，出了函数作用于也存在），**然后再复制给了 m **，和之前传参时情形类似。</p>
-<p>不懂的可以再看下面：<br>
-<img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9pbWctYmxvZy5jc2RuLm5ldC8yMDE4MDMyMjE1MTk1MjI0MD8?x-oss-process=image/format,png" alt="临时变量" loading="lazy"><br>
-例如上面这个程序里，c 是一个临时变量，而 Add 函数的返回值并不是 c ，因为出了这个函数， c 就相当于不在了，所以他会先将 c 的值复制给另一个临时变量（如果较小是寄存器，较大则是提前开辟好的一块空间），这个临时变量的生存周期比较长，能将其值复制给 ret 变量。</p>
-<p>这样就存在一个效率问题，也就是多复制了一步。别看这里只是32位平台上八个字节的 double 变量而已，但如果是一个极大的结构体，就会浪费很多时间和空间。但是返回引用变量能很好地解决这个问题。</p>
-<p>例如以下例子<br>
-<img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9pbWctYmxvZy5jc2RuLm5ldC8yMDE4MDMyMjE1MjMwNjYyMD8?x-oss-process=image/format,png" alt="引用" loading="lazy"><br>
-a 自增以后再返回其值，利用引用，这时候并不需要考虑生命周期的问题，因为来来回回都是在堆那一块空间进行修改，一直在 a / ra 的作用域内，省去了再复制一步的时间和空间。</p>
-<h4 id="返回引用时要注意的问题">返回引用时要注意的问题</h4>
-<p>引用变量作返回值并不是任何时候都那么好用的：<br>
-下面是一个错误的例子：</p>
-<pre><code>int&amp; Add(int a, int b) {
-    int c = a + b;
-    return c;
-}
-
-int main() {
-    int&amp; ret = Add(1, 2);
-    Add(10, 20);
-    cout &lt;&lt; ret &lt;&lt; endl;
-    return 0;
-}
-</code></pre>
-<blockquote>
-<p>输出结果：30</p>
-</blockquote>
-<p>我们之前提到了，当函数返回一个临时变量 c ，这时候会在创建一个一般在寄存器的临时变量，我们给这个变量取名为 k ，由于返回的类型是引用，这时候 k 成为了 c 的引用，而接受的类型也是引用，即 ret 是 k 的引用。当我们再调用 Add 时，k 内存放的是新的 c 的值，也就是 30，因此 ret 也跟着变为了 30 。</p>
-<p>也就是说，引用作返回值，也是有前提的：<strong>引用的变量需要出了这个函数作用域还在</strong>，否则可能会出错。而前面 my_func 的例子可以用的原因是：先传入了一个引用类型的参数，再返回这个变量。从始至终，实参、形参、与返回值，都是同一个变量，这个变量一直都在。</p>
-<p>同时这个时候，我们返回的是一个<strong>作为参数传递给函数的引用</strong>，正是因为如此，在这过程中这个参数可能会改变。当没有这样的参数传入的时候，我们可以开辟一块存储空间（c++ 用 new， 记得搭配 delete），在堆上就不会被自动分配与销毁了，或者返回一个静态/全局变量。</p>
-<h4 id="小结-2">小结</h4>
-<ol>
-<li><strong>引用作返回值，不能返回一个临时变量的引用，需要变量在这个函数结束后还在，例如静态或全局变量</strong>。</li>
-<li>如果可以的话，我们<strong>尽量用引用作返回值，因为更省时间和空间</strong>。</li>
-</ol>
-<h2 id="何时使用引用参数">何时使用引用参数</h2>
-<blockquote>
-<p>当然，以下只是建议，而非必须如此。</p>
-</blockquote>
-<h3 id="1-传递值而不修改值尽量-const-修饰">1. 传递值而不修改值(尽量 const 修饰)</h3>
-<pre><code> 1、内置数据类型：由于较小，可直接按值传递；
- 2、数组：采用 const 修饰的指针；
- 3、较大的结构：使用 const 指针或 const 引用，可提高效率、节省时间空间；
- 4、类对象：const 引用。
-</code></pre>
-<h3 id="2-需要修改原数据">2. 需要修改原数据</h3>
-<pre><code> 1、内置数据类型：可使用指针；
- 2、数组：只能使用指针；
- 3、较大的结构：使用指针或引用；
- 4、类对象：const 引用。
-</code></pre>
-<h2 id="实现方法汇编层来看">实现方法（汇编层来看）</h2>
-<p>从汇编层来看，引用的最终实现方法也是借用了指针（先取了地址，再解引用）。这和我们的指针的实现机制是一样的。但从语法层面来讲，引用比指针更省空间。</p>
-<p>引用与指针的区别：</p>
-<ol>
-<li>引用必须初始化，并且从一而终，但指针可以修改指向；</li>
-<li>引用必须指向有效变量，指针可以指向空；</li>
-<li>指针代表着地址，而引用代表着变量。sizeof 指针，是指针的大小，sizeof 变量，是变量的大小；</li>
-<li>引用与指针自增自减的意义不同。</li>
-<li>引用比指针更安全，没有野指针的危险，但同时指针也比引用灵活。</li>
-</ol>
-<hr>
-<p>当然这肯定没把引用写完啦，但是目前就涉及了这么多，看完后面的内容再来补充啦。</p>
-
-            </div>
-            
-            <div class="prev-post">
-                上一篇
-                <a href="https://ccccj.github.io/c-or-han-shu-chong-zai/">
-                    C++ | 函数重载
-                </a>
-            </div>
+            admin_email:'839808679@qq.com',
             
             
-            <div class="next-post">
-                下一篇
-                <a href="https://ccccj.github.io/c-or-ming-ming-kong-jian/">
-                    C++ | 命名空间
-                </a>
-            </div>
-            
+      emoticon_list: ["吐.png","喷血.png","狂汗.png","不说话.png","汗.png","坐等.png","献花.png","不高兴.png","中刀.png","害羞.png","皱眉.png","小眼睛.png","中指.png","尴尬.png","瞅你.png","想一想.png","中枪.png","得意.png","肿包.png","扇耳光.png","亲亲.png","惊喜.png","脸红.png","无所谓.png","便便.png","愤怒.png","蜡烛.png","献黄瓜.png","内伤.png","投降.png","观察.png","看不见.png","击掌.png","抠鼻.png","邪恶.png","看热闹.png","口水.png","抽烟.png","锁眉.png","装大款.png","吐舌.png","无奈.png","长草.png","赞一个.png","呲牙.png","无语.png","阴暗.png","不出所料.png","咽气.png","期待.png","高兴.png","吐血倒地.png","哭泣.png","欢呼.png","黑线.png","喜极而泣.png","喷水.png","深思.png","鼓掌.png","暗地观察.png"],
+     	
+      	
+          
+        });
+    </script> 
+
+
+   
+  
+ 
+
+		</div>
+
+			</div>
+			
+
+
+<div class="tocc col l3 hide-on-med-and-down">
+	
+        <div class="toc-widget">
+			
+            <div class="toc-title"></div>
+			
+            <div id="toc-content">
+			
+			
+			</div>
         </div>
     </div>
-</body>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.5.0/tocbot.min.js"></script>
 <script>
-    var t_img; // 定时器
-    var isLoad = true; // 控制变量
-    isImgLoad(function () {
-        // 加载完成
-        $('.postdetailimg').css("display", "block");
-    });
-    // 判断图片加载的函数
-    function isImgLoad(callback) {
-        // 注意我的图片类名都是cover，因为我只需要处理cover。其它图片可以不管。
-        // 查找所有封面图，迭代处理
-        $('.postdetailimg').each(function () {
-            // 找到为0就将isLoad设为false，并退出each
-            if (this.height === 0) {
-                isLoad = false;
-                return false;
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '.entry-summary',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            // headingsOffset: -205,
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('.entry-summary').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
             }
         });
-        // 为true，没有发现为0的。加载完毕
-        if (isLoad) {
-            clearTimeout(t_img); // 清除定时器
-            // 回调函数
-            callback();
-            // 为false，因为找到了没有加载完成的图，将调用定时器递归
-        } else {
-            isLoad = true;
-            t_img = setTimeout(function () {
-                isImgLoad(callback); // 递归扫描
-            }, 500); // 我这里设置的是500毫秒就扫描一次，可以自己调整
-        }
-    }
-</script>
-        <div name="comment" style="background: white">
-            <div class="commentcontainer">
-                
-                <head>
-        <script src='https://ccccj.github.io/media/js/valine.min.js'></script>
-        <script src="https://ccccj.github.io/media/js/jquery.min.js"></script>
-    </head>
-    <style>
-        @media screen and (min-width: 1300px) {
-            .v {
-                margin-top: 10%;
-            }
-    
-            .v .vwrap {
-                overflow: hidden;
-            }
-    
-            .v .vwrap {
-                padding: 0 0 44px;
-            }
-    
-            .v .veditor {
-                min-height: 7rem;
-                resize: none;
-            }
-    
-            .v .vwrap .vedit {
-                padding-top: 0
-            }
-    
-            .v .vwrap .vheader {
-                width: 80%;
-                bottom: 0;
-                position: absolute;
-                background: #f7f7f7;
-            }
-    
-            .v .vinput {
-                padding: 10px 15px;
-            }
-    
-            .v .vwrap .vheader .vinput {
-                border-bottom: 0px
-            }
-    
-            .v .vwrap .vedit .vctrl {
-                margin-top: -44px;
-                right: 0;
-                position: absolute;
-                margin-right: -3px;
-            }
-    
-            .v .vwrap .vcontrol {
-                position: absolute;
-                right: 0;
-                bottom: 0;
-                width: 20%;
-                padding-top: 0px;
-            }
-        }
-    
-        .v .vwrap .vcontrol .col.col-80 {
-            width: 100%;
-        }
-    
-        .v .vbtn.vsubmit {
-            border-radius: 0;
-            padding: 0;
-            color: #fff;
-            line-height: 44px;
-            width: 100%;
-            border: none;
-            background: #1abc9c;
-        }
-    
-        .v .vwrap .vedit .vctrl span.vpreview-btn,
-        .v .vwrap .vcontrol .col.col-20,
-        .v .vlist .vcard .vhead .vsys {
-            display: none;
-        }
-    
-        .v .vwrap .vmark .valert {
-            padding-top: 0px;
-        }
-    
-        .vtext{
-            padding: 0;
-        }
-    
-        @media screen and (max-width: 1300px) {
-            .v .vwrap .vmark .valert{
-                margin-top:60%;
-            }
-            .vwrap{
-                margin: 15px;
-                width: 100%;
-            }
-            .v .vwrap .vheader .vinput {
-                padding: 10px 5px;
-            }
-            .v .vwrap{
-                overflow: auto;
-            }
-            .v .veditor {
-                min-height: 30rem;
-                resize: none;
-            }
-    
-            .v .vinput {
-                padding: 10px 15px;
-                font-size: 20px;
-            }
-    
-            .v .vwrap .vedit .vctrl {
-                right: 0;
-            }
-    
-            .v .vempty {
-                padding: 1.25em;
-                text-align: center;
-                color: #999;
-                font-size: 25px;
-            }
-    
-        }
-    </style>
-    
-    <body>
-        <div id="vcomments1"></div>
-        <script>
-            new Valine({
-                el: '#vcomments1',
-                appId: '1',
-                appKey: '2',
-                notify: true,
-                verify: false,
-                avatar: 'retro',
-                pageSize: 30,
-                placeholder: '既然来了，那就留个痕迹吧~',
-            })
-        </script>
-    </body>
-                <div class="clear"></div>
-                
-            </div>
-        </div>
-    </div>
-    <div id="landlord">
-        <div class="message" style="opacity:0"></div>
-        <canvas id="live2d" width="240" height="250" class="live2d"></canvas>
-    </div>
-</body>
-<script>
-    hljs.initHighlightingOnLoad()
-</script>
-<script src="https://ccccj.github.io/media/js/post.js"></script>
+    });
+</script>										 
 
-<script type="text/javascript">
-    var message_Path = '/live2d/'
-    var home_Path = 'http://ericam.top/' //此处修改为你的域名，必须带斜杠
+ 
+       
+
+
+			</div>
+		</div>
+
+		
+		 	<footer id="colophon" class="site-footer">
+
+			<div class="container">
+	
+				<div class="copyright">Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a><br>Theme:   <a href="https://github.com/shanbufun/gridea-theme-pan" target="_blank" title="Pan"><span>Pan</span></a>.  by <a href="https://shanbu.fun/" target="_blank"  title="山卜方" >Shanbufun</a></div>		
+			</div>
+		
+		</footer>
+
+</div>
+
+<script src="https://cdn.bootcss.com/fitvids/1.2.0/jquery.fitvids.min.js"></script>
+<script type='text/javascript' src='https://ccccj.github.io/media/scripts/marlin-scripts.js'></script>
+ <script src="//tokinx.github.io/lately/lately.min.js"></script>
+  <script>jQuery(document).ready(function(){$.lately({'target':'.lately-a,.lately-b,.lately-c'})});</script>
+  <style type="text/css">a.back_to_top {
+    text-decoration: none;
+    position: fixed;
+    bottom: 40px;
+    right: 30px;
+    background: #f0f0f0;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    line-height: 36px;
+    font-size: 18px;
+    text-align: center;
+    transition-duration: .5s;
+    transition-propety: background-color;
+    display: none;
+}
+
+a.back_to_top span {
+    color: #888;
+}
+
+a.back_to_top:hover {
+    cursor: pointer;
+    background: #dfdfdf;
+}
+
+a.back_to_top:hover span {
+    color: #555;
+}
+
+@media print, screen and (max-width: 580px) {
+    .back_to_top {
+        display: none !important;
+    }
+}
+
+
+
+</style><a id="back_to_top" href="#" class="back_to_top"><span><i class="iconfont icon-xiangshang"></i></span>
+</a>
+
+
+<script>$(document).ready((function(_this) {
+  return function() {
+    var bt;
+    bt = $('#back_to_top');
+    if ($(document).width() > 480) {
+      $(window).scroll(function() {
+        var st;
+        st = $(window).scrollTop();
+        if (st > 30) {
+          return bt.css('display', 'block');
+        } else {
+          return bt.css('display', 'none');
+        }
+      });
+      return bt.click(function() {
+        $('body,html').animate({
+          scrollTop: 0
+        }, 800);
+        return false;
+      });
+    }
+  };
+})(this));
 </script>
-<script type="text/javascript" src="https://ccccj.github.io/media/live2d/js/live2d.js"></script>
-<script type="text/javascript" src="https://ccccj.github.io/media/live2d/js/message.js"></script>
-<script type="text/javascript">
-    loadlive2d("live2d", "https://ccccj.github.io/media/live2d/assets/tororo.model.json");
+
+		<script data-no-instant>
+    (function ($) {
+        $.extend({
+            adamsOverload: function () {
+                $('.navigation:eq(0)').remove();
+                $("").attr("rel" , "external");
+                $("a[rel='external'],a[rel='external nofollow']").attr("target","_blank");
+                $("a.vi").attr("rel" , "");
+                $.viewImage({
+                    'target'  : 'img',
+                    'exclude' : '.vsmile-icons img,.gallery img',
+                    'delay'   : 300
+                });
+                $.lately({
+                    'target' : '.commentmetadata a,.infos time,.post-list time'
+                });
+                prettyPrint();
+                
+                $('ul.links li a').each(function(){
+                    if($(this).parent().find('.bg').length==0){
+                        $(this).parent().append('<!---<div class="bg" style="background-image:url(https://c3.glgoo.top/s2/favicons?domain='+$(this).attr("href")+')"></div>--->')
+                    }
+                });
+            }
+        });
+    })(jQuery);
+    jQuery.adamsOverload();
 </script>
+
+</body>
+</html>

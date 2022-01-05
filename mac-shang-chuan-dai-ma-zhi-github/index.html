@@ -1,305 +1,171 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Github 的网页一直上传不了文章...导致快半年了没传过代码...今天突然想传代码..就搞一个自动上传的吧~~
-看了一下网上的教程，和之前的基于 github 的仓库，建立自己的博客有点类似~
-1. 下载 git
-验证有无 git : ..." />
-    <meta name="keywords" content="" />
-    <link rel="stylesheet" href="https://ccccj.github.io/media/css/bootstrap.min.css">
-    
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.1/build/styles/default.min.css">
-              
-    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.1/build/highlight.min.js"></script>
-    <link rel="stylesheet" href="https://ccccj.github.io/media/css/live2d.css">
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
-    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
-    <link rel="stylesheet" href="https://ccccj.github.io/media/css/bootstrap.min.css">
-    <title>Amon's Homepage</title>
+ <meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta HTTP-EQUIV="pragma" CONTENT="no-cache"> 
+<meta HTTP-EQUIV="Cache-Control" CONTENT="no-cache, must-revalidate"> 
+<meta HTTP-EQUIV="expires" CONTENT="0"> 
+<title>Mac上传代码至GitHub | Amon&#39;s Homepage</title>	
+
+<link rel="stylesheet" href="https://ccccj.github.io/styles/main.css">
+<script type="text/javascript">
+function getCSS()
+{
+        datetoday = new Date();
+        timenow=datetoday.getTime();
+        datetoday.setTime(timenow);
+        thehour = datetoday.getHours();
+
+            display = "https://ccccj.github.io/media/css/night.css";
+
+            display = "https://ccccj.github.io/media/css/night.css";   
+      
+            display = "https://ccccj.github.io/media/css/day.css";
+
+            display = "https://ccccj.github.io/media/css/day.css";
+      
+
+var css = '<';
+        css+='link rel="stylesheet" href='+display+' \/';
+        css+='>';
+        document.write(css);
+}
+</script>
+<link href="https://fonts.googleapis.com/css?family=Dancing+Script|Liu+Jian+Mao+Cao&display=swap" rel="stylesheet">
+<link href="https://at.alicdn.com/t/font_1306644_jwtuc2zzbrd.css" rel="stylesheet" />
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<script type='text/javascript' src='https://ccccj.github.io/media/scripts/script.js'></script>
+<link href="https://cdn.bootcss.com/animate.css/3.5.2/animate.min.css" rel="stylesheet" />
+  <script src="https://cdn.bootcss.com/wow/1.1.2/wow.min.js"></script>
+  <script src="https://cdn.bootcss.com/highlight.js/9.15.8/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <script>wow=new WOW({boxClass:'wow',animateClass:'animated',offset:0,mobile:true,live:true});wow.init();</script>
+
+<script type="text/javascript">
+window.onload=getCSS();
+</script>
+
+
+ 	
 </head>
-
-<body>
-    <!-- 响应式布局，针对PC端内容显示 -->
-    <div id="content">
-        <div class="nav-large">
-            <div class="row">
-                <div class="side"><html>
-
-<head>
-    <link rel="stylesheet" href="https://ccccj.github.io/styles/main.css">
-    <meta name="description" content="温故而知新" />
-    <title>Document</title>
-</head>
-<style>
-</style>
-
-<body>
-    <div id=side>
-        <div class="avatar-border">
-            <img src="https://ccccj.github.io/images/avatar.png?v=1641379464242" class="avatar">
-        </div>
-        <div class="sitename">Amon&#39;s Homepage</div>
-        <span class="describtion" data-text='["温故而知新"]'>&nbsp;</span>
+<body class="post-template-default single single-post postid-70 single-format-standard">
+    <div id="wrapper">
         
-        <div class="search">
-            <!-- <input type="text" class="search-input" placeholder="标题搜索(●'◡'●)" /> -->
-            <input type="text" class="search-input" placeholder="标题搜索 ⚆_⚆ つ♡">
-            <div class="search-results"></div>
-        </div>
-        
-    <div class="share-button">
-        <span>社交按钮</span>
-        
-        <a href="https://github.com/ccccj" target="_blank"><i><img class="icon"
-                    src="https://ccccj.github.io/media/images/github.png" alt=""></i></a>
-        
-        
-        <a onclick="showqq()"><i><img class="icon" src="https://ccccj.github.io/media/images/QQ.png" alt=""></i></a>
-        
-        
-        
-        
-        
-    </div>
-    <div id="qq" style="display:none">839808679</div>
+			
+		<header id="header" class="site-header" 
+		
+		style="background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),url(https://ccccj.github.io/post-images/mac-shang-chuan-dai-ma-zhi-github.png)"
+		
+		>
+			<div class="site-branding">
+									<h1 class="site-title"><a href="https://ccccj.github.io" rel="home">Amon&#39;s Homepage</a></h1>
+										
+					<h2 class="site-description">温故而知新</h2>
+										
+							</div>
+			<nav id="nav-wrapper">
+				<div class="container">
+					<div class="nav-toggle">
+						<div class="bars">
+							<div class="bar"></div>
+							<div class="bar"></div>
+							<div class="bar"></div>
+						</div>
+					</div>
+					<div class="clear"></div>
+					<ul id="" class="dove">
+		 
+     			
+<li>
+	 
+	<a  href="/"> home</a></li>
+	
     
+     			
+<li>
+	 
+	<a  href="/archives"> archives</a></li>
+	
     
-    <div class="mchocie describtion">
-        <a href="/" class="menubutton">
-            home
-        </a>
-    </div>
+     			
+<li>
+	 
+	<a  href="https://github.com/ccccj"> github</a></li>
+	
     
+     			
+<li>
+	 
+	<a  href="https://blog.csdn.net/qq_40873884"> CSDN</a></li>
+	
     
+
+</ul>
+</li>		
+		
+</ul>				</div>
+			</nav>
+						<div class="jingge">
+
+
     
-    <div class="mchocie describtion">
-        <a href="/archives" class="menubutton">
-            archives
-        </a>
-    </div>
+			
+<a  href="https://twitter.com/amoncj" target="_blank" ><i class="iconfont icon-twitter"></i></a>
+ 
     
+			
+<a  href="https://github.com/ccccj" target="_blank" ><i class="iconfont icon-github"></i></a>
+ 
     
+
     
-    <div class="mchocie describtion">
-        <a href="https://github.com/ccccj" class="menubutton">
-            github
-        </a>
-    </div>
+			
+<a  href="https://www.facebook.com/profile.php?id=100036297907795" target="_blank" ><i class="iconfont icon-facebook"></i></a>
+ 
     
+
     
+
     
-    <div class="mchocie describtion">
-        <a href="https://blog.csdn.net/qq_40873884" class="menubutton">
-            CSDN
-        </a>
-    </div>
+
     
+			
+<a  href="https://www.instagram.com/amon_cj/" target="_blank" ><i class="iconfont icon-instagram"></i></a>
+ 
     
+			
+<a  href="839808679" target="_blank" ><i class="iconfont icon-qq"></i></a>
+ 
     
-    <hr>
-    <div id="footinfo">Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | Theme: <a href="https://github.com/850552586/gridea-theme-fog">Fog</a></div>
-    <div id="sitegotimeDate">载入天数...</div>
-    <div id="sitegotimes">载入时分秒...</div>
-    <div id="cussitetime" style="display:none">02/02/2017</div>
-    </div>
-</body>
 
-</html>
-<script src="https://ccccj.github.io/media/js/wordshow.js"></script>
-<script>
-    //----------------------站点运行时间
-    var now = new Date();
+    
 
-    function createtime() {
-        var sitegotime = document.getElementById("cussitetime").innerHTML + " 00:00:00";
-        var grt = new Date(sitegotime); //此处修改你的建站时间或者网站上线时间 
-        now.setTime(now.getTime() + 250);
-        days = (now - grt) / 1000 / 60 / 60 / 24;
-        dnum = Math.floor(days);
-        hours = (now - grt) / 1000 / 60 / 60 - (24 * dnum);
-        hnum = Math.floor(hours);
-        if (String(hnum).length == 1) {
-            hnum = "0" + hnum;
-        }
-        minutes = (now - grt) / 1000 / 60 - (24 * 60 * dnum) - (60 * hnum);
-        mnum = Math.floor(minutes);
-        if (String(mnum).length == 1) {
-            mnum = "0" + mnum;
-        }
-        seconds = (now - grt) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
-        snum = Math.round(seconds);
-        if (String(snum).length == 1) {
-            snum = "0" + snum;
-        }
-        document.getElementById("sitegotimeDate").innerHTML = "本站已安全运行 " + dnum + " 天 ";
-        document.getElementById("sitegotimes").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
-    }
-    setInterval("createtime()", 250);
+    
+        </header>
 
-    //-------------------------------------------------搜索
-    // 获取搜索框、搜索按钮、清空搜索、结果输出对应的元素
-    var searchInput = document.querySelector('.search-input');
-    var searchResults = document.querySelector('.search-results');
+		<div id="content" class="container">
+			<div class="row">
+	<div class="col-md-8 site-main">
+				
+<article id="post-70" class="post-70 post type-post status-publish format-standard hentry category-5 tag-10 tag-9 tag-11">
 
-    // 申明保存文章的标题、链接、内容的数组变量
-    var searchValue = '',
-        arrItems = [],
-        arrLinks = [],
-        arrTitles = [],
-        arrResults = [],
-        indexItem = [],
-        itemLength = 0;
-    var tmpDiv = document.createElement('div');
-    tmpDiv.className = 'result-item';
-
-    // ajax 的兼容写法
-    var xhr = new XMLHttpRequest() || new ActiveXObject('Microsoft.XMLHTTP');
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState == 4 && xhr.status == 200) {
-            xml = xhr.responseXML;
-            arrItems = xml.getElementsByTagName('entry');
-            itemLength = arrItems.length;
-            console.log(arrItems);
-            // 遍历并保存所有文章对应的标题、链接、内容到对应的数组中
-            // 同时过滤掉 HTML 标签
-            for (i = 0; i < itemLength; i++) {
-                var link = arrItems[i].getElementsByTagName('link')[0];
-                arrLinks[i] = link.getAttribute("href");
-                arrTitles[i] = arrItems[i].getElementsByTagName('title')[0].
-                childNodes[0].nodeValue.replace(/<.*?>/g, '');
-            }
-        }
-    }
-
-    // 开始获取根目录下 feed.xml 文件内的数据
-    xhr.open('get', '/atom.xml', true);
-    xhr.send();
-
-
-
-    // 输入框内容变化后就开始匹配，可以不用点按钮
-    // 经测试，onkeydown, onchange 等方法效果不太理想，
-    // 存在输入延迟等问题，最后发现触发 input 事件最理想，
-    // 并且可以处理中文输入法拼写的变化
-    searchInput.oninput = function () {
-        setTimeout(searchConfirm, 0);
-    }
-    searchInput.onfocus = function () {
-        searchResults.style.display = 'block';
-    }
-
-    function searchConfirm() {
-        if (searchInput.value == '') {
-            searchResults.style.display = 'none';
-        } else if (searchInput.value.search(/^\s+$/) >= 0) {
-            // 检测输入值全是空白的情况
-            searchInit();
-            var itemDiv = tmpDiv.cloneNode(true);
-            itemDiv.innerText = '请输入有效内容...';
-            searchResults.appendChild(itemDiv);
-        } else {
-            // 合法输入值的情况
-            searchInit();
-            searchValue = searchInput.value;
-            // 在标题、内容中查找
-            searchMatching(arrTitles, searchValue);
-        }
-    }
-
-    // 每次搜索完成后的初始化
-    function searchInit() {
-        arrResults = [];
-        indexItem = [];
-        searchResults.innerHTML = '';
-        searchResults.style.display = 'block';
-    }
-
-    function searchMatching(arr1, input) {
-        // 忽略输入大小写
-        input = new RegExp(input, 'i');
-        // 在所有文章标题、内容中匹配查询值
-        for (i = 0; i < itemLength; i++) {
-            if (arr1[i].search(input) !== -1) {
-                var arr = arr1;
-                indexItem.push(i); // 保存匹配值的索引
-                var indexContent = arr[i].search(input);
-                // 此时 input 为 RegExp 格式 /input/i，转换为原 input 字符串长度
-                var l = input.toString().length - 3;
-                var step = 10;
-
-                // 将匹配到内容的地方进行黄色标记，并包括周围一定数量的文本
-                arrResults.push(arr[i].slice(indexContent - step, indexContent));
-            }
-        }
-
-        // 输出总共匹配到的数目
-        var totalDiv = tmpDiv.cloneNode(true);
-        totalDiv.innerHTML = '<b>总匹配：' + indexItem.length + ' 项<hr></b>';
-        searchResults.appendChild(totalDiv);
-
-        // 未匹配到内容的情况
-        if (indexItem.length == 0) {
-            var itemDiv = tmpDiv.cloneNode(true);
-            itemDiv.innerText = '未匹配到内容...';
-            searchResults.appendChild(itemDiv);
-        }
-
-        // 将所有匹配内容进行组合
-        for (i = 0; i < arrResults.length; i++) {
-            var itemDiv = tmpDiv.cloneNode(true);
-            itemDiv.innerHTML = '<b>[' + arrTitles[indexItem[i]] +
-                ']</b><p>' + arrResults[i] + "</p><hr />";
-            itemDiv.setAttribute('onclick', 'changeHref(arrLinks[indexItem[' + i + ']])');
-            searchResults.appendChild(itemDiv);
-        }
-    }
-
-    function changeHref(href) {
-        location.href = href;
-    }
-
-    function showqq() {
-        var qq = document.getElementById("qq").innerHTML;
-        if (qq != '')
-            alert("博主的QQ联系方式为：" + qq);
-        else
-            alert("博主暂未设置QQ联系方式");
-    }
-</script></div>
-                <div id="tab1" class="tab">
-                    <div class="bars">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </div>
-                    <div class="close"></div>
-                </div>
-                <div id="main" class="col-xs-12 col-sm-7">
-                    <link rel="stylesheet" href="https://ccccj.github.io/media/css/font-awesome.css">
-<style>
-
-</style>
-
-<body>
-    <div class="allcontent">
-        <div class="postshow">
-            
-            <div class="postdetailimg" style="width:100%;overflow: hidden;display: none">
-                <img src="https://ccccj.github.io/post-images/mac-shang-chuan-dai-ma-zhi-github.png" class="postimage" style="cursor:auto">
-            </div>
-            <div class="postinfo">
-                <div class="postdate"><i class="fa fa-calendar"></i>2017-08-12</div>
-                <div class="poststatus postdate"><i class="fa fa-clock-o"></i> 2 min read</div>
-                <div class="posttag">
-                    
-                </div>
-            </div>
-            
-            <div id="texttitle" style="text-align: center">
-                <h2>Mac上传代码至GitHub</h2>
-            </div>
-            <div class="text ">
-                <p>Github 的网页一直上传不了文章...导致快半年了没传过代码...今天突然想传代码..就搞一个自动上传的吧~~</p>
+	
+	                      
+		<div class="entry-content">
+			<h1 class="wow swing entry-title">Mac上传代码至GitHub</h1>
+<div class="entry-meta">
+<div class="wow bounce">
+	<i class="iconfont icon-rili"> <time class="lately-a" datetime="2017-08-12 22:15:18" itemprop="datePublished" pubdate="">2017-08-12</time></i>
+	          </div>
+			
+</span>
+													 
+		</div>
+                  
+			<div class="wow slideInLeft entry-summary song">
+				<p>Github 的网页一直上传不了文章...导致快半年了没传过代码...今天突然想传代码..就搞一个自动上传的吧~~</p>
 <p>看了一下网上的教程，和之前的基于 github 的仓库，建立自己的博客有点类似~</p>
 <h4 id="1-下载-git">1. 下载 git</h4>
 <p>验证有无 git : 查看 git 版本</p>
@@ -347,535 +213,241 @@ git push -u origin master // 上传至master分支</p>
 <p>然后就ok啦</p>
 <p>参考：https://blog.csdn.net/yyh352091626/article/details/50714880</p>
 
-            </div>
+							</div>
+	<div class="wow bounceInDown vt-post-tags">
+ 
+					</div>						
+<nav class="navigation3 post-navigation3" role="navigation">
+		
+		<div class="nav-links3">
+      
+		<div class="wow bounceInLeft nav-previous3"><a href="https://ccccj.github.io/acm-or-lightoj-1344-aladdin-and-the-game-of-bracelets-bo-yi-lun-sg-da-biao/" rel="prev"> ACM | LightOJ - 1344 Aladdin and the Game of Bracelets博弈论SG打表</a></div>
+		 
+		 
+		<div class="wow bounceInRight nav-next3"><a href="https://ccccj.github.io/mac-yu-xu-ni-ji-linux-ssh-yi-ji-chuan-shu-wen-jian/" rel="next"> mac 与虚拟机 linux ssh 以及 传输文件</a></div>
+		
+		</div>
+	</nav>
+	<div class="wow rollIn author-info" style="visibility: visible; animation-name: rollIn;">
+	<div class="author-avatar pull-left"><img src="https://ccccj.github.io/images/avatar.png" ></div>
+ 
+	<div class="author-description"><div class="author-title"><div class="author-link" rel="author">Amon</div></div>
+
+
+	<p class="author-bio">哈哈哈哈哈哈</p></div></div>
+	
+		</div>
+		
+ 
+		
+</article>
+
+<div id="marlin_lite_about_widget-2" class="wow bounceInUp widget marlin_lite_about_widget" data-wow-delay="0.1s">
+		
+        
+		<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='https://ccccj.github.io/media/scripts/Valine.min.js'></script>
+
+<div class="comment"></div>
+<script>
+        new Valine({
+            // AV 对象来自上面引入av-min.js(老司机们不要开车➳♡゛扎心了老铁)
+            av: AV, 
+            el: '.comment',
+            lang: 'zh-cn',
             
-            <div class="prev-post">
-                上一篇
-                <a href="https://ccccj.github.io/acm-or-lightoj-1344-aladdin-and-the-game-of-bracelets-bo-yi-lun-sg-da-biao/">
-                    ACM | LightOJ - 1344 Aladdin and the Game of Bracelets博弈论SG打表
-                </a>
-            </div>
+            admin_email:'839808679@qq.com',
             
             
-            <div class="next-post">
-                下一篇
-                <a href="https://ccccj.github.io/mac-yu-xu-ni-ji-linux-ssh-yi-ji-chuan-shu-wen-jian/">
-                    mac 与虚拟机 linux ssh 以及 传输文件
-                </a>
-            </div>
-            
+      emoticon_list: ["吐.png","喷血.png","狂汗.png","不说话.png","汗.png","坐等.png","献花.png","不高兴.png","中刀.png","害羞.png","皱眉.png","小眼睛.png","中指.png","尴尬.png","瞅你.png","想一想.png","中枪.png","得意.png","肿包.png","扇耳光.png","亲亲.png","惊喜.png","脸红.png","无所谓.png","便便.png","愤怒.png","蜡烛.png","献黄瓜.png","内伤.png","投降.png","观察.png","看不见.png","击掌.png","抠鼻.png","邪恶.png","看热闹.png","口水.png","抽烟.png","锁眉.png","装大款.png","吐舌.png","无奈.png","长草.png","赞一个.png","呲牙.png","无语.png","阴暗.png","不出所料.png","咽气.png","期待.png","高兴.png","吐血倒地.png","哭泣.png","欢呼.png","黑线.png","喜极而泣.png","喷水.png","深思.png","鼓掌.png","暗地观察.png"],
+     	
+      	
+          
+        });
+    </script> 
+
+
+   
+  
+ 
+
+		</div>
+
+			</div>
+			
+
+
+<div class="tocc col l3 hide-on-med-and-down">
+	
+        <div class="toc-widget">
+			
+            <div class="toc-title"></div>
+			
+            <div id="toc-content">
+			
+			
+			</div>
         </div>
     </div>
-</body>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.5.0/tocbot.min.js"></script>
 <script>
-    var t_img; // 定时器
-    var isLoad = true; // 控制变量
-    isImgLoad(function () {
-        // 加载完成
-        $('.postdetailimg').css("display", "block");
-    });
-    // 判断图片加载的函数
-    function isImgLoad(callback) {
-        // 注意我的图片类名都是cover，因为我只需要处理cover。其它图片可以不管。
-        // 查找所有封面图，迭代处理
-        $('.postdetailimg').each(function () {
-            // 找到为0就将isLoad设为false，并退出each
-            if (this.height === 0) {
-                isLoad = false;
-                return false;
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '.entry-summary',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            // headingsOffset: -205,
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('.entry-summary').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
             }
         });
-        // 为true，没有发现为0的。加载完毕
-        if (isLoad) {
-            clearTimeout(t_img); // 清除定时器
-            // 回调函数
-            callback();
-            // 为false，因为找到了没有加载完成的图，将调用定时器递归
-        } else {
-            isLoad = true;
-            t_img = setTimeout(function () {
-                isImgLoad(callback); // 递归扫描
-            }, 500); // 我这里设置的是500毫秒就扫描一次，可以自己调整
-        }
-    }
-</script>
-                    <div name="comment" style="background: white">
-                        <div class="commentcontainer">
-                            
-                            <head>
-    <script src='https://ccccj.github.io/media/js/valine.min.js'></script>
-    <script src="https://ccccj.github.io/media/js/jquery.min.js"></script>
-</head>
-<style>
-    @media screen and (min-width: 1300px) {
-    .v .vbtn.vsubmit {
-        border-radius: 0;
-        padding: 0;
-        color: #fff;
-        line-height: 44px;
-        width: 100%;
-        border: none;
-        background: #1abc9c;
-    }
+    });
+</script>										 
 
-    .v .vwrap .vedit .vctrl span.vpreview-btn,
-    .v .vwrap .vcontrol .col.col-20,
-    .v .vlist .vcard .vhead .vsys {
-        display: none;
-    }
+ 
+       
 
-    .v .vwrap .vmark .valert {
-        padding-top: 0px;
-    }
 
-    .vtext{
-        padding: 0;
+			</div>
+		</div>
+
+		
+		 	<footer id="colophon" class="site-footer">
+
+			<div class="container">
+	
+				<div class="copyright">Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a><br>Theme:   <a href="https://github.com/shanbufun/gridea-theme-pan" target="_blank" title="Pan"><span>Pan</span></a>.  by <a href="https://shanbu.fun/" target="_blank"  title="山卜方" >Shanbufun</a></div>		
+			</div>
+		
+		</footer>
+
+</div>
+
+<script src="https://cdn.bootcss.com/fitvids/1.2.0/jquery.fitvids.min.js"></script>
+<script type='text/javascript' src='https://ccccj.github.io/media/scripts/marlin-scripts.js'></script>
+ <script src="//tokinx.github.io/lately/lately.min.js"></script>
+  <script>jQuery(document).ready(function(){$.lately({'target':'.lately-a,.lately-b,.lately-c'})});</script>
+  <style type="text/css">a.back_to_top {
+    text-decoration: none;
+    position: fixed;
+    bottom: 40px;
+    right: 30px;
+    background: #f0f0f0;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    line-height: 36px;
+    font-size: 18px;
+    text-align: center;
+    transition-duration: .5s;
+    transition-propety: background-color;
+    display: none;
+}
+
+a.back_to_top span {
+    color: #888;
+}
+
+a.back_to_top:hover {
+    cursor: pointer;
+    background: #dfdfdf;
+}
+
+a.back_to_top:hover span {
+    color: #555;
+}
+
+@media print, screen and (max-width: 580px) {
+    .back_to_top {
+        display: none !important;
     }
 }
 
-    @media screen and (max-width: 1300px) {
-        .v .vwrap .vmark .valert{
-            margin-top:60%;
-        }
-        .vwrap{
-            margin: 15px;
-            width: 90%;
-        }
-        .v .vwrap .vheader .vinput {
-            padding: 10px 5px;
-        }
-        .v .vwrap{
-            overflow: auto;
-        }
-        .v .veditor {
-            min-height: 30rem;
-            resize: none;
-        }
 
-        .v .vinput {
-            padding: 10px 15px;
-            font-size: 20px;
-        }
 
-        .v .vwrap .vedit .vctrl {
-            right: 0;
-        }
+</style><a id="back_to_top" href="#" class="back_to_top"><span><i class="iconfont icon-xiangshang"></i></span>
+</a>
 
-        .v .vempty {
-            padding: 1.25em;
-            text-align: center;
-            color: #999;
-            font-size: 25px;
-        }
 
+<script>$(document).ready((function(_this) {
+  return function() {
+    var bt;
+    bt = $('#back_to_top');
+    if ($(document).width() > 480) {
+      $(window).scroll(function() {
+        var st;
+        st = $(window).scrollTop();
+        if (st > 30) {
+          return bt.css('display', 'block');
+        } else {
+          return bt.css('display', 'none');
+        }
+      });
+      return bt.click(function() {
+        $('body,html').animate({
+          scrollTop: 0
+        }, 800);
+        return false;
+      });
     }
-</style>
+  };
+})(this));
+</script>
 
-<body>
-    <div id="vcomments"></div>
-    <script>
-        new Valine({
-            el: '#vcomments',
-            appId: '1',
-            appKey: '2',
-            notify: true,
-            verify: false,
-            avatar: 'retro',
-            pageSize: 30,
-            placeholder: '既然来了，何不畅所欲言呢？',
-        })
-    </script>
-</body>
-                            <div class="clear"></div>
-                            
-                        </div>
-                    </div>
-                </div>
-                <div class="toc-container">
-                    <ul class="markdownIt-TOC">
-<li>
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#1-%E4%B8%8B%E8%BD%BD-git">1. 下载 git</a></li>
-<li><a href="#2-%E5%88%9B%E5%BB%BA%E7%A7%98%E9%92%A5">2. 创建秘钥</a></li>
-<li><a href="#3-%E5%88%9B%E5%BB%BA%E4%BB%93%E5%BA%93">3. 创建仓库</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-
-                </div>
-            </div>
-        </div>
-        <div id="bg">
-        </div>
-        <div id="bgurl" style="display:none">/media/images/custom-bgimage.jpg</div>
-    </div>
-    <!-- 响应式布局，针对手机端内容显示 -->
-    <div class="nav-small">
-        <head>
-
-  <!-- 引入Bootstrap核心样式文件 -->
-  <link rel="stylesheet" href="https://ccccj.github.io/media/css/bootstrap.min.css">
-</head>
-
-<body>
-  <nav class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container-fluid">
-      <!-- Brand and toggle get grouped for better mobile display -->
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-          data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="#">Amon&#39;s Homepage&nbsp;&nbsp;|</a>
-      </div>
-
-      <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav">
-          
-          
-          <li>
-            <a href="/">
-              home
-            </a>
-          </li>
-          
-          
-          
-          <li>
-            <a href="/archives">
-              archives
-            </a>
-          </li>
-          
-          
-          
-          <li>
-            <a href="https://github.com/ccccj">
-              github
-            </a>
-          </li>
-          
-          
-          
-          <li>
-            <a href="https://blog.csdn.net/qq_40873884">
-              CSDN
-            </a>
-          </li>
-          
-          
-          
-        </ul>
-      </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
-  </nav>
-
-
-  <!-- 引入jQuery核心js文件 -->
-  <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
-  <!-- 引入BootStrap核心js文件 -->
-  <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</body>
-        <div style="margin-top:30px"></div>
-        <link rel="stylesheet" href="https://ccccj.github.io/media/css/font-awesome.css">
-<style>
-
-</style>
-
-<body>
-    <div class="allcontent">
-        <div class="postshow">
-            
-            <div class="postdetailimg" style="width:100%;overflow: hidden;display: none">
-                <img src="https://ccccj.github.io/post-images/mac-shang-chuan-dai-ma-zhi-github.png" class="postimage" style="cursor:auto">
-            </div>
-            <div class="postinfo">
-                <div class="postdate"><i class="fa fa-calendar"></i>2017-08-12</div>
-                <div class="poststatus postdate"><i class="fa fa-clock-o"></i> 2 min read</div>
-                <div class="posttag">
-                    
-                </div>
-            </div>
-            
-            <div id="texttitle" style="text-align: center">
-                <h2>Mac上传代码至GitHub</h2>
-            </div>
-            <div class="text ">
-                <p>Github 的网页一直上传不了文章...导致快半年了没传过代码...今天突然想传代码..就搞一个自动上传的吧~~</p>
-<p>看了一下网上的教程，和之前的基于 github 的仓库，建立自己的博客有点类似~</p>
-<h4 id="1-下载-git">1. 下载 git</h4>
-<p>验证有无 git : 查看 git 版本</p>
-<blockquote>
-<p>git --version</p>
-</blockquote>
-<h4 id="2-创建秘钥">2. 创建秘钥</h4>
-<blockquote>
-<p>mkdir ~/github<br>
-cd ~/github<br>
-mkdir .ssh<br>
-ssh-keygen -t rsa -C xxx@xx.com<br>
-/Users/~/github/.ssh/id_rsa<br>
-输入两次想设定的密码密码</p>
-</blockquote>
-<p>其中，xxx@xx.com 为你注册 GitHub 时的邮箱账号</p>
-<p>成功的结果是这样子滴</p>
-<figure data-type="image" tabindex="1"><img src="https://img-blog.csdn.net/20180726171422239?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwODczODg0/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="秘钥" loading="lazy"></figure>
-<p>打开网页 github，登录，右上角用户头像下选择 Settings，在SSH Keys 选项里面添加ssh（New SSH Key）。</p>
-<figure data-type="image" tabindex="2"><img src="https://img-blog.csdn.net/20180726171640525?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwODczODg0/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="添加秘钥" loading="lazy"></figure>
-<p>Title 随便填，Key 填的内容，由刚才我们在电脑上创建的文件中得来：</p>
-<blockquote>
-<p>cat id_rsa.pub</p>
-</blockquote>
-<p>将内容复制下来，写上去即可。</p>
-<h4 id="3-创建仓库">3. 创建仓库</h4>
-<p>点击右上角头像旁边下拉框中的 “Your Repositoriers”，点击“New”，即可创建新的仓库。</p>
-<p>点进去你的仓库，里面没有文件，这时候在Mac上通过命令即可上传。</p>
-<p>初始化：</p>
-<blockquote>
-<p>touch README.md  // 若创建时已选择创建README.md 则产生冲突<br>
-git init<br>
-git add README.md<br>
-git commit -m &quot;你的注释&quot;<br>
-git remote add origin git@github.com:yourname/xxxx.git<br>
-git push -u origin master // 上传</p>
-</blockquote>
-<p>yourname/xxxx.git 在你的github网页上，进入仓库，网址的最后几位，即是yourname/xxxx。</p>
-<p>之后若再要上传文件，将文件复制到 github 目录下，</p>
-<blockquote>
-<p>git add &quot;文件名&quot;<br>
-git commit -m &quot;你的注释&quot;<br>
-git push -u origin master // 上传至master分支</p>
-</blockquote>
-<p>然后就ok啦</p>
-<p>参考：https://blog.csdn.net/yyh352091626/article/details/50714880</p>
-
-            </div>
-            
-            <div class="prev-post">
-                上一篇
-                <a href="https://ccccj.github.io/acm-or-lightoj-1344-aladdin-and-the-game-of-bracelets-bo-yi-lun-sg-da-biao/">
-                    ACM | LightOJ - 1344 Aladdin and the Game of Bracelets博弈论SG打表
-                </a>
-            </div>
-            
-            
-            <div class="next-post">
-                下一篇
-                <a href="https://ccccj.github.io/mac-yu-xu-ni-ji-linux-ssh-yi-ji-chuan-shu-wen-jian/">
-                    mac 与虚拟机 linux ssh 以及 传输文件
-                </a>
-            </div>
-            
-        </div>
-    </div>
-</body>
-<script>
-    var t_img; // 定时器
-    var isLoad = true; // 控制变量
-    isImgLoad(function () {
-        // 加载完成
-        $('.postdetailimg').css("display", "block");
-    });
-    // 判断图片加载的函数
-    function isImgLoad(callback) {
-        // 注意我的图片类名都是cover，因为我只需要处理cover。其它图片可以不管。
-        // 查找所有封面图，迭代处理
-        $('.postdetailimg').each(function () {
-            // 找到为0就将isLoad设为false，并退出each
-            if (this.height === 0) {
-                isLoad = false;
-                return false;
+		<script data-no-instant>
+    (function ($) {
+        $.extend({
+            adamsOverload: function () {
+                $('.navigation:eq(0)').remove();
+                $("").attr("rel" , "external");
+                $("a[rel='external'],a[rel='external nofollow']").attr("target","_blank");
+                $("a.vi").attr("rel" , "");
+                $.viewImage({
+                    'target'  : 'img',
+                    'exclude' : '.vsmile-icons img,.gallery img',
+                    'delay'   : 300
+                });
+                $.lately({
+                    'target' : '.commentmetadata a,.infos time,.post-list time'
+                });
+                prettyPrint();
+                
+                $('ul.links li a').each(function(){
+                    if($(this).parent().find('.bg').length==0){
+                        $(this).parent().append('<!---<div class="bg" style="background-image:url(https://c3.glgoo.top/s2/favicons?domain='+$(this).attr("href")+')"></div>--->')
+                    }
+                });
             }
         });
-        // 为true，没有发现为0的。加载完毕
-        if (isLoad) {
-            clearTimeout(t_img); // 清除定时器
-            // 回调函数
-            callback();
-            // 为false，因为找到了没有加载完成的图，将调用定时器递归
-        } else {
-            isLoad = true;
-            t_img = setTimeout(function () {
-                isImgLoad(callback); // 递归扫描
-            }, 500); // 我这里设置的是500毫秒就扫描一次，可以自己调整
-        }
-    }
+    })(jQuery);
+    jQuery.adamsOverload();
 </script>
-        <div name="comment" style="background: white">
-            <div class="commentcontainer">
-                
-                <head>
-        <script src='https://ccccj.github.io/media/js/valine.min.js'></script>
-        <script src="https://ccccj.github.io/media/js/jquery.min.js"></script>
-    </head>
-    <style>
-        @media screen and (min-width: 1300px) {
-            .v {
-                margin-top: 10%;
-            }
-    
-            .v .vwrap {
-                overflow: hidden;
-            }
-    
-            .v .vwrap {
-                padding: 0 0 44px;
-            }
-    
-            .v .veditor {
-                min-height: 7rem;
-                resize: none;
-            }
-    
-            .v .vwrap .vedit {
-                padding-top: 0
-            }
-    
-            .v .vwrap .vheader {
-                width: 80%;
-                bottom: 0;
-                position: absolute;
-                background: #f7f7f7;
-            }
-    
-            .v .vinput {
-                padding: 10px 15px;
-            }
-    
-            .v .vwrap .vheader .vinput {
-                border-bottom: 0px
-            }
-    
-            .v .vwrap .vedit .vctrl {
-                margin-top: -44px;
-                right: 0;
-                position: absolute;
-                margin-right: -3px;
-            }
-    
-            .v .vwrap .vcontrol {
-                position: absolute;
-                right: 0;
-                bottom: 0;
-                width: 20%;
-                padding-top: 0px;
-            }
-        }
-    
-        .v .vwrap .vcontrol .col.col-80 {
-            width: 100%;
-        }
-    
-        .v .vbtn.vsubmit {
-            border-radius: 0;
-            padding: 0;
-            color: #fff;
-            line-height: 44px;
-            width: 100%;
-            border: none;
-            background: #1abc9c;
-        }
-    
-        .v .vwrap .vedit .vctrl span.vpreview-btn,
-        .v .vwrap .vcontrol .col.col-20,
-        .v .vlist .vcard .vhead .vsys {
-            display: none;
-        }
-    
-        .v .vwrap .vmark .valert {
-            padding-top: 0px;
-        }
-    
-        .vtext{
-            padding: 0;
-        }
-    
-        @media screen and (max-width: 1300px) {
-            .v .vwrap .vmark .valert{
-                margin-top:60%;
-            }
-            .vwrap{
-                margin: 15px;
-                width: 100%;
-            }
-            .v .vwrap .vheader .vinput {
-                padding: 10px 5px;
-            }
-            .v .vwrap{
-                overflow: auto;
-            }
-            .v .veditor {
-                min-height: 30rem;
-                resize: none;
-            }
-    
-            .v .vinput {
-                padding: 10px 15px;
-                font-size: 20px;
-            }
-    
-            .v .vwrap .vedit .vctrl {
-                right: 0;
-            }
-    
-            .v .vempty {
-                padding: 1.25em;
-                text-align: center;
-                color: #999;
-                font-size: 25px;
-            }
-    
-        }
-    </style>
-    
-    <body>
-        <div id="vcomments1"></div>
-        <script>
-            new Valine({
-                el: '#vcomments1',
-                appId: '1',
-                appKey: '2',
-                notify: true,
-                verify: false,
-                avatar: 'retro',
-                pageSize: 30,
-                placeholder: '既然来了，那就留个痕迹吧~',
-            })
-        </script>
-    </body>
-                <div class="clear"></div>
-                
-            </div>
-        </div>
-    </div>
-    <div id="landlord">
-        <div class="message" style="opacity:0"></div>
-        <canvas id="live2d" width="240" height="250" class="live2d"></canvas>
-    </div>
-</body>
-<script>
-    hljs.initHighlightingOnLoad()
-</script>
-<script src="https://ccccj.github.io/media/js/post.js"></script>
 
-<script type="text/javascript">
-    var message_Path = '/live2d/'
-    var home_Path = 'http://ericam.top/' //此处修改为你的域名，必须带斜杠
-</script>
-<script type="text/javascript" src="https://ccccj.github.io/media/live2d/js/live2d.js"></script>
-<script type="text/javascript" src="https://ccccj.github.io/media/live2d/js/message.js"></script>
-<script type="text/javascript">
-    loadlive2d("live2d", "https://ccccj.github.io/media/live2d/assets/tororo.model.json");
-</script>
+</body>
+</html>

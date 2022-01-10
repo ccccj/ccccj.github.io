@@ -2,14 +2,194 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ccccj.github.io</id>
     <title>Amon&apos;s Homepage</title>
-    <updated>2022-01-07T10:21:06.123Z</updated>
+    <updated>2022-01-10T08:15:29.064Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ccccj.github.io"/>
     <link rel="self" href="https://ccccj.github.io/atom.xml"/>
-    <subtitle>温故而知新</subtitle>
     <logo>https://ccccj.github.io/images/avatar.png</logo>
     <icon>https://ccccj.github.io/favicon.ico</icon>
     <rights>All rights reserved 2022, Amon&apos;s Homepage</rights>
+    <entry>
+        <title type="html"><![CDATA[socket编程记录]]></title>
+        <id>https://ccccj.github.io/pt2KSNu0F/</id>
+        <link href="https://ccccj.github.io/pt2KSNu0F/">
+        </link>
+        <updated>2022-01-10T06:22:26.000Z</updated>
+        <content type="html"><![CDATA[<p><ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#%E5%AE%A2%E6%88%B7%E7%AB%AF">==【客户端】==</a>
+<ul>
+<li><a href="#1-int-socketint-family-int-type-int-protocol">1、int socket(int family, int type, int protocol);</a>
+<ul>
+<li><a href="#%E4%BD%9C%E7%94%A8">作用</a></li>
+<li><a href="#%E5%8F%82%E6%95%B0">参数</a></li>
+<li><a href="#%E8%BF%94%E5%9B%9E%E5%80%BC">返回值</a></li>
+</ul>
+</li>
+<li><a href="#2-int-connectint-clientfd-const-struct-sockaddr-addr-socklen_t-addrlen">2、int connect(int clientfd, const struct sockaddr *addr, socklen_t addrlen);</a></li>
+<li><a href="#3-closesocket">3、closesocket：</a></li>
+</ul>
+</li>
+<li><a href="#getaddrinfo%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90%E5%8F%82%E6%95%B0">==【getaddrinfo自动生成参数】==</a>
+<ul>
+<li><a href="#int-getaddrinfoconst-char-hostname-const-char-service-const-struct-addrinfo-hints-struct-addrinfo-result">int getaddrinfo(const char *hostname, const char *service, const struct addrinfo *hints, struct addrinfo **result);</a></li>
+<li><a href="#void-freeaddrinfostruct-addrinfo-res">void freeaddrinfo(struct addrinfo *res);</a></li>
+<li><a href="#const-char-gai_strerrorint-error">const char *gai_strerror(int error);</a></li>
+</ul>
+</li>
+<li><a href="#%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF">==【服务器端】==</a>
+<ul>
+<li><a href="#bind">bind：</a></li>
+<li><a href="#listen">listen：</a></li>
+<li><a href="#accept">accept：</a></li>
+</ul>
+</li>
+<li><a href="#%E6%8E%A5%E6%94%B6%E5%92%8C%E5%8F%91%E9%80%81%E6%95%B0%E6%8D%AE">==【接收和发送数据】==</a></li>
+<li><a href="#%E5%AD%97%E8%8A%82%E9%A1%BA%E5%BA%8F%E8%BD%AC%E6%8D%A2">==【字节顺序转换】==</a>
+<ul>
+<li><a href="#1-uint32_t-htonluint32_t-hostlong">1、uint32_t htonl(uint32_t hostlong);</a></li>
+<li><a href="#2-uint32_t-ntohluint32_t-netlong">2、uint32_t ntohl(uint32_t netlong);</a></li>
+</ul>
+</li>
+<li><a href="#ip%E6%A0%BC%E5%BC%8F%E8%BD%AC%E6%8D%A2">==【ip格式转换】==</a>
+<ul>
+<li><a href="#1-int-inet_ptonaf_inet-const-char-src-void-dst">1、int inet_pton(AF_INET, const char *src, void *dst);</a></li>
+<li><a href="#2-const-char-inet_ntopaf_inet-const-void-src-char-dst-socklen_t-size">2、const char *inet_ntop(AF_INET, const void *src, char *dst, socklen_t size)：</a></li>
+</ul>
+</li>
+<li><a href="#%E5%9F%9F%E5%90%8D%E4%B8%8Eip%E8%BD%AC%E6%8D%A2">==【域名与ip转换】==</a>
+<ul>
+<li><a href="#struct-hostent-gethostbynameconst-char-name">struct hostent *gethostbyname(const char *name);</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</p>
+<h2 id="客户端"><mark>【客户端】</mark></h2>
+<h3 id="1-int-socketint-family-int-type-int-protocol">1、int socket(int family, int type, int protocol);</h3>
+<h4 id="作用">作用</h4>
+<p>创建一个套接字描述符，用 getaddrinfo 自动生成参数配合使用</p>
+<h4 id="参数">参数</h4>
+<pre><code>family 指明了协议族/域，通常AF_INET、AF_INET6、AF_LOCAL等
+type是套接口类型，主要 SOCK_STREAM、SOCK_DGRAM、SOCK_RAW
+protocol一般取为0。成功时，返回一个小的非负整数值，与文件描述符类似
+</code></pre>
+<h4 id="返回值">返回值</h4>
+<p>OK(非负)，error(-1)</p>
+<h3 id="2-int-connectint-clientfd-const-struct-sockaddr-addr-socklen_t-addrlen">2、int connect(int clientfd, const struct sockaddr *addr, socklen_t addrlen);</h3>
+<pre><code>C用来建立 和S的连接（指定S端点地址）
+返回值：OK(0)，error(-1)
+用 getaddrinfo 自动生成参数配合使用
+</code></pre>
+<h3 id="3-closesocket">3、closesocket：</h3>
+<p>释放套接字</p>
+<h2 id="getaddrinfo自动生成参数"><mark>【getaddrinfo自动生成参数】</mark></h2>
+<h3 id="int-getaddrinfoconst-char-hostname-const-char-service-const-struct-addrinfo-hints-struct-addrinfo-result">int getaddrinfo(const char *hostname, const char *service, const struct addrinfo *hints, struct addrinfo **result);</h3>
+<pre><code>主机名、主机地址、服务名、端口号的字符串表示 -&gt; 套接字
+返回值：OK(0), error(非0)
+
+参数：
+hostname：主机名或地址串(IPv4的点分十进制串或者 IPv6的16进制串)
+service：十进制的端口号，或是已定义的服务名称，如ftp、http等
+
+hints：空指针，或是一个指向某个 addrinfo 结构体的指针，调用者在这个结构中填入关于期望返回的信息类型的暗示。
+举例来说：如果指定的服务既支持 TCP 也支持 UDP，那么调用者可以把 hints 结构中的 ai_socktype 成员设置成 SOCK_DGRAM 使得返回的仅仅是适用于数据报套接口的信息。
+必须先分配一个 hints 结构，把它清零后填写需要的字段
+
+result：一个指向 addrinfo 结构体链表的指针。用于后续的 socket 函数。默认最多返回 3 个 addrinfo 结构。调用 getaddrinfo 后遍历链表，逐个尝试每个返回地址。
+</code></pre>
+<p>hints 和 result 的结构：</p>
+<pre><code>struct addrinfo {
+    int ai_flags;    // Hints argument flags
+    int ai_family;   // AF_INET（ipv4）或 AF_INET6（ipv6）
+    int ai_socktype; // SOCK_STREAM（TCP流）或 SOCK_DGRAM（UDP数据报）
+    int ai_protocol; // 一般为 0 不做修改
+    char *ai_canonname; // Canonical hostname
+    size_t ai_addrlen;  //Size of ai_addr struct
+    struct sockaddr *ai_addr; // Ptr to socket address structure
+    struct addrinfo *ai_next; // Ptr to next item in linked list
+};
+</code></pre>
+<figure data-type="image" tabindex="1"><img src="https://ccccj.github.io/post-images/1641797684538.png" alt="" loading="lazy"></figure>
+<p>ai_flags：可以把各种值用 OR 组合起来得到该掩码。</p>
+<p>用完必须释放：</p>
+<h3 id="void-freeaddrinfostruct-addrinfo-res">void freeaddrinfo(struct addrinfo *res);</h3>
+<pre><code>res 参数指向链表中第一个 addrinfo 结构。这个链表中的所有结构以及它们指向的任何动态存储空间都被释放掉。
+</code></pre>
+<h3 id="const-char-gai_strerrorint-error">const char *gai_strerror(int error);</h3>
+<pre><code>打印错误信息：该函数以 getaddrinfo 返回的非 0 错误值的名字和含义为他的唯一参数，返回一个指向对应的出错信息串的指针。
+</code></pre>
+<h2 id="服务器端"><mark>【服务器端】</mark></h2>
+<h3 id="bind">bind：</h3>
+<p>S用来绑定本地端点地址（创建主套接字）</p>
+<h3 id="listen">listen：</h3>
+<p>只用于TCP，将主动套接字转化为监听套接字，设置队列大小</p>
+<h3 id="accept">accept：</h3>
+<p>只用于TCP，会创建一个新的套接字（和C关联起来了的套接字），使用这个新的套接字和C进行通信，用于并发</p>
+<h2 id="接收和发送数据"><mark>【接收和发送数据】</mark></h2>
+<p>发送数据：<br>
+send/sendto</p>
+<p>接收数据：<br>
+recv/recvfrom</p>
+<p>// IP address structure<br>
+struct in_addr {<br>
+uint32_t  s_addr; // 网络字节顺序<br>
+};</p>
+<h2 id="字节顺序转换"><mark>【字节顺序转换】</mark></h2>
+<h3 id="1-uint32_t-htonluint32_t-hostlong">1、uint32_t htonl(uint32_t hostlong);</h3>
+<ul>
+<li>主机字节顺序 转换为 网络字节顺序（32位）</li>
+</ul>
+<h3 id="2-uint32_t-ntohluint32_t-netlong">2、uint32_t ntohl(uint32_t netlong);</h3>
+<ul>
+<li>网络字节顺序 转换为 主机字节顺序（32位）</li>
+</ul>
+<h2 id="ip格式转换"><mark>【ip格式转换】</mark></h2>
+<h3 id="1-int-inet_ptonaf_inet-const-char-src-void-dst">1、int inet_pton(AF_INET, const char *src, void *dst);</h3>
+<ul>
+<li>点分十进制ip -&gt; 二进制网络字节顺序ip</li>
+<li>Returns: 1 if OK, 0 if src is invalid dotted decimal, −1 on error</li>
+</ul>
+<h3 id="2-const-char-inet_ntopaf_inet-const-void-src-char-dst-socklen_t-size">2、const char *inet_ntop(AF_INET, const void *src, char *dst, socklen_t size)：</h3>
+<ul>
+<li>二进制网络字节顺序ip -&gt; 点分十进制ip</li>
+<li>size：目标存储单元的大小</li>
+<li>Returns: pointer to a dotted-decimal string if OK, NULL on error<br>
+注：可以是AF_INET（ipv4）也可以是AF_INET6（ipv6）</li>
+</ul>
+<p>// IP socket address structure<br>
+struct sockaddr_in  {<br>
+uint16_t sin_family;  // Protocol family (always AF_INET)<br>
+uint16_t sin_port;    // Port number in network byte order<br>
+struct in_addr sin_addr; // IP address in network byte order<br>
+unsigned char sin_zero[8]; // Pad to sizeof(struct sockaddr)<br>
+};<br>
+// Generic socket address structure (for connect, bind, and accept)<br>
+struct sockaddr {<br>
+uint16_t  sa_family;    // Protocol family<br>
+char      sa_data[14];  // Address data<br>
+};</p>
+<p>getprotobyname：协议名-&gt;协议号<br>
+getservbyname：服务名-&gt;熟知端口号</p>
+<h2 id="域名与ip转换"><mark>【域名与ip转换】</mark></h2>
+<h3 id="struct-hostent-gethostbynameconst-char-name">struct hostent *gethostbyname(const char *name);</h3>
+<ul>
+<li>域名-&gt;32位ip地址（返回的是按网络字节顺序的）</li>
+<li>返回结构：</li>
+</ul>
+<pre><code>struct hostent {
+    char    *h_name; // 主机的规范名
+    char    **h_aliases; // 主机的别名
+    int     h_addrtype; // 主机ip地址的类型ipv4(AF_INET)，pv6(AF_INET6)
+    int     h_length; // 主机ip地址的长度
+    char    **h_addr_list; // 主机的ip地址（网络字节序），打印需要调用inet_ntop()
+};
+</code></pre>
+<p>inet_addr：点分十进制ip(32位ip地址)</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Linux下vim的便捷使用]]></title>
         <id>https://ccccj.github.io/linux-xia-vim-de-bian-jie-shi-yong/</id>
@@ -2783,172 +2963,6 @@ int main()
 </code></pre>
 <p>以上就是所有内容了... emmm..写的比较仓促，其实很不全...补上栈帧的知识就比较全了..但是栈帧又涉及到很多，写一起不方便，到时候分开写~</p>
 <p>// 另外。。。具体可变参数的实现原理。。过几天可能会写一篇栈帧的博客。。写完再补上博客地址</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[ACM：素数线性筛法（素数打表）]]></title>
-        <id>https://ccccj.github.io/acmsu-shu-xian-xing-shai-fa-su-shu-da-biao/</id>
-        <link href="https://ccccj.github.io/acmsu-shu-xian-xing-shai-fa-su-shu-da-biao/">
-        </link>
-        <updated>2018-01-21T17:26:21.000Z</updated>
-        <content type="html"><![CDATA[<ul>
-<li>通过一道题来讲一下素数筛法。<br>
-（我理解的素数筛法。。不一定对）<br>
-原题：<br>
-https://vjudge.net/contest/205544#problem/H<br>
-题目在文章末尾。</li>
-<li>在此之前可以先看一篇博客，原文的地址不知道为啥打不开了..网上有很多转载的，以下是一个转载的地址：<br>
-http://blog.csdn.net/net_assassin/article/details/8960572<br>
-讲了求质数算法的N种境界，前面几种方法算是铺垫，最后面的讲了素数筛法。</li>
-</ul>
-<p>题目代码：</p>
-<pre><code>#include &lt;stdio.h&gt;
-#include &lt;stdbool.h&gt; 
-
-int prime[700000]; 
-bool check[10000000]; 
-
-int num = 1;
-
-int judge(int y)
-{
-    int p[10];
-    int i = 0;
-    for ( ; i &lt; 10; i++) 
-        p[i] = -1;
-
-    i = 0;
-    while (y != 0) {
-        p[i] = y%10;
-        y /= 10;
-        i++;
-    }
-    int j = 0;
-    while(p[j] != -1) 
-        j++;
-
-    j--;
-    i = 0;
-    while (i &lt;= j) {
-        if (p[i] != p[j]) {
-            return 0;
-        }
-        i++,j--;
-    }
-    return 1;
-}
-
-int main()
-{
-    int i = 2;
-    for ( ; i &lt; 10000000; i++) {
-        if (check[i] == 0) {
-            prime[num++] = i;
-        }
-        int j = 1;
-        for ( ; j &lt; num; j++) {
-            if (prime[j]*i &gt; 10000000) {
-                break;
-            }
-            check[prime[j]*i] = 1;
-            if(i % prime[j] == 0)
-                break;
-        }
-    }
-    int a,b;
-    while (~scanf(&quot;%d %d&quot;, &amp;a, &amp;b)) {
-        int j;
-        for (j = 1; j &lt; 10000000; j++) {
-	        // 确定下w在prime数组里的下标
-            if (prime[j] &gt;= a) {
-                break;
-            }
-        }
-        for (i = j; prime[i] &lt;= b &amp;&amp; i &lt; num; i++) {
-            if (judge(prime[i]) == 1) { // 判断回文
-                printf(&quot;%d\n&quot;,prime[i]);
-            }
-        }
-        printf(&quot;\n&quot;);
-    }
-    return 0;
-}
-
-</code></pre>
-<ol>
-<li>用prime来存储素数，但如何确定小于x范围内素数的大致个数？最简单的公式为x/lnx。但算出的结果是不准确的，大于有百分之几的误差，x越大时误差越小。</li>
-<li>用check数组来标记所有数，初始化为0，若发现下标是合数，空间内放1；<br>
-数组的类型可以定义为bool类型，这道题里如果是int型，空间会超，而bool类型会省很多空间，因为在32位平台c/c++,int为4字节，而bool为1字节（c语言没有bool类型，需要引头文件，c++有，无需引头文件，但无论c还是c++，大小都是1字节）。</li>
-<li>题目给出的范围是1-100000000，但计算时看了下结果，10000000-99999999范围内没有符合的数，所以我们可以将范围缩小为原来的十分之一（可能会有别的更好地处理方法）。</li>
-<li>素数筛法的中心模块在于以下代码：</li>
-</ol>
-<pre><code>    int i = 2;
-    for ( ; i &lt; 10000000; i++) { //判断i是否为质数
-        if (check[i] == 0) { //说明i被小于它的所有数试除过后，标记仍为0
-            prime[num++] = i; //记下这个素数
-        }
-        // 无论这个数是否为素数，都将它一定范围内的倍数试除
-        int j = 1;
-        // j小于等于已有素数的下标（由于前面为num自增，所以这里不需要等号）
-        for ( ; j &lt; num; j++) {
-            if (prime[j]*i &gt; 10000000) {
-                break;
-            }
-            check[prime[j]*i] = 1;
-            if(i % prime[j] == 0) // 这一句很关键，解析较长写下面
-                break;
-        }
-    }
-</code></pre>
-<ul>
-<li>
-<p>试除法<br>
-讲筛法前先讲下试除法...不想看的可以略过这几段...<br>
-如果用试除法判断x是否为素数，那只需要尝试所有 小于等于 sqrt(x) 的素数即可。<br>
-为什么要开根号很好理解，但为什么只需要尝试素数？<br>
-例如判断101是否为素数，101开根号取整为10，小于等于10的所有素数为：2，3，5，7。<br>
-因为所有合数都可以分解为多个素数相乘（根据欧拉函数得出的结论），例如这里的6，可以分解为2*3，这些素数必定小于这个合数，即2、3都小于6；当我们判断101是否为素数时，无需尝试它能否整除6，因为我们尝试过2和3，也就相当于尝试了6，省去对合数的尝试，可以省去不必要的重复操作。<br>
-而 小于等于 sqrt(x) 的所有素数，在求解x前，我们都已经算出来了。因此，可以每算出一个质数，就将它保存起来（放在一个数组里）。</p>
-</li>
-<li>
-<p>素数筛法<br>
-在这个基础上，如果我们将所有要判断的数放在一个容器里，每判断一个数，发现其为质数，那将它所有倍数筛去，即标记为1（容器初始化为0）。但这样又存在一个问题，例如发现3为质数，将它的15倍，即45筛去后，又发现5为质数，将他的9倍晒去，这样一来，45被重复操作，而数据较大时，会有大量的数据被重复操作。<br>
-而前面我们提到过，每个合数由多个素数相乘，则其必有一个最小素数因子，利用这个原理，可以让每个数都被其最小素因子筛去，避免重复操作。<br>
-又可知prime中所有素数都是递增的，当i % prime[j] == 0时，i必定可分解为prime[j]乘上另一个素数k (或i == prime[j])，k必定小于a[j++]（这个简单分析下就能得出结果）；例如，j=1，prime[j]=2，i=4时，i = 2*prime[j]，k=2，下一个prime[j]为3，k=2&lt;3=a[2]。后面的几组数同理。<br>
-因此，每当 i % prime[j] == 0 时就break，因为后面的几组数里的prime[j]都不会是最小素因子。<br>
-当避免了这些重复操作时，成为线性筛法。</p>
-</li>
-<li>
-<p>试除法与筛法差别<br>
-一开始我以为两者效率会差不多，但经常时间比对发现，线性筛法比试除质数效率高很多，因为对于一些数，例如9，对9开根号为3，我们去尝试小于等于3的质数，即2、3，但是9无法被2整除，判定9为合数的关键步骤在于，9%3 = 0 ，相当于前面对2的尝试浪费了时间。<br>
-而筛法不同，我们没有用2去判定9，而是当确定了3为素数时，直接将3的一些倍数筛去，一步到位，节省时间。</p>
-</li>
-</ul>
-<hr>
-<ul>
-<li>以下为原题：</li>
-</ul>
-<h5 id="素数回文">素数回文</h5>
-<p>xiaoou33对既是素数又是回文的数特别感兴趣。比如说151既是素数又是个回文。现在xiaoou333想要你帮助他找出某个范围内的素数回文数，请你写个程序找出 a 跟b 之间满足条件的数。(5 &lt;= a &lt; b &lt;= 100,000,000);</p>
-<p>Input</p>
-<p>这里有许多组数据，每组包括两组数据a跟b。</p>
-<p>Output</p>
-<p>对每一组数据,按从小到大输出a，b之间所有满足条件的素数回文数（包括a跟b）每组数据之后空一行。</p>
-<p>Sample Input</p>
-<p>5 500</p>
-<p>Sample Output</p>
-<p>5<br>
-7<br>
-11<br>
-101<br>
-131<br>
-151<br>
-181<br>
-191<br>
-313<br>
-353<br>
-373<br>
-383</p>
 ]]></content>
     </entry>
 </feed>

@@ -6,7 +6,7 @@
 <meta HTTP-EQUIV="pragma" CONTENT="no-cache"> 
 <meta HTTP-EQUIV="Cache-Control" CONTENT="no-cache, must-revalidate"> 
 <meta HTTP-EQUIV="expires" CONTENT="0"> 
-<title>C++ 零碎知识点集合 | Amon&#39;s Homepage</title>	
+<title>socket编程记录 | Amon&#39;s Homepage</title>	
 
 <link rel="stylesheet" href="https://ccccj.github.io/styles/main.css">
 <script type="text/javascript">
@@ -55,8 +55,6 @@ window.onload=getCSS();
         
 			
 		<header id="header" class="site-header" 
-		
-		style="background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),url(https://ccccj.github.io/post-images/c-ling-sui-zhi-shi-dian-ji-he.png)"
 		
 		>
 			<div class="site-branding">
@@ -152,10 +150,10 @@ window.onload=getCSS();
 	
 	                      
 		<div class="entry-content">
-			<h1 class="wow swing entry-title">C++ 零碎知识点集合</h1>
+			<h1 class="wow swing entry-title">socket编程记录</h1>
 <div class="entry-meta">
 <div class="wow bounce">
-	<i class="iconfont icon-rili"> <time class="lately-a" datetime="2018-03-15 23:43:13" itemprop="datePublished" pubdate="">2018-03-15</time></i>
+	<i class="iconfont icon-rili"> <time class="lately-a" datetime="2022-01-10 14:22:26" itemprop="datePublished" pubdate="">2022-01-10</time></i>
 	          </div>
 			
 </span>
@@ -163,110 +161,190 @@ window.onload=getCSS();
 		</div>
                   
 			<div class="wow slideInLeft entry-summary song">
-				<p>比较简单的我就直接写在这篇里了，比较复杂的会单独写一篇博客。</p>
-<h2 id=""><ul class="markdownIt-TOC">
+				<p><ul class="markdownIt-TOC">
 <li>
 <ul>
-<li><a href="#">@[toc]</a></li>
-<li><a href="#cc-%E6%96%B0%E6%97%A7%E9%A3%8E%E6%A0%BC">C/C++ 新旧风格</a></li>
-<li><a href="#%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4">命名空间</a></li>
-<li><a href="#%E7%BC%BA%E7%9C%81%E5%8F%82%E6%95%B0%E9%BB%98%E8%AE%A4%E5%8F%82%E6%95%B0">缺省参数（默认参数）</a></li>
-<li><a href="#%E5%87%BD%E6%95%B0%E9%87%8D%E8%BD%BD">函数重载</a></li>
-<li><a href="#%E5%BC%95%E7%94%A8%E5%8F%98%E9%87%8F">引用变量</a></li>
+<li><a href="#%E5%AE%A2%E6%88%B7%E7%AB%AF">==【客户端】==</a>
+<ul>
+<li><a href="#1-int-socketint-family-int-type-int-protocol">1、int socket(int family, int type, int protocol);</a>
+<ul>
+<li><a href="#%E4%BD%9C%E7%94%A8">作用</a></li>
+<li><a href="#%E5%8F%82%E6%95%B0">参数</a></li>
+<li><a href="#%E8%BF%94%E5%9B%9E%E5%80%BC">返回值</a></li>
+</ul>
+</li>
+<li><a href="#2-int-connectint-clientfd-const-struct-sockaddr-addr-socklen_t-addrlen">2、int connect(int clientfd, const struct sockaddr *addr, socklen_t addrlen);</a></li>
+<li><a href="#3-closesocket">3、closesocket：</a></li>
+</ul>
+</li>
+<li><a href="#getaddrinfo%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90%E5%8F%82%E6%95%B0">==【getaddrinfo自动生成参数】==</a>
+<ul>
+<li><a href="#int-getaddrinfoconst-char-hostname-const-char-service-const-struct-addrinfo-hints-struct-addrinfo-result">int getaddrinfo(const char *hostname, const char *service, const struct addrinfo *hints, struct addrinfo **result);</a></li>
+<li><a href="#void-freeaddrinfostruct-addrinfo-res">void freeaddrinfo(struct addrinfo *res);</a></li>
+<li><a href="#const-char-gai_strerrorint-error">const char *gai_strerror(int error);</a></li>
+</ul>
+</li>
+<li><a href="#%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF">==【服务器端】==</a>
+<ul>
+<li><a href="#bind">bind：</a></li>
+<li><a href="#listen">listen：</a></li>
+<li><a href="#accept">accept：</a></li>
+</ul>
+</li>
+<li><a href="#%E6%8E%A5%E6%94%B6%E5%92%8C%E5%8F%91%E9%80%81%E6%95%B0%E6%8D%AE">==【接收和发送数据】==</a></li>
+<li><a href="#%E5%AD%97%E8%8A%82%E9%A1%BA%E5%BA%8F%E8%BD%AC%E6%8D%A2">==【字节顺序转换】==</a>
+<ul>
+<li><a href="#1-uint32_t-htonluint32_t-hostlong">1、uint32_t htonl(uint32_t hostlong);</a></li>
+<li><a href="#2-uint32_t-ntohluint32_t-netlong">2、uint32_t ntohl(uint32_t netlong);</a></li>
+</ul>
+</li>
+<li><a href="#ip%E6%A0%BC%E5%BC%8F%E8%BD%AC%E6%8D%A2">==【ip格式转换】==</a>
+<ul>
+<li><a href="#1-int-inet_ptonaf_inet-const-char-src-void-dst">1、int inet_pton(AF_INET, const char *src, void *dst);</a></li>
+<li><a href="#2-const-char-inet_ntopaf_inet-const-void-src-char-dst-socklen_t-size">2、const char *inet_ntop(AF_INET, const void *src, char *dst, socklen_t size)：</a></li>
+</ul>
+</li>
+<li><a href="#%E5%9F%9F%E5%90%8D%E4%B8%8Eip%E8%BD%AC%E6%8D%A2">==【域名与ip转换】==</a>
+<ul>
+<li><a href="#struct-hostent-gethostbynameconst-char-name">struct hostent *gethostbyname(const char *name);</a></li>
 </ul>
 </li>
 </ul>
-</h2>
-<h2 id="cc-新旧风格">C/C++ 新旧风格</h2>
-<ol>
-<li><strong>C</strong> 旧风格<br>
-以 <strong>.h</strong> 结尾，如 <strong>math.h</strong> ，由于 <strong>C++</strong> 兼容 <strong>C</strong> ，所以 <strong>C/C++</strong> 均可使用。</li>
-<li><strong>C++</strong> 旧风格<br>
-以 <strong>.h</strong> 结尾，如 <strong>iostream.h</strong> ，此时无 <strong>名字空间</strong> 等特性。</li>
-<li><strong>C</strong> 新风格<br>
-前缀加上 <strong>c</strong> ，无 <strong>.h</strong> 的扩展名，如 <strong>math.h</strong> 改为了 <strong>cmath</strong> ，增加了新特性，可以使用不是 <strong>C</strong> 的特性，如 <strong>namespace std</strong> 。</li>
-<li><strong>C++</strong> 新风格<br>
-如 <strong>iostream</strong> ，增加了使用 <strong>名字空间(namespace std)</strong> 的特性。</li>
-</ol>
-<hr>
-<h2 id="命名空间">命名空间</h2>
-<p>namespace 即“命名空间”，也称“名称空间” 、”名字空间”。C++ 使用命名空间的原因主要是，人类可用的单词数太少，并且不同的人写的程序不可能所有的变量都没有重名现象，为了解决变量重名，于是引入命名空间来区分，将变量限制在不同的域内。<br>
-详细介绍：<br>
-https://blog.csdn.net/qq_40873884/article/details/79576045</p>
-<hr>
-<h2 id="缺省参数默认参数">缺省参数（默认参数）</h2>
-<p>C++ 引入函数缺省参数，即默认参数，极大地提高了使用函数的灵活性，</p>
-<p>我们来举一个简单的例子：</p>
-<pre><code>#include &lt;iostream&gt;
-using namespace std;
+</li>
+</ul>
+</p>
+<h2 id="客户端"><mark>【客户端】</mark></h2>
+<h3 id="1-int-socketint-family-int-type-int-protocol">1、int socket(int family, int type, int protocol);</h3>
+<h4 id="作用">作用</h4>
+<p>创建一个套接字描述符，用 getaddrinfo 自动生成参数配合使用</p>
+<h4 id="参数">参数</h4>
+<pre><code>family 指明了协议族/域，通常AF_INET、AF_INET6、AF_LOCAL等
+type是套接口类型，主要 SOCK_STREAM、SOCK_DGRAM、SOCK_RAW
+protocol一般取为0。成功时，返回一个小的非负整数值，与文件描述符类似
+</code></pre>
+<h4 id="返回值">返回值</h4>
+<p>OK(非负)，error(-1)</p>
+<h3 id="2-int-connectint-clientfd-const-struct-sockaddr-addr-socklen_t-addrlen">2、int connect(int clientfd, const struct sockaddr *addr, socklen_t addrlen);</h3>
+<pre><code>C用来建立 和S的连接（指定S端点地址）
+返回值：OK(0)，error(-1)
+用 getaddrinfo 自动生成参数配合使用
+</code></pre>
+<h3 id="3-closesocket">3、closesocket：</h3>
+<p>释放套接字</p>
+<h2 id="getaddrinfo自动生成参数"><mark>【getaddrinfo自动生成参数】</mark></h2>
+<h3 id="int-getaddrinfoconst-char-hostname-const-char-service-const-struct-addrinfo-hints-struct-addrinfo-result">int getaddrinfo(const char *hostname, const char *service, const struct addrinfo *hints, struct addrinfo **result);</h3>
+<pre><code>主机名、主机地址、服务名、端口号的字符串表示 -&gt; 套接字
+返回值：OK(0), error(非0)
 
-int test(int x = 3, int y = 5) {
-    return x + y;
-}
+参数：
+hostname：主机名或地址串(IPv4的点分十进制串或者 IPv6的16进制串)
+service：十进制的端口号，或是已定义的服务名称，如ftp、http等
 
-int main(int argc, const char * argv[]) {
-    int a = 1, b = 2;
-    cout &lt;&lt; &quot;传两个参数：&quot; &lt;&lt; test(a, b) &lt;&lt; endl;
-    cout &lt;&lt; &quot;传一个参数：&quot; &lt;&lt; test(a) &lt;&lt; endl;
-    cout &lt;&lt; &quot;不传参数：&quot; &lt;&lt; test() &lt;&lt; endl;
-    return 0;
-}
+hints：空指针，或是一个指向某个 addrinfo 结构体的指针，调用者在这个结构中填入关于期望返回的信息类型的暗示。
+举例来说：如果指定的服务既支持 TCP 也支持 UDP，那么调用者可以把 hints 结构中的 ai_socktype 成员设置成 SOCK_DGRAM 使得返回的仅仅是适用于数据报套接口的信息。
+必须先分配一个 hints 结构，把它清零后填写需要的字段
+
+result：一个指向 addrinfo 结构体链表的指针。用于后续的 socket 函数。默认最多返回 3 个 addrinfo 结构。调用 getaddrinfo 后遍历链表，逐个尝试每个返回地址。
 </code></pre>
-<p>输出结果：</p>
-<blockquote>
-<p>传两个参数：3<br>
-传一个参数：6<br>
-不传参数：8</p>
-</blockquote>
-<p>很容易看出，当我们传两个参数时，形参 x 变成了 a 的值(1)，形参 y 变成了 b 的值(2)，所以输出结果为 3 ；当我们传一个参数时，形参 x 变成了 a 的值(1)，形参 y 是我们指定了的 5 ，所以输出结果为 6 ；当我们不传参数时，形参 x 使我们指定的值 3 ，形参 y 是我们指定了的 5 ，所以输出结果为 8 。</p>
-<p>这就是所谓的<strong>缺省参数</strong>，就是在<strong>声明函数的某个参数时</strong>，给他<strong>指定一个默认值</strong>，当你传参数了，这个参数会是你传的值；当你未传参，这个参数就是指定的值。</p>
-<p>缺省参数分为两类：</p>
-<ol>
-<li>全缺省参数</li>
-<li>半缺省参数</li>
-</ol>
-<p>全缺省参数就是我们上面所举的例子：</p>
-<pre><code>int test(int x = 3, int y = 5);
+<p>hints 和 result 的结构：</p>
+<pre><code>struct addrinfo {
+    int ai_flags;    // Hints argument flags
+    int ai_family;   // AF_INET（ipv4）或 AF_INET6（ipv6）
+    int ai_socktype; // SOCK_STREAM（TCP流）或 SOCK_DGRAM（UDP数据报）
+    int ai_protocol; // 一般为 0 不做修改
+    char *ai_canonname; // Canonical hostname
+    size_t ai_addrlen;  //Size of ai_addr struct
+    struct sockaddr *ai_addr; // Ptr to socket address structure
+    struct addrinfo *ai_next; // Ptr to next item in linked list
+};
 </code></pre>
-<p>也就是说，我们给所有的参数都指定了值，而使用者可以选择 传所有参数、或部分参数、或完全不传参。<br>
-注意：若您选择传部分参数，您只能从最后一个参数开始进行省略；也就是说，您要省略一个参数，那么必须省略它后面所有的参数。正如上面的例子，您若要选择省略传参 a ，那么 b 也无法传入，否则，您单传一个参数，那么这个参数必定是 a 的形参。</p>
-<p>说完全缺省参数，那么半缺省参数呢？</p>
-<pre><code>int test(int x, int y, int z = 1); 
+<figure data-type="image" tabindex="1"><img src="https://ccccj.github.io/post-images/1641797684538.png" alt="" loading="lazy"></figure>
+<p>ai_flags：可以把各种值用 OR 组合起来得到该掩码。</p>
+<p>用完必须释放：</p>
+<h3 id="void-freeaddrinfostruct-addrinfo-res">void freeaddrinfo(struct addrinfo *res);</h3>
+<pre><code>res 参数指向链表中第一个 addrinfo 结构。这个链表中的所有结构以及它们指向的任何动态存储空间都被释放掉。
 </code></pre>
-<p>像上面这种写法，便是半缺省参数，即我们只指定了部分参数的值。但是这种指定方式也是有讲究的，指定的必须是右边的参数。其实想想也很简单了，我们省略参数是从右边开始省略，那么必定是右边的先开始指定。</p>
-<p>在使用的时候，我们也可以采取将默认参数写在声明中，而函数定义与没有默认参数时一样，如下：<br>
-<img src="https://img-blog.csdn.net/20180401210738113?" alt="声明与定义" loading="lazy"></p>
-<blockquote>
-<p>当我们要经常使用某个值，而其他值只是偶尔使用，这样，我们将经常使用的值作为缺省的参数，将会有很大帮助。<br>
-但这并非是编程上的重大突破，只是会带来很多便利。通过使用缺省参数，可以减少要定义的析构函数、方法以及方法重载的数量。</p>
-</blockquote>
-<hr>
-<h2 id="函数重载">函数重载</h2>
-<p>缺省参数让我们在参数数目不同时可以调用同一个函数，而函数重载让我们能够使用多个同名函数。详细链接：<br>
-https://blog.csdn.net/qq_40873884/article/details/79827796</p>
-<hr>
-<h2 id="引用变量">引用变量</h2>
-<p>引用是 C++ 对 C 语言的重要扩充，详解链接：<br>
-https://blog.csdn.net/qq_40873884/article/details/79632314</p>
-<hr>
-<blockquote>
-<p>持续更新...</p>
-</blockquote>
+<h3 id="const-char-gai_strerrorint-error">const char *gai_strerror(int error);</h3>
+<pre><code>打印错误信息：该函数以 getaddrinfo 返回的非 0 错误值的名字和含义为他的唯一参数，返回一个指向对应的出错信息串的指针。
+</code></pre>
+<h2 id="服务器端"><mark>【服务器端】</mark></h2>
+<h3 id="bind">bind：</h3>
+<p>S用来绑定本地端点地址（创建主套接字）</p>
+<h3 id="listen">listen：</h3>
+<p>只用于TCP，将主动套接字转化为监听套接字，设置队列大小</p>
+<h3 id="accept">accept：</h3>
+<p>只用于TCP，会创建一个新的套接字（和C关联起来了的套接字），使用这个新的套接字和C进行通信，用于并发</p>
+<h2 id="接收和发送数据"><mark>【接收和发送数据】</mark></h2>
+<p>发送数据：<br>
+send/sendto</p>
+<p>接收数据：<br>
+recv/recvfrom</p>
+<p>// IP address structure<br>
+struct in_addr {<br>
+uint32_t  s_addr; // 网络字节顺序<br>
+};</p>
+<h2 id="字节顺序转换"><mark>【字节顺序转换】</mark></h2>
+<h3 id="1-uint32_t-htonluint32_t-hostlong">1、uint32_t htonl(uint32_t hostlong);</h3>
+<ul>
+<li>主机字节顺序 转换为 网络字节顺序（32位）</li>
+</ul>
+<h3 id="2-uint32_t-ntohluint32_t-netlong">2、uint32_t ntohl(uint32_t netlong);</h3>
+<ul>
+<li>网络字节顺序 转换为 主机字节顺序（32位）</li>
+</ul>
+<h2 id="ip格式转换"><mark>【ip格式转换】</mark></h2>
+<h3 id="1-int-inet_ptonaf_inet-const-char-src-void-dst">1、int inet_pton(AF_INET, const char *src, void *dst);</h3>
+<ul>
+<li>点分十进制ip -&gt; 二进制网络字节顺序ip</li>
+<li>Returns: 1 if OK, 0 if src is invalid dotted decimal, −1 on error</li>
+</ul>
+<h3 id="2-const-char-inet_ntopaf_inet-const-void-src-char-dst-socklen_t-size">2、const char *inet_ntop(AF_INET, const void *src, char *dst, socklen_t size)：</h3>
+<ul>
+<li>二进制网络字节顺序ip -&gt; 点分十进制ip</li>
+<li>size：目标存储单元的大小</li>
+<li>Returns: pointer to a dotted-decimal string if OK, NULL on error<br>
+注：可以是AF_INET（ipv4）也可以是AF_INET6（ipv6）</li>
+</ul>
+<p>// IP socket address structure<br>
+struct sockaddr_in  {<br>
+uint16_t sin_family;  // Protocol family (always AF_INET)<br>
+uint16_t sin_port;    // Port number in network byte order<br>
+struct in_addr sin_addr; // IP address in network byte order<br>
+unsigned char sin_zero[8]; // Pad to sizeof(struct sockaddr)<br>
+};<br>
+// Generic socket address structure (for connect, bind, and accept)<br>
+struct sockaddr {<br>
+uint16_t  sa_family;    // Protocol family<br>
+char      sa_data[14];  // Address data<br>
+};</p>
+<p>getprotobyname：协议名-&gt;协议号<br>
+getservbyname：服务名-&gt;熟知端口号</p>
+<h2 id="域名与ip转换"><mark>【域名与ip转换】</mark></h2>
+<h3 id="struct-hostent-gethostbynameconst-char-name">struct hostent *gethostbyname(const char *name);</h3>
+<ul>
+<li>域名-&gt;32位ip地址（返回的是按网络字节顺序的）</li>
+<li>返回结构：</li>
+</ul>
+<pre><code>struct hostent {
+    char    *h_name; // 主机的规范名
+    char    **h_aliases; // 主机的别名
+    int     h_addrtype; // 主机ip地址的类型ipv4(AF_INET)，pv6(AF_INET6)
+    int     h_length; // 主机ip地址的长度
+    char    **h_addr_list; // 主机的ip地址（网络字节序），打印需要调用inet_ntop()
+};
+</code></pre>
+<p>inet_addr：点分十进制ip(32位ip地址)</p>
 
 							</div>
 	<div class="wow bounceInDown vt-post-tags">
  
-				<a href="https://ccccj.github.io/NNS1oEpZH/" rel="tag">C++</a>	
-				 
 					</div>						
 <nav class="navigation3 post-navigation3" role="navigation">
 		
 		<div class="nav-links3">
       
-		<div class="wow bounceInLeft nav-previous3"><a href="https://ccccj.github.io/c-or-ming-ming-kong-jian/" rel="prev"> C++ | 命名空间</a></div>
 		 
-		 
-		<div class="wow bounceInRight nav-next3"><a href="https://ccccj.github.io/da-jian-ji-yu-github-de-ge-ren-wang-zhan/" rel="next"> 搭建基于github的个人网站</a></div>
+		<div class="wow bounceInRight nav-next3"><a href="https://ccccj.github.io/linux-xia-vim-de-bian-jie-shi-yong/" rel="next"> Linux下vim的便捷使用</a></div>
 		
 		</div>
 	</nav>

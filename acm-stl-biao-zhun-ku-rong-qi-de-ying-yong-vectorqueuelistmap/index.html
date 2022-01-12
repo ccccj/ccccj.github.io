@@ -607,9 +607,9 @@ shandong<br>
 <p>这题用map算是很合适了吧...<br>
 先说下map，也是容器的一种.....<br>
 好了..本来这里写了一大段，传上去以后发现，消失了！！！消失了！！难受...已经不想写了..图再发一遍吧..</p>
-<p><img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTgwMTI0MjIyNjU0NTI4?x-oss-process=image/format,png" alt="这里写图片描述" loading="lazy"><br>
+<p><img src="https://ccccj.github.io/post-images/1641969852914.png" alt="" loading="lazy"><br>
 就简单讲下吧..这是个map &lt; string, int &gt; 容器的图，但是这道题有两个关键字，第一关键字为地区，第二关键字为水果名，所以需要两个map容器。如下图：<br>
-<img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTgwMTI0MjIyOTIyODQ3?x-oss-process=image/format,png" alt=" " loading="lazy"><br>
+<img src="https://ccccj.github.io/post-images/1641969867128.png" alt="" loading="lazy"><br>
 类似于二维数组的构造（数组里面有数组），这是个map当中有map的构造，看图应该就能看懂了。一开始我一直在想，如果两个水果地区都是guangdong，那不是关键字重复了么，还查了好久关键字重复怎么办...后来画了个图就懂了，如果都是广东，在左边一列算是一个关键字，然后在右边再细分。</p>
 <pre><code>#include &lt;iostream&gt;
 #include &lt;map&gt;

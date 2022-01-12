@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ccccj.github.io</id>
     <title>Amon&apos;s Homepage</title>
-    <updated>2022-01-12T03:56:41.568Z</updated>
+    <updated>2022-01-12T06:44:49.836Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ccccj.github.io"/>
     <link rel="self" href="https://ccccj.github.io/atom.xml"/>
@@ -542,6 +542,71 @@ int main() {
     return 0;
 }
 
+</code></pre>
+<h2 id="并发编程">并发编程</h2>
+<h3 id="1-每次-accept-都在-fork-的子进程里实现">1、每次 accept 都在 fork 的子进程里实现</h3>
+<p>略微修改服务器端的代码即可：</p>
+<pre><code>void sigchld_handler(int sig) {
+    while (waitpid(-1, 0, WNOHANG) &gt; 0) {
+        /*
+        回收子进程，回收成功一个，返回子进程的pid
+        WNOHANG：非阻塞。如果有子进程,但没有结束(没有变僵尸进程)，waitpid 返回 0，退出 while
+        如果有僵尸进程，回收一个僵尸进程，返回僵尸进程 pid，所以要用循环去处理，把僵尸进程回收完
+        */
+        ;
+    }
+    //printf(&quot;wait end\n&quot;);
+}
+
+int Socks5Server::listen_client() {
+    signal(SIGCHLD, sigchld_handler);
+    printf(&quot;listening=========== main fd : %d\n&quot;, _fd);
+
+    int new_fd, num = 0;
+    char clientaddr[1000];
+    socklen_t clientlen = 1000;
+
+    while(1) {
+        // 本函数会阻塞等待直到有客户端请求到达。
+        new_fd = accept(_fd, (struct sockaddr *)&amp;clientaddr, &amp;clientlen);
+        //printf(&quot;new_fd : %d\n&quot;, new_fd);
+        num++;
+
+        if (fork() == 0) {
+            // 子进程
+            close(_fd);
+            if (new_fd == -1) {
+                printf(&quot;new_fd error\n&quot;);
+            } else {
+                printf(&quot;【child】new_fd success : %d\n&quot;, new_fd);
+            }
+            send_mes(new_fd, &quot;hello\n&quot;);
+            printf(&quot;num : %d\n&quot;, num);
+
+            close(new_fd);
+            //printf(&quot;【child】close new_fd : %d\n&quot;, new_fd);
+            exit(0); // 子进程直接退出，父进程会重新进入循环
+        } else {
+            // 父进程
+            //printf(&quot;【father】close new_fd : %d\n&quot;, new_fd);
+            close(new_fd);
+        }
+
+    }
+    return new_fd;
+}
+
+int main() {
+    Socks5Server s;
+    int ret = s.open_listenfd();
+    if (ret &lt; 0) {
+        printf(&quot;open_main_fd error\n&quot;);
+    } else {
+        printf(&quot;open_main_fd success\n&quot;);
+        s.listen_client();
+    }
+    return 0;
+}
 </code></pre>
 ]]></content>
     </entry>
@@ -2040,23 +2105,19 @@ for (int i = 0; i &lt; 4; ++i) {
         <link href="https://ccccj.github.io/c-or-han-shu-chong-zai/">
         </link>
         <updated>2018-04-05T09:31:36.000Z</updated>
-        <content type="html"><![CDATA[<h2 id="目录">目录</h2>
-<p><ul class="markdownIt-TOC">
+        <content type="html"><![CDATA[<p><ul class="markdownIt-TOC">
 <li>
 <ul>
-<li><a href="#%E7%9B%AE%E5%BD%95">目录</a>
+<li>
 <ul>
 <li><a href="#%E5%87%BD%E6%95%B0%E9%87%8D%E8%BD%BD%E6%98%AF%E4%BB%80%E4%B9%88">函数重载是什么</a></li>
 <li><a href="#%E5%8F%AF%E4%BB%A5%E6%9E%84%E6%88%90%E9%87%8D%E8%BD%BD%E7%9A%84%E8%A6%81%E6%B1%82">可以构成重载的要求</a>
 <ul>
 <li><a href="#%E5%8F%82%E6%95%B0%E5%88%97%E8%A1%A8%E7%9A%84%E8%A6%81%E6%B1%82">参数列表的要求</a></li>
-<li><a href="#%E5%85%B6%E4%BB%96%E6%B3%A8%E6%84%8F%E7%82%B9">其他注意点</a>
-<ul>
+<li><a href="#%E5%85%B6%E4%BB%96%E6%B3%A8%E6%84%8F%E7%82%B9">其他注意点</a></li>
 <li><a href="#1-%E7%B1%BB%E5%9E%8B%E9%9C%80%E8%A6%81%E5%AE%8C%E5%85%A8%E5%8C%B9%E9%85%8D">1、类型需要完全匹配</a></li>
 <li><a href="#2-%E6%B3%A8%E6%84%8F%E5%BC%95%E7%94%A8">2、注意引用</a></li>
 <li><a href="#3-const-%E6%8C%87%E9%92%88%E7%B1%BB%E5%9E%8B%E5%8C%B9%E9%85%8D">3、const 指针类型匹配</a></li>
-</ul>
-</li>
 </ul>
 </li>
 <li><a href="#%E9%87%8D%E8%BD%BD%E5%BC%95%E7%94%A8%E5%8F%82%E6%95%B0">重载引用参数</a></li>
@@ -2075,18 +2136,17 @@ for (int i = 0; i &lt; 4; ++i) {
 <p>第一次接触函数缺省参数应该是在使用 STL 的各种容器的时候，那时候还没开始学 C++，但是一直听说做题的时候容器很好用，就试着用了下。当时第一个用的是 vector，对于它的构造方法觉得惊为天人...<br>
 （其实这里举这个例子可能会有些听不懂...虽然可以再讲很多别的例子..但是对我印象最深刻的函数重载就是这个= =）</p>
 <p>刚才特地去 cplusplus 上验证了下到底是重载还是参数缺省..事实证明就是重载..推荐大家多用这个网站..真的好用<sup>o</sup></p>
-<figure data-type="image" tabindex="1"><img src="https://img-blog.csdn.net/2018040513113615?" alt="vector" loading="lazy"></figure>
+<figure data-type="image" tabindex="1"><img src="https://user-images.githubusercontent.com/33253635/149073979-eccac0b5-7960-4dd8-84d1-09fc9a70abd1.png" alt="vector" loading="lazy"></figure>
 <p>关于 const allocator_type&amp; alloc 这个参数我们暂时不用管（百度了下是模板..然而没学过..只能暂时不管了...），只需要看其他的即可 。<br>
 这里声明了几个的 vector 的构造函数，从这也能看出传参方式不同：</p>
-<blockquote>
-<p>1.无参数；<br>
-2.传一个 n 来设定 vector 的初始元素个数；<br>
-3.传 n 设定元素个数，传 value 设定每个元素的初始值；<br>
-4.是拷贝构造，传入一个 vector 的对象；<br>
-5.传两个迭代器，设定第一个元素的地址与最后一个元素的下一位置的地址。</p>
-</blockquote>
+<pre><code>1. 无参数；
+2. 传一个 n 来设定 vector 的初始元素个数；
+3. 传 n 设定元素个数，传 value 设定每个元素的初始值；
+4. 是拷贝构造，传入一个 vector 的对象；
+5. 传两个迭代器，设定第一个元素的地址与最后一个元素的下一位置的地址。
+</code></pre>
 <p>暂时只能看懂以上构造函数，但是也可以说明一个问题，那就是，<strong>当我们传入的参数不同时，所调用的函数也会不同</strong>。</p>
-<figure data-type="image" tabindex="2"><img src="https://img-blog.csdn.net/20180405132306163?" alt="构造方法" loading="lazy"></figure>
+<figure data-type="image" tabindex="2"><img src="https://user-images.githubusercontent.com/33253635/149073988-ebe3bee4-7c84-484f-afd2-fee7e88e2a80.png" alt="构造方法" loading="lazy"></figure>
 <p>这里是几个构造方法的例子，分别对应了我上面所举的例子的 1、3、5、4 这四种方法。</p>
 <p>到这里有没有稍微明白一点<strong>函数重载</strong>到底是什么呢？</p>
 <blockquote>
@@ -2096,10 +2156,11 @@ for (int i = 0; i &lt; 4; ++i) {
 <h3 id="可以构成重载的要求">可以构成重载的要求</h3>
 <h4 id="参数列表的要求">参数列表的要求</h4>
 <p>但不是所有函数都可以重名的。函数重载也有前提：<strong>参数列表不同</strong>。<br>
-函数的<strong>参数列表</strong>也成为<strong>函数特征标</strong>。他由三个特性构成：<br>
-1.<strong>参数数目和类型</strong><br>
-2.<strong>参数的排列顺序</strong><br>
-也就是说，有两个函数，在这两点中有任意一点不同，我们称其参数列表（特征标）不同。</p>
+函数的<strong>参数列表</strong>也成为<strong>函数特征标</strong>。他由三个特性构成：</p>
+<pre><code>1. 参数数目和类型
+2. 参数的排列顺序
+</code></pre>
+<p>也就是说，有两个函数，在这两点中有任意一点不同，我们称其参数列表（特征标）不同。</p>
 <p>注意，我们所说的是要求参数列表（特征标）不同，而不是函数类型不同，以下这两个声明是<strong>互斥</strong>的：</p>
 <pre><code>int test(int x);
 double test(int x);
@@ -2108,9 +2169,9 @@ double test(int x);
 <pre><code>int test(int x);
 double test(float x);
 </code></pre>
-<p><strong>总结</strong>：需要使用函数重载，其参数列表必须不同，而返回类型可不同也可相同（具体原因后面会讲）。</p>
+<p><mark><strong>总结</strong></mark>：需要使用函数重载，其参数列表必须不同，而返回类型可不同也可相同（具体原因后面会讲）。</p>
 <h4 id="其他注意点">其他注意点</h4>
-<h5 id="1-类型需要完全匹配">1、类型需要完全匹配</h5>
+<h4 id="1-类型需要完全匹配">1、类型需要完全匹配</h4>
 <p>在使用时有很多地方需要我们注意：</p>
 <pre><code>	void test(int a); 
 	void test(float f);
@@ -2120,7 +2181,7 @@ double test(float x);
 test(t);
 </code></pre>
 <p>当 test 函数没有重载时，传入参数类型若不匹配，编译器便会将类型强转，然而现在有了两种转换 t 的方式，编译器便会将其视为错误。</p>
-<h5 id="2-注意引用">2、注意引用</h5>
+<h4 id="2-注意引用">2、注意引用</h4>
 <p>另外，有些看起来彼此不同的参数列表是不能共存的：</p>
 <pre><code>void test(int x);
 void test(int&amp; x);
@@ -2130,7 +2191,7 @@ void test(int&amp; x);
     test(a);
 </code></pre>
 <p>这时候两个函数都匹配，又让编译器去调用哪个呢？为了避免这种情况，编译器在检查函数特征标时，将类型本身与类型引用视为同一特征标。</p>
-<h5 id="3-const-指针类型匹配">3、const 指针类型匹配</h5>
+<h4 id="3-const-指针类型匹配">3、const 指针类型匹配</h4>
 <p>看下面一个简单的例子：</p>
 <pre><code>void test(const char* s) {
     cout &lt;&lt; &quot;test1&quot; &lt;&lt; endl;
@@ -2245,9 +2306,9 @@ a.out：是我生成的可执行文件名，如果不是这个名字，可修改
 grep：由于汇编代码有点长..我就写了辣么几行代码就有好多啊..干脆就通过管道找起来方便点...</p>
 </blockquote>
 <p>c的结果：<br>
-<img src="https://img-blog.csdn.net/20180405172057234?" alt="c" loading="lazy"><br>
+<img src="https://user-images.githubusercontent.com/33253635/149073991-a59fc5f7-c236-4588-9e61-ce9bedb48c48.png" alt="c" loading="lazy"><br>
 c++的结果：<br>
-<img src="https://img-blog.csdn.net/20180405172109749?" alt="c++" loading="lazy"></p>
+<img src="https://user-images.githubusercontent.com/33253635/149073992-e24888a6-30b4-4333-882f-3ec407456efc.png" alt="c++" loading="lazy"></p>
 <p>可以看出，test 这一函数，在 c 与 c++ 汇编中的名字是不同的，c++ 对其进行的名称修饰，将原本的名字前面加了 <strong>4</strong>，表示函数名的长度为 4；test 后面加了 <strong>i</strong> 和 <strong>f</strong> ，表示第一个参数类型为 int ，第二个参数类型为 float。（当然，不同的编译器命名规则也不同）<br>
 因此也就可以解释，当我们的函数名相同时，参数类型不同，或其顺序不同时，参数列表也就不同了。</p>
 <p>从中也可以看出，这在 c 中是不适用的，因为其未对函数名进行修饰，所有相同名字的函数，即使参数列表不同，在汇编中的名字是相同的。<br>
@@ -2672,8 +2733,12 @@ int main(int argc, const char * argv[]) {
     return 0;
 }
 </code></pre>
-<p>运行结果：<br>
-<img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9pbWctYmxvZy5jc2RuLm5ldC8yMDE4MDMxNjAwMzUyMzI3ND8?x-oss-process=image/format,png" alt="运行结果" loading="lazy"></p>
+<p>运行结果：</p>
+<blockquote>
+<p>SUST<br>
+test SUST<br>
+ZJU</p>
+</blockquote>
 <h2 id="总结">总结</h2>
 <p><strong>命名空间</strong>使得我们的变量、函数、类有了域，将他们局限在了一个域之内。在变量名/函数名重复时，可以区分他们属于哪个命名空间，加以辨别。在大型工程中应该会很好用。</p>
 ]]></content>
@@ -3183,13 +3248,7 @@ int main(int argc, const char * argv[]) {
     return 0;
 }
 </code></pre>
-<p>当年我还...什么都不懂..还没开始敲代码就懵了。。main后面那一段是什么鬼？？？<br>
-让我们来看一段函数：</p>
-<pre><code>int add(int x, int y) {
-    return x+y;
-}
-</code></pre>
-<p>在小括号里的是这个函数的参数，有没有觉得和main函数的参数很像？</p>
+<p>当年我还...什么都不懂..还没开始敲代码就懵了。。main后面那一段是什么鬼？？？</p>
 <pre><code>int main(int argc, const char * argv[]) {
     return 0;
 }
@@ -3207,10 +3266,10 @@ argv ：一个字符指针的数组，参数列表；<br>
 envp ：传递给该程序的环境变量列表（告诉编译器，头文件、库等信息在哪里）。</p>
 </blockquote>
 <p>撇开环境变量不提（因为我也不知道用来干啥的..以前看linux的书的时候有见过环境变量..但是没仔细看所以也不大清楚），我们主要来看前两个。</p>
-<p>第一个参数，argc指接下来会传入多少个参数，这个很好理解，但是<code>char * argv[]</code>，光看形式可能就有人不懂了。要理解他，我们首先得知道 <strong>指针数组</strong> 与 <strong>数组指针</strong> 的概念。<br>
-<img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTgwMjA4MTk1OTIyMTEy?x-oss-process=image/format,png" alt="c语言运算符优先级" loading="lazy"><br>
+<p>第一个参数，argc 指接下来会传入多少个参数，这个很好理解，但是<code>char * argv[]</code>，光看形式可能就有人不懂了。要理解他，我们首先得知道 <strong>指针数组</strong> 与 <strong>数组指针</strong> 的概念。<br>
+<img src="https://user-images.githubusercontent.com/33253635/149075662-1d164fbc-86ba-4663-b85c-2a6b068dbbe9.png" alt="c语言运算符优先级" loading="lazy"><br>
 从这张图中可以看出，在<code>char * argv[]</code>中，数组下标的优先级更高，于是，argc首先与数组下标先结合，因此，argc是一个数组，那么数组中存放着什么呢？接下来继续看，他又与指针相结合，噢，放着指针。什么类型的指针？继续看，噢，char型啊。这就是一个指针数组了。如下图：</p>
-<figure data-type="image" tabindex="1"><img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTgwMjA4MjAwNzM1NDYw?x-oss-process=image/format,png" alt="char * argv[]图解" loading="lazy"></figure>
+<figure data-type="image" tabindex="1"><img src="https://user-images.githubusercontent.com/33253635/149075671-a102e5c3-797a-441f-a7bc-927d10b10e27.png" alt="argv图解" loading="lazy"></figure>
 <p>那么这些指针指向什么呢？我们来看两条语句：</p>
 <pre><code>char str1[] = &quot;hi&quot;;
 char* str2 = &quot;hello&quot;;
@@ -3220,10 +3279,10 @@ char* str2 = &quot;hello&quot;;
 <li>第一种类型：数组是开辟了一块空间后，每一块小空间，都放入一个数据（可能是int型，可能是char型，可能是指针、结构体等等）。</li>
 <li>第二种类型：一个指针，指向了一片空间，这块空间里存放着一串字符，如图所示：</li>
 </ul>
-<figure data-type="image" tabindex="2"><img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTgwMjA4MjAyMzI5NzY3?x-oss-process=image/format,png" alt="字符串指针" loading="lazy"></figure>
+<figure data-type="image" tabindex="2"><img src="https://user-images.githubusercontent.com/33253635/149075675-ec6421a6-a728-45b7-a07f-10193ebb0929.png" alt="字符串指针" loading="lazy"></figure>
 <p>这个指针p，指向了内存中的一块空间（在字符常量区），我们顺着这个指针，就能找到这个字符串，和数组原理相同，有时候（注意是有时候，不要以为数组名就是地址！！）数组名代表着数组首元素的地址，我们顺着这个地址去查找，就能知道这个地址的空间里存放着什么。<br>
 知道了这点以后，我们再来看<code>char * argv[]</code> 代表着什么：<br>
-<img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTgwMjA4MjAzODMzNjA5?x-oss-process=image/format,png" alt="char * argv[]" loading="lazy"><br>
+<img src="https://user-images.githubusercontent.com/33253635/149075676-1d6f3c3d-2747-489a-9677-3d078b546444.png" alt="argv" loading="lazy"><br>
 图中可以看出，argc是一个数组，数组中存放着指针，每个指针指向一个字符串。（<strong>数组最后一个元素存放NULL指针</strong>，图中未画出）</p>
 <hr>
 <p>关于main函数的可变参数，在linux下的体现更突出一些，我们可以在编译链接期间传入参数，来达到一些特定的目的，这里暂且不提（不提的原因是...还没学linux..所以具体什么作用我了解的也不是很清楚TAT）。</p>
@@ -3266,9 +3325,9 @@ va_end(arg);
 <pre><code>void va_start ( va_list ap, prev_param ); 
 </code></pre>
 <p><code>va_start(arg, n)</code>的功能 毫无疑问是将arg指针指向某一地址处，但我们还不清楚是指向哪里，目前我们所知道的地址只有 n 的地址，测试下和 n 的地址有何关联。<br>
-<img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTgwMjA4MjMyNjQ2NDk2?x-oss-process=image/format,png" alt="测试程序" loading="lazy"><br>
+<img src="https://user-images.githubusercontent.com/33253635/149075684-6be8551b-3bf6-4475-8d2d-c5313edc42b3.png" alt="测试程序" loading="lazy"><br>
 程序运行结果：<br>
-<img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTgwMjA4MjI1MDQzODEw?x-oss-process=image/format,png" alt="arg的地址" loading="lazy"></p>
+<img src="https://user-images.githubusercontent.com/33253635/149075680-a7fb8e5a-54b7-478a-acb4-1f40194e9069.png" alt="arg的地址" loading="lazy"></p>
 <p>可以看出，n 和 arg 的地址只<strong>相差了4</strong>（这里是64位平台int型，占4字节），且 arg 的地址比 n 大4。<br>
 再来看vc中的宏：</p>
 <pre><code>// 获取类型占用的空间长度，最小占用长度为int的整数倍
@@ -3310,14 +3369,16 @@ int average(int n, ...) {
     return sum/n;
 }
 
-int main()
-{
+int main() {
     printf(&quot;%d\n&quot;, average(5, 1, 2, 3, 4, 5));
     return 0;
 }
 </code></pre>
 <p>以上就是所有内容了... emmm..写的比较仓促，其实很不全...补上栈帧的知识就比较全了..但是栈帧又涉及到很多，写一起不方便，到时候分开写~</p>
-<p>// 另外。。。具体可变参数的实现原理。。过几天可能会写一篇栈帧的博客。。写完再补上博客地址</p>
+<h3 id="后续">后续</h3>
+<p>另外，最近看了 CSAPP 的栈帧部分，更加深入理解了一点具体可变参数的实现原理。实际上 argv 是一个指针（数组的首地址，可以理解为一个指针），在调用 main 时，存在于新开辟的栈帧空间中，它指向了一片区域，区域内存在着一个数组，也就是上文提到的指针数组。而数组内存着传入的参数。<br>
+argc &gt;= 1，因为第一个参数就是文件名，这个参数是必备的。从第二个参数开始，是用户输入的参数。</p>
+<p>over</p>
 ]]></content>
     </entry>
 </feed>

@@ -691,6 +691,71 @@ int main() {
 }
 
 </code></pre>
+<h2 id="并发编程">并发编程</h2>
+<h3 id="1-每次-accept-都在-fork-的子进程里实现">1、每次 accept 都在 fork 的子进程里实现</h3>
+<p>略微修改服务器端的代码即可：</p>
+<pre><code>void sigchld_handler(int sig) {
+    while (waitpid(-1, 0, WNOHANG) &gt; 0) {
+        /*
+        回收子进程，回收成功一个，返回子进程的pid
+        WNOHANG：非阻塞。如果有子进程,但没有结束(没有变僵尸进程)，waitpid 返回 0，退出 while
+        如果有僵尸进程，回收一个僵尸进程，返回僵尸进程 pid，所以要用循环去处理，把僵尸进程回收完
+        */
+        ;
+    }
+    //printf(&quot;wait end\n&quot;);
+}
+
+int Socks5Server::listen_client() {
+    signal(SIGCHLD, sigchld_handler);
+    printf(&quot;listening=========== main fd : %d\n&quot;, _fd);
+
+    int new_fd, num = 0;
+    char clientaddr[1000];
+    socklen_t clientlen = 1000;
+
+    while(1) {
+        // 本函数会阻塞等待直到有客户端请求到达。
+        new_fd = accept(_fd, (struct sockaddr *)&amp;clientaddr, &amp;clientlen);
+        //printf(&quot;new_fd : %d\n&quot;, new_fd);
+        num++;
+
+        if (fork() == 0) {
+            // 子进程
+            close(_fd);
+            if (new_fd == -1) {
+                printf(&quot;new_fd error\n&quot;);
+            } else {
+                printf(&quot;【child】new_fd success : %d\n&quot;, new_fd);
+            }
+            send_mes(new_fd, &quot;hello\n&quot;);
+            printf(&quot;num : %d\n&quot;, num);
+
+            close(new_fd);
+            //printf(&quot;【child】close new_fd : %d\n&quot;, new_fd);
+            exit(0); // 子进程直接退出，父进程会重新进入循环
+        } else {
+            // 父进程
+            //printf(&quot;【father】close new_fd : %d\n&quot;, new_fd);
+            close(new_fd);
+        }
+
+    }
+    return new_fd;
+}
+
+int main() {
+    Socks5Server s;
+    int ret = s.open_listenfd();
+    if (ret &lt; 0) {
+        printf(&quot;open_main_fd error\n&quot;);
+    } else {
+        printf(&quot;open_main_fd success\n&quot;);
+        s.listen_client();
+    }
+    return 0;
+}
+</code></pre>
 
 							</div>
 	<div class="wow bounceInDown vt-post-tags">

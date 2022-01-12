@@ -173,10 +173,34 @@ window.onload=getCSS();
 <li>多图预警啊啊啊啊。没错，我就是动不动就截个图放上来的那种。</li>
 </ol>
 </blockquote>
-<p>##目录<br>
-<br>
-##1. 下载安装hexo<br>
-在终端上下载 <strong>home-brew</strong>（这一步linux和windows似乎不用下..后面的都是一样的），用来下载别的。</p>
+<h2 id="目录">目录</h2>
+<p><ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#%E7%9B%AE%E5%BD%95">目录</a></li>
+<li><a href="#1-%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85hexo">1. 下载安装hexo</a></li>
+<li><a href="#2-%E5%88%9B%E5%BB%BA%E7%9B%AE%E5%BD%95">2. 创建目录</a></li>
+<li><a href="#3-%E5%86%99%E5%8D%9A%E6%96%87%E4%B8%8A%E4%BC%A0">3. 写博文上传</a></li>
+<li><a href="#4-%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2">4. 博客部署</a></li>
+<li><a href="#5-hexo-%E9%83%A8%E7%BD%B2%E9%85%8D%E7%BD%AE">5. Hexo 部署配置</a></li>
+<li><a href="#6-%E8%AE%BE%E7%BD%AE%E7%A7%98%E9%92%A5">6. 设置秘钥</a></li>
+<li><a href="#7-%E5%8D%9A%E5%AE%A2%E9%85%8D%E7%BD%AE">7. 博客配置</a></li>
+<li><a href="#8-%E4%BF%AE%E6%94%B9%E6%A0%B7%E5%BC%8F%E8%BF%99%E4%B8%80%E6%AD%A5%E5%8F%AA%E8%83%BD%E4%BF%AE%E6%94%B9%E5%AD%97%E4%BD%93%E5%A4%A7%E5%B0%8F-%E9%97%B4%E8%B7%9D%E4%B9%8B%E7%B1%BB%E7%9A%84~">8. 修改样式（这一步只能修改字体大小、间距之类的~）</a></li>
+<li><a href="#9-%E4%BF%AE%E6%94%B9%E5%8D%9A%E5%AE%A2%E9%A1%B5%E9%9D%A2%E5%86%85%E5%AE%B9">9. 修改博客页面内容</a></li>
+<li><a href="#10-%E5%9F%9F%E5%90%8D%E8%B4%AD%E4%B9%B0%E4%B8%8E%E8%A7%A3%E6%9E%90">10. 域名购买与解析</a></li>
+<li><a href="#11-%E5%8D%9A%E5%AE%A2%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87">11. 博客插入图片</a>
+<ul>
+<li><a href="#%E6%B3%95%E4%B8%80%E8%BF%99%E4%B8%AA%E6%96%B9%E6%B3%95%E5%8F%AF%E4%BB%A5%E8%B7%B3%E7%9D%80%E7%9C%8B%E6%88%96%E8%80%85%E7%9B%B4%E6%8E%A5%E7%9C%8B%E6%B3%95%E4%BA%8C%E6%9B%B4%E5%A5%BD%E4%B8%80%E4%BA%9B">法一（这个方法可以跳着看，或者直接看法二，更好一些）：</a></li>
+<li><a href="#%E6%B3%95%E4%BA%8C">法二：</a></li>
+</ul>
+</li>
+<li><a href="#12-%E5%B0%86%E7%BD%91%E7%AB%99%E5%A4%87%E4%BB%BD%E5%88%B0%E7%99%BE%E5%BA%A6">12. 将网站备份到百度</a></li>
+</ul>
+</li>
+</ul>
+</p>
+<h2 id="1-下载安装hexo">1. 下载安装hexo</h2>
+<p>在终端上下载 <strong>home-brew</strong>（这一步linux和windows似乎不用下..后面的都是一样的），用来下载别的。</p>
 <pre><code>/usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;
 </code></pre>
 <p>下载 <strong>Node.js</strong> 和 <strong>git</strong></p>
@@ -190,8 +214,8 @@ git --version
 <p>安装Hexo</p>
 <pre><code>npm install hexo-cli -g
 </code></pre>
-<p>##2. 创建目录<br>
-创建并进入一个目录，作为存放博客资源的目录。<br>
+<h2 id="2-创建目录">2. 创建目录</h2>
+<p>创建并进入一个目录，作为存放博客资源的目录。<br>
 我放在了 <strong>~</strong> 下面</p>
 <pre><code>hexo init blog
 cd blog
@@ -204,9 +228,9 @@ hexo server
 INFO  Hexo is running at http://localhost:4000/. Press Ctrl+C to stop.
 </code></pre>
 <p>即可登陆http://localhost:4000/访问自己的网站</p>
-<p>##3. 写博文上传<br>
-到这里，创建博客就完成啦。接下来打开自己的网站，可以看到有如下介绍：</p>
-<p>[外链图片转存中...(img-JhgyceTa-1641970384582)]</p>
+<h2 id="3-写博文上传">3. 写博文上传</h2>
+<p>到这里，创建博客就完成啦。接下来打开自己的网站，可以看到有如下介绍：</p>
+<figure data-type="image" tabindex="1"><img src="https://ccccj.github.io/post-images/1641970819427.png" alt="" loading="lazy"></figure>
 <p>诶...人家好像都说了该如何写博文，即在终端上输入如下命令：</p>
 <pre><code>hexo new post “...”
 </code></pre>
@@ -222,19 +246,19 @@ INFO  Hexo is running at http://localhost:4000/. Press Ctrl+C to stop.
 </code></pre>
 <p>（vim后面要输入的是你的路径啊...）<br>
 然后就是操作啦..mac下的vim似乎快捷键和linux下的差不多...然后自己试着写吧~~</p>
-<figure data-type="image" tabindex="1"><img src="https://img-blog.csdnimg.cn/img_convert/27186600f05c0727f3079a19978bbd07.png" alt="vim hello" loading="lazy"></figure>
+<figure data-type="image" tabindex="2"><img src="https://ccccj.github.io/post-images/1641970851049.png" alt="" loading="lazy"></figure>
 <p>保存后，再运行 server</p>
 <pre><code>hexo server
 </code></pre>
 <p>登录网站后，截图如下：</p>
-<figure data-type="image" tabindex="2"><img src="https://img-blog.csdnimg.cn/img_convert/cd3aec00eb68a8b384f27e35ba10737d.png" alt="网站" loading="lazy"></figure>
+<figure data-type="image" tabindex="3"><img src="https://ccccj.github.io/post-images/1641970871314.png" alt="网站" loading="lazy"></figure>
 <p>emmmmm...似乎成功了诶hhhhh</p>
 <p>删除的话..似乎也很简单啊..之前不是人家给了路径的嘛..实验了下，发现把那个.md结尾的文档删掉就可以啦..具体查阅怎么在linux下删除文件啦。</p>
-<p>##4. 博客部署<br>
-目前我们的博客还只是本地的，只有自己可以访问，所以现在需要将博客部署到github上。<br>
+<h2 id="4-博客部署">4. 博客部署</h2>
+<p>目前我们的博客还只是本地的，只有自己可以访问，所以现在需要将博客部署到github上。<br>
 在 Github Repository 里创建一个新的仓库，名为 &lt; name&gt;.github.io（注意了..这里的name似乎需要和你的github的用户名相同，不然后面似乎也许可能会出问题）, 例如我叫 ccccj (啊不要偷偷地去搜我啊)，我创建的是 ccccj.github.io，地址为 https://github.com/ccccj/ccccj.github.io 。</p>
-<p>##5. Hexo 部署配置<br>
-安装 <strong>hexo-deployer-git</strong> 插件</p>
+<h2 id="5-hexo-部署配置">5. Hexo 部署配置</h2>
+<p>安装 <strong>hexo-deployer-git</strong> 插件</p>
 <pre><code>npm install hexo-deployer-git --save
 </code></pre>
 <p>在我们的blog目录下，有一个 _config.yml 文件，打开它（我用的vim打开）。<br>
@@ -266,13 +290,13 @@ deploy:
 <pre><code>hexo g -d
 </code></pre>
 <p>然后就可以通过 github 的网址来打开自己的网站啦。例如我通过 https://ccccj.github.io ，就可以访问之前的那个页面啦。</p>
-<p>##6. 设置秘钥<br>
-在bash中输入：</p>
+<h2 id="6-设置秘钥">6. 设置秘钥</h2>
+<p>在bash中输入：</p>
 <pre><code>ssh-keygen -t rsa -C &quot;youremail&quot;
 </code></pre>
 <p>然后三次回车。<br>
 系统的提示中有这样一段话：</p>
-<figure data-type="image" tabindex="3"><img src="https://img-blog.csdnimg.cn/img_convert/8860bd4451efc79947d1dc993508f111.png" alt="秘钥地址" loading="lazy"></figure>
+<figure data-type="image" tabindex="4"><img src="https://img-blog.csdnimg.cn/img_convert/8860bd4451efc79947d1dc993508f111.png" alt="秘钥地址" loading="lazy"></figure>
 <p>找到这个目录下的 <strong>id_rsa.pub</strong> ，用编辑器打开，将里面的内容全部复制下来。<br>
 在 <strong>https://github.com/settings/ssh</strong> 中，点击 <strong>New SSH key</strong> ，将刚才复制的内容粘贴上去。<br>
 接着运行：<br>
@@ -286,8 +310,8 @@ hexo g -d
 hexo server
 </code></pre>
 <p>就可以啦。这样就不用每次输入账号密码了。</p>
-<p>##7. 博客配置<br>
-接着我们可以对我们的博客进行一些修改，打开 <strong>_config.yml</strong>  配置文件：</p>
+<h2 id="7-博客配置">7. 博客配置</h2>
+<p>接着我们可以对我们的博客进行一些修改，打开 <strong>_config.yml</strong>  配置文件：</p>
 <pre><code># Site
 title: Hexo
 subtitle:
@@ -299,16 +323,16 @@ timezone:
 <p><strong>title</strong> 是站名，<strong>subtitle</strong> 是副标题，<strong>language</strong> 可以选 <strong>en</strong> 或者 <strong>zh-cn</strong>，分别是英文和简体中文。</p>
 <p>然后还可以更换主题啦。先下载主题，https://hexo.io/themes 在这里有很多主题，我们随便点开一个吧~~<br>
 比如说我选了 <strong>Material</strong> 这个主题，点开：</p>
-<figure data-type="image" tabindex="4"><img src="https://img-blog.csdnimg.cn/img_convert/38303bbdbaccea288f07e27a58747376.png" alt="这里写图片描述" loading="lazy"></figure>
+<figure data-type="image" tabindex="5"><img src="https://img-blog.csdnimg.cn/img_convert/38303bbdbaccea288f07e27a58747376.png" alt="这里写图片描述" loading="lazy"></figure>
 <p>然后这里的githu里会有解释该如何做的文档，例如在github往下找，就会有一个Docs文档，如图：</p>
-<figure data-type="image" tabindex="5"><img src="https://img-blog.csdnimg.cn/img_convert/9878c83c5476a879ec275b9cdea782ce.png" alt="Docs文档" loading="lazy"></figure>
+<figure data-type="image" tabindex="6"><img src="https://img-blog.csdnimg.cn/img_convert/9878c83c5476a879ec275b9cdea782ce.png" alt="Docs文档" loading="lazy"></figure>
 <p>点开 <strong>Material Theme Docs</strong> 后，点击左侧的 <strong>开始使用</strong> ，然后会有官方给出的具体步骤：</p>
-<figure data-type="image" tabindex="6"><img src="https://img-blog.csdnimg.cn/img_convert/a9ef25887fce3526fb6884aacdbed4b9.png" alt="步骤" loading="lazy"></figure>
+<figure data-type="image" tabindex="7"><img src="https://img-blog.csdnimg.cn/img_convert/a9ef25887fce3526fb6884aacdbed4b9.png" alt="步骤" loading="lazy"></figure>
 <ul>
 <li>先安装主题</li>
 </ul>
 <p>复制下来这个主题的github链接：</p>
-<p>[外链图片转存中...(img-DbnjIwFk-1641970384602)]</p>
+<figure data-type="image" tabindex="8"><img src="https://ccccj.github.io/post-images/1641971050345.png" alt="" loading="lazy"></figure>
 <p>复制下来以后，在终端中输入:</p>
 <pre><code>git clone &lt;link&gt;
 </code></pre>
@@ -328,65 +352,65 @@ timezone:
 <pre><code>theme: landscape
 </code></pre>
 <p>可以看到，官方默认主题为 <strong>landscape</strong> ，我们可以修改...我看看我的主题修改为 <strong>material</strong> 。然后再执行 <strong>hexo server</strong> 命令打开后，主题就换啦。如下:</p>
-<figure data-type="image" tabindex="7"><img src="https://img-blog.csdnimg.cn/img_convert/551640cce6eb5fe17ff049519f6f403f.png" alt="新主题" loading="lazy"></figure>
-<p>##8. 修改样式（这一步只能修改字体大小、间距之类的~）<br>
-但是如果要修改某些字体啊之类的大小，要怎么修改呢？前几天改的时候稍微研究了一下~<br>
+<figure data-type="image" tabindex="9"><img src="https://img-blog.csdnimg.cn/img_convert/551640cce6eb5fe17ff049519f6f403f.png" alt="新主题" loading="lazy"></figure>
+<h2 id="8-修改样式这一步只能修改字体大小-间距之类的~">8. 修改样式（这一步只能修改字体大小、间距之类的~）</h2>
+<p>但是如果要修改某些字体啊之类的大小，要怎么修改呢？前几天改的时候稍微研究了一下~<br>
 是这样的，如果你把主题改成 <strong>next</strong> ，你将会在网上看到无数修改小细节的博客，但是别的主题，基本上都不会提到这些。<br>
 举个例子，我前两天刚换了个叫 <strong>brewski</strong> 的主题:</p>
-<figure data-type="image" tabindex="8"><img src="https://img-blog.csdnimg.cn/img_convert/0ff04316cd86832ed7cfcaf110ccd416.png" alt="brewski" loading="lazy"></figure>
+<figure data-type="image" tabindex="10"><img src="https://img-blog.csdnimg.cn/img_convert/0ff04316cd86832ed7cfcaf110ccd416.png" alt="brewski" loading="lazy"></figure>
 <p>就是这个啦..看着超级简洁。</p>
-<figure data-type="image" tabindex="9"><img src="https://img-blog.csdnimg.cn/img_convert/cb6b8f091c59c80450248478d4198fc6.png" alt="brewski主题" loading="lazy"></figure>
+<figure data-type="image" tabindex="11"><img src="https://img-blog.csdnimg.cn/img_convert/cb6b8f091c59c80450248478d4198fc6.png" alt="brewski主题" loading="lazy"></figure>
 <p>按照 <strong>README.md</strong> 弄好主题以后，打开以后大概是这样的。emmmm..我就想把 <strong>hello world</strong> 改小一点，那要如何改呢？<br>
 网上找了很久都没找到说这个主题改细节的。于是我就想自己动手丰衣足食啦（但是其实前端这些我什么都没学过，所以也不太懂）。然后看了下 <strong>next</strong> 主题的，大概知道好像是在一个 <strong>css</strong> 的文件夹里修改，我就在我的主题的文件里找了下。<br>
 到 <strong>blog</strong> 的根目录下，查找一下。</p>
 <pre><code>find ./ -name &quot;css&quot;
 </code></pre>
 <p>结果：</p>
-<p>[外链图片转存中...(img-Z23d7jHT-1641970384612)]</p>
+<figure data-type="image" tabindex="12"><img src="https://ccccj.github.io/post-images/1641971074987.png" alt="" loading="lazy"></figure>
 <p>在这里可以看到，每个主题下都有个 <strong>css</strong> ，我们打开当前主题下的，也就是 <strong>.//themes/brewski/source/css</strong> 这个。<strong>cd</strong> 直接进入即可。</p>
-<figure data-type="image" tabindex="10"><img src="https://img-blog.csdnimg.cn/img_convert/30ebf553840226a171ba348baba7ccdd.png" alt="css里的内容" loading="lazy"></figure>
-<p>可以看到，当前 <strong>css</strong> 文件下，有个 <strong>theme.css</strong> 文件（不同的主题下的，可能后缀不用），用 <strong>vim</strong> 打开。</p>
-<p>[外链图片转存中...(img-Oi4eEXF8-1641970384617)]</p>
+<figure data-type="image" tabindex="13"><img src="https://img-blog.csdnimg.cn/img_convert/30ebf553840226a171ba348baba7ccdd.png" alt="css里的内容" loading="lazy"></figure>
+<p>可以看到，当前 <strong>css</strong> 文件下，有个 <strong>theme.css</strong> 文件（不同的主题下的，可能后缀不用），用 <strong>vim</strong> 打开。<br>
+<img src="https://ccccj.github.io/post-images/1641971084379.png" alt="" loading="lazy"></p>
 <p>大概是这样一个配置文件，看了下大概有六百多行（因为不怎么用mac的终端..所以配置有点丑..凑合看..）<br>
 所以要怎么修改呢..我们打开我们的浏览器，然后打开自己的换好了主题的网页。</p>
-<p>[外链图片转存中...(img-A7QkkRWA-1641970384619)]</p>
+<figure data-type="image" tabindex="14"><img src="https://ccccj.github.io/post-images/1641971102775.png" alt="" loading="lazy"></figure>
 <p>右键，会看到这样一个选项——“检查元素”。如果没有这个选项的话，可能是因为隐藏了，大家可以百度下自己的电脑如何显示这个选项（我用的是safari），或者可能不同的电脑上叫法也不一样..可能叫别的审查元素之类的。<br>
 然后会出来下面这样的一个界面：</p>
-<figure data-type="image" tabindex="11"><img src="https://img-blog.csdnimg.cn/img_convert/23a85a1949731b72c89ec2280453d9cd.png" alt="检察元素" loading="lazy"></figure>
+<figure data-type="image" tabindex="15"><img src="https://img-blog.csdnimg.cn/img_convert/23a85a1949731b72c89ec2280453d9cd.png" alt="检察元素" loading="lazy"></figure>
 <p>点击下图圈起来的图标。当然，不同的电脑，图标和名字也不同，大家看看哪个和这个功能差不多的。。</p>
-<figure data-type="image" tabindex="12"><img src="https://img-blog.csdnimg.cn/img_convert/7efc252a0eab44fe42c0abb3d80237c7.png" alt="点击" loading="lazy"></figure>
+<figure data-type="image" tabindex="16"><img src="https://img-blog.csdnimg.cn/img_convert/7efc252a0eab44fe42c0abb3d80237c7.png" alt="点击" loading="lazy"></figure>
 <p>点击以后，当你再点电脑上的文字，就不会出来链接之类的，而是会出现一些信息。<br>
 比如说：</p>
-<p>[外链图片转存中...(img-KXf2tQEZ-1641970384626)]</p>
+<figure data-type="image" tabindex="17"><img src="https://ccccj.github.io/post-images/1641971192382.png" alt="" loading="lazy"></figure>
 <p>现在点 <strong>可变参数列表</strong> ，下面会出现他的信息。比如说这个：</p>
-<figure data-type="image" tabindex="13"><img src="https://img-blog.csdnimg.cn/img_convert/5bd751186c8b2ade509e1811c1f1cbfb.png" alt="信息" loading="lazy"></figure>
+<figure data-type="image" tabindex="18"><img src="https://img-blog.csdnimg.cn/img_convert/5bd751186c8b2ade509e1811c1f1cbfb.png" alt="信息" loading="lazy"></figure>
 <p>我们来搜索下，这个词。但是搜索以后发现没搜索到，或者搜索到的不匹配。于是我又试了 <strong>post-title</strong>:</p>
 <pre><code>:/post-title
 </code></pre>
 <p>当然..你会发现自己搜索到了很多个..然后就是尝试着去改，如果改了发现这个没有变，那就改回去，然后再试着改别的。</p>
-<figure data-type="image" tabindex="14"><img src="https://img-blog.csdnimg.cn/img_convert/a8710ee3e80d38e6b30ee215f1327b64.png" alt="post-title" loading="lazy"></figure>
+<figure data-type="image" tabindex="19"><img src="https://img-blog.csdnimg.cn/img_convert/a8710ee3e80d38e6b30ee215f1327b64.png" alt="post-title" loading="lazy"></figure>
 <p>最后发现是这个~改了记得注释下，方便下次改，也方便改别的地方的时候，知道不是改这个了。<br>
 接着来看下一项~</p>
-<figure data-type="image" tabindex="15"><img src="https://img-blog.csdnimg.cn/img_convert/c793c54b5774cc507cf1defdcd68375b.png" alt="间距" loading="lazy"></figure>
+<figure data-type="image" tabindex="20"><img src="https://img-blog.csdnimg.cn/img_convert/c793c54b5774cc507cf1defdcd68375b.png" alt="间距" loading="lazy"></figure>
 <p>如果觉得这中间的间距太大了怎么办？？<br>
 还是用 <strong>检查元素</strong> ~<br>
 唉..这个图一直截不好..忧伤</p>
-<figure data-type="image" tabindex="16"><img src="https://img-blog.csdnimg.cn/img_convert/5074cd930ba2a3c543cbf40ca32d161a.png" alt="间距" loading="lazy"></figure>
+<figure data-type="image" tabindex="21"><img src="https://img-blog.csdnimg.cn/img_convert/5074cd930ba2a3c543cbf40ca32d161a.png" alt="间距" loading="lazy"></figure>
 <p>大概就是这样，当你鼠标移过去的时候（自己在字附近移来移去试一下），标题外面会有一条带子，然后查看那条叫啥，再去改间距就可以啦。</p>
-<p>[外链图片转存中...(img-WXaOlHBV-1641970384639)]</p>
+<figure data-type="image" tabindex="22"><img src="https://ccccj.github.io/post-images/1641971243362.png" alt="" loading="lazy"></figure>
 <p>这是我找到的修改了能改边距的地方（改完注释注释注释，一定要注释）。</p>
-<figure data-type="image" tabindex="17"><img src="https://img-blog.csdnimg.cn/img_convert/c68c6b4b3345af4c91e0c42d0077ca56.png" alt="代码段的修改" loading="lazy"></figure>
+<figure data-type="image" tabindex="23"><img src="https://img-blog.csdnimg.cn/img_convert/c68c6b4b3345af4c91e0c42d0077ca56.png" alt="代码段的修改" loading="lazy"></figure>
 <p>代码段的修改。</p>
 <p>然后还有移动端的修改。</p>
-<figure data-type="image" tabindex="18"><img src="https://img-blog.csdnimg.cn/img_convert/dbb21bb3a1665ccf059ff893919cb603.png" alt="移动端的修改" loading="lazy"></figure>
+<figure data-type="image" tabindex="24"><img src="https://img-blog.csdnimg.cn/img_convert/dbb21bb3a1665ccf059ff893919cb603.png" alt="移动端的修改" loading="lazy"></figure>
 <p>移动端的修改都是以 <strong>@media</strong> 开头的，这个我没怎么改（因为手机上不知道咋检查元素..咳咳..emmmm..不要去看我手机端的网站啦..真的很丑很丑很丑），大家可以自行尝试的修改。</p>
-<p>##9. 修改博客页面内容<br>
-这个...起源于有个朋友，让我在博客页面加上他的友情链接...<br>
+<h2 id="9-修改博客页面内容">9. 修改博客页面内容</h2>
+<p>这个...起源于有个朋友，让我在博客页面加上他的友情链接...<br>
 然后我就自己在配置文件摸索了下，加了个。<br>
 效果如下图：</p>
-<figure data-type="image" tabindex="19"><img src="https://img-blog.csdnimg.cn/img_convert/466d1fd5c2a2bda2b8c3925b32d4b56a.png" alt="链接" loading="lazy"></figure>
+<figure data-type="image" tabindex="25"><img src="https://img-blog.csdnimg.cn/img_convert/466d1fd5c2a2bda2b8c3925b32d4b56a.png" alt="链接" loading="lazy"></figure>
 <p>这个比较简单，修改主题里的配置文件 <strong>_config.yml</strong> 即可（注意是主题的配置文件，不是博客的配置文件）。</p>
-<figure data-type="image" tabindex="20"><img src="https://img-blog.csdnimg.cn/img_convert/d26da1d968c83a8707c574c1fe7f4b1c.png" alt="配置文件" loading="lazy"></figure>
+<figure data-type="image" tabindex="26"><img src="https://img-blog.csdnimg.cn/img_convert/d26da1d968c83a8707c574c1fe7f4b1c.png" alt="配置文件" loading="lazy"></figure>
 <p>在这里增加、或删除，自行修改即可。<br>
 那么问题来了...我改的时候，蓝朋友在旁边，表示要把他的也加上。那...再加在那？一个叫 link1 ，一个叫 link2 ？？？<br>
 才不要啊...<br>
@@ -397,20 +421,20 @@ timezone:
 vim copyright.pug
 </code></pre>
 <p>这个主题的后缀似乎和 <strong>next</strong> 的后缀都不太一样，用的语言可能不同？？总之，直接复制是肯定不行的..那只能按照原来的格式，对照着修改了。</p>
-<figure data-type="image" tabindex="21"><img src="https://img-blog.csdnimg.cn/img_convert/6499e592385ca305c8223401d08126c0.png" alt="配置文件" loading="lazy"></figure>
+<figure data-type="image" tabindex="27"><img src="https://img-blog.csdnimg.cn/img_convert/6499e592385ca305c8223401d08126c0.png" alt="配置文件" loading="lazy"></figure>
 <p>很明显啊这是一个路径啊..修改下之后果然路径变了（注意，这里保存了以后要先运行 <strong>hexo g</strong> ，才能运行 <strong>hexo s</strong>）。<br>
 然后把前面的文字之类的修改即可。但是在这里需要两个链接啊..emmm那只能，把那条再复制一条了。</p>
-<figure data-type="image" tabindex="22"><img src="https://img-blog.csdnimg.cn/img_convert/bf04fa532364eb484ff6768f12bfb309.png" alt="修改之后" loading="lazy"></figure>
+<figure data-type="image" tabindex="28"><img src="https://img-blog.csdnimg.cn/img_convert/bf04fa532364eb484ff6768f12bfb309.png" alt="修改之后" loading="lazy"></figure>
 <p>修改完之后是这样的。注意：只需要把 <strong>br</strong> 后面那一行复制即可，不然你的两行链接会在两行上（如果你就是像这样当我没说），还有注意你的链接是想放在哪个词上。比如我这里链接放在 <strong>timmy</strong> 和 <strong>Pan</strong> 上，那这两个词放在链接的后面，具体看图。</p>
 <p><img src="https://img-blog.csdnimg.cn/img_convert/2b69d4ebe57b2a025cab905c97196c29.png" alt="具体" loading="lazy"><br>
 分别对应的文字：<br>
 <img src="https://img-blog.csdnimg.cn/img_convert/97d8327f0a6a1e1becb5ca07cfae09a7.png" alt="文字" loading="lazy"><br>
 链接在 <strong>timmy</strong> 和 <strong>Pan</strong> 上面。</p>
-<p>##10. 域名购买与解析<br>
-这时候我们需要一个域名，然后就是买买买啦。。。<br>
+<h2 id="10-域名购买与解析">10. 域名购买与解析</h2>
+<p>这时候我们需要一个域名，然后就是买买买啦。。。<br>
 我买的是腾讯云的..为什么呢...因为最近刚好有活动比较便宜..也可以买阿里云啊之类的。<br>
 这个在网上一搜就有很多推荐你买的，买好之后认证下，然后就要域名解析了。</p>
-<p>[外链图片转存中...(img-1tT7TP6q-1641970384669)]</p>
+<figure data-type="image" tabindex="29"><img src="https://ccccj.github.io/post-images/1641971297621.png" alt="" loading="lazy"></figure>
 <p>然后在 <strong>blog</strong> 的 <strong>source</strong> 目录下创建一个名叫 <strong>CNAME</strong> 的文件，注意没有后缀，里面写你的域名。</p>
 <pre><code># URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
@@ -420,10 +444,10 @@ url: https://&lt;username&gt;.com
 之前少了一步然后网站一直404...<br>
 还需要的是：在 <strong>Github</strong> 的 <strong>xxx.github.io</strong> 项目,进入【Settings】标签页,在【Custom domain】中,将申请的域名写进去。<br>
 然后很快就能打开了。</p>
-<figure data-type="image" tabindex="23"><img src="https://img-blog.csdnimg.cn/img_convert/f85915cb5a89f8b59b4b363adc03bbb5.png" alt="网站" loading="lazy"></figure>
-<p>##11. 博客插入图片<br>
-话说..博客不能只有字没有图啊。那如何插入图片捏。<br>
-###法一（这个方法可以跳着看，或者直接看法二，更好一些）：</p>
+<figure data-type="image" tabindex="30"><img src="https://img-blog.csdnimg.cn/img_convert/f85915cb5a89f8b59b4b363adc03bbb5.png" alt="网站" loading="lazy"></figure>
+<h2 id="11-博客插入图片">11. 博客插入图片</h2>
+<p>话说..博客不能只有字没有图啊。那如何插入图片捏。</p>
+<h3 id="法一这个方法可以跳着看或者直接看法二更好一些">法一（这个方法可以跳着看，或者直接看法二，更好一些）：</h3>
 <ul>
 <li>先把博客根目录下的 <strong>_config.yml</strong> 里的 <strong>post_asset_folder:</strong> 选项设置为 <strong>true</strong></li>
 <li>安装一个可以上传图片的插件<br>
@@ -433,31 +457,31 @@ url: https://&lt;username&gt;.com
 <li>这时候将照片放入这个文件夹中，然后再上传时，直接复制csdn的MarkDown格式即可。</li>
 <li>注：如果是mac的找 <strong>blog</strong> 根目录下的 <strong>source</strong> 放进去图片可能有点麻烦..我是在 <strong>Finder</strong> 中，按住 <strong>command+shift+g</strong> ，再输入 <strong>/</strong> ，然后点进去用户，找到自己的用户，下面就有 <strong>blog</strong> 文件了。</li>
 </ul>
-<p>###法二：<br>
-按第一种方法，一直把图片存电脑上也不是这么一回事儿啊，还咋的能存一辈子啊。那有没有一种线上方法捏？有的。拿一个目前我用的方法来讲吧。<br>
+<h3 id="法二">法二：</h3>
+<p>按第一种方法，一直把图片存电脑上也不是这么一回事儿啊，还咋的能存一辈子啊。那有没有一种线上方法捏？有的。拿一个目前我用的方法来讲吧。<br>
 会用 <strong>七牛云</strong> 的来托管我们的图片，所以先建个账号吧~网址如下：<br>
 https://portal.qiniu.com/signup?type=1&amp;code=3lciep8tu8lsi<br>
 （ps：七牛云发送的验证邮件..很可能在你的垃圾邮件里噢..忧伤..我找了好久的）<br>
 这个麻烦就麻烦在，需要实名认证..好烦..回宿舍取身份证去了。</p>
 <p>.....实名认证了两天....诶..话说有的人，一下午就通过了。<br>
 接着我们来看：</p>
-<p>[外链图片转存中...(img-9PJHmket-1641970384673)]</p>
+<figure data-type="image" tabindex="31"><img src="https://ccccj.github.io/post-images/1641971347361.png" alt="" loading="lazy"></figure>
 <p>这里有个添加资源，选择对象存储。<br>
-[外链图片转存中...(img-s6tjWPyE-1641970384675)]<br>
+<img src="https://ccccj.github.io/post-images/1641971368348.png" alt="" loading="lazy"><br>
 新建存储空间，这里随意，但是似乎如果选择私有空间，后续会不一样（我没试过）。</p>
 <p>创建完成之后，找到<strong>内容管理</strong>里的<strong>上传文件</strong>。</p>
-<figure data-type="image" tabindex="24"><img src="https://img-blog.csdnimg.cn/img_convert/ef068d84a78118d639d904c594362a65.png" alt="上传文件" loading="lazy"></figure>
+<figure data-type="image" tabindex="32"><img src="https://img-blog.csdnimg.cn/img_convert/ef068d84a78118d639d904c594362a65.png" alt="上传文件" loading="lazy"></figure>
 <p>接着就进入了传图片的界面，上传即可。如下：</p>
-<figure data-type="image" tabindex="25"><img src="https://img-blog.csdnimg.cn/img_convert/2638076fa7612f54b7ed425923387b18.png" alt="上传图片" loading="lazy"></figure>
+<figure data-type="image" tabindex="33"><img src="https://img-blog.csdnimg.cn/img_convert/2638076fa7612f54b7ed425923387b18.png" alt="上传图片" loading="lazy"></figure>
 <p>退出回到外面，复制链接。</p>
-<p>[外链图片转存中...(img-dRnrSnEc-1641970384680)]</p>
+<figure data-type="image" tabindex="34"><img src="https://ccccj.github.io/post-images/1641971404109.png" alt="" loading="lazy"></figure>
 <p>我们写的时候，格式如下：</p>
 <pre><code>![这里写图片描述](复制过来的链接）
 </code></pre>
 <p>就和 <strong>CSDN</strong> 的 <strong>MarkDown</strong> 格式差不多。然后就可以啦。把图片传到云服务器的好处是，不用担心照片在电脑里一直存着占内存啦。</p>
-<p>##12. 将网站备份到百度<br>
-现在我们的网站，只能通过一种方法搜索到，就是直接在打自己的域名，进入网站。如果想要通过在百度搜索，一般会这样：</p>
-<p>[外链图片转存中...(img-gDIlXWmz-1641970384683)]</p>
+<h2 id="12-将网站备份到百度">12. 将网站备份到百度</h2>
+<p>现在我们的网站，只能通过一种方法搜索到，就是直接在打自己的域名，进入网站。如果想要通过在百度搜索，一般会这样：</p>
+<figure data-type="image" tabindex="35"><img src="https://ccccj.github.io/post-images/1641971441971.png" alt="" loading="lazy"></figure>
 <p>说明网站还没有被百度收录，如果想要能搜索到自己的网站的话（使得网站访问量增多），就需要百度备份了。<br>
 搜索 <strong>百度站长</strong> ，或直接进入链接：<br>
 https://ziyuan.baidu.com/site/index<br>
@@ -488,7 +512,7 @@ baidusitemap:
 find ./ -name baidusitemap.xml
 </code></pre>
 <p>接着向百度提交链接，在<strong>站点管理</strong>里面的<strong>站点属性设置</strong>里，找到<strong>链接提交</strong>，这里可以看到分为<strong>自动提交</strong>和<strong>手动提交</strong>，看到网上说，<strong>自动提交</strong>里的<strong>主动推送</strong>比较好，所以我们就用这种方式来试试：</p>
-<p>[外链图片转存中...(img-Au31JNnX-1641970384689)]<br>
+<p><img src="https://ccccj.github.io/post-images/1641971486696.png" alt="" loading="lazy"><br>
 这里的秘钥，注意下面要用到。</p>
 <p>安装插件：</p>
 <pre><code>npm install hexo-baidu-url-submit --save
@@ -513,11 +537,11 @@ find ./ -name baidusitemap.xml
 执行 <strong>hexo deploy</strong> 的时候，新的链接会被推送。<br>
 然后差不多就可以了。<br>
 现在我们来搜索：<br>
-[外链图片转存中...(img-UEyVjJZg-1641970384692)]<br>
-没错..刚弄完立马搜索是搜索不到的，那里有个<strong>提交网址</strong>，多提交几次会加快。<br>
-[外链图片转存中...(img-GrJogYRC-1641970384694)]</p>
-<p>本来等了好多天发现还是没有...一度以为方法有问题，反正搜 www.amon1997.com 还是没有，但是搜 amon1997.com 有诶..<br>
-<img src="https://img-blog.csdn.net/20180326182806567?" alt="amon1997.com" loading="lazy"></p>
+<img src="https://ccccj.github.io/post-images/1641971518200.png" alt="" loading="lazy"><br>
+没错..刚弄完立马搜索是搜索不到的，那里有个<strong>提交网址</strong>，多提交几次会加快。</p>
+<p><img src="https://ccccj.github.io/post-images/1641971526962.png" alt="" loading="lazy"><br>
+本来等了好多天发现还是没有...一度以为方法有问题，反正搜 www.amon1997.com 还是没有，但是搜 amon1997.com 有诶..<br>
+<img src="https://ccccj.github.io/post-images/1641971546566.png" alt="" loading="lazy"></p>
 <p>继续提交...</p>
 <p>参考：<br>
 http://kchen.cc/2016/11/12/hexo-instructions<br>

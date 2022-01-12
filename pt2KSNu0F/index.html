@@ -56,6 +56,8 @@ window.onload=getCSS();
 			
 		<header id="header" class="site-header" 
 		
+		style="background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),url(https://ccccj.github.io/post-images/pt2KSNu0F.png)"
+		
 		>
 			<div class="site-branding">
 									<h1 class="site-title"><a href="https://ccccj.github.io" rel="home">Amon&#39;s Homepage</a></h1>
@@ -153,7 +155,7 @@ window.onload=getCSS();
 			<h1 class="wow swing entry-title">socket编程记录</h1>
 <div class="entry-meta">
 <div class="wow bounce">
-	<i class="iconfont icon-rili"> <time class="lately-a" datetime="2022-01-10 14:22:26" itemprop="datePublished" pubdate="">2022-01-10</time></i>
+	<i class="iconfont icon-rili"> <time class="lately-a" datetime="2022-01-02 14:22:26" itemprop="datePublished" pubdate="">2022-01-02</time></i>
 	          </div>
 			
 </span>
@@ -161,120 +163,11 @@ window.onload=getCSS();
 		</div>
                   
 			<div class="wow slideInLeft entry-summary song">
-				<p><ul class="markdownIt-TOC">
-<li>
-<ul>
-<li><a href="#%E6%80%BB%E8%A7%88">总览：</a></li>
-<li><a href="#%E5%AE%A2%E6%88%B7%E7%AB%AF">==【客户端】==</a>
-<ul>
-<li><a href="#1-int-socketint-family-int-type-int-protocol">1、int socket(int family, int type, int protocol);</a>
-<ul>
-<li><a href="#%E4%BD%9C%E7%94%A8">【作用】</a></li>
-<li><a href="#%E5%8F%82%E6%95%B0">【参数】</a></li>
-<li><a href="#%E8%BF%94%E5%9B%9E%E5%80%BC">【返回值】</a></li>
-</ul>
-</li>
-<li><a href="#2-int-connectint-clientfd-const-struct-sockaddr-addr-socklen_t-addrlen">2、int connect(int clientfd, const struct sockaddr *addr, socklen_t addrlen);</a>
-<ul>
-<li><a href="#%E4%BD%9C%E7%94%A8-2">【作用】</a></li>
-<li><a href="#%E5%8F%82%E6%95%B0-2">【参数】</a></li>
-<li><a href="#%E8%BF%94%E5%9B%9E%E5%80%BC-2">【返回值】</a></li>
-</ul>
-</li>
-<li><a href="#3-closesocket">3、closesocket：</a></li>
-</ul>
-</li>
-<li><a href="#%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF">==【服务器端】==</a>
-<ul>
-<li><a href="#1-int-socketint-family-int-type-int-protocol-2">1、int socket(int family, int type, int protocol);</a>
-<ul>
-<li><a href="#%E4%BD%9C%E7%94%A8-3">【作用】</a></li>
-<li><a href="#%E5%8F%82%E6%95%B0-3">【参数】</a></li>
-<li><a href="#%E8%BF%94%E5%9B%9E%E5%80%BC-3">【返回值】</a></li>
-</ul>
-</li>
-<li><a href="#2-int-bindint-sockfd-const-struct-sockaddr-addr-socklen_t-addrlen">2、int bind(int sockfd, const struct sockaddr *addr, socklen_t addrlen);</a>
-<ul>
-<li><a href="#%E4%BD%9C%E7%94%A8-4">【作用】</a></li>
-<li><a href="#%E8%BF%94%E5%9B%9E%E5%80%BC-4">【返回值】</a></li>
-</ul>
-</li>
-<li><a href="#3-int-listenint-sockfd-int-backlog">3、int listen(int sockfd, int backlog);</a>
-<ul>
-<li><a href="#%E4%BD%9C%E7%94%A8-5">【作用】</a></li>
-<li><a href="#%E8%BF%94%E5%9B%9E%E5%80%BC-5">【返回值】</a></li>
-</ul>
-</li>
-<li><a href="#4-int-acceptint-listenfd-struct-sockaddr-addr-int-addrlen">4、int accept(int listenfd, struct sockaddr *addr, int *addrlen);</a>
-<ul>
-<li><a href="#%E4%BD%9C%E7%94%A8-6">【作用】</a></li>
-<li><a href="#%E5%8F%82%E6%95%B0-4">【参数】</a></li>
-<li><a href="#%E8%BF%94%E5%9B%9E%E5%80%BC-6">【返回值】</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#getaddrinfo%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90%E5%8F%82%E6%95%B0">==【getaddrinfo自动生成参数】==</a>
-<ul>
-<li><a href="#int-getaddrinfoconst-char-hostname-const-char-service-const-struct-addrinfo-hints-struct-addrinfo-result">int getaddrinfo(const char *hostname, const char *service, const struct addrinfo *hints, struct addrinfo **result);</a>
-<ul>
-<li><a href="#%E4%BD%9C%E7%94%A8-7">【作用】</a></li>
-<li><a href="#%E8%BF%94%E5%9B%9E%E5%80%BC-7">【返回值】</a></li>
-<li><a href="#%E5%8F%82%E6%95%B0-5">【参数】</a></li>
-<li><a href="#hints-%E5%92%8C-result-%E7%9A%84%E7%BB%93%E6%9E%84">hints 和 result 的结构：</a></li>
-</ul>
-</li>
-<li><a href="#void-freeaddrinfostruct-addrinfo-res">void freeaddrinfo(struct addrinfo *res);</a></li>
-<li><a href="#const-char-gai_strerrorint-error">const char *gai_strerror(int error);</a></li>
-</ul>
-</li>
-<li><a href="#%E6%8E%A5%E6%94%B6%E5%92%8C%E5%8F%91%E9%80%81%E6%95%B0%E6%8D%AE">==【接收和发送数据】==</a>
-<ul>
-<li><a href="#1-int-recvint-fd-char-buf-int-len-int-flags">1、int recv(int fd, char *buf, int len, int flags);</a>
-<ul>
-<li><a href="#%E4%BD%9C%E7%94%A8-8">【作用】</a></li>
-<li><a href="#%E5%8F%82%E6%95%B0-6">【参数】</a></li>
-<li><a href="#%E8%BF%94%E5%9B%9E%E5%80%BC-8">【返回值】</a></li>
-</ul>
-</li>
-<li><a href="#2-int-sendint-fd-const-char-buf-int-len-int-flags">2、int send(int fd, const char *buf, int len, int flags);</a>
-<ul>
-<li><a href="#%E4%BD%9C%E7%94%A8-9">【作用】</a></li>
-<li><a href="#%E5%8F%82%E6%95%B0-7">【参数】</a></li>
-<li><a href="#%E8%BF%94%E5%9B%9E%E5%80%BC-9">【返回值】</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#%E5%AD%97%E8%8A%82%E9%A1%BA%E5%BA%8F%E8%BD%AC%E6%8D%A2">==【字节顺序转换】==</a>
-<ul>
-<li><a href="#1-uint32_t-htonluint32_t-hostlong">1、uint32_t htonl(uint32_t hostlong);</a></li>
-<li><a href="#2-uint32_t-ntohluint32_t-netlong">2、uint32_t ntohl(uint32_t netlong);</a></li>
-</ul>
-</li>
-<li><a href="#ip%E6%A0%BC%E5%BC%8F%E8%BD%AC%E6%8D%A2">==【ip格式转换】==</a>
-<ul>
-<li><a href="#1-int-inet_ptonaf_inet-const-char-src-void-dst">1、int inet_pton(AF_INET, const char *src, void *dst);</a></li>
-<li><a href="#2-const-char-inet_ntopaf_inet-const-void-src-char-dst-socklen_t-size">2、const char *inet_ntop(AF_INET, const void *src, char *dst, socklen_t size)：</a></li>
-</ul>
-</li>
-<li><a href="#%E5%A5%97%E6%8E%A5%E5%AD%97%E6%A0%BC%E5%BC%8F">==【套接字格式】==</a></li>
-<li><a href="#%E5%9F%9F%E5%90%8D%E4%B8%8Eip%E8%BD%AC%E6%8D%A2">==【域名与ip转换】==</a>
-<ul>
-<li><a href="#struct-hostent-gethostbynameconst-char-name">struct hostent *gethostbyname(const char *name);</a></li>
-</ul>
-</li>
-<li><a href="#inet_addr">==【inet_addr】==</a>
-<ul>
-<li><a href="#in_addr_t-inet_addrconst-char-cp">in_addr_t inet_addr(const char *cp);</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</p>
-<h2 id="总览">总览：</h2>
+				<h2 id="总览">总览：</h2>
 <figure data-type="image" tabindex="1"><img src="https://ccccj.github.io/post-images/1641806453532.png" alt="" loading="lazy"></figure>
+<h2 id="注意">注意：</h2>
+<pre><code>如果是买的云服务器，开放端口除了要在服务器上设置一下，还要再购买的网站的控制台处设置一下。
+</code></pre>
 <h2 id="客户端"><mark>【客户端】</mark></h2>
 <h3 id="1-int-socketint-family-int-type-int-protocol">1、int socket(int family, int type, int protocol);</h3>
 <h4 id="作用">【作用】</h4>
@@ -474,10 +367,336 @@ struct sockaddr {
 <h2 id="inet_addr"><mark>【inet_addr】</mark></h2>
 <h3 id="in_addr_t-inet_addrconst-char-cp">in_addr_t inet_addr(const char *cp);</h3>
 <p>将一个点分十进制的IP转换成一个长整数型数（u_long类型）</p>
+<h2 id="代码">代码</h2>
+<p>服务器端开放 5678 端口，客户端在建立完连接后，服务器端给客户端发送信息，客户端接收信息并输出。</p>
+<h3 id="服务器端-2">服务器端：</h3>
+<pre><code>#include &lt;cstdio&gt;
+#include &lt;cstring&gt;
+#include &lt;netdb.h&gt;
+#include &lt;sys/types.h&gt;
+#include &lt;sys/socket.h&gt;
+#include &lt;arpa/inet.h&gt;
+#include &lt;unistd.h&gt;
+
+#define MAXLINE 128
+
+class Socks5Server {
+public:
+    Socks5Server();
+    ~Socks5Server();
+    int open_listenfd();
+    int listen_client();
+    void recv_mes();
+    void send_mes(int fd, const char* str);
+
+private:
+    int _fd; // 主 fd
+    char _buf[MAXLINE + 1];
+};
+
+Socks5Server::Socks5Server() {
+    _fd = -1;
+}
+
+Socks5Server::~Socks5Server() {
+    if (_fd &gt; 0) {
+        close(_fd);
+    }
+}
+
+int Socks5Server::open_listenfd() {
+    // 成功，返回0；失败，返回-1
+    /*
+    int bind(int sockfd, const struct sockaddr *addr, socklen_t addrlen);
+    服务器用来绑定本地端点地址（创建 主套接字），用 getaddrinfo 自动生成参数配合使用
+    OK(0)，error(-1)
+    */
+    struct addrinfo *p, *lisp, hints;
+    memset(&amp;hints, 0, sizeof hints);
+    hints.ai_family = AF_INET;
+    hints.ai_socktype = SOCK_STREAM; // TCP 会建立连接
+    hints.ai_flags = AI_ADDRCONFIG | AI_PASSIVE;
+    hints.ai_flags |= AI_NUMERICSERV;
+    /*
+    hint.ai_flags 需要修改：
+    AI_ADDRCONFIG：在使用连接时设置这个。
+    AI_CANONNAME：ai_canonname 默认为 NULL。设置这个标志后，将链表里第一个结构的 ai_canonname 指向主机的？？？
+    AI_NUMERICSERV：原本 getaddrinfo 第二个参数，可以为服务名或端口号，设置后强制为端口号。
+    AI_PASSIVE：返回的套接字地址为服务器监听套接字。此时 hostname 为 NULL
+    */
+    int err = getaddrinfo(NULL, &quot;5678&quot;, &amp;hints, &amp;lisp);
+    if (err != 0) {
+        printf(&quot;getaddrinfo error：%s\n&quot;, gai_strerror(err));
+    }
+    p = lisp;
+    int optval = 1;
+    for (p = lisp; p; p = p-&gt;ai_next) {
+        _fd = socket(p-&gt;ai_family, p-&gt;ai_socktype, p-&gt;ai_protocol);
+        if (_fd &lt; 0) continue; // 看链表中下一个结构体
+        /*
+        在 TCP 连接中，recv 等函数默认为阻塞模式(block)，即直到有数据到来之前函数不会返回，而我们有时则需要一种超时机制，使其在一定时间后返回，而不管是否有数据到来，这里我们就会用到：
+        int  setsockopt(int fd, int level, int optname, void* optval, socklen_t* optlen);
+        */
+        setsockopt(_fd, SOL_SOCKET, SO_REUSEADDR, (const void *)&amp;optval , sizeof(int));
+        // bind 服务器用来绑定本地端点地址（创建 主套接字）
+        err = bind(_fd, p-&gt;ai_addr, p-&gt;ai_addrlen);
+        if (err == 0) { // 绑定成功
+            if ((err = listen(_fd, 1024)) == -1) {
+                printf(&quot;transfer error\n&quot;);
+                close(_fd);
+                //return -1;
+            } else {
+                //printf(&quot;_fd: %d\n&quot;, _fd);
+                break; // 成功建立连接
+            }
+        }
+    }
+    freeaddrinfo(lisp);
+    if (p == NULL) {
+        printf(&quot;no addr\n&quot;);
+        return -1; // 失败
+    }
+    else return 0; // 成功
+}
+
+int Socks5Server::listen_client() {
+    /*
+    int accept(int listenfd, struct sockaddr *addr, int *addrlen);
+    只用于TCP，会创建一个新的套接字（和客户端关联起来了的套接字），使用这个新的套接字和客户端进行通信，用于并发。本函数会阻塞等待直到有客户端请求到达。
+        addr：存放客户端的地址
+        addrlen：在调用函数时被设置为 addr 指向区域的长度，在函数调用结束后被设置为实际地址信息的长度
+    返回值：OK(新的 fd )，error(-1)
+    */
+    int new_fd;
+    //struct sockaddr clientaddr;
+    char clientaddr[1000];
+    //socklen_t clientlen = sizeof(clientaddr);
+    socklen_t clientlen = 1000;
+    // 本函数会阻塞等待直到有客户端请求到达。
+    new_fd = accept(_fd, (struct sockaddr *)&amp;clientaddr, &amp;clientlen);
+    //printf(&quot;new_fd : %d\n&quot;, new_fd);
+    //printf(&quot;%s\n&quot;,strerror(new_fd));
+    return new_fd;
+}
+
+void Socks5Server::recv_mes() {
+    /*
+    int recv( int fd, char *buf, int len, int flags);
+    客户端或服务器，接收数据。
+        fd：接收端套接字描述符；
+        buf：缓冲区，该缓冲区用来存放 recv 函数接收到的数据
+        len：buf 的长度
+        flags：一般置 0
+    失败时，返回值小于0；超时或对端主动关闭，返回值等于0；成功时，返回值是返回接收数据的长度
+    */
+    int ret;
+    while ((ret = recv(_fd, _buf, MAXLINE, 0)) &gt; 0) {
+        // 成功时，返回字符串长度
+        _buf[ret] = '\0';
+        printf(&quot;%s\n&quot;, _buf);
+    }
+}
+
+void Socks5Server::send_mes(int fd, const char* str) {
+    /*
+    int send(int fd, const char *buf, int len, int flags);
+        参数一：指定发送端套接字描述符；
+        参数二：指明一个存放应用程序要发送数据的缓冲区；
+        参数三：指明实际要发送的数据的字节数；
+        参数四：一般置0；
+    返回值：失败时，返回值小于0；超时或对端主动关闭，返回值等于0；成功时，返回值是返回发送数据的长度。
+    */
+    send(fd, str, strlen(str), 0);
+}
+
+int main() {
+    Socks5Server s;
+    int ret = s.open_listenfd();
+    if (ret &lt; 0) {
+        printf(&quot;open_main_fd error\n&quot;);
+    } else {
+        printf(&quot;open_main_fd success\n&quot;);
+        int tt = 3;
+        while (tt--) {
+            int new_fd = s.listen_client();
+            if (new_fd == -1) {
+                printf(&quot;new_fd error\n&quot;);
+            } else {
+                printf(&quot;new_fd success : %d\n&quot;, new_fd);
+            }
+            s.send_mes(new_fd, &quot;hello\n&quot;);
+            close(new_fd);
+        }
+    }
+    return 0;
+}
+</code></pre>
+<h3 id="客户端-2">客户端：</h3>
+<pre><code>#include &lt;cstdio&gt;
+#include &lt;cstring&gt;
+#include &lt;netdb.h&gt;
+#include &lt;sys/types.h&gt;
+#include &lt;sys/socket.h&gt;
+#include &lt;arpa/inet.h&gt;
+#include &lt;unistd.h&gt;
+
+
+#define DONAME &quot;xx&quot; // 32位点分十进制 ip，这里我改掉了
+#define MAXLINE 128
+
+class Socks5Client {
+public:
+    Socks5Client(const char* hostname, const char* port);
+    ~Socks5Client();
+    int open_clientfd();
+    void recv_mes();
+
+private:
+    int _fd;
+    char _hostname[MAXLINE + 1];
+    char _port[MAXLINE + 1];
+    char _buf[MAXLINE + 1];
+};
+
+Socks5Client::Socks5Client(const char* hostname, const char* port) {
+    _fd = -1;
+    int len = strlen(hostname);
+    if (len &lt;= MAXLINE) {
+        memcpy(_hostname, hostname, len);
+        _hostname[len] = '\0';
+        //printf(&quot;hostname : %s\n&quot;, _hostname);
+    }
+    len = strlen(port);
+    if (len &lt;= MAXLINE) {
+        memcpy(_port, port, len);
+        _port[len] = '\0';
+        //printf(&quot;_port : %s\n&quot;, _port);
+    }
+}
+
+Socks5Client::~Socks5Client() {
+    if (_fd &gt; 0) {
+        close(_fd);
+    }
+}
+
+int Socks5Client::open_clientfd() {
+    // 成功 返回 0
+    // 失败，返回 -1
+    struct addrinfo *p, *lisp, hints;
+    memset(&amp;hints, 0, sizeof hints);
+    hints.ai_family = AF_INET;
+    hints.ai_socktype = SOCK_STREAM; // TCP 会建立连接
+    // AI_ADDRCONFIG：在使用连接时设置这个。
+    // AI_NUMERICSERV：不可为服务名，强制为端口号。
+    //hints.ai_flags = AI_ADDRCONFIG | AI_NUMERICSERV;
+    hints.ai_flags = AI_ADDRCONFIG;
+    int err = getaddrinfo(_hostname, _port, &amp;hints, &amp;lisp);
+    //printf(&quot;hostname: %s port: %s\n&quot;, _hostname, _port);
+
+    if (err != 0) {
+        printf(&quot;getaddrinfo error：%s\n&quot;, gai_strerror(err));
+    }
+
+    p = lisp;
+    for (p = lisp; p; p = p-&gt;ai_next) {
+        //printf(&quot;p: %d\n&quot;, p);
+        _fd = socket(p-&gt;ai_family, p-&gt;ai_socktype, p-&gt;ai_protocol);
+        //printf(&quot;fd : %d\n&quot;, _fd);
+        if (_fd &lt; 0) {
+            printf(&quot;error fd : %d\n&quot;, _fd);
+            continue; // 看链表中下一个结构体
+        }
+        /*
+        int connect(int clientfd, const struct sockaddr *addr, socklen_t addrlen);
+        客户端用来建立和服务器的连接（指定S端点地址），返回值：OK(0)，error(-1)
+        */
+        err = connect(_fd, p-&gt;ai_addr, p-&gt;ai_addrlen);
+
+        if (err == 0) {
+            printf(&quot;connect success\n&quot;);
+            break; // 成功建立连接
+        } else {
+            perror(&quot;connect error: &quot;);
+            close(_fd); // 建立连接失败
+        }
+    }
+
+    freeaddrinfo(lisp);
+    if (p == NULL) {
+        printf(&quot;no addr\n&quot;);
+        return -1; // 失败
+    } else return 0; // 成功
+}
+/*
+int getaddrinfo(const char *hostname, const char *service, const struct addrinfo *hints, struct addrinfo **result);
+    主机名、主机地址、服务名、端口号的字符串表示 -&gt; 套接字
+    返回值：OK(0), error(非0)
+
+    参数：
+    hostname：主机名或地址串(IPv4的点分十进制串或者 IPv6的16进制串)
+    service：十进制的端口号，或是已定义的服务名称，如ftp、http等
+
+    hints：空指针，或是一个指向某个 addrinfo 结构体的指针，调用者在这个结构中填入关于期望返回的信息类型的暗示。
+    举例来说：如果指定的服务既支持 TCP 也支持 UDP，那么调用者可以把 hints 结构中的 ai_socktype 成员设置成 SOCK_DGRAM 使得返回的仅仅是适用于数据报套接口的信息。
+    必须先分配一个 hints 结构，把它清零后填写需要的字段
+
+    result：一个指向 addrinfo 结构体链表的指针。用于后续的 socket 函数。默认最多返回 3 个 addrinfo 结构。调用 getaddrinfo 后遍历链表，逐个尝试每个返回地址。
+
+hints 和 result 的结构：
+struct addrinfo {
+    int ai_flags;    // Hints argument flags
+    int ai_family;   // AF_INET（ipv4）或 AF_INET6（ipv6）
+    int ai_socktype; // SOCK_STREAM（TCP流）或 SOCK_DGRAM（UDP数据报）
+    int ai_protocol; // 一般为 0 不做修改
+    char *ai_canonname; // Canonical hostname
+    size_t ai_addrlen;  //Size of ai_addr struct
+    struct sockaddr *ai_addr; // Ptr to socket address structure
+    struct addrinfo *ai_next; // Ptr to next item in linked list
+};
+
+ai_flags：可以把各种值用 OR 组合起来得到该掩码。
+
+用完必须释放：
+void freeaddrinfo(struct addrinfo *res);
+    res 参数指向链表中第一个 addrinfo 结构。这个链表中的所有结构以及它们指向的任何动态存储空间都被释放掉。
+
+
+const char *gai_strerror(int error);
+    打印错误信息：该函数以 getaddrinfo 返回的非 0 错误值的名字和含义为他的唯一参数，返回一个指向对应的出错信息串的指针。
+*/
+
+void Socks5Client::recv_mes() {
+    int ret;
+
+    while ((ret = recv(_fd, _buf, MAXLINE, 0)) &gt; 0) {
+        printf(&quot;recv success\n&quot;);
+        // 成功时，返回字符串长度
+        _buf[ret] = '\0';
+        printf(&quot;str: %s\n&quot;, _buf);
+        //ret = recv(_fd, _buf, MAXLINE, 0);
+    }
+}
+
+int main() {
+    Socks5Client c(DONAME, &quot;5678&quot;);
+    int ret = c.open_clientfd();
+    if (ret &lt; 0) {
+        printf(&quot;open_clientfd error\n&quot;);
+    } else {
+        printf(&quot;open_clientfd success\n&quot;);
+        c.recv_mes();
+    }
+    return 0;
+}
+
+</code></pre>
 
 							</div>
 	<div class="wow bounceInDown vt-post-tags">
  
+				<a href="https://ccccj.github.io/rM_zopvX0/" rel="tag">Linux</a>	
+				 
 					</div>						
 <nav class="navigation3 post-navigation3" role="navigation">
 		

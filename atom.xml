@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ccccj.github.io</id>
     <title>Amon&apos;s Homepage</title>
-    <updated>2022-01-10T08:15:29.064Z</updated>
+    <updated>2022-01-12T03:42:53.815Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ccccj.github.io"/>
     <link rel="self" href="https://ccccj.github.io/atom.xml"/>
@@ -18,34 +18,88 @@
         <content type="html"><![CDATA[<p><ul class="markdownIt-TOC">
 <li>
 <ul>
+<li><a href="#%E6%80%BB%E8%A7%88">总览：</a></li>
 <li><a href="#%E5%AE%A2%E6%88%B7%E7%AB%AF">==【客户端】==</a>
 <ul>
 <li><a href="#1-int-socketint-family-int-type-int-protocol">1、int socket(int family, int type, int protocol);</a>
 <ul>
-<li><a href="#%E4%BD%9C%E7%94%A8">作用</a></li>
-<li><a href="#%E5%8F%82%E6%95%B0">参数</a></li>
-<li><a href="#%E8%BF%94%E5%9B%9E%E5%80%BC">返回值</a></li>
+<li><a href="#%E4%BD%9C%E7%94%A8">【作用】</a></li>
+<li><a href="#%E5%8F%82%E6%95%B0">【参数】</a></li>
+<li><a href="#%E8%BF%94%E5%9B%9E%E5%80%BC">【返回值】</a></li>
 </ul>
 </li>
-<li><a href="#2-int-connectint-clientfd-const-struct-sockaddr-addr-socklen_t-addrlen">2、int connect(int clientfd, const struct sockaddr *addr, socklen_t addrlen);</a></li>
-<li><a href="#3-closesocket">3、closesocket：</a></li>
-</ul>
-</li>
-<li><a href="#getaddrinfo%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90%E5%8F%82%E6%95%B0">==【getaddrinfo自动生成参数】==</a>
+<li><a href="#2-int-connectint-clientfd-const-struct-sockaddr-addr-socklen_t-addrlen">2、int connect(int clientfd, const struct sockaddr *addr, socklen_t addrlen);</a>
 <ul>
-<li><a href="#int-getaddrinfoconst-char-hostname-const-char-service-const-struct-addrinfo-hints-struct-addrinfo-result">int getaddrinfo(const char *hostname, const char *service, const struct addrinfo *hints, struct addrinfo **result);</a></li>
-<li><a href="#void-freeaddrinfostruct-addrinfo-res">void freeaddrinfo(struct addrinfo *res);</a></li>
-<li><a href="#const-char-gai_strerrorint-error">const char *gai_strerror(int error);</a></li>
+<li><a href="#%E4%BD%9C%E7%94%A8-2">【作用】</a></li>
+<li><a href="#%E5%8F%82%E6%95%B0-2">【参数】</a></li>
+<li><a href="#%E8%BF%94%E5%9B%9E%E5%80%BC-2">【返回值】</a></li>
+</ul>
+</li>
+<li><a href="#3-closesocket">3、closesocket：</a></li>
 </ul>
 </li>
 <li><a href="#%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF">==【服务器端】==</a>
 <ul>
-<li><a href="#bind">bind：</a></li>
-<li><a href="#listen">listen：</a></li>
-<li><a href="#accept">accept：</a></li>
+<li><a href="#1-int-socketint-family-int-type-int-protocol-2">1、int socket(int family, int type, int protocol);</a>
+<ul>
+<li><a href="#%E4%BD%9C%E7%94%A8-3">【作用】</a></li>
+<li><a href="#%E5%8F%82%E6%95%B0-3">【参数】</a></li>
+<li><a href="#%E8%BF%94%E5%9B%9E%E5%80%BC-3">【返回值】</a></li>
 </ul>
 </li>
-<li><a href="#%E6%8E%A5%E6%94%B6%E5%92%8C%E5%8F%91%E9%80%81%E6%95%B0%E6%8D%AE">==【接收和发送数据】==</a></li>
+<li><a href="#2-int-bindint-sockfd-const-struct-sockaddr-addr-socklen_t-addrlen">2、int bind(int sockfd, const struct sockaddr *addr, socklen_t addrlen);</a>
+<ul>
+<li><a href="#%E4%BD%9C%E7%94%A8-4">【作用】</a></li>
+<li><a href="#%E8%BF%94%E5%9B%9E%E5%80%BC-4">【返回值】</a></li>
+</ul>
+</li>
+<li><a href="#3-int-listenint-sockfd-int-backlog">3、int listen(int sockfd, int backlog);</a>
+<ul>
+<li><a href="#%E4%BD%9C%E7%94%A8-5">【作用】</a></li>
+<li><a href="#%E8%BF%94%E5%9B%9E%E5%80%BC-5">【返回值】</a></li>
+</ul>
+</li>
+<li><a href="#4-int-acceptint-listenfd-struct-sockaddr-addr-int-addrlen">4、int accept(int listenfd, struct sockaddr *addr, int *addrlen);</a>
+<ul>
+<li><a href="#%E4%BD%9C%E7%94%A8-6">【作用】</a></li>
+<li><a href="#%E5%8F%82%E6%95%B0-4">【参数】</a></li>
+<li><a href="#%E8%BF%94%E5%9B%9E%E5%80%BC-6">【返回值】</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#getaddrinfo%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90%E5%8F%82%E6%95%B0">==【getaddrinfo自动生成参数】==</a>
+<ul>
+<li><a href="#int-getaddrinfoconst-char-hostname-const-char-service-const-struct-addrinfo-hints-struct-addrinfo-result">int getaddrinfo(const char *hostname, const char *service, const struct addrinfo *hints, struct addrinfo **result);</a>
+<ul>
+<li><a href="#%E4%BD%9C%E7%94%A8-7">【作用】</a></li>
+<li><a href="#%E8%BF%94%E5%9B%9E%E5%80%BC-7">【返回值】</a></li>
+<li><a href="#%E5%8F%82%E6%95%B0-5">【参数】</a></li>
+<li><a href="#hints-%E5%92%8C-result-%E7%9A%84%E7%BB%93%E6%9E%84">hints 和 result 的结构：</a></li>
+</ul>
+</li>
+<li><a href="#void-freeaddrinfostruct-addrinfo-res">void freeaddrinfo(struct addrinfo *res);</a></li>
+<li><a href="#const-char-gai_strerrorint-error">const char *gai_strerror(int error);</a></li>
+</ul>
+</li>
+<li><a href="#%E6%8E%A5%E6%94%B6%E5%92%8C%E5%8F%91%E9%80%81%E6%95%B0%E6%8D%AE">==【接收和发送数据】==</a>
+<ul>
+<li><a href="#1-int-recvint-fd-char-buf-int-len-int-flags">1、int recv(int fd, char *buf, int len, int flags);</a>
+<ul>
+<li><a href="#%E4%BD%9C%E7%94%A8-8">【作用】</a></li>
+<li><a href="#%E5%8F%82%E6%95%B0-6">【参数】</a></li>
+<li><a href="#%E8%BF%94%E5%9B%9E%E5%80%BC-8">【返回值】</a></li>
+</ul>
+</li>
+<li><a href="#2-int-sendint-fd-const-char-buf-int-len-int-flags">2、int send(int fd, const char *buf, int len, int flags);</a>
+<ul>
+<li><a href="#%E4%BD%9C%E7%94%A8-9">【作用】</a></li>
+<li><a href="#%E5%8F%82%E6%95%B0-7">【参数】</a></li>
+<li><a href="#%E8%BF%94%E5%9B%9E%E5%80%BC-9">【返回值】</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li><a href="#%E5%AD%97%E8%8A%82%E9%A1%BA%E5%BA%8F%E8%BD%AC%E6%8D%A2">==【字节顺序转换】==</a>
 <ul>
 <li><a href="#1-uint32_t-htonluint32_t-hostlong">1、uint32_t htonl(uint32_t hostlong);</a></li>
@@ -58,40 +112,99 @@
 <li><a href="#2-const-char-inet_ntopaf_inet-const-void-src-char-dst-socklen_t-size">2、const char *inet_ntop(AF_INET, const void *src, char *dst, socklen_t size)：</a></li>
 </ul>
 </li>
+<li><a href="#%E5%A5%97%E6%8E%A5%E5%AD%97%E6%A0%BC%E5%BC%8F">==【套接字格式】==</a></li>
 <li><a href="#%E5%9F%9F%E5%90%8D%E4%B8%8Eip%E8%BD%AC%E6%8D%A2">==【域名与ip转换】==</a>
 <ul>
 <li><a href="#struct-hostent-gethostbynameconst-char-name">struct hostent *gethostbyname(const char *name);</a></li>
+</ul>
+</li>
+<li><a href="#inet_addr">==【inet_addr】==</a>
+<ul>
+<li><a href="#in_addr_t-inet_addrconst-char-cp">in_addr_t inet_addr(const char *cp);</a></li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
 </p>
+<h2 id="总览">总览：</h2>
+<figure data-type="image" tabindex="1"><img src="https://ccccj.github.io/post-images/1641806453532.png" alt="" loading="lazy"></figure>
 <h2 id="客户端"><mark>【客户端】</mark></h2>
 <h3 id="1-int-socketint-family-int-type-int-protocol">1、int socket(int family, int type, int protocol);</h3>
-<h4 id="作用">作用</h4>
-<p>创建一个套接字描述符，用 getaddrinfo 自动生成参数配合使用</p>
-<h4 id="参数">参数</h4>
-<pre><code>family 指明了协议族/域，通常AF_INET、AF_INET6、AF_LOCAL等
-type是套接口类型，主要 SOCK_STREAM、SOCK_DGRAM、SOCK_RAW
-protocol一般取为0。成功时，返回一个小的非负整数值，与文件描述符类似
+<h4 id="作用">【作用】</h4>
+<pre><code>创建一个套接字描述符，用 getaddrinfo 自动生成参数配合使用
 </code></pre>
-<h4 id="返回值">返回值</h4>
-<p>OK(非负)，error(-1)</p>
+<h4 id="参数">【参数】</h4>
+<pre><code>family：指明了协议族/域，通常AF_INET、AF_INET6、AF_LOCAL等
+type：套接口类型，主要 SOCK_STREAM、SOCK_DGRAM、SOCK_RAW
+protocol：一般取为0。成功时，返回一个小的非负整数值，与文件描述符类似
+</code></pre>
+<h4 id="返回值">【返回值】</h4>
+<pre><code>OK(非负)，error(-1)
+</code></pre>
 <h3 id="2-int-connectint-clientfd-const-struct-sockaddr-addr-socklen_t-addrlen">2、int connect(int clientfd, const struct sockaddr *addr, socklen_t addrlen);</h3>
-<pre><code>C用来建立 和S的连接（指定S端点地址）
-返回值：OK(0)，error(-1)
-用 getaddrinfo 自动生成参数配合使用
+<h4 id="作用-2">【作用】</h4>
+<pre><code>客户端用来建立和服务器的连接（指定S端点地址），用 getaddrinfo 自动生成参数配合使用
+</code></pre>
+<h4 id="参数-2">【参数】</h4>
+<pre><code>第一个参数是，通过 socket 得到的描述符，
+</code></pre>
+<h4 id="返回值-2">【返回值】</h4>
+<pre><code>OK(0)，error(-1)
 </code></pre>
 <h3 id="3-closesocket">3、closesocket：</h3>
-<p>释放套接字</p>
+<pre><code>释放套接字
+</code></pre>
+<h2 id="服务器端"><mark>【服务器端】</mark></h2>
+<h3 id="1-int-socketint-family-int-type-int-protocol-2">1、int socket(int family, int type, int protocol);</h3>
+<h4 id="作用-3">【作用】</h4>
+<pre><code>创建一个套接字描述符，用 getaddrinfo 自动生成参数配合使用
+</code></pre>
+<h4 id="参数-3">【参数】</h4>
+<pre><code>family：指明了协议族/域，通常AF_INET、AF_INET6、AF_LOCAL等
+type：套接口类型，主要 SOCK_STREAM、SOCK_DGRAM、SOCK_RAW
+protocol：一般取为0。成功时，返回一个小的非负整数值，与文件描述符类似
+</code></pre>
+<h4 id="返回值-3">【返回值】</h4>
+<pre><code>OK(非负)，error(-1)
+</code></pre>
+<h3 id="2-int-bindint-sockfd-const-struct-sockaddr-addr-socklen_t-addrlen">2、int bind(int sockfd, const struct sockaddr *addr, socklen_t addrlen);</h3>
+<h4 id="作用-4">【作用】</h4>
+<pre><code>服务器用来绑定本地端点地址（创建 主套接字），用 getaddrinfo 自动生成参数配合使用
+</code></pre>
+<h4 id="返回值-4">【返回值】</h4>
+<pre><code>OK(0)，error(-1)
+</code></pre>
+<h3 id="3-int-listenint-sockfd-int-backlog">3、int listen(int sockfd, int backlog);</h3>
+<h4 id="作用-5">【作用】</h4>
+<pre><code>只用于TCP，将主动套接字转化为监听套接字，设置队列大小（backlog，通常设置为较大的值）
+</code></pre>
+<h4 id="返回值-5">【返回值】</h4>
+<pre><code>OK(0)，error(-1)
+</code></pre>
+<h3 id="4-int-acceptint-listenfd-struct-sockaddr-addr-int-addrlen">4、int accept(int listenfd, struct sockaddr *addr, int *addrlen);</h3>
+<h4 id="作用-6">【作用】</h4>
+<pre><code>只用于TCP，会创建一个新的套接字（和客户端关联起来了的套接字），使用这个新的套接字和客户端进行通信，用于并发。本函数会阻塞等待直到有客户端请求到达。
+</code></pre>
+<h4 id="参数-4">【参数】</h4>
+<pre><code>addr：存放客户端的地址
+addrlen：在调用函数时被设置为 addr 指向区域的长度，在函数调用结束后被设置为实际地址信息的长度
+</code></pre>
+<h4 id="返回值-6">【返回值】</h4>
+<pre><code>OK(新的 fd )，error(-1)
+返回的 fd 是一个新的套接字描述符，它代表的是和客户端的新的连接，可以把它理解成是一个客户端的socket, 这个socket包含的是客户端的ip和port信息 。（当然这个new_socket会从sockfd中继承 服务器的ip和port信息，两种都有了），而参数中的SOCKET   s包含的是服务器的ip和port信息 。
+之后的 send 和 recv 函数中的 fd 都是指这个 new_fd。
+</code></pre>
 <h2 id="getaddrinfo自动生成参数"><mark>【getaddrinfo自动生成参数】</mark></h2>
 <h3 id="int-getaddrinfoconst-char-hostname-const-char-service-const-struct-addrinfo-hints-struct-addrinfo-result">int getaddrinfo(const char *hostname, const char *service, const struct addrinfo *hints, struct addrinfo **result);</h3>
+<h4 id="作用-7">【作用】</h4>
 <pre><code>主机名、主机地址、服务名、端口号的字符串表示 -&gt; 套接字
-返回值：OK(0), error(非0)
-
-参数：
-hostname：主机名或地址串(IPv4的点分十进制串或者 IPv6的16进制串)
+</code></pre>
+<h4 id="返回值-7">【返回值】</h4>
+<pre><code>返回值：OK(0), error(非0)
+</code></pre>
+<h4 id="参数-5">【参数】</h4>
+<pre><code>hostname：主机名或地址串(IPv4的点分十进制串或者 IPv6的16进制串)
 service：十进制的端口号，或是已定义的服务名称，如ftp、http等
 
 hints：空指针，或是一个指向某个 addrinfo 结构体的指针，调用者在这个结构中填入关于期望返回的信息类型的暗示。
@@ -100,7 +213,7 @@ hints：空指针，或是一个指向某个 addrinfo 结构体的指针，调�
 
 result：一个指向 addrinfo 结构体链表的指针。用于后续的 socket 函数。默认最多返回 3 个 addrinfo 结构。调用 getaddrinfo 后遍历链表，逐个尝试每个返回地址。
 </code></pre>
-<p>hints 和 result 的结构：</p>
+<h4 id="hints-和-result-的结构">hints 和 result 的结构：</h4>
 <pre><code>struct addrinfo {
     int ai_flags;    // Hints argument flags
     int ai_family;   // AF_INET（ipv4）或 AF_INET6（ipv6）
@@ -112,31 +225,56 @@ result：一个指向 addrinfo 结构体链表的指针。用于后续的 socket
     struct addrinfo *ai_next; // Ptr to next item in linked list
 };
 </code></pre>
-<figure data-type="image" tabindex="1"><img src="https://ccccj.github.io/post-images/1641797684538.png" alt="" loading="lazy"></figure>
-<p>ai_flags：可以把各种值用 OR 组合起来得到该掩码。</p>
-<p>用完必须释放：</p>
+<p>其中，</p>
+<pre><code>struct sockaddr {
+    uint16_t  sa_family;    // Protocol family
+    char      sa_data[14];  // Address data
+};
+</code></pre>
+<figure data-type="image" tabindex="2"><img src="https://ccccj.github.io/post-images/1641797684538.png" alt="" loading="lazy"></figure>
+<p>ai_flags：可以把各种值用 OR 组合起来得到该掩码。<br>
+hint.ai_flags常用：<br>
+AI_ADDRCONFIG：在使用连接时设置这个。<br>
+AI_CANONNAME：ai_canonname 默认为 NULL。设置这个标志后，将链表里第一个结构的 ai_canonname 指向主机的？？？<br>
+AI_NUMERICSERV：原本 getaddrinfo 第二个参数，可以为服务名或端口号，设置后强制为端口号。<br>
+AI_PASSIVE：返回的套接字地址为服务器监听套接字。此时 hostname 为 NULL</p>
 <h3 id="void-freeaddrinfostruct-addrinfo-res">void freeaddrinfo(struct addrinfo *res);</h3>
-<pre><code>res 参数指向链表中第一个 addrinfo 结构。这个链表中的所有结构以及它们指向的任何动态存储空间都被释放掉。
+<pre><code>用完必须释放。res 参数指向链表中第一个 addrinfo 结构。这个链表中的所有结构以及它们指向的任何动态存储空间都被释放掉。
 </code></pre>
 <h3 id="const-char-gai_strerrorint-error">const char *gai_strerror(int error);</h3>
 <pre><code>打印错误信息：该函数以 getaddrinfo 返回的非 0 错误值的名字和含义为他的唯一参数，返回一个指向对应的出错信息串的指针。
 </code></pre>
-<h2 id="服务器端"><mark>【服务器端】</mark></h2>
-<h3 id="bind">bind：</h3>
-<p>S用来绑定本地端点地址（创建主套接字）</p>
-<h3 id="listen">listen：</h3>
-<p>只用于TCP，将主动套接字转化为监听套接字，设置队列大小</p>
-<h3 id="accept">accept：</h3>
-<p>只用于TCP，会创建一个新的套接字（和C关联起来了的套接字），使用这个新的套接字和C进行通信，用于并发</p>
+<p>其他还有：<br>
+getprotobyname：协议名-&gt;协议号<br>
+getservbyname：服务名-&gt;熟知端口号<br>
+但是我没用到。</p>
 <h2 id="接收和发送数据"><mark>【接收和发送数据】</mark></h2>
-<p>发送数据：<br>
-send/sendto</p>
-<p>接收数据：<br>
-recv/recvfrom</p>
-<p>// IP address structure<br>
-struct in_addr {<br>
-uint32_t  s_addr; // 网络字节顺序<br>
-};</p>
+<h3 id="1-int-recvint-fd-char-buf-int-len-int-flags">1、int recv(int fd, char *buf, int len, int flags);</h3>
+<h4 id="作用-8">【作用】</h4>
+<pre><code>客户端或服务器，接收数据。
+</code></pre>
+<h4 id="参数-6">【参数】</h4>
+<pre><code>fd：接收端套接字描述符；
+buf：缓冲区，该缓冲区用来存放 recv 函数接收到的数据
+len：buf 的长度
+flags：一般置 0
+</code></pre>
+<h4 id="返回值-8">【返回值】</h4>
+<pre><code>失败时，返回值小于0；超时或对端主动关闭，返回值等于0；成功时，返回值是返回接收数据的长度
+</code></pre>
+<h3 id="2-int-sendint-fd-const-char-buf-int-len-int-flags">2、int send(int fd, const char *buf, int len, int flags);</h3>
+<h4 id="作用-9">【作用】</h4>
+<pre><code>发送数据
+</code></pre>
+<h4 id="参数-7">【参数】</h4>
+<pre><code>fd：指定发送端套接字描述符
+buf：要发送数据的缓冲区
+len：实际要发送的数据的字节数
+flags：一般置0
+</code></pre>
+<h4 id="返回值-9">【返回值】</h4>
+<pre><code>失败时，返回值小于0；超时或对端主动关闭，返回值等于0；成功时，返回值是返回发送数据的长度。
+</code></pre>
 <h2 id="字节顺序转换"><mark>【字节顺序转换】</mark></h2>
 <h3 id="1-uint32_t-htonluint32_t-hostlong">1、uint32_t htonl(uint32_t hostlong);</h3>
 <ul>
@@ -159,20 +297,20 @@ uint32_t  s_addr; // 网络字节顺序<br>
 <li>Returns: pointer to a dotted-decimal string if OK, NULL on error<br>
 注：可以是AF_INET（ipv4）也可以是AF_INET6（ipv6）</li>
 </ul>
-<p>// IP socket address structure<br>
-struct sockaddr_in  {<br>
-uint16_t sin_family;  // Protocol family (always AF_INET)<br>
-uint16_t sin_port;    // Port number in network byte order<br>
-struct in_addr sin_addr; // IP address in network byte order<br>
-unsigned char sin_zero[8]; // Pad to sizeof(struct sockaddr)<br>
-};<br>
-// Generic socket address structure (for connect, bind, and accept)<br>
-struct sockaddr {<br>
-uint16_t  sa_family;    // Protocol family<br>
-char      sa_data[14];  // Address data<br>
-};</p>
-<p>getprotobyname：协议名-&gt;协议号<br>
-getservbyname：服务名-&gt;熟知端口号</p>
+<h2 id="套接字格式"><mark>【套接字格式】</mark></h2>
+<pre><code>// IP socket address structure
+struct sockaddr_in  {
+    uint16_t sin_family;  // Protocol family (always AF_INET)
+    uint16_t sin_port;    // Port number in network byte order
+    struct in_addr sin_addr; // IP address in network byte order
+    unsigned char sin_zero[8]; // Pad to sizeof(struct sockaddr)
+};
+// Generic socket address structure (for connect, bind, and accept)
+struct sockaddr {
+    uint16_t  sa_family;    // Protocol family
+    char      sa_data[14];  // Address data
+};
+</code></pre>
 <h2 id="域名与ip转换"><mark>【域名与ip转换】</mark></h2>
 <h3 id="struct-hostent-gethostbynameconst-char-name">struct hostent *gethostbyname(const char *name);</h3>
 <ul>
@@ -187,7 +325,9 @@ getservbyname：服务名-&gt;熟知端口号</p>
     char    **h_addr_list; // 主机的ip地址（网络字节序），打印需要调用inet_ntop()
 };
 </code></pre>
-<p>inet_addr：点分十进制ip(32位ip地址)</p>
+<h2 id="inet_addr"><mark>【inet_addr】</mark></h2>
+<h3 id="in_addr_t-inet_addrconst-char-cp">in_addr_t inet_addr(const char *cp);</h3>
+<p>将一个点分十进制的IP转换成一个长整数型数（u_long类型）</p>
 ]]></content>
     </entry>
     <entry>

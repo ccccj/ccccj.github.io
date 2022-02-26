@@ -6,7 +6,7 @@
 <meta HTTP-EQUIV="pragma" CONTENT="no-cache"> 
 <meta HTTP-EQUIV="Cache-Control" CONTENT="no-cache, must-revalidate"> 
 <meta HTTP-EQUIV="expires" CONTENT="0"> 
-<title>VPN 实现（三）：epoll 用法 | Amon&#39;s Homepage</title>	
+<title>从零实现隧道穿透（三）：epoll 用法 | Amon&#39;s Homepage</title>	
 
 <link rel="stylesheet" href="https://ccccj.github.io/styles/main.css">
 <script type="text/javascript">
@@ -150,10 +150,10 @@ window.onload=getCSS();
 	
 	                      
 		<div class="entry-content">
-			<h1 class="wow swing entry-title">VPN 实现（三）：epoll 用法</h1>
+			<h1 class="wow swing entry-title">从零实现隧道穿透（三）：epoll 用法</h1>
 <div class="entry-meta">
 <div class="wow bounce">
-	<i class="iconfont icon-rili"> <time class="lately-a" datetime="2022-01-24 15:29:15" itemprop="datePublished" pubdate="">2022-01-24</time></i>
+	<i class="iconfont icon-rili"> <time class="lately-a" datetime="2022-01-12 15:29:15" itemprop="datePublished" pubdate="">2022-01-12</time></i>
 	          </div>
 			
 </span>
@@ -206,6 +206,12 @@ EPOLLONESHOT：只监听一次事件，当监听完这次事件之后，如果�
     uint64_t     u64;
 } epoll_data_t;
 </code></pre>
+<p>一般用法是这样的：</p>
+<pre><code>struct epoll_event e;
+e.data.fd = socket_fd;
+e.events = EPOLLIN | EPOLLOUT;
+epoll_ctl(events_fd, EPOLL_CTL_MOD, socket_fd, &amp;e);
+</code></pre>
 <h3 id="int-epoll_waitint-epfd-struct-epoll_event-events-int-maxevents-int-timeout">int epoll_wait(int epfd, struct epoll_event *events, int maxevents, int timeout);</h3>
 <ul>
 <li>作用：等待 epfd 中的事件。类似于select()调用。</li>
@@ -217,18 +223,16 @@ EPOLLONESHOT：只监听一次事件，当监听完这次事件之后，如果�
 int num = epoll_wait(epfd, events, 100000, 0); 
 
 // 循环查看 num 个事件
-for (int i = 0; i &lt; num; ++ i){
-            if(events[i].events &amp; (EPOLLIN | EPOLLPRI)){
-                // 表示对应的文件描述符执行读；即，events[i].data.fd 执行读
-                // ...
-            }
-            else if(events[i].events &amp; EPOLLOUT){
-                // 表示对应的文件描述符执行写；即，events[i].data.fd 执行写
-                // ...
-            }
-            else{
-                // ...
-            }
+for (int i = 0; i &lt; num; ++i) {
+    if (events[i].events &amp; (EPOLLIN | EPOLLPRI)) {
+        // 表示对应的文件描述符执行读；即，events[i].data.fd 执行读
+        // ...
+    } else if (events[i].events &amp; EPOLLOUT) {
+        // 表示对应的文件描述符执行写；即，events[i].data.fd 执行写
+        // ...
+    } else{
+        // ...
+    }
 }
 </code></pre>
 <p>参考：<br>
@@ -242,8 +246,10 @@ https://www.jianshu.com/p/ee381d365a29</p>
 		
 		<div class="nav-links3">
       
+		<div class="wow bounceInLeft nav-previous3"><a href="https://ccccj.github.io/5_ZcDCobO/" rel="prev"> 从零实现隧道穿透（四）：隧道穿透原理详解</a></div>
 		 
-		<div class="wow bounceInRight nav-next3"><a href="https://ccccj.github.io/5_ZcDCobO/" rel="next"> VPN 实现（四）：VPN 原理详解</a></div>
+		 
+		<div class="wow bounceInRight nav-next3"><a href="https://ccccj.github.io/5t8AeFn9p/" rel="next"> 从零实现隧道穿透（二）：socks5 协议详解</a></div>
 		
 		</div>
 	</nav>
